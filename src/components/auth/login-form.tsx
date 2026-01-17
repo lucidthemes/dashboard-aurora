@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
@@ -14,9 +16,9 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'form'>)
         <Field>
           <div className="flex items-center">
             <FieldLabel htmlFor="password">Password</FieldLabel>
-            <a href="/forgot-password" className="ml-auto text-sm underline-offset-4 hover:underline">
+            <Link href="/forgot-password" className="ml-auto text-sm underline-offset-4 hover:underline">
               Forgot your password?
-            </a>
+            </Link>
           </div>
           <Input id="password" type="password" required />
         </Field>

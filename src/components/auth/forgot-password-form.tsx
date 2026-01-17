@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel, FieldDescription } from '@/components/ui/field';
@@ -16,7 +18,7 @@ export function ForgotPasswordForm({ className, ...props }: React.ComponentProps
         </Field>
         <Field>
           <FieldDescription className="text-center">
-            Already have an account? <a href="/login">Sign in</a>
+            Already have an account? <Link href="/login">Sign in</Link>
           </FieldDescription>
         </Field>
       </FieldGroup>
