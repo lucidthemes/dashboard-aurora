@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { ForgotPasswordForm } from '@/components/auth/forgot-password-form';
 
 export const metadata: Metadata = {
-  title: 'Dashboard - Forgot password',
+  title: 'Forgot password',
   description: 'Reset your forgotten password',
 };
 
