@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { UpdatePasswordForm } from '@/components/auth/update-password-form';
 
 export const metadata: Metadata = {
-  title: 'Dashboard - Update password',
+  title: 'Update password',
   description: 'Save your new password',
 };
 

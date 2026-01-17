@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { LoginForm } from '@/components/auth/login-form';
 
 export const metadata: Metadata = {
-  title: 'Dashboard - Login',
+  title: 'Login',
   description: 'Log in to the Aurora dashboard',
 };
 
