@@ -13,6 +13,9 @@ All notable changes to this project will be documented in this file.
 - forgot password form component
 - update password page route
 - update password form component
+- dashboard group folder
+- dashboard layout
+- dashboard component
 
 ## [0.0.0] - 2026-01-15
 
