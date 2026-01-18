@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
+import { MainHeaderModeSwitcher } from './main-header-mode-switcher';
 import { MainHeaderUser } from './main-header-user';
 
 const data = {
@@ -36,7 +37,11 @@ export default function MainHeader() {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <MainHeaderUser user={data.user} />
+      <div className="flex items-center gap-x-2">
+        <MainHeaderModeSwitcher />
+        <Separator orientation="vertical" className="ml-2 data-[orientation=vertical]:h-4" />
+        <MainHeaderUser user={data.user} />
+      </div>
     </header>
   );
 }

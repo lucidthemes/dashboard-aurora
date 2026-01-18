@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - auth sub folder
 - dashboard sub folder
 - ui sub folder
+- theme switcher provider
 
 ##### Auth
 
@@ -37,6 +38,7 @@ All notable changes to this project will be documented in this file.
 ##### Dashboard
 
 - dashboard component
+- theme light/dark mode switcher
 
 ##### ui
 
