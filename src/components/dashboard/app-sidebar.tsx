@@ -283,7 +283,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader className="flex h-16 flex-row items-center justify-center gap-x-4 border-b-1">
-        <Image src="/images/logo.png" width={100} height={25} alt="Aurora" className="h-fit" />
+        <Image src="/images/logo.png" width={100} height={12.5} alt="Aurora" className="h-fit" />
         <Separator orientation="vertical" className="max-h-4" />
         <Badge variant="outline" className="capitalize">
           {databaseUsed}
