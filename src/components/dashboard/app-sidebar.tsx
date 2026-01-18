@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import {
   StickyNote,
   List,
@@ -18,7 +19,9 @@ import {
 } from 'lucide-react';
 
 import { NavMenuGroup } from '@/components/dashboard/nav-menu-group';
-import { Sidebar, SidebarContent, SidebarRail } from '@/components/ui/sidebar';
+import { Sidebar, SidebarHeader, SidebarContent, SidebarRail } from '@/components/ui/sidebar';
+import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 const data = {
   posts: [
@@ -275,8 +278,17 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const databaseUsed = process.env.NEXT_PUBLIC_DATABASE ?? 'unknown';
+
   return (
     <Sidebar collapsible="offcanvas" {...props}>
+      <SidebarHeader className="flex h-16 flex-row items-center justify-center gap-x-4 border-b-1">
+        <Image src="/images/logo.png" width={100} height={25} alt="Aurora" className="h-fit" />
+        <Separator orientation="vertical" className="max-h-4" />
+        <Badge variant="outline" className="capitalize">
+          {databaseUsed}
+        </Badge>
+      </SidebarHeader>
       <SidebarContent>
         <NavMenuGroup label="Post" items={data.posts} />
         <NavMenuGroup label="Product" items={data.products} />
