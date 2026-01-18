@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+#### Actions
+
+- media actions
+- delete actions
+
 #### App
 
 - auth route group folder
@@ -22,6 +27,10 @@ All notable changes to this project will be documented in this file.
 
 - dashboard page
 - dashboard layout
+- media page
+- media page components
+- media page context
+- media page upload sheet
 
 #### Components
 
@@ -29,6 +38,10 @@ All notable changes to this project will be documented in this file.
 - dashboard sub folder
 - ui sub folder
 - theme switcher provider
+- data table component
+- buttons component
+- dialogs component
+- list controls component
 
 ##### Auth
 
@@ -55,6 +68,15 @@ All notable changes to this project will be documented in this file.
 - lib folder
 - metadata constants
 - shadcn utils
+
+#### Schemas
+
+- schemas folder
+- media schema
+
+#### Store
+
+- media store
 
 ## [0.0.0] - 2026-01-15
 

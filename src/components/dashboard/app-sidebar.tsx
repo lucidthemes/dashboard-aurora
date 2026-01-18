@@ -222,8 +222,12 @@ const data = {
           url: '/media',
         },
         {
-          title: 'Upload',
-          url: '/media/upload',
+          title: 'Upload image',
+          url: '/media/upload?type=image',
+        },
+        {
+          title: 'Upload video',
+          url: '/media/upload?type=video',
         },
       ],
     },
