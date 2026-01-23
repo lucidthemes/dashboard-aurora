@@ -33,55 +33,24 @@ const data = {
       isActive: false,
       items: [
         {
-          title: 'View all',
-          url: '#',
+          title: 'Categories',
+          url: '/posts/categories',
+          icon: List,
         },
         {
-          title: 'Create new',
-          url: '#',
+          title: 'Tags',
+          url: '/posts/tags',
+          icon: Tag,
+        },
+        {
+          title: 'Comments',
+          url: '/posts/comments',
+          icon: MessageCircleMore,
         },
       ],
-    },
-    {
-      title: 'Categories',
-      url: '/posts/categories',
-      icon: List,
-      isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Tags',
-      url: '/posts/tags',
-      icon: Tag,
-      isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Comments',
-      url: '/posts/comments',
-      icon: MessageCircleMore,
-      isActive: false,
     },
   ],
-  products: [
+  shop: [
     {
       title: 'Products',
       url: '/products',
@@ -89,125 +58,50 @@ const data = {
       isActive: false,
       items: [
         {
-          title: 'View all',
-          url: '#',
+          title: 'Categories',
+          url: '/products/categories',
+          icon: List,
         },
         {
-          title: 'Create new',
-          url: '#',
+          title: 'Tags',
+          url: '/products/tags',
+          icon: Tag,
+        },
+        {
+          title: 'Attributes',
+          url: '/products/attributes',
+          icon: LayoutList,
+        },
+        {
+          title: 'Reviews',
+          url: '/products/reviews',
+          icon: MessageCircleMore,
         },
       ],
     },
-    {
-      title: 'Categories',
-      url: '/products/categories',
-      icon: List,
-      isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Tags',
-      url: '/products/tags',
-      icon: Tag,
-      isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Attributes',
-      url: '/products/attributes',
-      icon: LayoutList,
-      isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Reviews',
-      url: '/products/reviews',
-      icon: MessageCircleMore,
-      isActive: false,
-    },
-  ],
-  shop: [
     {
       title: 'Orders',
       url: '/shop/orders',
       icon: ShoppingCart,
       isActive: false,
     },
-
     {
       title: 'Payments',
       url: '/shop/payments',
       icon: CreditCard,
       isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
     },
     {
       title: 'Shipping',
       url: '/shop/shipping',
       icon: Van,
       isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
     },
     {
       title: 'Coupons',
       url: '/shop/coupons',
       icon: Percent,
       isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
     },
   ],
   media: [
@@ -216,20 +110,6 @@ const data = {
       url: '/media',
       icon: ImageIcon,
       isActive: false,
-      items: [
-        {
-          title: 'Library',
-          url: '/media',
-        },
-        {
-          title: 'Upload image',
-          url: '/media/upload?type=image',
-        },
-        {
-          title: 'Upload video',
-          url: '/media/upload?type=video',
-        },
-      ],
     },
   ],
   instagram: [
@@ -238,16 +118,6 @@ const data = {
       url: '/instagram-feed',
       icon: ImageIcon,
       isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
     },
   ],
   admin: [
@@ -256,16 +126,6 @@ const data = {
       url: '/users',
       icon: User,
       isActive: false,
-      items: [
-        {
-          title: 'View all',
-          url: '#',
-        },
-        {
-          title: 'Create new',
-          url: '#',
-        },
-      ],
     },
     {
       title: 'Logs',
@@ -296,10 +156,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           {databaseUsed}
         </Badge>
       </SidebarHeader>
-      <SidebarContent>
-        <NavMenuGroup label="Post" items={data.posts} />
-        <NavMenuGroup label="Product" items={data.products} />
-        <NavMenuGroup label="Shop" items={data.shop} />
+      <SidebarContent className="py-2.5">
+        <NavMenuGroup items={data.posts} />
+        <NavMenuGroup items={data.shop} />
         <NavMenuGroup items={data.media} />
         <NavMenuGroup items={data.instagram} />
         <NavMenuGroup items={data.admin} />
