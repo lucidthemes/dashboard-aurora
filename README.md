@@ -23,6 +23,7 @@ Frontend
 - [TanStack Table](https://tanstack.com/table/latest)
 - [React Hook Form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
 
 ## Installation
 
