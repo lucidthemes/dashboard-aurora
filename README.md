@@ -8,9 +8,9 @@ This project is mainly intended for learning purposes.
 
 ## Demo
 
-Production site: [demo](https://dashboard-aurora.vercel.app/)
+Production site: [demo](https://dashboard-aurora-sb.vercel.app/)
 
-Staging site: [demo](https://dashboard-aurora-staging.vercel.app/)
+Staging site: [demo](https://dashboard-aurora-sb-staging.vercel.app/)
 
 ## Built with
 
