@@ -8,9 +8,9 @@ This project is mainly intended for learning purposes.
 
 ## Demo
 
-Production site: [demo](https://dashboard-aurora.vercel.app/)
+Production site: [demo](https://dashboard-aurora-sb.vercel.app/)
 
-Staging site: [demo](https://dashboard-aurora-staging.vercel.app/)
+Staging site: [demo](https://dashboard-aurora-sb-staging.vercel.app/)
 
 ## Built with
 
@@ -20,6 +20,10 @@ Frontend
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Shadcn](https://ui.shadcn.com/)
+- [TanStack Table](https://tanstack.com/table/latest)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
 
 ## Installation
 

@@ -28,6 +28,7 @@ export function NavMenuGroup({
     items?: {
       title: string;
       url: string;
+      icon?: LucideIcon;
     }[];
   }[];
   label?: string;
@@ -59,6 +60,7 @@ export function NavMenuGroup({
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton asChild>
                             <Link href={subItem.url}>
+                              {subItem.icon && <subItem.icon />}
                               <span>{subItem.title}</span>
                             </Link>
                           </SidebarMenuSubButton>

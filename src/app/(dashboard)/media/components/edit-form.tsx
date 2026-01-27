@@ -1,0 +1,41 @@
+'use client';
+
+import { Controller } from 'react-hook-form';
+
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
+import { Input } from '@/components/ui/input';
+import { useMediaStore } from '@/store/media-store';
+
+import useMediaEditForm from '../hooks/use-edit-form';
+
+export default function MediaEditForm() {
+  const { editData, setEditOpen, setEditData } = useMediaStore();
+
+  const { form, onSubmit } = useMediaEditForm(editData, setEditOpen, setEditData);
+
+  return (
+    <form id="media-edit-form" onSubmit={form.handleSubmit(onSubmit)}>
+      <div className="grid gap-3">
+        <FieldGroup>
+          <Controller
+            name="alt_text"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor="alt_text">Alt text</FieldLabel>
+                <Input
+                  {...field}
+                  id="alt_text"
+                  aria-invalid={fieldState.invalid}
+                  placeholder={editData?.alt_text}
+                  autoComplete="off"
+                />
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+        </FieldGroup>
+      </div>
+    </form>
+  );
+}
