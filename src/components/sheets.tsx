@@ -19,6 +19,7 @@ function SheetWithForm({
   title,
   description,
   size = 'default',
+  submitButtonText = 'Save changes',
 }: {
   sheetOpen: boolean;
   sheetClose: () => void;
@@ -27,6 +28,7 @@ function SheetWithForm({
   title: string;
   description?: string;
   size?: 'default' | 'medium' | 'large' | 'xlarge';
+  submitButtonText?: string;
 }) {
   if (!sheetOpen) return null;
 
@@ -48,7 +50,7 @@ function SheetWithForm({
         <div className="px-4">{children}</div>
         <SheetFooter className="gap-y-4">
           <Button type="submit" form={formId} className="cursor-pointer">
-            Save changes
+            {submitButtonText}
           </Button>
           <SheetClose asChild>
             <Button variant="outline" className="cursor-pointer">
