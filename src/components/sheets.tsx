@@ -11,6 +11,8 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 
+import { ScrollArea } from './ui/scroll-area';
+
 function SheetWithForm({
   sheetOpen,
   sheetClose,
@@ -47,7 +49,11 @@ function SheetWithForm({
           <SheetTitle>{title}</SheetTitle>
           <SheetDescription>{sheetDescription}</SheetDescription>
         </SheetHeader>
-        <div className="px-4">{children}</div>
+
+        <ScrollArea className="flex-1 overflow-y-auto">
+          <div className="px-4">{children}</div>
+        </ScrollArea>
+
         <SheetFooter className="gap-y-4">
           <Button type="submit" form={formId} className="cursor-pointer">
             {submitButtonText}
