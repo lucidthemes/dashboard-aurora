@@ -86,6 +86,12 @@ const data = {
       isActive: false,
     },
     {
+      title: 'Customers',
+      url: '/shop/customers',
+      icon: User,
+      isActive: false,
+    },
+    {
       title: 'Payments',
       url: '/shop/payments',
       icon: CreditCard,
