@@ -11,8 +11,6 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 
-import { ScrollArea } from './ui/scroll-area';
-
 function SheetWithForm({
   sheetOpen,
   sheetClose,
@@ -49,11 +47,7 @@ function SheetWithForm({
           <SheetTitle>{title}</SheetTitle>
           <SheetDescription>{sheetDescription}</SheetDescription>
         </SheetHeader>
-
-        <ScrollArea className="flex-1 overflow-y-auto">
-          <div className="px-4">{children}</div>
-        </ScrollArea>
-
+        <div className="flex-1 overflow-y-auto px-4">{children}</div>
         <SheetFooter className="gap-y-4">
           <Button type="submit" form={formId} className="cursor-pointer">
             {submitButtonText}
@@ -99,7 +93,7 @@ function SheetWithContent({
           <SheetTitle>{title}</SheetTitle>
           {description && <SheetDescription>{description}</SheetDescription>}
         </SheetHeader>
-        {children}
+        <div className="flex-1 overflow-y-auto px-4">{children}</div>
         <SheetFooter>
           <SheetClose asChild>
             <Button variant="outline" className="cursor-pointer">
