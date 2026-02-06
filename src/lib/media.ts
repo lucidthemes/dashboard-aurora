@@ -74,7 +74,8 @@ export default async function getMedia(
   const parsed = z.array(MediaSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    throw new Error('error', parsed.error);
+    console.log('getMedia error: ' + parsed.error.name);
+    return { media: [], totalCount: 0 };
   }
 
   return { media: parsed.data, totalCount: count };
