@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import MainContainer from '@/components/dashboard/main-container';
 import { Tabs } from '@/components/ui/tabs';
 
-import MediaPageWrapper from './media-wrapper';
+import MediaPageWrapper from './components/page-wrapper';
 import MediaPageHeading from './components/page-heading';
 import MediaTabsHeader from './components/tabs-header';
 import MediaTabsContent from './components/tabs-content';

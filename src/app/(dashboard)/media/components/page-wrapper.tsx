@@ -4,8 +4,8 @@ import { ViewMediaDialog, DeleteDialog } from '@/components/dialogs';
 import { SheetWithForm, SheetWithContent } from '@/components/sheets';
 import { useMediaStore } from '@/store/media-store';
 
-import MediaEditForm from './components/edit-form';
-import MediaUploadForm from './components/upload-form';
+import MediaEditForm from './edit-form';
+import MediaUploadForm from './upload-form';
 
 export default function MediaPageWrapper({ children }: { children: React.ReactNode }) {
   const {

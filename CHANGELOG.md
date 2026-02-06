@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 - media actions
 - delete actions
+- instagram feed actions
 
 #### App
 
@@ -27,10 +28,18 @@ All notable changes to this project will be documented in this file.
 
 - dashboard page
 - dashboard layout
+
+###### Media
+
 - media page
 - media page components
-- media page context
-- media page upload sheet
+- media page hook
+
+###### Instagram feed
+
+- instagram feed page
+- instagram feed components
+- instagram feed hooks
 
 #### Components
 
@@ -38,10 +47,13 @@ All notable changes to this project will be documented in this file.
 - dashboard sub folder
 - ui sub folder
 - theme switcher provider
-- data table component
-- buttons component
-- dialogs component
-- list controls component
+- data table
+- buttons
+- dialogs
+- sheets
+- list controls
+- loading
+- page headings
 
 ##### Auth
 
@@ -68,15 +80,19 @@ All notable changes to this project will be documented in this file.
 - lib folder
 - metadata constants
 - shadcn utils
+- media
+- instagram feed
 
 #### Schemas
 
 - schemas folder
 - media schema
+- instagram feed schema
 
 #### Store
 
 - media store
+- instagram feed store
 
 ## [0.0.0] - 2026-01-15
 

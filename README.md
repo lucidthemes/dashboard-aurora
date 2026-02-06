@@ -24,6 +24,7 @@ Frontend
 - [React Hook Form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
 - [Zustand](https://zustand-demo.pmnd.rs/)
+- [TanStack Query](https://tanstack.com/query/latest)
 
 ## Installation
 
