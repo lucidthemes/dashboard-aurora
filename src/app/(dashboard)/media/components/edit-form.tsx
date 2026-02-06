@@ -26,7 +26,7 @@ export default function MediaEditForm() {
                 {...field}
                 id="alt_text"
                 aria-invalid={fieldState.invalid}
-                placeholder={editData?.alt_text}
+                placeholder="Alt text"
                 autoComplete="off"
               />
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
