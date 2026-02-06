@@ -8,36 +8,43 @@ export interface MediaEditData {
   alt_text?: string;
 }
 
-interface MediaStore {
+type State = {
   layout: Layout;
-  setLayout: (layout: Layout) => void;
 
   viewOpen: boolean;
-  setViewOpen: (open: boolean) => void;
   viewMediaType: Upload;
-  setViewMediaType: (mediaType: Upload) => void;
   viewMediaUrl: string | undefined;
-  setViewMediaUrl: (mediaUrl: string | undefined) => void;
 
   editOpen: boolean;
-  setEditOpen: (open: boolean) => void;
   editData: MediaEditData | null;
-  setEditData: (editData: MediaEditData | null) => void;
 
   deleteOpen: boolean;
-  setDeleteOpen: (open: boolean) => void;
   deleteRowId: string | null;
-  setDeleteRowId: (deleteRowId: string | null) => void;
   deleteTable: 'media' | null;
-  setDeleteTable: (deleteTable: 'media' | null) => void;
 
   uploadOpen: boolean;
-  setUploadOpen: (open: boolean) => void;
   uploadType: Upload;
-  setUploadType: (type: Upload) => void;
-}
+};
 
-export const useMediaStore = create<MediaStore>((set) => ({
+type Action = {
+  setLayout: (layout: Layout) => void;
+
+  setViewOpen: (open: boolean) => void;
+  setViewMediaType: (mediaType: Upload) => void;
+  setViewMediaUrl: (mediaUrl: string | undefined) => void;
+
+  setEditOpen: (open: boolean) => void;
+  setEditData: (editData: MediaEditData | null) => void;
+
+  setDeleteOpen: (open: boolean) => void;
+  setDeleteRowId: (deleteRowId: string | null) => void;
+  setDeleteTable: (deleteTable: 'media' | null) => void;
+
+  setUploadOpen: (open: boolean) => void;
+  setUploadType: (type: Upload) => void;
+};
+
+export const useMediaStore = create<State & Action>((set) => ({
   layout: 'grid',
   setLayout: (layout) => set({ layout }),
 
