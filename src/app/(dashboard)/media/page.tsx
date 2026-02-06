@@ -3,12 +3,12 @@ import { Metadata } from 'next';
 
 import MainContainer from '@/components/dashboard/main-container';
 import { Tabs } from '@/components/ui/tabs';
+import { LoadingSpinner } from '@/components/loading';
 
 import MediaPageWrapper from './components/page-wrapper';
 import MediaPageHeading from './components/page-heading';
 import MediaTabsHeader from './components/tabs-header';
 import MediaTabsContent from './components/tabs-content';
-import MediaLoading from './components/loading';
 
 export const metadata: Metadata = {
   title: 'Media',
@@ -28,7 +28,7 @@ export default async function MediaPage({
         <MediaPageHeading />
         <Tabs defaultValue="images" className="gap-y-5" value={type}>
           <MediaTabsHeader />
-          <Suspense key={type} fallback={<MediaLoading type={type} />}>
+          <Suspense key={type} fallback={<LoadingSpinner />}>
             <MediaTabsContent type={type} page={page} limit={limit} />
           </Suspense>
         </Tabs>
