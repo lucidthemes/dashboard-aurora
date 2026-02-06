@@ -15,27 +15,25 @@ export default function MediaEditForm() {
 
   return (
     <form id="media-edit-form" onSubmit={form.handleSubmit(onSubmit)}>
-      <div className="grid gap-3">
-        <FieldGroup>
-          <Controller
-            name="alt_text"
-            control={form.control}
-            render={({ field, fieldState }) => (
-              <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="alt_text">Alt text</FieldLabel>
-                <Input
-                  {...field}
-                  id="alt_text"
-                  aria-invalid={fieldState.invalid}
-                  placeholder={editData?.alt_text}
-                  autoComplete="off"
-                />
-                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-              </Field>
-            )}
-          />
-        </FieldGroup>
-      </div>
+      <FieldGroup>
+        <Controller
+          name="alt_text"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor="alt_text">Alt text</FieldLabel>
+              <Input
+                {...field}
+                id="alt_text"
+                aria-invalid={fieldState.invalid}
+                placeholder={editData?.alt_text}
+                autoComplete="off"
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+      </FieldGroup>
     </form>
   );
 }
