@@ -4,14 +4,11 @@ import { Controller } from 'react-hook-form';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { useMediaStore } from '@/store/media-store';
 
 import useMediaEditForm from '../hooks/use-edit-form';
 
 export default function MediaEditForm() {
-  const { editData, setEditOpen, setEditData } = useMediaStore();
-
-  const { form, onSubmit } = useMediaEditForm(editData, setEditOpen, setEditData);
+  const { form, onSubmit } = useMediaEditForm();
 
   return (
     <form id="media-edit-form" onSubmit={form.handleSubmit(onSubmit)}>

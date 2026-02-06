@@ -7,13 +7,11 @@ import { toast } from 'sonner';
 
 import { editMedia } from '@/actions/media.actions';
 import { MediaEditFormSchema } from '@/schemas/media.schema';
-import type { MediaEditData } from '@/store/media-store';
+import { useMediaStore } from '@/store/media-store';
 
-export default function useMediaEditForm(
-  editData: MediaEditData | null,
-  setEditOpen: (open: boolean) => void,
-  setEditData: (editData: MediaEditData | null) => void,
-) {
+export default function useMediaEditForm() {
+  const { editData, setEditOpen, setEditData } = useMediaStore();
+
   const form = useForm<z.infer<typeof MediaEditFormSchema>>({
     defaultValues: {
       alt_text: editData?.alt_text,
