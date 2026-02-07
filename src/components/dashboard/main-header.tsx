@@ -1,3 +1,7 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -20,6 +24,9 @@ const data = {
 };
 
 export default function MainHeader() {
+  const pathname = usePathname();
+  const breadcrumb = pathname.slice(1).replace('-', ' ');
+
   return (
     <header className="sticky top-0 z-1 flex h-16 shrink-0 items-center justify-between gap-2 border-b-1 bg-background px-5 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
       <div className="flex items-center gap-2">
@@ -30,10 +37,14 @@ export default function MainHeader() {
             <BreadcrumbItem className="hidden md:block">
               <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator className="hidden md:block" />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Posts</BreadcrumbPage>
-            </BreadcrumbItem>
+            {breadcrumb && (
+              <>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="capitalize">{breadcrumb}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </>
+            )}
           </BreadcrumbList>
         </Breadcrumb>
       </div>
