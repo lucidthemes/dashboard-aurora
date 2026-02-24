@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - [Unreleased]
+
+### Changed
+
+#### App
+
+##### Auth
+
+- renamed from group folder of (auth) to route folder auth
+
+#### Components
+
+##### Auth
+
+- forgot password form link to login to include auth
+- login form link to forgot password to include auth
+
 ## [0.1.1] - 2026-02-22
 
 ### Changed
