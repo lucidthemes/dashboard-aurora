@@ -10,7 +10,8 @@ All notable changes to this project will be documented in this file.
 
 ##### Auth
 
-- renamed from group folder of (auth) to route folder auth
+- group folder of (auth) to route folder auth
+- update password page to reset password
 
 #### Components
 
@@ -18,6 +19,7 @@ All notable changes to this project will be documented in this file.
 
 - forgot password form link to login to include auth
 - login form link to forgot password to include auth
+- update password form file name to reset password form
 
 ## [0.1.1] - 2026-02-22
 
