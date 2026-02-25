@@ -41,6 +41,14 @@ All notable changes to this project will be documented in this file.
 - moved forgot password form component into app auth forgot password page route
 - moved reset password form component into app auth reset password page route
 
+### Fixed
+
+#### App
+
+##### Auth
+
+- layout logo link width
+
 ## [0.1.1] - 2026-02-22
 
 ### Changed
