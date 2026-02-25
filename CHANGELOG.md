@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 - forgot password form hook using react hook form
 - reset password form hook using react hook form
 
+#### Lib
+
+- supabase nextjs client
+
 #### Schemas
 
 - auth sub folder
