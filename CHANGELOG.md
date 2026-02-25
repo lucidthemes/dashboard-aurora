@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## [0.2.0] - [Unreleased]
 
+### Added
+
+#### App
+
+##### Auth
+
+- login form hook using react hook form
+
+#### Schemas
+
+- auth sub folder
+- login form
+
 ### Changed
 
 #### App
@@ -12,14 +25,15 @@ All notable changes to this project will be documented in this file.
 
 - group folder of (auth) to route folder auth
 - update password page to reset password
+- login form link to forgot password to include auth
 
 #### Components
 
 ##### Auth
 
 - forgot password form link to login to include auth
-- login form link to forgot password to include auth
 - update password form file name to reset password form
+- moved login form component into app auth login page route
 
 ## [0.1.1] - 2026-02-22
 
