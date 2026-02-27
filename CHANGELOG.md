@@ -15,6 +15,11 @@ All notable changes to this project will be documented in this file.
 - reset password form hook using react hook form
 - login form sign in action using supabase auth
 
+##### Dashboard
+
+- get current dashboard user using supabase auth
+- user provider to store current user and role
+
 #### Lib
 
 - supabase nextjs client
