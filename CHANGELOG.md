@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - reset password form hook using react hook form
 - login form action using supabase auth
 - forgot password form action using supabase auth
+- reset password form action using supabase auth
 
 ##### Dashboard
 
@@ -46,6 +47,7 @@ All notable changes to this project will be documented in this file.
 - update password form file name to reset password form
 - login form hook to use tanstack query
 - forgot password form hook to use tanstack query
+- reset password form hook to use tanstack query
 
 #### Components
 

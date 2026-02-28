@@ -1,8 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
+import { toast } from 'sonner';
 
 import { ResetPasswordFormSchema } from '@/schemas/auth/reset-password.schema';
 import type { ResetPasswordForm } from '@/schemas/auth/reset-password.schema';
+
+import { resetPassword } from './reset-password.action';
 
 export default function useResetPasswordForm() {
   const form = useForm<ResetPasswordForm>({
@@ -12,8 +16,19 @@ export default function useResetPasswordForm() {
     resolver: zodResolver(ResetPasswordFormSchema),
   });
 
+  const resetPasswordFormMutation = useMutation({
+    mutationFn: resetPassword,
+    onSuccess: (result) => {
+      if (result.success) {
+        toast.success('Password successfully reset');
+      } else {
+        toast.error('Something went wrong. Please try again');
+      }
+    },
+  });
+
   const onSubmit = async (data: ResetPasswordForm) => {
-    console.log(data); // temp
+    resetPasswordFormMutation.mutate(data);
   };
 
   return { form, onSubmit };
