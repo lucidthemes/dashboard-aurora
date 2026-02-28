@@ -16,6 +16,7 @@ export async function createLogEvent(
       event_name: eventName,
       message,
       user_id: userId,
+      source: 'dashboard',
     },
   });
 
