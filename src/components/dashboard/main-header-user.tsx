@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { CircleUser, LogOut } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -18,6 +20,10 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui
 import { useDashboardUser } from '@/app/(dashboard)/user-provider';
 
 export function MainHeaderUser() {
+  const supabase = createClient();
+
+  const router = useRouter();
+
   const { user } = useDashboardUser();
 
   const name = 'Lucid Themes';
@@ -69,7 +75,13 @@ export function MainHeaderUser() {
                   Account
                 </DropdownMenuItem>
               </Link>
-              <DropdownMenuItem className="cursor-pointer">
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => {
+                  supabase.auth.signOut();
+                  router.push('/auth/login');
+                }}
+              >
                 <LogOut />
                 Log out
               </DropdownMenuItem>

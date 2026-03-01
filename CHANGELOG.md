@@ -22,6 +22,10 @@ All notable changes to this project will be documented in this file.
 - get current dashboard user using supabase auth
 - user provider to store current user and role
 
+#### Components
+
+- supabase auth logout to main header user logout button
+
 #### Lib
 
 - supabase nextjs client
