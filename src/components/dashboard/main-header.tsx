@@ -15,14 +15,6 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 import { MainHeaderModeSwitcher } from './main-header-mode-switcher';
 import { MainHeaderUser } from './main-header-user';
 
-const data = {
-  user: {
-    name: 'Lucid Themes',
-    email: 'you@example.com',
-    //avatar: '/avatars/shadcn.jpg',
-  },
-};
-
 export default function MainHeader() {
   const pathname = usePathname();
   const breadcrumb = pathname.slice(1).replace('-', ' ');
@@ -51,7 +43,7 @@ export default function MainHeader() {
       <div className="flex items-center gap-x-2">
         <MainHeaderModeSwitcher />
         <Separator orientation="vertical" className="ml-2 data-[orientation=vertical]:h-4" />
-        <MainHeaderUser user={data.user} />
+        <MainHeaderUser />
       </div>
     </header>
   );
