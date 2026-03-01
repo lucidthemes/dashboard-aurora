@@ -5,7 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'sonner';
 
-import { createInstagramFeed, editInstagramFeed } from '@/actions/instagram-feed.actions';
+import { createInstagramFeed } from '../actions/create-feed.action';
+import { updateInstagramFeed } from '../actions/update-feed.action';
 import { InstagramFeedFormSchema } from '@/schemas/instagram-feed.schema';
 import type { InstagramFeed } from '@/schemas/instagram-feed.schema';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
@@ -55,7 +56,7 @@ export default function useInstagramFeedForm(type: 'create' | 'edit', formData?:
         return;
       }
 
-      const res = await editInstagramFeed(formData.id, data, selectedImages);
+      const res = await updateInstagramFeed(formData.id, data, selectedImages);
 
       if (res.success) {
         toast.success('Successfully updated');
