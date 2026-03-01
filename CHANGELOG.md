@@ -40,6 +40,10 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+#### Actions
+
+- move instagram feed actions file into instagram feed route actions folder
+
 #### App
 
 ##### Auth
@@ -52,6 +56,12 @@ All notable changes to this project will be documented in this file.
 - login form hook to use tanstack query
 - forgot password form hook to use tanstack query
 - reset password form hook to use tanstack query
+
+##### Dashboard
+
+###### Instagram feed
+
+- split instagram feed actions file into create and update action files
 
 #### Components
 
