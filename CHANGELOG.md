@@ -43,6 +43,7 @@ All notable changes to this project will be documented in this file.
 #### Actions
 
 - move instagram feed actions file into instagram feed route actions folder
+- move media action file into media route actions folder
 
 #### App
 
