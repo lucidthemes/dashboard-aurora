@@ -57,6 +57,10 @@ All notable changes to this project will be documented in this file.
 - moved forgot password form component into app auth forgot password page route
 - moved reset password form component into app auth reset password page route
 
+##### Components
+
+- main header user to show dashboard user email from supabase auth
+
 ### Fixed
 
 #### App
