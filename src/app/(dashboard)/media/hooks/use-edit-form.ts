@@ -34,11 +34,11 @@ export default function useMediaEditForm() {
     },
   });
 
-  async function onSubmit(data: MediaEditForm) {
+  const onSubmit = async (data: MediaEditForm) => {
     if (!editData) return;
 
     mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data });
-  }
+  };
 
   return { form, onSubmit };
 }
