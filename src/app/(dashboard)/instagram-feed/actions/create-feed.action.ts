@@ -6,31 +6,36 @@ import { z } from 'zod';
 import { InstagramFeedFormSchema, InstagramFeedFormImagesSchema } from '@/schemas/instagram-feed.schema';
 import type { InstagramFeedForm, InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
 
-interface FeedFormImagesInsert {
+interface CreateInstagramFeedParams {
+  formData: InstagramFeedForm;
+  formImages: InstagramFeedFormImages[];
+}
+
+interface FormImagesInsert {
   instagram_feed_id: string;
   media_id: string;
   position: number;
 }
 
-export async function createInstagramFeed(feedFormData: InstagramFeedForm, feedFormImages: InstagramFeedFormImages[]) {
-  const feedFormDataParsed = InstagramFeedFormSchema.safeParse(feedFormData);
-  const feedFormImagesParsed = z.array(InstagramFeedFormImagesSchema).safeParse(feedFormImages);
+export async function createInstagramFeed({ formData, formImages }: CreateInstagramFeedParams) {
+  const formDataParsed = InstagramFeedFormSchema.safeParse(formData);
+  const formImagesParsed = z.array(InstagramFeedFormImagesSchema).safeParse(formImages);
 
-  if (!feedFormDataParsed.success || !feedFormImagesParsed.success) return { success: false };
+  if (!formDataParsed.success || !formImagesParsed.success) return { success: false };
 
   // const { data: createdFeed, error: feedError } = await supabase
   //   .from('instagram_feeds')
   //   .insert({
-  //     name: feedFormData.name,
-  //     layout: feedFormData.layout,
-  //     button: feedFormData.button,
+  //     name: formData.name,
+  //     layout: formData.layout,
+  //     button: formData.button,
   //   })
   //   .select()
   //   .single();
 
   // if (feedError || !createdFeed) return { success: false };
 
-  // const instagramFeedMediaTableRows: FeedFormImagesInsert[] = feedFormImagesParsed.data.map((image) => ({
+  // const instagramFeedMediaTableRows: FormImagesInsert[] = formImagesParsed.data.map((image) => ({
   //   instagram_feed_id: createdFeed.id,
   //   media_id: image.media.id,
   //   position: image.position,
