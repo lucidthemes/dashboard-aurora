@@ -63,6 +63,7 @@ All notable changes to this project will be documented in this file.
 ###### Instagram feed
 
 - split instagram feed actions file into create and update action files
+- feed form hook to use tanstack query mutation
 
 ###### Media
 
