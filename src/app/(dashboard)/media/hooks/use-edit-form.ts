@@ -2,6 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 import { MediaEditFormSchema } from '@/schemas/media.schema';
@@ -20,18 +21,23 @@ export default function useMediaEditForm() {
     resolver: zodResolver(MediaEditFormSchema),
   });
 
+  const mediaEditFormMutation = useMutation({
+    mutationFn: updateMedia,
+    onSuccess: (result) => {
+      if (result.success) {
+        toast.success('Successfully updated');
+        setEditOpen(false);
+        setEditData(null);
+      } else {
+        toast.error('Error updating image');
+      }
+    },
+  });
+
   async function onSubmit(data: MediaEditForm) {
     if (!editData) return;
 
-    const res = await updateMedia(editData.id, data);
-
-    if (res.success) {
-      toast.success('Successfully updated');
-      setEditOpen(false);
-      setEditData(null);
-    } else {
-      toast.error('Error updating image');
-    }
+    mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data });
   }
 
   return { form, onSubmit };
