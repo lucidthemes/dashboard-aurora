@@ -31,5 +31,5 @@ export default function useForgotPasswordForm() {
     forgotPasswordFormMutation.mutate(data);
   };
 
-  return { form, onSubmit };
+  return { form, onSubmit, isPending: forgotPasswordFormMutation.isPending };
 }
