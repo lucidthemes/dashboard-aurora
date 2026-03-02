@@ -10,11 +10,20 @@ All notable changes to this project will be documented in this file.
 
 ##### Auth
 
-- login form hook using react hook form
+###### Forgot password
+
 - forgot password form hook using react hook form
-- reset password form hook using react hook form
-- login form action using supabase auth
 - forgot password form action using supabase auth
+
+###### Login
+
+- login form hook using react hook form
+- login form action using supabase auth
+- loading spinner to login form submit button
+
+###### Reset password
+
+- reset password form hook using react hook form
 - reset password form action using supabase auth
 
 ##### Dashboard
