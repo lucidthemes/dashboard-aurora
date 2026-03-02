@@ -31,5 +31,5 @@ export default function useResetPasswordForm() {
     resetPasswordFormMutation.mutate(data);
   };
 
-  return { form, onSubmit };
+  return { form, onSubmit, isPending: resetPasswordFormMutation.isPending };
 }

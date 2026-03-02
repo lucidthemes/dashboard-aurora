@@ -5,11 +5,12 @@ import { Controller } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel, FieldError } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
 
 import useResetPasswordForm from './use-reset-password-form';
 
 export function ResetPasswordForm() {
-  const { form, onSubmit } = useResetPasswordForm();
+  const { form, onSubmit, isPending } = useResetPasswordForm();
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
@@ -33,6 +34,7 @@ export function ResetPasswordForm() {
         />
         <Field>
           <Button type="submit" className="cursor-pointer">
+            {isPending && <Spinner data-icon="inline-start" />}
             Save new password
           </Button>
         </Field>
