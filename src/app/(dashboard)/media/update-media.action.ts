@@ -1,9 +1,10 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { createClient } from '@/lib/supabase/server';
 
-import { MediaEditFormSchema } from '@/schemas/media.schema';
 import type { MediaEditForm } from '@/schemas/media.schema';
+import { createLogEvent } from '@/lib/supabase/log-event';
 
 interface UpdateMediaParams {
   mediaId: string;
@@ -11,15 +12,19 @@ interface UpdateMediaParams {
 }
 
 export async function updateMedia({ mediaId, formData }: UpdateMediaParams) {
-  const parsed = MediaEditFormSchema.safeParse(formData);
+  const supabase = await createClient();
 
-  if (!parsed.success || !mediaId) return { success: false };
+  const { error } = await supabase.from('media').update({ alt_text: formData.alt_text }).eq('id', mediaId);
 
-  // const { error } = await supabase.from('media').update({ alt_text: formData.alt_text }).eq('id', mediaId);
+  if (error) {
+    createLogEvent('error', 'UPDATE_MEDIA_FAILED', error.message + '. Media Id: ' + mediaId);
 
-  // if (error) return { success: false };
+    return { success: false };
+  }
 
   revalidatePath('/media');
+
+  createLogEvent('info', 'UPDATE_MEDIA_SUCCESSFUL', 'Media updated. Id: ' + mediaId);
 
   return { success: true };
 }

@@ -68,6 +68,7 @@ All notable changes to this project will be documented in this file.
 ###### Media
 
 - edit form hook to use tanstack query mutation
+- update media action to use supabase update
 
 #### Components
 

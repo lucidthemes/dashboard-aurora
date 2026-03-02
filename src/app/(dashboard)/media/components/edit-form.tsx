@@ -5,7 +5,7 @@ import { Controller } from 'react-hook-form';
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 
-import useMediaEditForm from '../hooks/use-edit-form';
+import useMediaEditForm from '../use-edit-form';
 
 export default function MediaEditForm() {
   const { form, onSubmit } = useMediaEditForm();
