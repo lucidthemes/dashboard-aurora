@@ -1,6 +1,6 @@
 import { TabsContent } from '@/components/ui/tabs';
 import { ListControlItemsPerPage, ListControlPagination } from '@/components/list-controls';
-import getMedia from '@/lib/media';
+import getMedia from '@/lib/media/get-media';
 
 import MediaTabsContentLayout from './tabs-content-layout';
 import MediaEmpty from './empty';

@@ -6,6 +6,7 @@ import { DataTable } from '@/components/ui/data-table';
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import type { Media } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
+import { getPublicMediaImageUrl, getPublicMediaVideoUrl } from '@/lib/media/storage';
 
 import MediaLayoutListColumns from './layout-list-columns';
 
@@ -29,7 +30,10 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
       {layout === 'grid' ? (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {media.map((item) => {
-            const publicMediaUrl = item.type === 'image' ? `/temp/${item.storage_path}` : `/temp/${item.storage_path}`;
+            const publicMediaUrl =
+              item.type === 'image'
+                ? getPublicMediaImageUrl(item.storage_path)
+                : getPublicMediaVideoUrl(item.storage_path);
 
             return (
               <li key={item.id} className="group relative overflow-hidden rounded-lg">
@@ -38,8 +42,9 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
                 )}
                 {item.type === 'video' && (
                   <div className="flex h-60 w-60 flex-col items-center justify-center gap-y-2.5 bg-sidebar">
-                    <Video className="h-10 w-10 stroke-ring" />
-                    <p>{item.storage_path}</p>
+                    <Video className="h-10 w-10 stroke-ring">
+                      <source src={publicMediaUrl} type="video/mp4" />
+                    </Video>
                   </div>
                 )}
                 <div className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform gap-x-4 group-hover:block">

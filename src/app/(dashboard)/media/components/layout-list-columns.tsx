@@ -6,6 +6,7 @@ import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import { dateFormat } from '@/lib/formatters';
 import type { Media } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
+import { getPublicMediaImageUrl, getPublicMediaVideoUrl } from '@/lib/media/storage';
 
 export default function MediaLayoutListColumns(type: 'images' | 'videos') {
   const {
@@ -27,7 +28,7 @@ export default function MediaLayoutListColumns(type: 'images' | 'videos') {
       header: 'Image',
       cell: ({ row }) => {
         const item = row.original;
-        const publicMediaUrl = item.type === 'image' ? `/temp/${item.storage_path}` : `/temp/${item.storage_path}`;
+        const publicMediaUrl = getPublicMediaImageUrl(item.storage_path);
 
         return (
           <div className="group relative max-w-25 overflow-hidden rounded-md">
@@ -50,7 +51,7 @@ export default function MediaLayoutListColumns(type: 'images' | 'videos') {
       header: 'Video',
       cell: ({ row }) => {
         const item = row.original;
-        const publicMediaUrl = item.type === 'image' ? `/temp/${item.storage_path}` : `/temp/${item.storage_path}`;
+        const publicMediaUrl = getPublicMediaVideoUrl(item.storage_path);
 
         return (
           <div className="group relative h-25 w-25 rounded-md bg-sidebar">
