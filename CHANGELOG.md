@@ -77,9 +77,18 @@ All notable changes to this project will be documented in this file.
 - moved forgot password form component into app auth forgot password page route
 - moved reset password form component into app auth reset password page route
 
-##### Components
+##### Dashboard
 
 - main header user to show dashboard user email from supabase auth
+
+#### Lib
+
+##### Media
+
+- add media sub folder
+- move get media file into media sub folder
+- connect get media to supabase to fetch images from storage
+- add get supabase storage public urls for media images and videos
 
 ### Fixed
 
