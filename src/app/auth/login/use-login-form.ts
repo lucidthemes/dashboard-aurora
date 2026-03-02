@@ -35,5 +35,5 @@ export default function useLoginForm() {
     loginFormMutation.mutate(data);
   };
 
-  return { form, onSubmit };
+  return { form, onSubmit, isPending: loginFormMutation.isPending };
 }

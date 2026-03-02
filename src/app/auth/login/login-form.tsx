@@ -6,11 +6,12 @@ import { Controller } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel, FieldError } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
 
 import useLoginForm from './use-login-form';
 
 export function LoginForm() {
-  const { form, onSubmit } = useLoginForm();
+  const { form, onSubmit, isPending } = useLoginForm();
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="'flex gap-6' flex-col">
@@ -56,6 +57,7 @@ export function LoginForm() {
         />
         <Field>
           <Button type="submit" className="cursor-pointer">
+            {isPending && <Spinner data-icon="inline-start" />}
             Login
           </Button>
         </Field>
