@@ -6,11 +6,12 @@ import { Controller } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel, FieldDescription, FieldError } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
 
 import useForgotPasswordForm from './use-forgot-password-form';
 
 export function ForgotPasswordForm() {
-  const { form, onSubmit } = useForgotPasswordForm();
+  const { form, onSubmit, isPending } = useForgotPasswordForm();
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="'flex gap-6' flex-col">
@@ -34,6 +35,7 @@ export function ForgotPasswordForm() {
         />
         <Field>
           <Button type="submit" className="cursor-pointer">
+            {isPending && <Spinner data-icon="inline-start" />}
             Reset password
           </Button>
         </Field>
