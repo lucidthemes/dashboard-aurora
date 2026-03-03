@@ -36,6 +36,7 @@ All notable changes to this project will be documented in this file.
 #### Components
 
 - loading spinner to sheet with form submit button
+- disabled prop to sheet with form submit button when pending
 
 ##### Dashboard
 
