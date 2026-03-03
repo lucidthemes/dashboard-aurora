@@ -56,7 +56,7 @@ export function LoginForm() {
           )}
         />
         <Field>
-          <Button type="submit" className="cursor-pointer">
+          <Button type="submit" className="cursor-pointer" disabled={isPending}>
             {isPending && <Spinner data-icon="inline-start" />}
             Login
           </Button>
