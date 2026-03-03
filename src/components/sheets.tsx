@@ -52,7 +52,7 @@ function SheetWithForm({
         </SheetHeader>
         <div className="flex-1 overflow-y-auto px-4">{children}</div>
         <SheetFooter className="gap-y-4">
-          <Button type="submit" form={formId} className="cursor-pointer">
+          <Button type="submit" form={formId} className="cursor-pointer" disabled={submitIsPending}>
             {submitIsPending && <Spinner data-icon="inline-start" />}
             {submitButtonText}
           </Button>
