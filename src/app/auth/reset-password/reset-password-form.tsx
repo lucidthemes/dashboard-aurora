@@ -33,7 +33,7 @@ export function ResetPasswordForm() {
           )}
         />
         <Field>
-          <Button type="submit" className="cursor-pointer">
+          <Button type="submit" className="cursor-pointer" disabled={isPending}>
             {isPending && <Spinner data-icon="inline-start" />}
             Save new password
           </Button>

@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file.
 - reset password form hook using react hook form
 - reset password form action using supabase auth
 - loading spinner to reset password form submit button
+- disabled prop to reset password form submit button when pending
 
 ##### Dashboard
 
