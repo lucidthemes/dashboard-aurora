@@ -1,15 +1,19 @@
 'use client';
 
 import { Controller } from 'react-hook-form';
+import type { UseFormReturn } from 'react-hook-form';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 
-import useMediaEditForm from '../use-edit-form';
+import type { MediaEditForm } from '@/schemas/media.schema';
 
-export default function MediaEditForm() {
-  const { form, onSubmit } = useMediaEditForm();
+interface MediaEditFormProps {
+  form: UseFormReturn<MediaEditForm>;
+  onSubmit: (data: MediaEditForm) => Promise<void>;
+}
 
+export default function MediaEditForm({ form, onSubmit }: MediaEditFormProps) {
   return (
     <form id="media-edit-form" onSubmit={form.handleSubmit(onSubmit)}>
       <FieldGroup>

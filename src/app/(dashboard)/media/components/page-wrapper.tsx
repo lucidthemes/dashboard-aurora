@@ -5,6 +5,8 @@ import { SheetWithForm, SheetWithContent } from '@/components/sheets';
 import { useMediaStore } from '@/store/media-store';
 
 import MediaEditForm from './edit-form';
+import useMediaEditForm from '../use-edit-form';
+
 import MediaUploadForm from './upload-form';
 
 export default function MediaPageWrapper({ children }: { children: React.ReactNode }) {
@@ -29,6 +31,8 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
     setUploadOpen,
     setUploadType,
   } = useMediaStore();
+
+  const mediaEdit = useMediaEditForm();
 
   const viewDialogClose = () => {
     setViewOpen(false);
@@ -69,8 +73,14 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
       </ViewMediaDialog>
 
       {/* edit media sheet */}
-      <SheetWithForm sheetOpen={editOpen} sheetClose={editSheetClose} formId="media-edit-form" title="Edit image">
-        <MediaEditForm />
+      <SheetWithForm
+        sheetOpen={editOpen}
+        sheetClose={editSheetClose}
+        formId="media-edit-form"
+        title="Edit image"
+        submitIsPending={mediaEdit.isPending}
+      >
+        <MediaEditForm form={mediaEdit.form} onSubmit={mediaEdit.onSubmit} />
       </SheetWithForm>
 
       {/* delete media dialog */}
