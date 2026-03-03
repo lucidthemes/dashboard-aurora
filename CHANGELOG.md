@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - forgot password form hook using react hook form
 - forgot password form action using supabase auth
 - loading spinner to forgot password form submit button
+- disabled prop to forgot password form submit button when pending
 
 ###### Login
 
