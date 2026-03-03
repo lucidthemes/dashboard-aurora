@@ -21,7 +21,8 @@ export default async function getMedia(
     .from('media')
     .select('*', { count: 'exact' })
     .eq('type', mediaType)
-    .range(rangeFrom, rangeTo);
+    .range(rangeFrom, rangeTo)
+    .order('created_at', { ascending: false });
 
   if (error) {
     createLogEvent('error', 'FETCH_MEDIA_FAILED', error.message + '. Type: ' + mediaType);
