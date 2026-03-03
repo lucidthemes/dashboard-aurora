@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 - login form hook using react hook form
 - login form action using supabase auth
 - loading spinner to login form submit button
+- disabled prop to login form submit button when pending
 
 ###### Reset password
 
