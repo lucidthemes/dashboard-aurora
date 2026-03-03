@@ -84,6 +84,8 @@ All notable changes to this project will be documented in this file.
 
 - edit form hook to use tanstack query mutation
 - update media action to use supabase update
+- moved call to useMediaEditForm hook into page wrapper to pass isPending to sheet component
+- media edit form component to accept form and onSubmit props
 
 #### Components
 

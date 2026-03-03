@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -21,6 +22,14 @@ export default function useMediaEditForm() {
     resolver: zodResolver(MediaEditFormSchema),
   });
 
+  useEffect(() => {
+    if (editData) {
+      form.reset({
+        alt_text: editData.alt_text ?? '',
+      });
+    }
+  }, [editData, form]);
+
   const mediaEditFormMutation = useMutation({
     mutationFn: updateMedia,
     onSuccess: (result) => {
@@ -40,5 +49,5 @@ export default function useMediaEditForm() {
     mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data });
   };
 
-  return { form, onSubmit };
+  return { form, onSubmit, isPending: mediaEditFormMutation.isPending };
 }
