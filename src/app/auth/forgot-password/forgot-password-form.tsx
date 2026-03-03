@@ -34,7 +34,7 @@ export function ForgotPasswordForm() {
           )}
         />
         <Field>
-          <Button type="submit" className="cursor-pointer">
+          <Button type="submit" className="cursor-pointer" disabled={isPending}>
             {isPending && <Spinner data-icon="inline-start" />}
             Reset password
           </Button>
