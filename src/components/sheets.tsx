@@ -10,6 +10,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 
 function SheetWithForm({
   sheetOpen,
@@ -20,6 +21,7 @@ function SheetWithForm({
   description,
   size = 'default',
   submitButtonText = 'Save changes',
+  submitIsPending = false,
 }: {
   sheetOpen: boolean;
   sheetClose: () => void;
@@ -29,6 +31,7 @@ function SheetWithForm({
   description?: string;
   size?: 'default' | 'medium' | 'large' | 'xlarge';
   submitButtonText?: string;
+  submitIsPending?: boolean;
 }) {
   if (!sheetOpen) return null;
 
@@ -50,6 +53,7 @@ function SheetWithForm({
         <div className="flex-1 overflow-y-auto px-4">{children}</div>
         <SheetFooter className="gap-y-4">
           <Button type="submit" form={formId} className="cursor-pointer">
+            {submitIsPending && <Spinner data-icon="inline-start" />}
             {submitButtonText}
           </Button>
           <SheetClose asChild>

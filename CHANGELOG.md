@@ -35,6 +35,10 @@ All notable changes to this project will be documented in this file.
 
 #### Components
 
+- loading spinner to sheet with form submit button
+
+##### Dashboard
+
 - supabase auth logout to main header user logout button
 
 #### Lib
