@@ -6,7 +6,7 @@ import { DataTable } from '@/components/ui/data-table';
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import type { Media } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
-import { getPublicMediaImageUrl, getPublicMediaVideoUrl } from '@/lib/media/storage';
+import { getPublicMediaUrl } from '@/lib/media/storage';
 
 import MediaLayoutListColumns from './layout-list-columns';
 
@@ -30,15 +30,12 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
       {layout === 'grid' ? (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {media.map((item) => {
-            const publicMediaUrl =
-              item.type === 'image'
-                ? getPublicMediaImageUrl(item.storage_path)
-                : getPublicMediaVideoUrl(item.storage_path);
+            const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 
             return (
               <li key={item.id} className="group relative overflow-hidden rounded-lg">
                 {item.type === 'image' && (
-                  <img src={publicMediaUrl} alt={item.alt_text} className="aspect-square object-cover" />
+                  <img src={publicMediaUrl} alt={item.alt_text ?? ''} className="aspect-square object-cover" />
                 )}
                 {item.type === 'video' && (
                   <div className="flex h-60 w-60 flex-col items-center justify-center gap-y-2.5 bg-sidebar">

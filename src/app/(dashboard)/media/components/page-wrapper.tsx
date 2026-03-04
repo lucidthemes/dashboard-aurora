@@ -100,7 +100,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
         description={uploadSheetDescription}
         size="medium"
       >
-        <MediaUploadForm />
+        <MediaUploadForm uploadType={uploadType} />
       </SheetWithContent>
     </>
   );

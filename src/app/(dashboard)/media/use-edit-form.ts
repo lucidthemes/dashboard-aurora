@@ -17,7 +17,7 @@ export default function useMediaEditForm() {
 
   const form = useForm<MediaEditForm>({
     defaultValues: {
-      alt_text: editData?.alt_text,
+      alt_text: editData?.alt_text ?? '',
     },
     resolver: zodResolver(MediaEditFormSchema),
   });
