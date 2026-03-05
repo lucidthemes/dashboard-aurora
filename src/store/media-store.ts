@@ -5,7 +5,7 @@ type Upload = 'image' | 'video' | null;
 
 export interface MediaEditData {
   id: string;
-  alt_text?: string;
+  alt_text?: string | null;
 }
 
 type State = {
