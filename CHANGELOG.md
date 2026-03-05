@@ -40,15 +40,21 @@ All notable changes to this project will be documented in this file.
 
 - loading spinner to sheet with form submit button
 - disabled prop to sheet with form submit button when pending
+- dropzone supabase media upload
 
 ##### Dashboard
 
 - supabase auth logout to main header user logout button
 
+#### Hooks
+
+- supabase upload
+
 #### Lib
 
 - supabase nextjs client
 - supabase log event edge function invoke
+- add get supabase storage public url for media
 
 #### Schemas
 
@@ -90,6 +96,7 @@ All notable changes to this project will be documented in this file.
 - update media action to use supabase update
 - moved call to useMediaEditForm hook into page wrapper to pass isPending to sheet component
 - media edit form component to accept form and onSubmit props
+- upload form to use supabase dropzone
 
 #### Components
 
@@ -110,7 +117,6 @@ All notable changes to this project will be documented in this file.
 - add media sub folder
 - move get media file into media sub folder
 - connect get media to supabase to fetch images from storage
-- add get supabase storage public urls for media images and videos
 
 ### Fixed
 
