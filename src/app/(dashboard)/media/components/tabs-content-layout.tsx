@@ -19,8 +19,7 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
     setEditOpen,
     setEditData,
     setDeleteOpen,
-    setDeleteRowId,
-    setDeleteTable,
+    setDeleteStoragePath,
   } = useMediaStore();
 
   const mediaListColumns = MediaLayoutListColumns(type);
@@ -64,8 +63,7 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
                     <DeleteButton
                       onClick={() => {
                         setDeleteOpen(true);
-                        setDeleteRowId(item.id);
-                        setDeleteTable('media');
+                        setDeleteStoragePath(item.storage_path);
                       }}
                     />
                   </div>

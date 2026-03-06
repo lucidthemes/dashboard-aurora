@@ -10,7 +10,7 @@ import { MediaEditFormSchema } from '@/schemas/media.schema';
 import type { MediaEditForm } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
 
-import { updateMedia } from './update-media.action';
+import { updateMedia } from './actions/update-media.action';
 
 export default function useMediaEditForm() {
   const { editData, setEditOpen, setEditData } = useMediaStore();
