@@ -10,10 +10,13 @@ import { MediaEditFormSchema } from '@/schemas/media.schema';
 import type { MediaEditForm } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
 
+import { useDashboardUser } from '../user-provider';
 import { updateMedia } from './actions/update-media.action';
 
 export default function useMediaEditForm() {
   const { editData, setEditOpen, setEditData } = useMediaStore();
+
+  const { user } = useDashboardUser();
 
   const form = useForm<MediaEditForm>({
     defaultValues: {
@@ -46,7 +49,7 @@ export default function useMediaEditForm() {
   const onSubmit = async (data: MediaEditForm) => {
     if (!editData) return;
 
-    mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data });
+    mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data, userId: user.id });
   };
 
   return { form, onSubmit, isPending: mediaEditFormMutation.isPending };
