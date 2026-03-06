@@ -36,6 +36,10 @@ All notable changes to this project will be documented in this file.
 - get current dashboard user using supabase auth
 - user provider to store current user and role
 
+###### Media
+
+- delete media action using supabase
+
 #### Components
 
 - loading spinner to sheet with form submit button
@@ -45,6 +49,10 @@ All notable changes to this project will be documented in this file.
 ##### Dashboard
 
 - supabase auth logout to main header user logout button
+
+##### UI
+
+- delete media dialog
 
 #### Hooks
 
@@ -117,6 +125,10 @@ All notable changes to this project will be documented in this file.
 - add media sub folder
 - move get media file into media sub folder
 - connect get media to supabase to fetch images from storage
+
+#### Store
+
+- media store to use delete storage path instead of delete row id
 
 ### Fixed
 

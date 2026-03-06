@@ -1,12 +1,12 @@
 'use client';
 
-import { ViewMediaDialog, DeleteDialog } from '@/components/dialogs';
+import { ViewMediaDialog, DeleteMediaDialog } from '@/components/dialogs';
 import { SheetWithForm, SheetWithContent } from '@/components/sheets';
 import { useMediaStore } from '@/store/media-store';
 
+import { useDashboardUser } from '../../user-provider';
 import MediaEditForm from './edit-form';
 import useMediaEditForm from '../use-edit-form';
-
 import MediaUploadForm from './upload-form';
 
 export default function MediaPageWrapper({ children }: { children: React.ReactNode }) {
@@ -22,15 +22,15 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
     setEditData,
     deleteOpen,
     setDeleteOpen,
-    deleteRowId,
-    setDeleteRowId,
-    deleteTable,
-    setDeleteTable,
+    deleteStoragePath,
+    setDeleteStoragePath,
     uploadOpen,
     uploadType,
     setUploadOpen,
     setUploadType,
   } = useMediaStore();
+
+  const { user } = useDashboardUser();
 
   const mediaEdit = useMediaEditForm();
 
@@ -47,8 +47,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
 
   const deleteDialogClose = () => {
     setDeleteOpen(false);
-    setDeleteRowId(null);
-    setDeleteTable(null);
+    setDeleteStoragePath(null);
   };
 
   const uploadSheetClose = () => {
@@ -84,11 +83,11 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
       </SheetWithForm>
 
       {/* delete media dialog */}
-      <DeleteDialog
+      <DeleteMediaDialog
         dialogOpen={deleteOpen}
         dialogClose={deleteDialogClose}
-        deleteRowId={deleteRowId}
-        deleteTable={deleteTable}
+        deleteStoragePath={deleteStoragePath}
+        user={user}
         title="Delete media"
       />
 

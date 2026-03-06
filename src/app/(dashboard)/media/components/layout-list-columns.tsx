@@ -16,8 +16,7 @@ export default function MediaLayoutListColumns(type: 'images' | 'videos') {
     setEditOpen,
     setEditData,
     setDeleteOpen,
-    setDeleteRowId,
-    setDeleteTable,
+    setDeleteStoragePath,
   } = useMediaStore();
 
   const columns: ColumnDef<Media>[] = [];
@@ -111,8 +110,7 @@ export default function MediaLayoutListColumns(type: 'images' | 'videos') {
             <DeleteButton
               onClick={() => {
                 setDeleteOpen(true);
-                setDeleteRowId(item.id);
-                setDeleteTable('media');
+                setDeleteStoragePath(item.storage_path);
               }}
             />
           </div>
