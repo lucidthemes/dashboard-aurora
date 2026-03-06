@@ -19,8 +19,7 @@ type State = {
   editData: MediaEditData | null;
 
   deleteOpen: boolean;
-  deleteRowId: string | null;
-  deleteTable: 'media' | null;
+  deleteStoragePath: string | null;
 
   uploadOpen: boolean;
   uploadType: Upload;
@@ -37,8 +36,7 @@ type Action = {
   setEditData: (editData: MediaEditData | null) => void;
 
   setDeleteOpen: (open: boolean) => void;
-  setDeleteRowId: (deleteRowId: string | null) => void;
-  setDeleteTable: (deleteTable: 'media' | null) => void;
+  setDeleteStoragePath: (deleteStoragePath: string | null) => void;
 
   setUploadOpen: (open: boolean) => void;
   setUploadType: (type: Upload) => void;
@@ -62,10 +60,8 @@ export const useMediaStore = create<State & Action>((set) => ({
 
   deleteOpen: false,
   setDeleteOpen: (open) => set({ deleteOpen: open }),
-  deleteRowId: null,
-  setDeleteRowId: (deleteRowId) => set({ deleteRowId: deleteRowId }),
-  deleteTable: null,
-  setDeleteTable: (deleteTable) => set({ deleteTable: deleteTable }),
+  deleteStoragePath: null,
+  setDeleteStoragePath: (deleteStoragePath) => set({ deleteStoragePath: deleteStoragePath }),
 
   uploadOpen: false,
   setUploadOpen: (open) => set({ uploadOpen: open }),
