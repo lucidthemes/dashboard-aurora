@@ -2,8 +2,10 @@
 
 import { useTransition } from 'react';
 import { toast } from 'sonner';
+import type { User } from '@supabase/supabase-js';
 
 import { deleteRowFromTable } from '@/actions/delete.actions';
+import { deleteMedia } from '@/app/(dashboard)/media/actions/delete-media.action';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import {
   AlertDialog,
@@ -15,6 +17,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
+import { Spinner } from '@/components/ui/spinner';
 
 function EditDialog({
   dialogOpen,
@@ -109,4 +112,61 @@ function ViewMediaDialog({
   );
 }
 
-export { EditDialog, DeleteDialog, ViewMediaDialog };
+function DeleteMediaDialog({
+  dialogOpen,
+  dialogClose,
+  deleteStoragePath,
+  user,
+  title,
+  description,
+}: {
+  dialogOpen: boolean;
+  dialogClose: () => void;
+  deleteStoragePath: string | null;
+  user: User;
+  title?: string;
+  description?: string;
+}) {
+  const [isPending, startTransition] = useTransition();
+
+  if (!dialogOpen || !deleteStoragePath || !user) return null;
+
+  const dialogTitle = title ?? 'Delete';
+  const dialogDescription = description ?? 'This action cannot be undone';
+
+  return (
+    <AlertDialog open={dialogOpen} onOpenChange={(open) => !open && dialogClose()}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>{dialogTitle}</AlertDialogTitle>
+          <AlertDialogDescription>{dialogDescription}</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel className="cursor-pointer">Cancel</AlertDialogCancel>
+          <AlertDialogAction
+            variant="destructive"
+            className="cursor-pointer"
+            disabled={isPending}
+            onClick={() => {
+              dialogClose();
+              startTransition(async () => {
+                const result = await deleteMedia(deleteStoragePath, user);
+
+                if (result.success) {
+                  toast.success('Successfully deleted');
+                } else {
+                  toast.error('Error deleting media');
+                }
+              });
+            }}
+          >
+            {isPending && <Spinner data-icon="inline-start" />}
+            Delete
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+
+export { EditDialog, DeleteDialog, ViewMediaDialog, DeleteMediaDialog };
