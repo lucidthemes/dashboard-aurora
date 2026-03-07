@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useDropzone, type FileError, type FileRejection } from 'react-dropzone';
 import { useRouter } from 'next/navigation';
 
@@ -152,6 +152,36 @@ const useSupabaseUpload = (options: UseSupabaseUploadOptions) => {
 
     router.refresh();
   };
+
+  useEffect(() => {
+    const resetErrors = () => {
+      setErrors([]);
+    };
+
+    const updateFiles = (newFiles: FileWithPreview[]) => {
+      setFiles(newFiles);
+    };
+
+    if (files.length === 0) {
+      resetErrors();
+    }
+
+    if (files.length <= maxFiles) {
+      let changed = false;
+
+      const newFiles = files.map((file) => {
+        if (file.errors.some((e) => e.code === 'too-many-files')) {
+          file.errors = file.errors.filter((e) => e.code !== 'too-many-files');
+          changed = true;
+        }
+        return file;
+      });
+
+      if (changed) {
+        updateFiles(newFiles);
+      }
+    }
+  }, [files, maxFiles]);
 
   return {
     files,
