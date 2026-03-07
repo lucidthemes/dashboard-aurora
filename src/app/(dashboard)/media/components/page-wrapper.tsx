@@ -87,7 +87,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
         dialogOpen={deleteOpen}
         dialogClose={deleteDialogClose}
         deleteStoragePath={deleteStoragePath}
-        user={user}
+        userId={user.id}
         title="Delete media"
       />
 
