@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Image from 'next/image';
 import type { UseQueryResult } from '@tanstack/react-query';
 import { Layers } from 'lucide-react';
 
@@ -34,7 +35,13 @@ export default function InstagramFeedFormImagesList({
 
         return (
           <li key={image.media.id} className="relative h-full w-full overflow-hidden rounded-md">
-            <img src={publicMediaUrl} alt={image.media.alt_text} className="aspect-square object-cover" />
+            <Image
+              src={publicMediaUrl}
+              alt={image.media.alt_text ?? ''}
+              width={150}
+              height={150}
+              className="aspect-square object-cover"
+            />
             <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 transform">
               <div className="flex gap-x-2.5">
                 <Popover>
