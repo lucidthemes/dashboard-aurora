@@ -28,7 +28,7 @@ export default async function MediaTabsContent({
               <ListControlPagination
                 currentPage={page}
                 totalPages={totalPages}
-                className="justify-self-start lg:col-start-2 lg:justify-self-center"
+                className="justify-self-center sm:justify-self-start lg:col-start-2 lg:justify-self-center"
               />
               <ListControlItemsPerPage currentValue={limit} className="justify-self-end lg:col-start-3" />
             </div>
