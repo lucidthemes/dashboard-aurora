@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 ###### Media
 
 - delete media action using supabase
+- image optimization using Nextjs image tag
 
 #### Components
 

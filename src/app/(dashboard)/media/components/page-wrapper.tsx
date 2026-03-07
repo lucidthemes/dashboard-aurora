@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 import { ViewMediaDialog, DeleteMediaDialog } from '@/components/dialogs';
 import { SheetWithForm, SheetWithContent } from '@/components/sheets';
 import { useMediaStore } from '@/store/media-store';
@@ -63,7 +65,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
 
       {/* view media dialog */}
       <ViewMediaDialog dialogOpen={viewOpen} dialogClose={viewDialogClose}>
-        {viewMediaType === 'image' && <img src={viewMediaUrl} alt={'View image'} className="" />}
+        {viewMediaType === 'image' && <Image src={viewMediaUrl ?? ''} alt={'View image'} width={600} height={400} />}
         {viewMediaType === 'video' && (
           <video controls>
             <source src={viewMediaUrl} />
