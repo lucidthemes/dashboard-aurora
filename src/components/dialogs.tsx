@@ -2,7 +2,6 @@
 
 import { useTransition } from 'react';
 import { toast } from 'sonner';
-import type { User } from '@supabase/supabase-js';
 
 import { deleteRowFromTable } from '@/actions/delete.actions';
 import { deleteMedia } from '@/app/(dashboard)/media/actions/delete-media.action';
@@ -116,20 +115,20 @@ function DeleteMediaDialog({
   dialogOpen,
   dialogClose,
   deleteStoragePath,
-  user,
+  userId,
   title,
   description,
 }: {
   dialogOpen: boolean;
   dialogClose: () => void;
   deleteStoragePath: string | null;
-  user: User;
+  userId: string;
   title?: string;
   description?: string;
 }) {
   const [isPending, startTransition] = useTransition();
 
-  if (!dialogOpen || !deleteStoragePath || !user) return null;
+  if (!dialogOpen || !deleteStoragePath || !userId) return null;
 
   const dialogTitle = title ?? 'Delete';
   const dialogDescription = description ?? 'This action cannot be undone';
@@ -150,7 +149,7 @@ function DeleteMediaDialog({
             onClick={() => {
               dialogClose();
               startTransition(async () => {
-                const result = await deleteMedia(deleteStoragePath, user);
+                const result = await deleteMedia(deleteStoragePath, userId);
 
                 if (result.success) {
                   toast.success('Successfully deleted');
