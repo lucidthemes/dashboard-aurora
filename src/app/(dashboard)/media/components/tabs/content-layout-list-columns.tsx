@@ -9,7 +9,7 @@ import type { Media } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
 import { getPublicMediaUrl } from '@/lib/media/storage';
 
-export default function MediaLayoutListColumns(type: 'images' | 'videos') {
+export default function MediaTabsContentLayoutListColumns(type: 'images' | 'videos') {
   const {
     setViewOpen,
     setViewMediaType,

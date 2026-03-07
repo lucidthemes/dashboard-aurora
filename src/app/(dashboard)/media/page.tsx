@@ -7,8 +7,8 @@ import { LoadingSpinner } from '@/components/loading';
 
 import MediaPageWrapper from './components/page-wrapper';
 import MediaPageHeading from './components/page-heading';
-import MediaTabsHeader from './components/tabs-header';
-import MediaTabsContent from './components/tabs-content';
+import MediaTabsHeader from './components/tabs/header';
+import MediaTabsContent from './components/tabs/content';
 
 export const metadata: Metadata = {
   title: 'Media',
