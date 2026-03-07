@@ -101,7 +101,7 @@ function ViewMediaDialog({
 }) {
   return (
     <Dialog open={dialogOpen} onOpenChange={(open) => !open && dialogClose()}>
-      <DialogContent className="h-auto max-w-full overflow-hidden p-0 sm:min-w-150" aria-describedby={undefined}>
+      <DialogContent className="max-w-container h-auto overflow-hidden p-0 sm:min-w-150" aria-describedby={undefined}>
         <DialogHeader className="hidden">
           <DialogTitle>View media</DialogTitle>
         </DialogHeader>
