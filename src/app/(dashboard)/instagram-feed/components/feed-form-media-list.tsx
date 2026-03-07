@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Check, Image as ImageIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -41,7 +42,13 @@ export default function InstagramFeedFormMediaList() {
                       }
                     }}
                   >
-                    <img src={publicMediaUrl} alt={image.alt_text} className="aspect-square object-cover" />
+                    <Image
+                      src={publicMediaUrl}
+                      alt={image.alt_text ?? ''}
+                      width={180}
+                      height={180}
+                      className="aspect-square object-cover"
+                    />
                     {imageIsSelected && (
                       <div className="absolute top-1/2 left-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-muted">
                         <Check />
