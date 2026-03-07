@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Video } from 'lucide-react';
 
 import { DataTable } from '@/components/ui/data-table';
@@ -27,14 +28,20 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
   return (
     <>
       {layout === 'grid' ? (
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {media.map((item) => {
             const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 
             return (
-              <li key={item.id} className="group relative overflow-hidden rounded-lg">
+              <li key={item.id} className="group relative size-fit overflow-hidden rounded-lg">
                 {item.type === 'image' && (
-                  <img src={publicMediaUrl} alt={item.alt_text ?? ''} className="aspect-square object-cover" />
+                  <Image
+                    src={publicMediaUrl}
+                    alt={item.alt_text ?? ''}
+                    width={250}
+                    height={250}
+                    className="aspect-square object-cover"
+                  />
                 )}
                 {item.type === 'video' && (
                   <div className="flex h-60 w-60 flex-col items-center justify-center gap-y-2.5 bg-sidebar">

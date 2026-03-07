@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
@@ -31,7 +32,13 @@ export default function MediaLayoutListColumns(type: 'images' | 'videos') {
 
         return (
           <div className="group relative max-w-25 overflow-hidden rounded-md">
-            <img src={publicMediaUrl} alt={item.alt_text ?? ''} className="aspect-square object-cover" />
+            <Image
+              src={publicMediaUrl}
+              alt={item.alt_text ?? ''}
+              width={100}
+              height={100}
+              className="aspect-square object-cover"
+            />
             <ViewButton
               className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 group-hover:flex"
               onClick={() => {
