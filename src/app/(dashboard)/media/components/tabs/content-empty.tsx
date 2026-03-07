@@ -6,7 +6,7 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
 import { Button } from '@/components/ui/button';
 import { useMediaStore } from '@/store/media-store';
 
-export default function MediaEmpty({ type }: { type: 'images' | 'videos' }) {
+export default function MediaTabsContentEmpty({ type }: { type: 'images' | 'videos' }) {
   const { setUploadOpen, setUploadType } = useMediaStore();
 
   const uploadType = type === 'images' ? 'image' : 'video';
