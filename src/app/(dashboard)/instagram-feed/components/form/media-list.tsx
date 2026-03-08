@@ -8,7 +8,7 @@ import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empt
 
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
-import useInstagramFeedFormMedia from '../hooks/use-feed-form-media';
+import useInstagramFeedFormMedia from '../../hooks/form/use-media';
 
 export default function InstagramFeedFormMediaList() {
   const { selectedImages, addSelectedImage, removeSelectedImage } = useInstagramFeedStore();

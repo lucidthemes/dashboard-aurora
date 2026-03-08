@@ -1,9 +1,9 @@
 import { getInstagramFeeds } from '@/lib/instagram-feed';
 
-import InstagramFeedListLayout from './feed-list-layout';
+import InstagramFeedListTable from './table';
 
 export default async function InstagramFeedList() {
   const feedList = await getInstagramFeeds();
 
-  return <InstagramFeedListLayout feedList={feedList} />;
+  return <InstagramFeedListTable feedList={feedList} />;
 }

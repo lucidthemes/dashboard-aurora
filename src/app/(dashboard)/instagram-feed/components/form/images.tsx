@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 import { LoadingSpinner } from '@/components/loading';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
-import useInstagramFeedFormImages from '../hooks/use-feed-form-images';
-import InstagramFeedFormImagesList from './feed-form-images-list';
+import useInstagramFeedFormImages from '../../hooks/form/use-images';
+import InstagramFeedFormImagesList from './images-list';
 
 export default function InstagramFeedFormImages({ type, feedId }: { type: 'create' | 'edit'; feedId?: string | null }) {
   const { setFormMediaOpen } = useInstagramFeedStore();

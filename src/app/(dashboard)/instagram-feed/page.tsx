@@ -6,7 +6,7 @@ import { LoadingSpinner } from '@/components/loading';
 
 import InstagramFeedPageHeading from './components/page-heading';
 import InstagramFeedPageWrapper from './components/page-wrapper';
-import InstagramFeedList from './components/feed-list';
+import InstagramFeedList from './components/list/list';
 
 export const metadata: Metadata = {
   title: 'Instagram feed',
