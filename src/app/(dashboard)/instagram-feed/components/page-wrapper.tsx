@@ -4,7 +4,7 @@ import { SheetWithForm } from '@/components/sheets';
 import { DeleteDialog } from '@/components/dialogs';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
-import InstagramFeedForm from './feed-form';
+import InstagramFeedForm from './form/form';
 
 export default function InstagramFeedPageWrapper({ children }: { children: React.ReactNode }) {
   const {

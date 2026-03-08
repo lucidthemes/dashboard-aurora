@@ -18,9 +18,9 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { InstagramFeed } from '@/schemas/instagram-feed.schema';
 
-import useInstagramFeedForm from '../hooks/use-feed-form.';
-import InstagramFeedFormImages from './feed-form-images';
-import InstagramFeedFormMedia from './feed-form-media';
+import useInstagramFeedForm from '../../hooks/form/use-form';
+import InstagramFeedFormImages from './images';
+import InstagramFeedFormMedia from './media';
 
 export default function InstagramFeedForm({
   type,

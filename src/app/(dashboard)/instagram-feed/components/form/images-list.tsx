@@ -26,7 +26,7 @@ export default function InstagramFeedFormImagesList({
     if (!feedFormImagesQuery.isSuccess || !feedFormImagesQuery.data) return;
 
     setSelectedImages(feedFormImagesQuery.data);
-  }, [type, feedFormImagesQuery.isSuccess, feedFormImagesQuery.data]);
+  }, [type, feedFormImagesQuery.isSuccess, feedFormImagesQuery.data, setSelectedImages]);
 
   return (
     <>

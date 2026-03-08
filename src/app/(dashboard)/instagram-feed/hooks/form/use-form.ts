@@ -5,8 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { createInstagramFeed } from '../actions/create-feed.action';
-import { updateInstagramFeed } from '../actions/update-feed.action';
+import { createInstagramFeed } from '../../actions/create-feed.action';
+import { updateInstagramFeed } from '../../actions/update-feed.action';
 import { InstagramFeedFormSchema } from '@/schemas/instagram-feed.schema';
 import type { InstagramFeed, InstagramFeedForm } from '@/schemas/instagram-feed.schema';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';

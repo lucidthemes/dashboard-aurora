@@ -2,7 +2,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
-import InstagramFeedFormMediaList from './feed-form-media-list';
+import InstagramFeedFormMediaList from './media-list';
 
 export default function InstagramFeedFormMedia() {
   const { formMediaOpen, setFormMediaOpen } = useInstagramFeedStore();
