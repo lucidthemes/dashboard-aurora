@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { DeleteButton } from '@/components/buttons';
-
+import { getPublicMediaUrl } from '@/lib/media/storage';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 import type { InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
 
@@ -31,7 +31,7 @@ export default function InstagramFeedFormImagesList({
   return (
     <>
       {selectedImages.map((image) => {
-        const publicMediaUrl = `/temp/${image.media.storage_path}`;
+        const publicMediaUrl = getPublicMediaUrl(image.media.storage_path);
 
         return (
           <li key={image.media.id} className="relative h-full w-full overflow-hidden rounded-md">

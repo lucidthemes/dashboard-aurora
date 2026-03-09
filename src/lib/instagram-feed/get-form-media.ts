@@ -1,0 +1,51 @@
+import { InstagramFeedFormMediaSchema } from '@/schemas/instagram-feed.schema';
+import type { InstagramFeedFormMedia } from '@/schemas/instagram-feed.schema';
+
+import { createClient } from '../supabase/client';
+import { createLogEvent } from '../supabase/log-event';
+
+export async function getInstagramFeedFormMedia(page: number): Promise<InstagramFeedFormMedia | undefined> {
+  const supabase = createClient();
+
+  const limit = 10;
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  const {
+    data: mediaData,
+    count,
+    error,
+  } = await supabase
+    .from('media')
+    .select('id, storage_path, alt_text', { count: 'exact' })
+    .eq('type', 'image')
+    .range(from, to)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    createLogEvent('error', 'FETCH_INSTAGRAM_FEED_FORM_MEDIA_FAILED', error.message);
+
+    return undefined;
+  }
+
+  const hasMore = count && count > page * limit ? true : false;
+
+  const formMediaData: InstagramFeedFormMedia = {
+    items: mediaData,
+    hasMore: hasMore,
+  };
+
+  const parsed = InstagramFeedFormMediaSchema.safeParse(formMediaData);
+
+  if (!parsed.success) {
+    createLogEvent(
+      'error',
+      'FETCH_INSTAGRAM_FEED_FORM_MEDIA_INVALID_DATA',
+      'Fetch instagram feed form media failed schema validation',
+    );
+
+    return undefined;
+  }
+
+  return parsed.data;
+}
