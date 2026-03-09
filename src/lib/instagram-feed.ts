@@ -1,68 +1,7 @@
 import { z } from 'zod';
 
-import {
-  InstagramFeedSchema,
-  InstagramFeedFormImagesSchema,
-  InstagramFeedFormMediaSchema,
-} from '@/schemas/instagram-feed.schema';
-import type { InstagramFeed, InstagramFeedFormImages, InstagramFeedFormMedia } from '@/schemas/instagram-feed.schema';
-
-export async function getInstagramFeeds(): Promise<InstagramFeed[]> {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  const data: InstagramFeed[] = [];
-
-  // const { data, error } = await supabase.from('instagram_feeds').select();
-
-  // if (error) {
-  //   console.log('getInstagramFeeds error: ' + error.message);
-  //   return [];
-  // }
-
-  data.push(
-    {
-      id: '491b660b-3ed1-4281-b53b-b93d06231205',
-      name: 'Footer',
-      layout: {
-        gap: 4,
-        aspectRatio: 'square',
-        mobilePosts: 1,
-        tabletPosts: 4,
-        desktopPosts: 6,
-        mobileColumns: 1,
-        tabletColumns: 4,
-        desktopColumns: 6,
-      },
-      button: { enabled: true, link: 'https://aurora-sb.vercel.app/', text: 'Follow on Instagram' },
-      created_at: new Date('2026-01-04 17:05:50+00'),
-    },
-    {
-      id: '6a0b506f-1717-434c-8333-f7f4e8f5bb1b',
-      name: 'Sidebar',
-      layout: {
-        gap: 2.5,
-        aspectRatio: 'square',
-        mobilePosts: 1,
-        tabletPosts: 3,
-        desktopPosts: 9,
-        mobileColumns: 1,
-        tabletColumns: 1,
-        desktopColumns: 3,
-      },
-      button: { enabled: false },
-      created_at: new Date('2026-01-04 17:05:50+00'),
-    },
-  );
-
-  const parsed = z.array(InstagramFeedSchema).safeParse(data ?? []);
-
-  if (!parsed.success) {
-    console.log('getInstagramFeeds error: ' + parsed.error.name);
-    return [];
-  }
-
-  return parsed.data;
-}
+import { InstagramFeedFormImagesSchema, InstagramFeedFormMediaSchema } from '@/schemas/instagram-feed.schema';
+import type { InstagramFeedFormImages, InstagramFeedFormMedia } from '@/schemas/instagram-feed.schema';
 
 // use to load feed form selected images
 export async function getInstagramFeedFormImages(feedId: string | null): Promise<InstagramFeedFormImages[]> {

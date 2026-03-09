@@ -1,4 +1,4 @@
-import { getInstagramFeeds } from '@/lib/instagram-feed';
+import { getInstagramFeeds } from '@/lib/instagram-feed/get-feeds';
 
 import InstagramFeedListTable from './table';
 
