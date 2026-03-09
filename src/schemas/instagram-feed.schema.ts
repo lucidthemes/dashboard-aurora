@@ -26,7 +26,7 @@ export type InstagramFeed = z.infer<typeof InstagramFeedSchema>;
 export const InstagramFeedMediaSchema = z.object({
   id: z.uuid(),
   storage_path: z.string(),
-  alt_text: z.string().optional(),
+  alt_text: z.string().optional().nullable(),
 });
 
 export type InstagramFeedMedia = z.infer<typeof InstagramFeedMediaSchema>;
