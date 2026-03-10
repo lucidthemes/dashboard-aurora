@@ -5,6 +5,8 @@ import { DeleteDialog } from '@/components/dialogs';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
 import InstagramFeedForm from './form/form';
+import useInstagramFeedCreateForm from '../hooks/form/use-create-form';
+import useInstagramFeedEditForm from '../hooks/form/use-edit-form';
 
 export default function InstagramFeedPageWrapper({ children }: { children: React.ReactNode }) {
   const {
@@ -12,7 +14,6 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
     setCreateOpen,
     editOpen,
     setEditOpen,
-    editData,
     deleteOpen,
     setDeleteOpen,
     deleteRowId,
@@ -21,6 +22,9 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
     setDeleteTable,
     resetSelectedImages,
   } = useInstagramFeedStore();
+
+  const instagramFeedCreate = useInstagramFeedCreateForm();
+  const instagramFeedEdit = useInstagramFeedEditForm();
 
   const createSheetClose = () => {
     setCreateOpen(false);
@@ -51,8 +55,14 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
         description="Select options below for the feed. Click create when you're done"
         size="large"
         submitButtonText="Create Instagram feed"
+        submitIsPending={instagramFeedCreate.isPending}
       >
-        <InstagramFeedForm type="create" formId="instagram-feed-create-form" />
+        <InstagramFeedForm
+          form={instagramFeedCreate.form}
+          onSubmit={instagramFeedCreate.onSubmit}
+          formType="create"
+          formId="instagram-feed-create-form"
+        />
       </SheetWithForm>
 
       {/* edit feed sheet */}
@@ -62,8 +72,14 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
         formId="instagram-feed-edit-form"
         title="Edit Instagram feed"
         size="large"
+        submitIsPending={instagramFeedEdit.isPending}
       >
-        <InstagramFeedForm type="edit" formId="instagram-feed-edit-form" formData={editData} />
+        <InstagramFeedForm
+          form={instagramFeedEdit.form}
+          onSubmit={instagramFeedEdit.onSubmit}
+          formType="edit"
+          formId="instagram-feed-edit-form"
+        />
       </SheetWithForm>
 
       {/* delete feed dialog */}

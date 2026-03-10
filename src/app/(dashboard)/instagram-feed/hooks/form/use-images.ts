@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getInstagramFeedFormImages } from '@/lib/instagram-feed';
+import { getInstagramFeedFormImages } from '@/lib/instagram-feed/get-form-images';
 import type { InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
 
-export default function useInstagramFeedFormImages(type?: 'create' | 'edit', feedId?: string | null) {
+export default function useInstagramFeedFormImages(formType?: 'create' | 'edit', feedId?: string | null) {
   const feedFormImagesQuery = useQuery<InstagramFeedFormImages[]>({
-    queryKey: ['feedFormExistingMedia', type, feedId],
+    queryKey: ['feedFormExistingMedia', formType, feedId],
     queryFn: () => getInstagramFeedFormImages(feedId ?? null),
-    enabled: type === 'edit' && !!feedId,
+    enabled: formType === 'edit' && !!feedId,
   });
 
   return feedFormImagesQuery;

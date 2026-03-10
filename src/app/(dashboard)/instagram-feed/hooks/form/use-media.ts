@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import type { InfiniteData } from '@tanstack/react-query';
 
-import { getInstagramFeedFormMedia } from '@/lib/instagram-feed';
+import { getInstagramFeedFormMedia } from '@/lib/instagram-feed/get-form-media';
 import type { InstagramFeedFormMedia } from '@/schemas/instagram-feed.schema';
 
 export default function useInstagramFeedFormMedia() {

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 import { LoadingSpinner } from '@/components/loading';
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
-
+import { getPublicMediaUrl } from '@/lib/media/storage';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
 import useInstagramFeedFormMedia from '../../hooks/form/use-media';
@@ -26,7 +26,7 @@ export default function InstagramFeedFormMediaList() {
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
             {data.pages.flatMap((page) =>
               page?.items.map((image) => {
-                const publicMediaUrl = `/temp/${image.storage_path}`;
+                const publicMediaUrl = getPublicMediaUrl(image.storage_path);
 
                 const imageIsSelected = selectedImages.some((selected) => selected.media.id === image.id);
 
