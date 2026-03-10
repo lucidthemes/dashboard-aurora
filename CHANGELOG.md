@@ -101,6 +101,8 @@ All notable changes to this project will be documented in this file.
 - feed list to fetch from supabase
 - feed form to fetch selected images for feed from supabase
 - feed form to fetch media from supabase
+- feed form to create new feed on supabase
+- feed form to update existing feed on supabase
 
 ###### Media
 
