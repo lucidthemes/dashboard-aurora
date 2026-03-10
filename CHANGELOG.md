@@ -78,6 +78,8 @@ All notable changes to this project will be documented in this file.
 
 - move instagram feed actions file into instagram feed route actions folder
 - move media action file into media route actions folder
+- renamed delete actions file to delete dialog
+- delete dialog action to delete from supabase
 
 #### App
 

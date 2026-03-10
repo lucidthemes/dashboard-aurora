@@ -3,7 +3,7 @@
 import { useTransition } from 'react';
 import { toast } from 'sonner';
 
-import { deleteRowFromTable } from '@/actions/delete.actions';
+import { deleteDialogDeleteRowFromTable } from '@/actions/delete-dialog.action';
 import { deleteMedia } from '@/app/(dashboard)/media/actions/delete-media.action';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import {
@@ -39,6 +39,10 @@ function DeleteDialog({
   dialogClose,
   deleteRowId,
   deleteTable,
+  deletePath,
+  deleteLogEventName,
+  deleteLogEventMessage,
+  userId,
   title,
   description,
 }: {
@@ -46,6 +50,10 @@ function DeleteDialog({
   dialogClose: () => void;
   deleteRowId: string | null;
   deleteTable: string | null;
+  deletePath: string;
+  deleteLogEventName: string;
+  deleteLogEventMessage: string;
+  userId: string;
   title?: string;
   description?: string;
 }) {
@@ -70,18 +78,26 @@ function DeleteDialog({
             className="cursor-pointer"
             disabled={isPending}
             onClick={() => {
-              dialogClose();
               startTransition(async () => {
-                const res = await deleteRowFromTable(deleteRowId, deleteTable);
+                const result = await deleteDialogDeleteRowFromTable(
+                  deleteRowId,
+                  deleteTable,
+                  deletePath,
+                  deleteLogEventName,
+                  deleteLogEventMessage,
+                  userId,
+                );
 
-                if (res.success) {
+                if (result.success) {
                   toast.success('Successfully deleted');
+                  dialogClose();
                 } else {
                   toast.error('Error deleting data');
                 }
               });
             }}
           >
+            {isPending && <Spinner data-icon="inline-start" />}
             Delete
           </AlertDialogAction>
         </AlertDialogFooter>
@@ -147,12 +163,12 @@ function DeleteMediaDialog({
             className="cursor-pointer"
             disabled={isPending}
             onClick={() => {
-              dialogClose();
               startTransition(async () => {
                 const result = await deleteMedia(deleteStoragePath, userId);
 
                 if (result.success) {
                   toast.success('Successfully deleted');
+                  dialogClose();
                 } else {
                   toast.error('Error deleting media');
                 }
