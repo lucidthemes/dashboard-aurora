@@ -13,10 +13,10 @@ import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 import type { InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
 
 export default function InstagramFeedFormImagesList({
-  type,
+  formType,
   feedFormImagesQuery,
 }: {
-  type: 'create' | 'edit';
+  formType: 'create' | 'edit';
   feedFormImagesQuery: UseQueryResult<InstagramFeedFormImages[]>;
 }) {
   const { selectedImages, setSelectedImages, removeSelectedImage, updateSelectedImagePosition } =
@@ -26,7 +26,7 @@ export default function InstagramFeedFormImagesList({
     if (!feedFormImagesQuery.isSuccess || !feedFormImagesQuery.data) return;
 
     setSelectedImages(feedFormImagesQuery.data);
-  }, [type, feedFormImagesQuery.isSuccess, feedFormImagesQuery.data, setSelectedImages]);
+  }, [formType, feedFormImagesQuery.isSuccess, feedFormImagesQuery.data, setSelectedImages]);
 
   return (
     <>

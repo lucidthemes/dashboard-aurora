@@ -1,6 +1,7 @@
 'use client';
 
 import { Controller } from 'react-hook-form';
+import type { UseFormReturn } from 'react-hook-form';
 
 import {
   Field,
@@ -16,22 +17,24 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { InstagramFeed } from '@/schemas/instagram-feed.schema';
+import type { InstagramFeedForm } from '@/schemas/instagram-feed.schema';
+import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
-import useInstagramFeedForm from '../../hooks/form/use-form';
 import InstagramFeedFormImages from './images';
 import InstagramFeedFormMedia from './media';
 
 export default function InstagramFeedForm({
-  type,
+  form,
+  onSubmit,
+  formType,
   formId,
-  formData,
 }: {
-  type: 'create' | 'edit';
+  form: UseFormReturn<InstagramFeedForm>;
+  onSubmit: (data: InstagramFeedForm) => Promise<void>;
+  formType: 'create' | 'edit';
   formId: string;
-  formData?: InstagramFeed | null;
 }) {
-  const { form, onSubmit } = useInstagramFeedForm(type, formData);
+  const { editData } = useInstagramFeedStore();
 
   return (
     <form id={formId} onSubmit={form.handleSubmit(onSubmit)}>
@@ -61,7 +64,7 @@ export default function InstagramFeedForm({
           </TabsList>
 
           <TabsContent value="images">
-            <InstagramFeedFormImages type={type} feedId={formData?.id} />
+            <InstagramFeedFormImages formType={formType} feedId={editData?.id} />
             <InstagramFeedFormMedia />
           </TabsContent>
 
