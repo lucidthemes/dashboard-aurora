@@ -31,12 +31,13 @@ export default function useInstagramFeedCreateForm() {
         desktopColumns: 6,
       },
       button: {
-        enabled: true,
+        enabled: false,
         link: 'https://aurora-sb.vercel.app/',
         text: 'Follow on Instagram',
       },
     },
     resolver: zodResolver(InstagramFeedFormSchema),
+    shouldUnregister: true,
   });
 
   const instagramFeedFormCreateMutation = useMutation({
