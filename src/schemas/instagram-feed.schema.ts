@@ -48,10 +48,30 @@ export const InstagramFeedFormMediaSchema = z.object({
 export type InstagramFeedFormMedia = z.infer<typeof InstagramFeedFormMediaSchema>;
 
 // used for feed form inputs
-export const InstagramFeedFormSchema = InstagramFeedSchema.omit({ id: true, created_at: true }).extend({
-  name: InstagramFeedSchema.shape.name.refine((val) => val !== 'New feed', {
-    message: 'Please change the name from the default',
-  }),
-});
+export const InstagramFeedFormSchema = InstagramFeedSchema.omit({ id: true, created_at: true })
+  .extend({
+    name: InstagramFeedSchema.shape.name.refine((val) => val !== 'New feed', {
+      message: 'Please change the name from the default',
+    }),
+  })
+  .superRefine((data, ctx) => {
+    if (data.button.enabled) {
+      if (!data.button.text) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Button text is required',
+          path: ['button', 'text'],
+        });
+      }
+
+      if (!data.button.link) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Button link is required',
+          path: ['button', 'link'],
+        });
+      }
+    }
+  });
 
 export type InstagramFeedForm = z.infer<typeof InstagramFeedFormSchema>;

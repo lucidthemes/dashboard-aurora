@@ -19,7 +19,26 @@ export default function useInstagramFeedEditForm() {
   const { setEditOpen, editData, selectedImages } = useInstagramFeedStore();
 
   const form = useForm<InstagramFeedForm>({
+    defaultValues: {
+      name: editData?.name ?? 'New feed',
+      layout: {
+        gap: editData?.layout.gap ?? 4,
+        aspectRatio: editData?.layout.aspectRatio ?? 'square',
+        mobilePosts: editData?.layout.mobilePosts ?? 1,
+        tabletPosts: editData?.layout.tabletPosts ?? 4,
+        desktopPosts: editData?.layout.desktopPosts ?? 6,
+        mobileColumns: editData?.layout.mobileColumns ?? 1,
+        tabletColumns: editData?.layout.tabletColumns ?? 4,
+        desktopColumns: editData?.layout.desktopColumns ?? 6,
+      },
+      button: {
+        enabled: editData?.button.enabled ?? false,
+        link: editData?.button.link ?? 'https://aurora-sb.vercel.app/',
+        text: editData?.button.text ?? 'Follow on Instagram',
+      },
+    },
     resolver: zodResolver(InstagramFeedFormSchema),
+    shouldUnregister: true,
   });
 
   useEffect(() => {
@@ -37,7 +56,7 @@ export default function useInstagramFeedEditForm() {
           desktopColumns: editData?.layout.desktopColumns ?? 6,
         },
         button: {
-          enabled: editData?.button.enabled ?? true,
+          enabled: editData?.button.enabled ?? false,
           link: editData?.button.link ?? 'https://aurora-sb.vercel.app/',
           text: editData?.button.text ?? 'Follow on Instagram',
         },

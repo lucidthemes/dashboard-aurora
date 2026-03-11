@@ -105,6 +105,7 @@ All notable changes to this project will be documented in this file.
 - feed form to fetch media from supabase
 - feed form to create new feed on supabase
 - feed form to update existing feed on supabase
+- feed form button checkbox field to show/hide link and text fields
 
 ###### Media
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Controller } from 'react-hook-form';
+import { Controller, useWatch } from 'react-hook-form';
 import type { UseFormReturn } from 'react-hook-form';
 
 import {
@@ -35,6 +35,11 @@ export default function InstagramFeedForm({
   formId: string;
 }) {
   const { editData } = useInstagramFeedStore();
+
+  const showButtonFields = useWatch({
+    control: form.control,
+    name: 'button.enabled',
+  });
 
   return (
     <form id={formId} onSubmit={form.handleSubmit(onSubmit)}>
@@ -84,6 +89,7 @@ export default function InstagramFeedForm({
                       step={0.1}
                       aria-invalid={fieldState.invalid}
                       value={field.value ?? ''}
+                      placeholder="Gap"
                       onChange={(e) => {
                         const value = e.target.valueAsNumber;
                         field.onChange(Number.isNaN(value) ? undefined : value);
@@ -118,7 +124,9 @@ export default function InstagramFeedForm({
                   </Field>
                 )}
               />
+
               <FieldSeparator />
+
               <FieldSet>
                 <FieldLegend>Posts</FieldLegend>
                 <FieldDescription>Number of post shown on each screen size.</FieldDescription>
@@ -199,7 +207,9 @@ export default function InstagramFeedForm({
                   </div>
                 </FieldGroup>
               </FieldSet>
+
               <FieldSeparator />
+
               <FieldSet>
                 <FieldLegend>Columns</FieldLegend>
                 <FieldDescription>Number of columns on each screen size.</FieldDescription>
@@ -283,7 +293,9 @@ export default function InstagramFeedForm({
                   </div>
                 </FieldGroup>
               </FieldSet>
+
               <FieldSeparator />
+
               <FieldSet>
                 <FieldLegend>Button</FieldLegend>
                 <FieldDescription>Show or hide the follow button</FieldDescription>
@@ -317,47 +329,51 @@ export default function InstagramFeedForm({
                         </FieldSet>
                       )}
                     />
-                    <Controller
-                      name="button.link"
-                      control={form.control}
-                      render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <div className="grid grid-cols-2">
-                            <FieldLabel htmlFor="button.link">Link</FieldLabel>
-                            <Input
-                              {...field}
-                              id="button.link"
-                              type="url"
-                              aria-invalid={fieldState.invalid}
-                              placeholder="button.link"
-                              autoComplete="off"
-                            />
-                          </div>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                        </Field>
-                      )}
-                    />
-                    <Controller
-                      name="button.text"
-                      control={form.control}
-                      render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <div className="grid grid-cols-2">
-                            <FieldLabel htmlFor="button.text">Text</FieldLabel>
-                            <Input
-                              {...field}
-                              id="button.text"
-                              type="text"
-                              min={0}
-                              aria-invalid={fieldState.invalid}
-                              placeholder="button.text"
-                              autoComplete="off"
-                            />
-                          </div>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                        </Field>
-                      )}
-                    />
+                    {showButtonFields && (
+                      <>
+                        <Controller
+                          name="button.link"
+                          control={form.control}
+                          render={({ field, fieldState }) => (
+                            <Field data-invalid={fieldState.invalid}>
+                              <div className="grid grid-cols-2">
+                                <FieldLabel htmlFor="button.link">Link</FieldLabel>
+                                <Input
+                                  {...field}
+                                  id="button.link"
+                                  type="url"
+                                  aria-invalid={fieldState.invalid}
+                                  placeholder="Link"
+                                  autoComplete="off"
+                                />
+                              </div>
+                              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                            </Field>
+                          )}
+                        />
+                        <Controller
+                          name="button.text"
+                          control={form.control}
+                          render={({ field, fieldState }) => (
+                            <Field data-invalid={fieldState.invalid}>
+                              <div className="grid grid-cols-2">
+                                <FieldLabel htmlFor="button.text">Text</FieldLabel>
+                                <Input
+                                  {...field}
+                                  id="button.text"
+                                  type="text"
+                                  min={0}
+                                  aria-invalid={fieldState.invalid}
+                                  placeholder="Text"
+                                  autoComplete="off"
+                                />
+                              </div>
+                              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                            </Field>
+                          )}
+                        />
+                      </>
+                    )}
                   </div>
                 </FieldGroup>
               </FieldSet>
