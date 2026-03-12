@@ -1,8 +1,13 @@
 import type { User } from '@supabase/supabase-js';
 
 import { createClient } from '@/lib/supabase/server';
+import type { Customer } from '@/schemas/customer.schema';
 
-export async function getCurrentDashboardUser(): Promise<{ user: User; role: 'admin' | 'editor' } | null> {
+export async function getCurrentDashboardUser(): Promise<{
+  user: User;
+  role: 'admin' | 'editor';
+  customer: Customer;
+} | null> {
   const supabase = await createClient();
 
   const {
@@ -17,5 +22,7 @@ export async function getCurrentDashboardUser(): Promise<{ user: User; role: 'ad
     return null;
   }
 
-  return { user, role: roleData?.role };
+  const { data: customerData } = await supabase.from('customers').select().eq('user_id', user.id).single();
+
+  return { user, role: roleData?.role, customer: customerData };
 }

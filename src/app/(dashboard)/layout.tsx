@@ -12,7 +12,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   }
 
   return (
-    <DashboardUserProvider user={dashboardUser.user} role={dashboardUser.role}>
+    <DashboardUserProvider user={dashboardUser.user} role={dashboardUser.role} customer={dashboardUser.customer}>
       <DashboardWrapper>{children}</DashboardWrapper>
     </DashboardUserProvider>
   );

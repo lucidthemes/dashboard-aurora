@@ -4,7 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## [0.3.0] - [Unreleased]
 
+### Added
+
+#### Schemas
+
+- customer
+
 ### Changed
+
+#### App
+
+##### Dashboard
+
+- get current dashboard user to fetch customer data
+- dashboard user context to store customer data
 
 #### Components
 
