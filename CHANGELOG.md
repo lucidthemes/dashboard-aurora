@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - [Unreleased]
+
+### Changed
+
+#### Components
+
+- app sidebar shop route links to not include shop within url
+
 ## [0.2.0] - 2026-03-11
 
 ### Added
