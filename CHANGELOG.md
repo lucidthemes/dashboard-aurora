@@ -8,7 +8,11 @@ All notable changes to this project will be documented in this file.
 
 #### Components
 
+##### Dashboard
+
 - app sidebar shop route links to not include shop within url
+- nav menu group link highlights current page route
+- nav menu group link automatically opens current route sub menu group
 
 ### Fixed
 
