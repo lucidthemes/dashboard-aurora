@@ -20,11 +20,13 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui
 import { useDashboardUser } from '@/app/(dashboard)/user-provider';
 
 export function MainHeaderUser() {
-  const supabase = createClient();
-
   const router = useRouter();
 
   const { user } = useDashboardUser();
+
+  if (!user) return null;
+
+  const supabase = createClient();
 
   const name = 'Lucid Themes';
   const email = user.email;

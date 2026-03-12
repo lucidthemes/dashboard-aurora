@@ -10,6 +10,12 @@ All notable changes to this project will be documented in this file.
 
 - app sidebar shop route links to not include shop within url
 
+### Fixed
+
+#### Components
+
+- main header user hydration issue when fetching user from supabase auth
+
 ## [0.2.0] - 2026-03-11
 
 ### Added
