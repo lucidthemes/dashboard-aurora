@@ -22,7 +22,7 @@ export async function getCurrentDashboardUser(): Promise<{
     return null;
   }
 
-  const { data: customerData } = await supabase.from('customers').select().eq('user_id', user.id).single();
+  const { data: customerData } = await supabase.from('customers').select().eq('id', user.id).single();
 
   return { user, role: roleData?.role, customer: customerData };
 }
