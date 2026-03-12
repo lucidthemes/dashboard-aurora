@@ -30,7 +30,6 @@ const data = {
       title: 'Posts',
       url: '/posts',
       icon: StickyNote,
-      isActive: false,
       items: [
         {
           title: 'Categories',
@@ -55,7 +54,6 @@ const data = {
       title: 'Products',
       url: '/products',
       icon: StickyNote,
-      isActive: false,
       items: [
         {
           title: 'Categories',
@@ -83,31 +81,26 @@ const data = {
       title: 'Orders',
       url: '/orders',
       icon: ShoppingCart,
-      isActive: false,
     },
     {
       title: 'Customers',
       url: '/customers',
       icon: User,
-      isActive: false,
     },
     {
       title: 'Payments',
       url: '/payments',
       icon: CreditCard,
-      isActive: false,
     },
     {
       title: 'Shipping',
       url: '/shipping',
       icon: Van,
-      isActive: false,
     },
     {
       title: 'Coupons',
       url: '/coupons',
       icon: Percent,
-      isActive: false,
     },
   ],
   media: [
@@ -115,7 +108,6 @@ const data = {
       title: 'Media',
       url: '/media',
       icon: ImageIcon,
-      isActive: false,
     },
   ],
   instagram: [
@@ -123,7 +115,6 @@ const data = {
       title: 'Instagram feed',
       url: '/instagram-feed',
       icon: ImageIcon,
-      isActive: false,
     },
   ],
   admin: [
@@ -131,19 +122,16 @@ const data = {
       title: 'Users',
       url: '/users',
       icon: User,
-      isActive: false,
     },
     {
       title: 'Logs',
       url: '/logs',
       icon: Logs,
-      isActive: false,
     },
     {
       title: 'Settings',
       url: '/settings',
       icon: Settings,
-      isActive: false,
     },
   ],
 };
