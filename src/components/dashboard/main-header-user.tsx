@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { CircleUser, LogOut } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,7 +28,8 @@ export function MainHeaderUser() {
   const supabase = createClient();
 
   const email = user.email;
-  //const avatar = '/avatars/shadcn.jpg';
+
+  const avatarCharacters = (customer.first_name?.[0] ?? '') + (customer.last_name?.[0] ?? '') || (email?.[0] ?? '');
 
   return (
     <SidebarMenu className="w-auto">
@@ -40,8 +41,7 @@ export function MainHeaderUser() {
               className="cursor-pointer data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
-                <AvatarFallback className="rounded-lg">LT</AvatarFallback>
+                <AvatarFallback className="rounded-lg uppercase">{avatarCharacters}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 gap-1 text-left text-sm leading-tight">
                 {(customer.first_name || customer.last_name) && (
