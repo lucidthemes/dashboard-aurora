@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 - nav menu group link automatically opens current route sub menu group
 - split dashboard layout into wrapper component for client component to fix hydration error
 - main header user to show customer first and last name
+- main header user to show avatar using first and last name characters
 
 ### Fixed
 
