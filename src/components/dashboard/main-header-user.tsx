@@ -11,7 +11,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
@@ -22,13 +21,12 @@ import { useDashboardUser } from '@/app/(dashboard)/user-provider';
 export function MainHeaderUser() {
   const router = useRouter();
 
-  const { user } = useDashboardUser();
+  const { user, customer } = useDashboardUser();
 
   if (!user) return null;
 
   const supabase = createClient();
 
-  const name = 'Lucid Themes';
   const email = user.email;
   //const avatar = '/avatars/shadcn.jpg';
 
@@ -45,8 +43,13 @@ export function MainHeaderUser() {
                 {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
                 <AvatarFallback className="rounded-lg">LT</AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{name}</span>
+              <div className="grid flex-1 gap-1 text-left text-sm leading-tight">
+                {(customer.first_name || customer.last_name) && (
+                  <div className="flex gap-1 truncate font-medium">
+                    <span>{customer.first_name}</span>
+                    <span>{customer.last_name}</span>
+                  </div>
+                )}
                 <span className="truncate text-xs">{email}</span>
               </div>
             </SidebarMenuButton>
@@ -57,19 +60,6 @@ export function MainHeaderUser() {
             align="end"
             sideOffset={4}
           >
-            <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <Avatar className="h-8 w-8 rounded-lg">
-                  {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
-                  <AvatarFallback className="rounded-lg">LT</AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{name}</span>
-                  <span className="truncate text-xs">{email}</span>
-                </div>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <Link href="/account">
                 <DropdownMenuItem className="cursor-pointer">
@@ -77,6 +67,7 @@ export function MainHeaderUser() {
                   Account
                 </DropdownMenuItem>
               </Link>
+              <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => {
