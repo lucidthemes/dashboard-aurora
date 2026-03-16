@@ -23,6 +23,8 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
+                const actionsColClass = header.column.columnDef.id === 'actions' ? 'text-right' : '';
+
                 return (
                   <TableHead
                     key={header.id}
@@ -30,7 +32,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                       minWidth: header.column.columnDef.size,
                       maxWidth: header.column.columnDef.size,
                     }}
-                    className="px-5 py-2.5"
+                    className={`px-5 py-2.5 ${actionsColClass}`}
                   >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
@@ -50,7 +52,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                       minWidth: cell.column.columnDef.size,
                       maxWidth: cell.column.columnDef.size,
                     }}
-                    className="p-5"
+                    className="p-5 whitespace-normal"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
