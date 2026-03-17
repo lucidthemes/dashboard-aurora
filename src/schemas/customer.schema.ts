@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const AddressSchema = z.object({
+export const AddressSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   country: z.string(),
@@ -11,6 +11,8 @@ const AddressSchema = z.object({
   postcode: z.string(),
   phone: z.string().optional(),
 });
+
+export type Address = z.infer<typeof AddressSchema>;
 
 export const CustomerSchema = z.object({
   id: z.string(),

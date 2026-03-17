@@ -6,6 +6,22 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+#### App
+
+##### Dashboard
+
+- customers page route
+- customers components
+- customers data
+- customers hooks
+- customers schemas
+- customers store
+
+#### Lib
+
+- formatter for date and time
+- supabase create admin client
+
 #### Schemas
 
 - customer
@@ -29,6 +45,10 @@ All notable changes to this project will be documented in this file.
 - split dashboard layout into wrapper component for client component to fix hydration error
 - main header user to show customer first and last name
 - main header user to show avatar using first and last name characters
+
+##### UI
+
+- data table actions column to align right
 
 ### Fixed
 
