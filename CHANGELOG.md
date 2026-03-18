@@ -35,6 +35,10 @@ All notable changes to this project will be documented in this file.
 - get current dashboard user to fetch customer data
 - dashboard user context to store customer data
 
+##### Auth
+
+- login form password field to type password
+
 #### Components
 
 ##### Dashboard

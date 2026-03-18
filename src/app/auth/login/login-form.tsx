@@ -47,6 +47,7 @@ export function LoginForm() {
               <Input
                 {...field}
                 id="password"
+                type="password"
                 aria-invalid={fieldState.invalid}
                 placeholder="••••••••"
                 autoComplete="off"
