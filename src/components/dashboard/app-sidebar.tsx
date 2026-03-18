@@ -19,6 +19,7 @@ import {
   Settings,
 } from 'lucide-react';
 
+import { useDashboardUser } from '@/app/(dashboard)/user-provider';
 import { NavMenuGroup } from '@/components/dashboard/nav-menu-group';
 import { Sidebar, SidebarHeader, SidebarContent, SidebarRail } from '@/components/ui/sidebar';
 import { Separator } from '@/components/ui/separator';
@@ -124,20 +125,22 @@ const data = {
       icon: User,
     },
     {
-      title: 'Logs',
-      url: '/logs',
-      icon: Logs,
-    },
-    {
       title: 'Settings',
       url: '/settings',
       icon: Settings,
+    },
+    {
+      title: 'Logs',
+      url: '/logs',
+      icon: Logs,
     },
   ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const databaseUsed = process.env.NEXT_PUBLIC_DATABASE ?? 'unknown';
+
+  const { role } = useDashboardUser();
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -155,7 +158,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMenuGroup items={data.shop} />
         <NavMenuGroup items={data.media} />
         <NavMenuGroup items={data.instagram} />
-        <NavMenuGroup items={data.admin} />
+        {role === 'admin' && <NavMenuGroup items={data.admin} />}
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
