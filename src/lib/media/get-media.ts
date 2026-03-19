@@ -14,8 +14,8 @@ export default async function getMedia(
 
   const mediaType = type === 'images' ? 'image' : 'video';
 
-  const rangeFrom = (page - 1) * limit;
-  const rangeTo = rangeFrom + limit - 1;
+  const rangeFrom = (Number(page) - 1) * Number(limit);
+  const rangeTo = Number(rangeFrom) + Number(limit) - 1;
 
   const { data, count, error } = await supabase
     .from('media')
