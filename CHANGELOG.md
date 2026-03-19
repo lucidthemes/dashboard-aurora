@@ -10,12 +10,30 @@ All notable changes to this project will be documented in this file.
 
 ##### Dashboard
 
+###### Customers
+
 - customers page route
 - customers components
 - customers data
 - customers hooks
 - customers schemas
 - customers store
+
+###### Admin
+
+- admin route group folder
+- logs page route
+- logs components
+- logs data
+- logs schemas
+
+#### Components
+
+- list sub folder
+- list controls
+- list filters
+- list search
+- list sort
 
 #### Lib
 
@@ -49,6 +67,7 @@ All notable changes to this project will be documented in this file.
 - split dashboard layout into wrapper component for client component to fix hydration error
 - main header user to show customer first and last name
 - main header user to show avatar using first and last name characters
+- app sidebar to check user role for admin routes
 
 ##### UI
 

@@ -18,7 +18,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
   return (
     <div className="overflow-hidden rounded-md border">
-      <Table className="overflow-x-scroll sm:table-fixed lg:table-auto">
+      <Table className="table-fixed overflow-x-scroll">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
