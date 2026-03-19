@@ -8,8 +8,9 @@ export async function getInstagramFeedFormMedia(page: number): Promise<Instagram
   const supabase = createClient();
 
   const limit = 10;
-  const from = (page - 1) * limit;
-  const to = from + limit - 1;
+
+  const rangeFrom = (Number(page) - 1) * Number(limit);
+  const rangeTo = Number(rangeFrom) + Number(limit) - 1;
 
   const {
     data: mediaData,
@@ -19,7 +20,7 @@ export async function getInstagramFeedFormMedia(page: number): Promise<Instagram
     .from('media')
     .select('id, storage_path, alt_text', { count: 'exact' })
     .eq('type', 'image')
-    .range(from, to)
+    .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: false });
 
   if (error) {
