@@ -1,8 +1,9 @@
-import getCustomers from '../../data/get-customers';
+import ListSearch from '@/components/list/search';
+import ListControls from '@/components/list/controls';
+import ListSort from '@/components/list/sort';
 
+import getCustomers from '../../data/get-customers';
 import CustomersListTable from './table';
-import CustomersListSearch from './search';
-import CustomersListControls from './controls';
 
 interface CustomersListProps {
   page: number;
@@ -15,9 +16,13 @@ export default async function CustomersList({ page, limit, search }: CustomersLi
 
   return (
     <div className="flex flex-col gap-5">
-      <CustomersListSearch search={search} />
+      <div className="flex flex-col gap-5 lg:flex-row lg:justify-between">
+        <ListSearch placeholder="Customer ID or Email address" search={search} />
+        <ListSort />
+      </div>
+
       <CustomersListTable customersList={customers} />
-      <CustomersListControls page={page} limit={limit} totalCount={totalCount} />
+      <ListControls page={page} limit={limit} totalCount={totalCount} />
     </div>
   );
 }
