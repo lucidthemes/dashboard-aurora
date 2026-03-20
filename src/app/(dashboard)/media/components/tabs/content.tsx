@@ -10,12 +10,14 @@ export default async function MediaTabsContent({
   type,
   page,
   limit,
+  sort,
 }: {
   type: 'images' | 'videos';
   page: number;
   limit: number;
+  sort?: string;
 }) {
-  const { media, totalCount } = await getMedia(type, page, limit);
+  const { media, totalCount } = await getMedia(type, page, limit, sort);
 
   return (
     <>

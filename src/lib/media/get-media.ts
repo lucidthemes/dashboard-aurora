@@ -9,6 +9,7 @@ export default async function getMedia(
   type: 'images' | 'videos',
   page: number,
   limit: number,
+  sort?: string,
 ): Promise<{ media: Media[]; totalCount: number }> {
   const supabase = createClient();
 
@@ -17,12 +18,14 @@ export default async function getMedia(
   const rangeFrom = (Number(page) - 1) * Number(limit);
   const rangeTo = Number(rangeFrom) + Number(limit) - 1;
 
+  const sortAsc = sort === 'date_asc' ? true : false;
+
   const { data, count, error } = await supabase
     .from('media')
     .select('*', { count: 'exact' })
     .eq('type', mediaType)
     .range(rangeFrom, rangeTo)
-    .order('created_at', { ascending: false });
+    .order('created_at', { ascending: sortAsc });
 
   if (error) {
     createLogEvent('error', 'FETCH_MEDIA_FAILED', error.message + '. Type: ' + mediaType);
