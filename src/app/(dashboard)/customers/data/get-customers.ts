@@ -12,17 +12,20 @@ export default async function getCustomers(
   page: number,
   limit: number,
   search?: string,
+  sort?: string,
 ): Promise<{ customers: CustomersList[]; totalCount: number }> {
   const supabase = createAdminClient();
 
   const rangeFrom = (page - 1) * limit;
   const rangeTo = rangeFrom + limit - 1;
 
+  const sortAsc = sort === 'date_asc' ? true : false;
+
   let query = supabase
     .from('customers_list')
     .select('*', { count: 'exact' })
     .range(rangeFrom, rangeTo)
-    .order('created_at', { ascending: false });
+    .order('created_at', { ascending: sortAsc });
 
   if (search) {
     const isUUID = (value: string) =>
