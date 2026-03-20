@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 
-import { ViewMediaDialog, DeleteMediaDialog } from '@/components/dialogs';
 import { SheetWithForm, SheetWithContent } from '@/components/sheets';
 import { useMediaStore } from '@/store/media-store';
 
@@ -10,6 +9,8 @@ import { useDashboardUser } from '../../user-provider';
 import MediaEditForm from './edit-form';
 import useMediaEditForm from '../use-edit-form';
 import MediaUploadForm from './upload-form';
+import ViewMediaDialog from './dialogs/view-media';
+import DeleteMediaDialog from './dialogs/delete-media';
 
 export default function MediaPageWrapper({ children }: { children: React.ReactNode }) {
   const {

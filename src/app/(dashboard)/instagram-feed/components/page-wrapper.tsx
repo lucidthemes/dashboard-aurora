@@ -1,7 +1,7 @@
 'use client';
 
+import DeleteDialog from '@/components/dialogs/delete-dialog';
 import { SheetWithForm } from '@/components/sheets';
-import { DeleteDialog } from '@/components/dialogs';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
 import { useDashboardUser } from '../../user-provider';
