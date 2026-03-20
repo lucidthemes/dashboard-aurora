@@ -1,7 +1,8 @@
 'use client';
 
 import DeleteDialog from '@/components/dialogs/delete-dialog';
-import { SheetWithForm } from '@/components/sheets';
+import SheetForm from '@/components/sheets/form';
+
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
 import { useDashboardUser } from '../../user-provider';
@@ -50,7 +51,7 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
       {children}
 
       {/* create feed sheet */}
-      <SheetWithForm
+      <SheetForm
         sheetOpen={createOpen}
         sheetClose={createSheetClose}
         formId="instagram-feed-create-form"
@@ -66,10 +67,10 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
           formType="create"
           formId="instagram-feed-create-form"
         />
-      </SheetWithForm>
+      </SheetForm>
 
       {/* edit feed sheet */}
-      <SheetWithForm
+      <SheetForm
         sheetOpen={editOpen}
         sheetClose={editSheetClose}
         formId="instagram-feed-edit-form"
@@ -83,7 +84,7 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
           formType="edit"
           formId="instagram-feed-edit-form"
         />
-      </SheetWithForm>
+      </SheetForm>
 
       {/* delete feed dialog */}
       <DeleteDialog
