@@ -9,10 +9,11 @@ interface CustomersListProps {
   page: number;
   limit: number;
   search?: string;
+  sort?: string;
 }
 
-export default async function CustomersList({ page, limit, search }: CustomersListProps) {
-  const { customers, totalCount } = await getCustomers(page, limit, search);
+export default async function CustomersList({ page, limit, search, sort }: CustomersListProps) {
+  const { customers, totalCount } = await getCustomers(page, limit, search, sort);
 
   return (
     <div className="flex flex-col gap-5">

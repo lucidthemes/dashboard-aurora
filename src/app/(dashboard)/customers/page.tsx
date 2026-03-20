@@ -17,16 +17,16 @@ export const metadata: Metadata = {
 export default async function CustomersPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: number; limit?: number; search?: string }>;
+  searchParams: Promise<{ page?: number; limit?: number; search?: string; sort?: string }>;
 }) {
-  const { page = 1, limit = 12, search = '' } = await searchParams;
+  const { page = 1, limit = 12, search = '', sort = '' } = await searchParams;
 
   return (
     <MainContainer>
       <CustomersPageWrapper>
         <CustomersPageHeading />
         <Suspense key="customers" fallback={<LoadingSpinner />}>
-          <CustomersList page={page} limit={limit} search={search} />
+          <CustomersList page={page} limit={limit} search={search} sort={sort} />
         </Suspense>
       </CustomersPageWrapper>
     </MainContainer>
