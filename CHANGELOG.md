@@ -69,6 +69,10 @@ All notable changes to this project will be documented in this file.
 - main header user to show avatar using first and last name characters
 - app sidebar to check user role for admin routes
 
+##### Dialogs
+
+- split edit and delete dialogs into separate components within dialogs sub folder
+
 ##### UI
 
 - data table actions column to align right
