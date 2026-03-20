@@ -30,11 +30,6 @@ export default async function LogsList({
 
   const limitOptions = [25, 50, 75, 100];
 
-  const sortOptions = [
-    { id: 1, value: 'date_desc', label: 'Date (newest)' },
-    { id: 2, value: 'date_asc', label: 'Date (oldest)' },
-  ];
-
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col justify-between gap-5 lg:flex-row">
@@ -43,7 +38,7 @@ export default async function LogsList({
           <Separator orientation="vertical" className="hidden h-6! lg:block" />
           <LogsListFilters />
         </div>
-        <ListSort options={sortOptions} />
+        <ListSort />
       </div>
       <LogsListTable logsList={logs} />
       <ListControls page={page} limit={limit} totalCount={totalCount} limitOptions={limitOptions} />
