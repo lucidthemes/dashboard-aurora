@@ -2,7 +2,9 @@
 
 import Image from 'next/image';
 
-import { SheetWithForm, SheetWithContent } from '@/components/sheets';
+import SheetForm from '@/components/sheets/form';
+import SheetContent from '@/components/sheets/content';
+
 import { useMediaStore } from '@/store/media-store';
 
 import { useDashboardUser } from '../../user-provider';
@@ -75,7 +77,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
       </ViewMediaDialog>
 
       {/* edit media sheet */}
-      <SheetWithForm
+      <SheetForm
         sheetOpen={editOpen}
         sheetClose={editSheetClose}
         formId="media-edit-form"
@@ -83,7 +85,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
         submitIsPending={mediaEdit.isPending}
       >
         <MediaEditForm form={mediaEdit.form} onSubmit={mediaEdit.onSubmit} />
-      </SheetWithForm>
+      </SheetForm>
 
       {/* delete media dialog */}
       <DeleteMediaDialog
@@ -95,7 +97,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
       />
 
       {/* upload media sheet */}
-      <SheetWithContent
+      <SheetContent
         sheetOpen={uploadOpen}
         sheetClose={uploadSheetClose}
         title={`Upload ${uploadType}`}
@@ -103,7 +105,7 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
         size="medium"
       >
         <MediaUploadForm uploadType={uploadType} />
-      </SheetWithContent>
+      </SheetContent>
     </>
   );
 }
