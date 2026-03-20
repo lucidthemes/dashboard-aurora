@@ -73,6 +73,10 @@ All notable changes to this project will be documented in this file.
 
 - split edit and delete dialogs into separate components within dialogs sub folder
 
+##### Sheets
+
+- split form and content sheets into separate components within sheets sub folder
+
 ##### UI
 
 - data table actions column to align right
