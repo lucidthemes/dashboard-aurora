@@ -7,6 +7,10 @@ import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { useMediaStore } from '@/store/media-store';
 
+import ListSort from '@/components/list/sort';
+
+import { Separator } from '@/components/ui/separator';
+
 export default function MediaTabsHeader() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -31,22 +35,26 @@ export default function MediaTabsHeader() {
         </TabsTrigger>
       </TabsList>
       <div className="flex gap-x-5">
-        <Button
-          variant="outline"
-          size="sm"
-          className={layout === 'grid' ? 'h-full cursor-pointer bg-accent' : 'h-full cursor-pointer'}
-          onClick={() => setLayout('grid')}
-        >
-          <Grid2x2 />
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          className={layout === 'list' ? 'h-full cursor-pointer bg-accent' : 'h-full cursor-pointer'}
-          onClick={() => setLayout('list')}
-        >
-          <List />
-        </Button>
+        <div className="flex gap-x-5">
+          <Button
+            variant="outline"
+            size="sm"
+            className={layout === 'grid' ? 'h-full cursor-pointer bg-accent' : 'h-full cursor-pointer'}
+            onClick={() => setLayout('grid')}
+          >
+            <Grid2x2 />
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className={layout === 'list' ? 'h-full cursor-pointer bg-accent' : 'h-full cursor-pointer'}
+            onClick={() => setLayout('list')}
+          >
+            <List />
+          </Button>
+        </div>
+        <Separator orientation="vertical" className="hidden h-6! self-center lg:block" />
+        <ListSort />
       </div>
     </div>
   );

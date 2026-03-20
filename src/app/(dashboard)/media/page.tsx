@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 export default async function MediaPage({
   searchParams,
 }: {
-  searchParams: Promise<{ type?: 'images' | 'videos'; limit?: number; page?: number }>;
+  searchParams: Promise<{ type?: 'images' | 'videos'; page?: number; limit?: number; sort?: string }>;
 }) {
-  const { type = 'images', page = 1, limit = 12 } = await searchParams;
+  const { type = 'images', page = 1, limit = 12, sort } = await searchParams;
 
   return (
     <MainContainer>
@@ -29,7 +29,7 @@ export default async function MediaPage({
         <Tabs defaultValue="images" className="gap-y-5" value={type}>
           <MediaTabsHeader />
           <Suspense key={type} fallback={<LoadingSpinner />}>
-            <MediaTabsContent type={type} page={page} limit={limit} />
+            <MediaTabsContent type={type} page={page} limit={limit} sort={sort} />
           </Suspense>
         </Tabs>
       </MediaPageWrapper>
