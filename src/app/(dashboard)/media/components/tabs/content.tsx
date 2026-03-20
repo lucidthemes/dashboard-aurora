@@ -1,8 +1,9 @@
 import { TabsContent } from '@/components/ui/tabs';
 import getMedia from '@/lib/media/get-media';
 
+import ListControls from '@/components/list/controls';
+
 import MediaTabsContentLayout from './content-layout';
-import MediaTabsContentControls from './content-controls';
 import MediaTabsContentEmpty from './content-empty';
 
 export default async function MediaTabsContent({
@@ -22,7 +23,7 @@ export default async function MediaTabsContent({
         {media && media.length > 0 ? (
           <>
             <MediaTabsContentLayout media={media} type={type} />
-            <MediaTabsContentControls page={page} limit={limit} totalCount={totalCount} />
+            <ListControls page={page} limit={limit} totalCount={totalCount} />
           </>
         ) : (
           <MediaTabsContentEmpty type={type} />
