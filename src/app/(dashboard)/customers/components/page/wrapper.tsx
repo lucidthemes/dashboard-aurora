@@ -1,6 +1,6 @@
 'use client';
 
-import { SheetWithContent } from '@/components/sheets';
+import SheetContent from '@/components/sheets/content';
 
 import CustomersViewSheetContent from '../view-sheet/content';
 import { useCustomersStore } from '../../store/customers.store';
@@ -17,7 +17,7 @@ export default function CustomersPageWrapper({ children }: { children: React.Rea
       {children}
 
       {/* View customer sheet */}
-      <SheetWithContent
+      <SheetContent
         sheetOpen={viewSheetOpen}
         sheetClose={viewSheetClose}
         title="Customer ID: 71cbbb9d-b6c9-44b3-b54b-493ec3e9437f"
@@ -25,7 +25,7 @@ export default function CustomersPageWrapper({ children }: { children: React.Rea
         size="large"
       >
         <CustomersViewSheetContent />
-      </SheetWithContent>
+      </SheetContent>
     </>
   );
 }
