@@ -13,14 +13,19 @@ import {
 } from '@/components/ui/select';
 
 interface ListSortProps {
-  options: {
+  options?: {
     id: number;
     value: string;
     label: string;
   }[];
 }
 
-export default function ListSort({ options }: ListSortProps) {
+export default function ListSort({
+  options = [
+    { id: 1, value: 'date_desc', label: 'Date (newest)' },
+    { id: 2, value: 'date_asc', label: 'Date (oldest)' },
+  ],
+}: ListSortProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
