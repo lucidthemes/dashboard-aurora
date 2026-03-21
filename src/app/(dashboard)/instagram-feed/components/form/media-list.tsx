@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 import { LoadingSpinner } from '@/components/loading';
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
-import { getPublicMediaUrl } from '@/lib/media/storage';
+import { getPublicMediaUrl } from '@/lib/supabase/storage';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
 import useInstagramFeedFormMedia from '../../hooks/form/use-media';

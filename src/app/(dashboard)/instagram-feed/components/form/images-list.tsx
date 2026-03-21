@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { DeleteButton } from '@/components/buttons';
-import { getPublicMediaUrl } from '@/lib/media/storage';
+import { getPublicMediaUrl } from '@/lib/supabase/storage';
 import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 import type { InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
 
