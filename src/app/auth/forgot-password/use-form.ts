@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { ForgotPasswordFormSchema } from '@/schemas/auth/forgot-password.schema';
-import type { ForgotPasswordForm } from '@/schemas/auth/forgot-password.schema';
+import { ForgotPasswordFormSchema } from '@/app/auth/forgot-password/forgot-password.schema';
+import type { ForgotPasswordForm } from '@/app/auth/forgot-password/forgot-password.schema';
 
 import { forgotPassword } from './forgot-password.action';
 

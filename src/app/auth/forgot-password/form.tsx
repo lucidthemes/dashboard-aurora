@@ -8,7 +8,7 @@ import { Field, FieldGroup, FieldLabel, FieldDescription, FieldError } from '@/c
 import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 
-import useForgotPasswordForm from './use-forgot-password-form';
+import useForgotPasswordForm from './use-form';
 
 export function ForgotPasswordForm() {
   const { form, onSubmit, isPending } = useForgotPasswordForm();

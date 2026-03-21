@@ -1,6 +1,6 @@
 'use server';
 
-import type { ForgotPasswordForm } from '@/schemas/auth/forgot-password.schema';
+import type { ForgotPasswordForm } from '@/app/auth/forgot-password/forgot-password.schema';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
