@@ -4,8 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { LoginFormSchema } from '@/schemas/auth/login.schema';
-import type { LoginForm } from '@/schemas/auth/login.schema';
+import { LoginFormSchema } from '@/app/auth/login/login.schema';
+import type { LoginForm } from '@/app/auth/login/login.schema';
 
 import { signIn } from './sign-in.action';
 

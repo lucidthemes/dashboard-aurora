@@ -8,7 +8,7 @@ import { Field, FieldGroup, FieldLabel, FieldError } from '@/components/ui/field
 import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 
-import useLoginForm from './use-login-form';
+import useLoginForm from './use-form';
 
 export function LoginForm() {
   const { form, onSubmit, isPending } = useLoginForm();
