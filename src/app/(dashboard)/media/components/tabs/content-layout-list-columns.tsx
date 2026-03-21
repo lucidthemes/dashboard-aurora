@@ -99,28 +99,27 @@ export default function MediaTabsContentLayoutListColumns(type: 'images' | 'vide
 
   columns.push({
     id: 'actions',
+    header: 'Actions',
     size: 60,
     cell: ({ row }) => {
       const item = row.original;
 
       return (
-        <div className="hidden group-hover:block">
-          <div className="flex justify-end gap-x-2.5">
-            {item.type === 'image' && (
-              <EditButton
-                onClick={() => {
-                  setEditOpen(true);
-                  setEditData({ id: item.id, alt_text: item.alt_text });
-                }}
-              />
-            )}
-            <DeleteButton
+        <div className="flex justify-end gap-x-2.5">
+          {item.type === 'image' && (
+            <EditButton
               onClick={() => {
-                setDeleteOpen(true);
-                setDeleteStoragePath(item.storage_path);
+                setEditOpen(true);
+                setEditData({ id: item.id, alt_text: item.alt_text });
               }}
             />
-          </div>
+          )}
+          <DeleteButton
+            onClick={() => {
+              setDeleteOpen(true);
+              setDeleteStoragePath(item.storage_path);
+            }}
+          />
         </div>
       );
     },
