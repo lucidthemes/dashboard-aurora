@@ -6,12 +6,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { MediaEditFormSchema } from '@/schemas/media.schema';
-import type { MediaEditForm } from '@/schemas/media.schema';
-import { useMediaStore } from '@/store/media-store';
-
-import { useDashboardUser } from '../user-provider';
-import { updateMedia } from './actions/update-media.action';
+import { useDashboardUser } from '../../user-provider';
+import { useMediaStore } from '../store/media-store';
+import { updateMedia } from '../actions/update-media.action';
+import { MediaEditFormSchema } from '../schemas/edit-form.schema';
+import type { MediaEditForm } from '../schemas/edit-form.schema';
 
 export default function useMediaEditForm() {
   const { editData, setEditOpen, setEditData } = useMediaStore();

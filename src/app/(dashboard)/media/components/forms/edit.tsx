@@ -6,7 +6,7 @@ import type { UseFormReturn } from 'react-hook-form';
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 
-import type { MediaEditForm } from '@/schemas/media.schema';
+import type { MediaEditForm } from '../../schemas/edit-form.schema';
 
 interface MediaEditFormProps {
   form: UseFormReturn<MediaEditForm>;

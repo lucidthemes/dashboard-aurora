@@ -5,14 +5,13 @@ import Image from 'next/image';
 import SheetForm from '@/components/sheets/form';
 import SheetContent from '@/components/sheets/content';
 
-import { useMediaStore } from '@/store/media-store';
-
-import { useDashboardUser } from '../../user-provider';
-import MediaEditForm from './edit-form';
-import useMediaEditForm from '../use-edit-form';
-import MediaUploadForm from './upload-form';
-import ViewMediaDialog from './dialogs/view-media';
-import DeleteMediaDialog from './dialogs/delete-media';
+import { useMediaStore } from '../../store/media-store';
+import { useDashboardUser } from '../../../user-provider';
+import MediaEditForm from '../forms/edit';
+import useMediaEditForm from '../../hooks/use-edit-form';
+import MediaUploadForm from '../forms/upload';
+import ViewMediaDialog from '../dialogs/view-media';
+import DeleteMediaDialog from '../dialogs/delete-media';
 
 export default function MediaPageWrapper({ children }: { children: React.ReactNode }) {
   const {

@@ -1,10 +1,10 @@
 'use client';
 
 import type { Media } from '@/schemas/media.schema';
-import { useMediaStore } from '@/store/media-store';
 
-import MediaTabsContentLayoutGrid from './content-layout-grid';
-import MediaTabsContentLayoutList from './content-layout-list';
+import { useMediaStore } from '../../../store/media-store';
+import MediaTabsContentLayoutGrid from './grid';
+import MediaTabsContentLayoutTable from './table';
 
 export default function MediaTabsContentLayout({ media, type }: { media: Media[]; type: 'images' | 'videos' }) {
   const { layout } = useMediaStore();
@@ -14,7 +14,7 @@ export default function MediaTabsContentLayout({ media, type }: { media: Media[]
       {layout === 'grid' ? (
         <MediaTabsContentLayoutGrid media={media} />
       ) : (
-        <MediaTabsContentLayoutList media={media} type={type} />
+        <MediaTabsContentLayoutTable media={media} type={type} />
       )}
     </>
   );

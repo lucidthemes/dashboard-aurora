@@ -1,10 +1,9 @@
 import { TabsContent } from '@/components/ui/tabs';
-import getMedia from '@/lib/media/get-media';
-
 import ListControls from '@/components/list/controls';
 
+import getMedia from '../../../data/get-media';
 import MediaTabsContentLayout from './content-layout';
-import MediaTabsContentEmpty from './content-empty';
+import MediaTabsContentEmpty from './empty';
 
 export default async function MediaTabsContent({
   type,

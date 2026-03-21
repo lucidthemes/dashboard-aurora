@@ -10,7 +10,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { PageHeadingWithButton } from '@/components/page-headings';
-import { useMediaStore } from '@/store/media-store';
+
+import { useMediaStore } from '../../store/media-store';
 
 export default function MediaPageHeading() {
   const { setUploadOpen, setUploadType } = useMediaStore();

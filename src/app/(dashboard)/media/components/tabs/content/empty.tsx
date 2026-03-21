@@ -4,7 +4,8 @@ import { Image as ImageIcon, Video, Plus } from 'lucide-react';
 
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
 import { Button } from '@/components/ui/button';
-import { useMediaStore } from '@/store/media-store';
+
+import { useMediaStore } from '../../../store/media-store';
 
 export default function MediaTabsContentEmpty({ type }: { type: 'images' | 'videos' }) {
   const { setUploadOpen, setUploadType } = useMediaStore();

@@ -1,9 +1,9 @@
-import { createClient } from '../supabase/client';
 import { z } from 'zod';
 
+import { createClient } from '@/lib/supabase/server';
+import { createLogEvent } from '@/lib/supabase/log-event';
 import { MediaSchema } from '@/schemas/media.schema';
 import type { Media } from '@/schemas/media.schema';
-import { createLogEvent } from '../supabase/log-event';
 
 export default async function getMedia(
   type: 'images' | 'videos',
@@ -11,7 +11,7 @@ export default async function getMedia(
   limit: number,
   sort?: string,
 ): Promise<{ media: Media[]; totalCount: number }> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const mediaType = type === 'images' ? 'image' : 'video';
 
