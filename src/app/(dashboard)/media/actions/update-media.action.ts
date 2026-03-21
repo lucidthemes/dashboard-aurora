@@ -3,8 +3,9 @@
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
 
-import type { MediaEditForm } from '@/schemas/media.schema';
 import { createLogEvent } from '@/lib/supabase/log-event';
+
+import type { MediaEditForm } from '../schemas/edit-form.schema';
 
 interface UpdateMediaParams {
   mediaId: string;

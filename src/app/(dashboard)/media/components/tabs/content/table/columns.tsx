@@ -6,10 +6,11 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import { dateFormat } from '@/lib/formatters';
 import type { Media } from '@/schemas/media.schema';
-import { useMediaStore } from '@/store/media-store';
 import { getPublicMediaUrl } from '@/lib/supabase/storage';
 
-export default function MediaTabsContentLayoutListColumns(type: 'images' | 'videos') {
+import { useMediaStore } from '../../../../store/media-store';
+
+export default function MediaTabsContentLayoutTableColumns(type: 'images' | 'videos') {
   const {
     setViewOpen,
     setViewMediaType,

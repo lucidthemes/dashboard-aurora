@@ -5,8 +5,8 @@ import MainContainer from '@/components/dashboard/main-container';
 import { Tabs } from '@/components/ui/tabs';
 import { LoadingSpinner } from '@/components/loading';
 
-import MediaPageWrapper from './components/page-wrapper';
-import MediaPageHeading from './components/page-heading';
+import MediaPageWrapper from './components/page/wrapper';
+import MediaPageHeading from './components/page/heading';
 import MediaTabsHeader from './components/tabs/header';
 import MediaTabsContent from './components/tabs/content';
 
