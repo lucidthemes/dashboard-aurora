@@ -1,6 +1,6 @@
 'use server';
 
-import type { ResetPasswordForm } from '@/schemas/auth/reset-password.schema';
+import type { ResetPasswordForm } from '@/app/auth/reset-password/reset-password.schema';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
