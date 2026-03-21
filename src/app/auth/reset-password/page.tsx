@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { ResetPasswordForm } from './reset-password-form';
+import { ResetPasswordForm } from './form';
 
 export const metadata: Metadata = {
   title: 'Reset password',

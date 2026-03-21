@@ -7,7 +7,7 @@ import { Field, FieldGroup, FieldLabel, FieldError } from '@/components/ui/field
 import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 
-import useResetPasswordForm from './use-reset-password-form';
+import useResetPasswordForm from './use-form';
 
 export function ResetPasswordForm() {
   const { form, onSubmit, isPending } = useResetPasswordForm();

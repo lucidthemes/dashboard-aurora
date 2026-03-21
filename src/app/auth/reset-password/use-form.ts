@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { ResetPasswordFormSchema } from '@/schemas/auth/reset-password.schema';
-import type { ResetPasswordForm } from '@/schemas/auth/reset-password.schema';
+import { ResetPasswordFormSchema } from '@/app/auth/reset-password/reset-password.schema';
+import type { ResetPasswordForm } from '@/app/auth/reset-password/reset-password.schema';
 
 import { resetPassword } from './reset-password.action';
 
