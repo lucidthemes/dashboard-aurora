@@ -7,7 +7,7 @@ import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import { dateFormat } from '@/lib/formatters';
 import type { Media } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
-import { getPublicMediaUrl } from '@/lib/media/storage';
+import { getPublicMediaUrl } from '@/lib/supabase/storage';
 
 export default function MediaTabsContentLayoutListColumns(type: 'images' | 'videos') {
   const {

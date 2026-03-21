@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Video } from 'lucide-react';
 
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
-import { getPublicMediaUrl } from '@/lib/media/storage';
+import { getPublicMediaUrl } from '@/lib/supabase/storage';
 import type { Media } from '@/schemas/media.schema';
 import { useMediaStore } from '@/store/media-store';
 
