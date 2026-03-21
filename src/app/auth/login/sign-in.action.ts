@@ -1,6 +1,6 @@
 'use server';
 
-import type { LoginForm } from '@/schemas/auth/login.schema';
+import type { LoginForm } from '@/app/auth/login/login.schema';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
