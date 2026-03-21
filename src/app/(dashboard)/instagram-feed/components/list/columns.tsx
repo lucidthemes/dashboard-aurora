@@ -50,28 +50,27 @@ export default function InstagramFeedListColumns() {
 
   columns.push({
     id: 'actions',
+    header: 'Actions',
     size: 60,
     cell: ({ row }) => {
       const item = row.original;
 
       return (
-        <div className="hidden group-hover:block">
-          <div className="flex justify-end gap-x-2.5">
-            <EditButton
-              onClick={() => {
-                setEditOpen(true);
-                setEditData(item);
-              }}
-            />
+        <div className="flex justify-end gap-x-2.5">
+          <EditButton
+            onClick={() => {
+              setEditOpen(true);
+              setEditData(item);
+            }}
+          />
 
-            <DeleteButton
-              onClick={() => {
-                setDeleteOpen(true);
-                setDeleteRowId(item.id);
-                setDeleteTable('instagram_feeds');
-              }}
-            />
-          </div>
+          <DeleteButton
+            onClick={() => {
+              setDeleteOpen(true);
+              setDeleteRowId(item.id);
+              setDeleteTable('instagram_feeds');
+            }}
+          />
         </div>
       );
     },
