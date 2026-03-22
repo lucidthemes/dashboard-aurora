@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
-import type { InstagramFeed, InstagramFeedMedia, InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
+import type { InstagramFeed, InstagramFeedMedia } from '../schemas/feed.schema';
+import type { InstagramFeedFormImages } from '../schemas/form.schema';
 
 type State = {
   createOpen: boolean;

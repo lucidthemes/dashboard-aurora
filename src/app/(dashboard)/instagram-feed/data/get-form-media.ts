@@ -1,8 +1,8 @@
-import { InstagramFeedFormMediaSchema } from '@/schemas/instagram-feed.schema';
-import type { InstagramFeedFormMedia } from '@/schemas/instagram-feed.schema';
+import { createClient } from '@/lib/supabase/client';
+import { createLogEvent } from '@/lib/supabase/log-event';
 
-import { createClient } from '../supabase/client';
-import { createLogEvent } from '../supabase/log-event';
+import { InstagramFeedFormMediaSchema } from '../schemas/form.schema';
+import type { InstagramFeedFormMedia } from '../schemas/form.schema';
 
 export async function getInstagramFeedFormMedia(page: number): Promise<InstagramFeedFormMedia | undefined> {
   const supabase = createClient();

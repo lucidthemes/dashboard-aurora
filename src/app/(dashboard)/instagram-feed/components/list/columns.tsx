@@ -5,8 +5,9 @@ import { toast } from 'sonner';
 
 import { EditButton, DeleteButton, CopyButton } from '@/components/buttons';
 import { dateFormat } from '@/lib/formatters';
-import type { InstagramFeed } from '@/schemas/instagram-feed.schema';
-import { useInstagramFeedStore } from '@/store/instagram-feed-store';
+
+import { useInstagramFeedStore } from '../../store/instagram-feed-store';
+import type { InstagramFeed } from '../../schemas/feed.schema';
 
 export default function InstagramFeedListColumns() {
   const { setEditOpen, setEditData, setDeleteOpen, setDeleteRowId, setDeleteTable } = useInstagramFeedStore();

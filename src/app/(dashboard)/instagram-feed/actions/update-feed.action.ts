@@ -5,8 +5,9 @@ import { z } from 'zod';
 
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
-import { InstagramFeedFormSchema, InstagramFeedFormImagesSchema } from '@/schemas/instagram-feed.schema';
-import type { InstagramFeedForm, InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
+
+import { InstagramFeedFormSchema, InstagramFeedFormImagesSchema } from '../schemas/form.schema';
+import type { InstagramFeedForm, InstagramFeedFormImages } from '../schemas/form.schema';
 
 interface UpdateInstagramFeedParams {
   feedId: string;

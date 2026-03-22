@@ -81,6 +81,24 @@ All notable changes to this project will be documented in this file.
 
 - data table actions column to align right
 
+#### Lib
+
+- moved media fetch files into media route
+- removed media sub folder
+- moved instagram fetch files into instagram feed route
+- removed instagram feed sub folder
+
+#### Schemas
+
+- moved media schema into media route
+- moved instagram feed schema into instagram feed route
+
+#### Store
+
+- moved media store into media route
+- moved instagram feed store into instagram feed route
+- removed store folder
+
 ### Fixed
 
 #### Components
