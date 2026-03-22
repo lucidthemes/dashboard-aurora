@@ -20,14 +20,14 @@ export async function deleteDialogDeleteRowFromTable(
   const { error } = await supabase.from(table).delete().eq('id', rowId);
 
   if (error) {
-    createLogEvent('error', logEventName + '_FAILED', error.message, userId);
+    await createLogEvent('error', logEventName + '_FAILED', error.message, userId);
 
     return { success: false };
   }
 
   revalidatePath(path);
 
-  createLogEvent('info', logEventName + '_SUCCESSFUL', logEventMessage + ' deleted. Id: ' + rowId, userId);
+  await createLogEvent('info', logEventName + '_SUCCESSFUL', logEventMessage + ' deleted. Id: ' + rowId, userId);
 
   return { success: true };
 }

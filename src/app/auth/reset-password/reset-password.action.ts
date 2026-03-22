@@ -12,18 +12,18 @@ export async function resetPassword(formData: ResetPasswordForm) {
   });
 
   if (error) {
-    createLogEvent('error', 'RESET_PASSWORD_FAILED', error.message);
+    await createLogEvent('error', 'RESET_PASSWORD_FAILED', error.message);
 
     return { success: false };
   }
 
   if (!data.user) {
-    createLogEvent('error', 'RESET_PASSWORD_NO_USER', 'No user found');
+    await createLogEvent('error', 'RESET_PASSWORD_NO_USER', 'No user found');
 
     return { success: false };
   }
 
-  createLogEvent('info', 'RESET_PASSWORD_SUCCESSFUL', 'Password reset', data.user.id);
+  await createLogEvent('info', 'RESET_PASSWORD_SUCCESSFUL', 'Password reset', data.user.id);
 
   return { success: true };
 }

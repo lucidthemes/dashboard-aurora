@@ -28,7 +28,7 @@ export default async function getMedia(
     .order('created_at', { ascending: sortAsc });
 
   if (error) {
-    createLogEvent('error', 'FETCH_MEDIA_FAILED', error.message + '. Type: ' + mediaType);
+    await createLogEvent('error', 'FETCH_MEDIA_FAILED', error.message + '. Type: ' + mediaType);
   }
 
   const parsed = z.array(MediaSchema).safeParse(data ?? []);

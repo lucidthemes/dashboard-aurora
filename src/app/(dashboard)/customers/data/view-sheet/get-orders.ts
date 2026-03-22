@@ -18,7 +18,7 @@ export default async function getCustomerViewSheetOrders(customerId: string): Pr
     .order('created_at', { ascending: false });
 
   if (error) {
-    createLogEvent('error', 'FETCH_CUSTOMER_ORDERS_FAILED', error.message);
+    await createLogEvent('error', 'FETCH_CUSTOMER_ORDERS_FAILED', error.message);
 
     return [];
   }
@@ -26,7 +26,11 @@ export default async function getCustomerViewSheetOrders(customerId: string): Pr
   const parsed = z.array(CustomerViewSheetOrdersSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    createLogEvent('error', 'FETCH_CUSTOMER_ORDERS_INVALID_DATA', 'Fetch customer orders failed schema validation');
+    await createLogEvent(
+      'error',
+      'FETCH_CUSTOMER_ORDERS_INVALID_DATA',
+      'Fetch customer orders failed schema validation',
+    );
 
     return [];
   }

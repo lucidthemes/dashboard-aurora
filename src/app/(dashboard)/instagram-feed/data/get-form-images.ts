@@ -18,7 +18,7 @@ export async function getInstagramFeedFormImages(feedId: string | null): Promise
     .order('position', { ascending: true });
 
   if (error) {
-    createLogEvent('error', 'FETCH_INSTAGRAM_FEED_FORM_IMAGES_FAILED', error.message + '. Feed Id: ' + feedId);
+    await createLogEvent('error', 'FETCH_INSTAGRAM_FEED_FORM_IMAGES_FAILED', error.message + '. Feed Id: ' + feedId);
 
     return [];
   }
@@ -26,7 +26,7 @@ export async function getInstagramFeedFormImages(feedId: string | null): Promise
   const parsed = z.array(InstagramFeedFormImagesSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    createLogEvent(
+    await createLogEvent(
       'error',
       'FETCH_INSTAGRAM_FEED_FORM_IMAGES_INVALID_DATA',
       'Fetch instagram feed form images failed schema validation. Feed Id: ' + feedId,

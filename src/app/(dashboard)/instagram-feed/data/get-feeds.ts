@@ -12,7 +12,7 @@ export async function getInstagramFeeds(): Promise<InstagramFeed[]> {
   const { data, error } = await supabase.from('instagram_feeds').select().order('created_at', { ascending: false });
 
   if (error) {
-    createLogEvent('error', 'FETCH_INSTAGRAM_FEEDS_FAILED', error.message);
+    await createLogEvent('error', 'FETCH_INSTAGRAM_FEEDS_FAILED', error.message);
 
     return [];
   }
@@ -20,7 +20,11 @@ export async function getInstagramFeeds(): Promise<InstagramFeed[]> {
   const parsed = z.array(InstagramFeedSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    createLogEvent('error', 'FETCH_INSTAGRAM_FEEDS_INVALID_DATA', 'Fetch instagram feeds failed schema validation');
+    await createLogEvent(
+      'error',
+      'FETCH_INSTAGRAM_FEEDS_INVALID_DATA',
+      'Fetch instagram feeds failed schema validation',
+    );
 
     return [];
   }

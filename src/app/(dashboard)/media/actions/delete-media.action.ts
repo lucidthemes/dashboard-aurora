@@ -11,14 +11,14 @@ export async function deleteMedia(deleteStoragePath: string, userId: string) {
   const { error } = await supabase.storage.from('media').remove([deleteStoragePath]);
 
   if (error) {
-    createLogEvent('error', 'DELETE_MEDIA_FAILED', error.message + '. Media path: ' + deleteStoragePath, userId);
+    await createLogEvent('error', 'DELETE_MEDIA_FAILED', error.message + '. Media path: ' + deleteStoragePath, userId);
 
     return { success: false };
   }
 
   revalidatePath('/media');
 
-  createLogEvent('info', 'DELETE_MEDIA_SUCCESSFUL', 'Media deleted. Path: ' + deleteStoragePath, userId);
+  await createLogEvent('info', 'DELETE_MEDIA_SUCCESSFUL', 'Media deleted. Path: ' + deleteStoragePath, userId);
 
   return { success: true };
 }

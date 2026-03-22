@@ -18,7 +18,7 @@ export default async function getCustomerViewSheetLogs(customerId: string): Prom
     .order('created_at', { ascending: false });
 
   if (error) {
-    createLogEvent('error', 'FETCH_CUSTOMER_LOGS_FAILED', error.message);
+    await createLogEvent('error', 'FETCH_CUSTOMER_LOGS_FAILED', error.message);
 
     return [];
   }
@@ -26,7 +26,7 @@ export default async function getCustomerViewSheetLogs(customerId: string): Prom
   const parsed = z.array(CustomerViewSheetLogsSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    createLogEvent('error', 'FETCH_CUSTOMER_LOGS_INVALID_DATA', 'Fetch customer logs failed schema validation');
+    await createLogEvent('error', 'FETCH_CUSTOMER_LOGS_INVALID_DATA', 'Fetch customer logs failed schema validation');
 
     return [];
   }

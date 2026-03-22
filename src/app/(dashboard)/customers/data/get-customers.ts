@@ -41,7 +41,7 @@ export default async function getCustomers(
   const { data, count, error } = await query;
 
   if (error) {
-    createLogEvent('error', 'FETCH_CUSTOMERS_FAILED', error.message);
+    await createLogEvent('error', 'FETCH_CUSTOMERS_FAILED', error.message);
 
     return { customers: [], totalCount: 0 };
   }
@@ -49,7 +49,7 @@ export default async function getCustomers(
   const parsed = z.array(CustomersListSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    createLogEvent('error', 'FETCH_CUSTOMERS_INVALID_DATA', 'Fetch customers failed schema validation');
+    await createLogEvent('error', 'FETCH_CUSTOMERS_INVALID_DATA', 'Fetch customers failed schema validation');
 
     return { customers: [], totalCount: 0 };
   }
