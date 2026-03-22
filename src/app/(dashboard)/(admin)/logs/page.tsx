@@ -5,6 +5,7 @@ import MainContainer from '@/components/dashboard/main-container';
 import { LoadingSpinner } from '@/components/loading';
 
 import LogsPageHeading from './components/page/heading';
+import LogsListHeader from './components/list/header';
 import LogsList from './components/list';
 
 export const metadata: Metadata = {
@@ -38,17 +39,20 @@ export default async function LogsPage({
   return (
     <MainContainer>
       <LogsPageHeading />
-      <Suspense key="logs" fallback={<LoadingSpinner />}>
-        <LogsList
-          page={page}
-          limit={limit}
-          search={search}
-          filterLogLevel={filter_log_level}
-          filterEventName={filter_event_name}
-          filterSource={filter_source}
-          sort={sort}
-        />
-      </Suspense>
+      <div className="flex flex-col gap-5">
+        <LogsListHeader search={search} />
+        <Suspense key="logs" fallback={<LoadingSpinner />}>
+          <LogsList
+            page={page}
+            limit={limit}
+            search={search}
+            filterLogLevel={filter_log_level}
+            filterEventName={filter_event_name}
+            filterSource={filter_source}
+            sort={sort}
+          />
+        </Suspense>
+      </div>
     </MainContainer>
   );
 }
