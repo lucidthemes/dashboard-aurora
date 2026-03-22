@@ -10,12 +10,12 @@ export async function forgotPassword(formData: ForgotPasswordForm) {
   const { error } = await supabase.auth.resetPasswordForEmail(formData.email);
 
   if (error) {
-    createLogEvent('error', 'LOST_PASSWORD_FAILED', error.message + '. Email: ' + formData.email);
+    await createLogEvent('error', 'LOST_PASSWORD_FAILED', error.message + '. Email: ' + formData.email);
 
     return { success: false };
   }
 
-  createLogEvent('info', 'LOST_PASSWORD_SUCCESSFUL', 'Lost password. Email: ' + formData.email);
+  await createLogEvent('info', 'LOST_PASSWORD_SUCCESSFUL', 'Lost password. Email: ' + formData.email);
 
   return { success: true };
 }
