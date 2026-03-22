@@ -42,7 +42,7 @@ export async function createInstagramFeed({ formData, formImages, userId }: Crea
   if (feedError || !createdFeed) {
     const errorMessage = feedError?.message ?? 'Create feed failed';
 
-    createLogEvent('error', 'CREATE_INSTAGRAM_FEED_FAILED', errorMessage, userId);
+    await createLogEvent('error', 'CREATE_INSTAGRAM_FEED_FAILED', errorMessage, userId);
 
     return { success: false };
   }
@@ -56,12 +56,17 @@ export async function createInstagramFeed({ formData, formImages, userId }: Crea
   const { error: mediaError } = await supabase.from('instagram_feed_media').insert(instagramFeedMediaTableRows);
 
   if (mediaError) {
-    createLogEvent('error', 'CREATE_INSTAGRAM_FEED_MEDIA_FAILED', mediaError.message, userId);
+    await createLogEvent('error', 'CREATE_INSTAGRAM_FEED_MEDIA_FAILED', mediaError.message, userId);
 
     const { error: mediaErrorDeleteError } = await supabase.from('instagram_feeds').delete().eq('id', createdFeed.id);
 
     if (mediaErrorDeleteError) {
-      createLogEvent('error', 'CREATE_INSTAGRAM_FEED_MEDIA_CLEANUP_FAILED', mediaErrorDeleteError.message, userId);
+      await createLogEvent(
+        'error',
+        'CREATE_INSTAGRAM_FEED_MEDIA_CLEANUP_FAILED',
+        mediaErrorDeleteError.message,
+        userId,
+      );
     }
 
     return { success: false };
@@ -69,7 +74,12 @@ export async function createInstagramFeed({ formData, formImages, userId }: Crea
 
   revalidatePath('/instagram-feed');
 
-  createLogEvent('info', 'CREATE_INSTAGRAM_FEED_SUCCESSFUL', 'Instagram feed created. Id: ' + createdFeed.id, userId);
+  await createLogEvent(
+    'info',
+    'CREATE_INSTAGRAM_FEED_SUCCESSFUL',
+    'Instagram feed created. Id: ' + createdFeed.id,
+    userId,
+  );
 
   return { success: true };
 }

@@ -24,7 +24,7 @@ export async function getInstagramFeedFormMedia(page: number): Promise<Instagram
     .order('created_at', { ascending: false });
 
   if (error) {
-    createLogEvent('error', 'FETCH_INSTAGRAM_FEED_FORM_MEDIA_FAILED', error.message);
+    await createLogEvent('error', 'FETCH_INSTAGRAM_FEED_FORM_MEDIA_FAILED', error.message);
 
     return undefined;
   }
@@ -39,7 +39,7 @@ export async function getInstagramFeedFormMedia(page: number): Promise<Instagram
   const parsed = InstagramFeedFormMediaSchema.safeParse(formMediaData);
 
   if (!parsed.success) {
-    createLogEvent(
+    await createLogEvent(
       'error',
       'FETCH_INSTAGRAM_FEED_FORM_MEDIA_INVALID_DATA',
       'Fetch instagram feed form media failed schema validation',

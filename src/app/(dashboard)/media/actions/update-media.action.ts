@@ -19,14 +19,14 @@ export async function updateMedia({ mediaId, formData, userId }: UpdateMediaPara
   const { error } = await supabase.from('media').update({ alt_text: formData.alt_text }).eq('id', mediaId);
 
   if (error) {
-    createLogEvent('error', 'UPDATE_MEDIA_FAILED', error.message + '. Media Id: ' + mediaId, userId);
+    await createLogEvent('error', 'UPDATE_MEDIA_FAILED', error.message + '. Media Id: ' + mediaId, userId);
 
     return { success: false };
   }
 
   revalidatePath('/media');
 
-  createLogEvent('info', 'UPDATE_MEDIA_SUCCESSFUL', 'Media updated. Id: ' + mediaId, userId);
+  await createLogEvent('info', 'UPDATE_MEDIA_SUCCESSFUL', 'Media updated. Id: ' + mediaId, userId);
 
   return { success: true };
 }

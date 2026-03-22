@@ -18,7 +18,7 @@ export default async function getCustomerViewSheetReviews(customerId: string): P
     .order('created_at', { ascending: false });
 
   if (error) {
-    createLogEvent('error', 'FETCH_CUSTOMER_REVIEWS_FAILED', error.message);
+    await createLogEvent('error', 'FETCH_CUSTOMER_REVIEWS_FAILED', error.message);
 
     return [];
   }
@@ -26,7 +26,11 @@ export default async function getCustomerViewSheetReviews(customerId: string): P
   const parsed = z.array(CustomerViewSheetReviewsSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    createLogEvent('error', 'FETCH_CUSTOMER_REVIEWS_INVALID_DATA', 'Fetch customer reviews failed schema validation');
+    await createLogEvent(
+      'error',
+      'FETCH_CUSTOMER_REVIEWS_INVALID_DATA',
+      'Fetch customer reviews failed schema validation',
+    );
 
     return [];
   }
