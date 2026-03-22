@@ -7,6 +7,7 @@ import { LoadingSpinner } from '@/components/loading';
 import CustomersPageWrapper from './components/page/wrapper';
 import CustomersPageHeading from './components/page/heading';
 
+import CustomersListHeader from './components/list/header';
 import CustomersList from './components/list';
 
 export const metadata: Metadata = {
@@ -25,9 +26,12 @@ export default async function CustomersPage({
     <MainContainer>
       <CustomersPageWrapper>
         <CustomersPageHeading />
-        <Suspense key="customers" fallback={<LoadingSpinner />}>
-          <CustomersList page={page} limit={limit} search={search} sort={sort} />
-        </Suspense>
+        <div className="flex flex-col gap-5">
+          <CustomersListHeader search={search} />
+          <Suspense key="customers" fallback={<LoadingSpinner />}>
+            <CustomersList page={page} limit={limit} search={search} sort={sort} />
+          </Suspense>
+        </div>
       </CustomersPageWrapper>
     </MainContainer>
   );
