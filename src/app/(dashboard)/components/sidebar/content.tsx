@@ -1,8 +1,5 @@
 'use client';
 
-import * as React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import {
   StickyNote,
   List,
@@ -20,10 +17,9 @@ import {
 } from 'lucide-react';
 
 import { useDashboardUser } from '@/app/(dashboard)/user-provider';
-import { NavMenuGroup } from '@/components/dashboard/nav-menu-group';
-import { Sidebar, SidebarHeader, SidebarContent, SidebarRail } from '@/components/ui/sidebar';
-import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge';
+import { SidebarContent } from '@/components/ui/sidebar';
+
+import { DashboardSidebarNavMenuGroup } from './nav-menu-group';
 
 const data = {
   posts: [
@@ -137,30 +133,16 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const databaseUsed = process.env.NEXT_PUBLIC_DATABASE ?? 'unknown';
-
+export default function DashboardSidebarContent() {
   const { role } = useDashboardUser();
 
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
-      <SidebarHeader className="flex h-16 flex-row items-center justify-center gap-x-4 border-b-1">
-        <Link href="/">
-          <Image src="/aurora.svg" width={100} height={12.5} alt="Aurora" className="h-fit dark:invert" />
-        </Link>
-        <Separator orientation="vertical" className="max-h-4" />
-        <Badge variant="outline" className="capitalize">
-          {databaseUsed}
-        </Badge>
-      </SidebarHeader>
-      <SidebarContent className="py-2.5">
-        <NavMenuGroup items={data.posts} />
-        <NavMenuGroup items={data.shop} />
-        <NavMenuGroup items={data.media} />
-        <NavMenuGroup items={data.instagram} />
-        {role === 'admin' && <NavMenuGroup items={data.admin} />}
-      </SidebarContent>
-      <SidebarRail />
-    </Sidebar>
+    <SidebarContent className="py-2.5">
+      <DashboardSidebarNavMenuGroup items={data.posts} />
+      <DashboardSidebarNavMenuGroup items={data.shop} />
+      <DashboardSidebarNavMenuGroup items={data.media} />
+      <DashboardSidebarNavMenuGroup items={data.instagram} />
+      {role === 'admin' && <DashboardSidebarNavMenuGroup items={data.admin} />}
+    </SidebarContent>
   );
 }

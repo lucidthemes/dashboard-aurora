@@ -68,6 +68,7 @@ All notable changes to this project will be documented in this file.
 - main header user to show customer first and last name
 - main header user to show avatar using first and last name characters
 - app sidebar to check user role for admin routes
+- moved all dashboard components into dashboard app route
 
 ##### Dialogs
 

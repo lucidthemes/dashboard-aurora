@@ -1,15 +1,16 @@
 'use client';
 
-import { AppSidebar } from '@/components/dashboard/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
-import MainHeader from '@/components/dashboard/main-header';
+
+import DashboardSidebar from './components/sidebar';
+import DashboardHeader from './components/header';
 
 export default function DashboardWrapper({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <DashboardSidebar />
       <SidebarInset>
-        <MainHeader />
+        <DashboardHeader />
         <div className="p-5 sm:p-7.5 md:p-10">{children}</div>
       </SidebarInset>
     </SidebarProvider>

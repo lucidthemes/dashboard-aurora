@@ -18,7 +18,7 @@ import {
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar';
 
-export function NavMenuGroup({
+export function DashboardSidebarNavMenuGroup({
   items,
   label,
 }: {
