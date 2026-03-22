@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import MainContainer from '@/components/dashboard/main-container';
+import MainContainer from '@/app/(dashboard)/components/container';
 import { LoadingSpinner } from '@/components/loading';
 
 import CustomersPageWrapper from './components/page/wrapper';

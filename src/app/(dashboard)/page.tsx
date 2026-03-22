@@ -1,4 +1,4 @@
-import MainContainer from '@/components/dashboard/main-container';
+import MainContainer from './components/container';
 
 export default function DashboardPage() {
   return (

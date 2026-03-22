@@ -1,6 +1,5 @@
 'use client';
 
-// import * as React from 'react';
 import { Moon, Sun, Check } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
@@ -9,10 +8,11 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-export function MainHeaderModeSwitcher() {
+export default function DashboardHeaderThemeSwitcher() {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -24,7 +24,8 @@ export function MainHeaderModeSwitcher() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="start">
+        <DropdownMenuLabel className="text-xs font-medium text-muted-foreground">Theme</DropdownMenuLabel>
         <DropdownMenuItem onClick={() => setTheme('light')} className="flex cursor-pointer justify-between">
           Light
           {theme && theme === 'light' && <Check />}
