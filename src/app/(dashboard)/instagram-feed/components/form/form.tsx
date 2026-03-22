@@ -17,11 +17,11 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { InstagramFeedForm } from '@/schemas/instagram-feed.schema';
-import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
+import { useInstagramFeedStore } from '../../store/instagram-feed-store';
 import InstagramFeedFormImages from './images';
 import InstagramFeedFormMedia from './media';
+import type { InstagramFeedForm } from '../../schemas/form.schema';
 
 export default function InstagramFeedForm({
   form,

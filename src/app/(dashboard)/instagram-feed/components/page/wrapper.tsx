@@ -3,12 +3,11 @@
 import DeleteDialog from '@/components/dialogs/delete';
 import SheetForm from '@/components/sheets/form';
 
-import { useInstagramFeedStore } from '@/store/instagram-feed-store';
-
-import { useDashboardUser } from '../../user-provider';
-import InstagramFeedForm from './form/form';
-import useInstagramFeedCreateForm from '../hooks/form/use-create-form';
-import useInstagramFeedEditForm from '../hooks/form/use-edit-form';
+import { useInstagramFeedStore } from '../../store/instagram-feed-store';
+import { useDashboardUser } from '../../../user-provider';
+import InstagramFeedForm from '../form';
+import useInstagramFeedCreateForm from '../../hooks/use-create-form';
+import useInstagramFeedEditForm from '../../hooks/use-edit-form';
 
 export default function InstagramFeedPageWrapper({ children }: { children: React.ReactNode }) {
   const {

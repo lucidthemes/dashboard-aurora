@@ -4,9 +4,9 @@ import { Suspense } from 'react';
 import MainContainer from '@/components/dashboard/main-container';
 import { LoadingSpinner } from '@/components/loading';
 
-import InstagramFeedPageHeading from './components/page-heading';
-import InstagramFeedPageWrapper from './components/page-wrapper';
-import InstagramFeedList from './components/list/list';
+import InstagramFeedPageHeading from './components/page/heading';
+import InstagramFeedPageWrapper from './components/page/wrapper';
+import InstagramFeedList from './components/list';
 
 export const metadata: Metadata = {
   title: 'Instagram feed',

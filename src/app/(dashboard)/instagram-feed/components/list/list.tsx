@@ -1,5 +1,4 @@
-import { getInstagramFeeds } from '@/lib/instagram-feed/get-feeds';
-
+import { getInstagramFeeds } from '../../data/get-feeds';
 import InstagramFeedListTable from './table';
 
 export default async function InstagramFeedList() {

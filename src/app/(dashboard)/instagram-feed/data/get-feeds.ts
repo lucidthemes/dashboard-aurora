@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
-import { InstagramFeedSchema } from '@/schemas/instagram-feed.schema';
-import type { InstagramFeed } from '@/schemas/instagram-feed.schema';
+import { createClient } from '@/lib/supabase/server';
+import { createLogEvent } from '@/lib/supabase/log-event';
 
-import { createClient } from '../supabase/client';
-import { createLogEvent } from '../supabase/log-event';
+import { InstagramFeedSchema } from '../schemas/feed.schema';
+import type { InstagramFeed } from '../schemas/feed.schema';
 
 export async function getInstagramFeeds(): Promise<InstagramFeed[]> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data, error } = await supabase.from('instagram_feeds').select().order('created_at', { ascending: false });
 

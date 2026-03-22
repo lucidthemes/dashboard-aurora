@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { InstagramFeedFormImagesSchema } from '@/schemas/instagram-feed.schema';
-import type { InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
+import { createClient } from '@/lib/supabase/client';
+import { createLogEvent } from '@/lib/supabase/log-event';
 
-import { createClient } from '../supabase/client';
-import { createLogEvent } from '../supabase/log-event';
+import { InstagramFeedFormImagesSchema } from '../schemas/form.schema';
+import type { InstagramFeedFormImages } from '../schemas/form.schema';
 
 export async function getInstagramFeedFormImages(feedId: string | null): Promise<InstagramFeedFormImages[]> {
   if (!feedId) return [];

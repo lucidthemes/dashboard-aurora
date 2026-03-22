@@ -2,7 +2,7 @@
 
 import { PageHeadingWithButton } from '@/components/page-headings';
 import { CreateButton } from '@/components/buttons';
-import { useInstagramFeedStore } from '@/store/instagram-feed-store';
+import { useInstagramFeedStore } from '@/app/(dashboard)/instagram-feed/store/instagram-feed-store';
 
 export default function InstagramFeedPageHeading() {
   const { setCreateOpen } = useInstagramFeedStore();

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getInstagramFeedFormImages } from '@/lib/instagram-feed/get-form-images';
-import type { InstagramFeedFormImages } from '@/schemas/instagram-feed.schema';
+import { getInstagramFeedFormImages } from '../data/get-form-images';
+import type { InstagramFeedFormImages } from '../schemas/form.schema';
 
 export default function useInstagramFeedFormImages(formType?: 'create' | 'edit', feedId?: string | null) {
   const feedFormImagesQuery = useQuery<InstagramFeedFormImages[]>({

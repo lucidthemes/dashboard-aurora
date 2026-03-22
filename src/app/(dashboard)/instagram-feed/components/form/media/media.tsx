@@ -1,8 +1,10 @@
+'use client';
+
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useInstagramFeedStore } from '@/store/instagram-feed-store';
 
-import InstagramFeedFormMediaList from './media-list';
+import { useInstagramFeedStore } from '../../../store/instagram-feed-store';
+import InstagramFeedFormMediaList from './list';
 
 export default function InstagramFeedFormMedia() {
   const { formMediaOpen, setFormMediaOpen } = useInstagramFeedStore();
