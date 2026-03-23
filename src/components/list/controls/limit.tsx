@@ -25,7 +25,7 @@ export default function ListControlLimit({
         <SelectTrigger className="w-20 cursor-pointer" id="select-items-per-page">
           <SelectValue />
         </SelectTrigger>
-        <SelectContent align="start">
+        <SelectContent position="popper" align="end">
           <SelectGroup>
             {limitOptions.map((option, index) => (
               <SelectItem key={index} value={option.toString()} className="cursor-pointer">
