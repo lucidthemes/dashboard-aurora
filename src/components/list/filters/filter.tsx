@@ -45,7 +45,7 @@ export default function ListFilter({ type, label, options }: ListFilterProps) {
         <SelectTrigger className="w-full cursor-pointer lg:max-w-48">
           <SelectValue placeholder={label} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent position="popper" align="end">
           {options.map((item) => (
             <SelectGroup key={item.id}>
               {options.length > 1 && item.id > 1 && <SelectSeparator />}
