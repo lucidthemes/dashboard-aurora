@@ -39,10 +39,10 @@ export default function ListSort({
 
   return (
     <Select onValueChange={(value) => onSortValueChange(value)}>
-      <SelectTrigger className="w-full lg:max-w-fit">
+      <SelectTrigger className="w-full cursor-pointer lg:max-w-fit">
         <SelectValue placeholder="Sort by" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent position="popper" align="end">
         <SelectGroup>
           <SelectLabel>Sort by</SelectLabel>
           {options.map((option) => (

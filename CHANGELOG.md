@@ -22,10 +22,19 @@ All notable changes to this project will be documented in this file.
 ###### Admin
 
 - admin route group folder
+
 - logs page route
 - logs components
 - logs data
 - logs schemas
+
+- users page route
+- users actions
+- users components
+- users data
+- users hooks
+- users schemas
+- users store
 
 #### Components
 
