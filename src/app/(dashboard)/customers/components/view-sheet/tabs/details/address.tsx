@@ -18,13 +18,13 @@ export default function CustomersViewSheetTabDetailsAddress({
   }
 
   return (
-    <div className="flex w-1/2 flex-col gap-1">
+    <div className="flex w-1/2 flex-col gap-2">
       <h3 className="flex gap-1 text-sm font-medium">
         <span className="capitalize">{type}</span>
         <span>address</span>
       </h3>
       {address ? (
-        <address className="not-italic">
+        <address className="text-sm not-italic">
           <div className="flex gap-1.5">
             {address.firstName && <p>{address.firstName}</p>}
             {address.lastName && <p>{address.lastName}</p>}

@@ -10,9 +10,9 @@ export default function CustomersViewSheetTabDetailsUpdated() {
   const updatedDate = dateTimeFormat(viewSheetCustomer.updated_at);
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium">Last updated</h3>
-      <p>{updatedDate}</p>
+      <p className="text-sm">{updatedDate}</p>
     </div>
   );
 }

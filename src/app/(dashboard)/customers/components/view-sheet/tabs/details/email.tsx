@@ -6,9 +6,9 @@ export default function CustomersViewSheetTabDetailsEmail() {
   if (!viewSheetCustomer?.email) return null;
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium">Email address</h3>
-      <p>{viewSheetCustomer?.email}</p>
+      <p className="text-sm">{viewSheetCustomer?.email}</p>
     </div>
   );
 }
