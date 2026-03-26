@@ -22,6 +22,8 @@ export default function ListControlPagination({
 }) {
   const { handlePageChange, handlePreviousPage, handleNextPage } = useListControlPagination(currentPage);
 
+  if (totalPages === 0) return null;
+
   return (
     <Pagination className={`mx-0 w-auto ${className}`}>
       <PaginationContent>
@@ -33,6 +35,7 @@ export default function ListControlPagination({
         {[...Array(totalPages)].map((_, i) => {
           const totalPageNumber = i + 1;
           const isActive = Number(currentPage) === Number(totalPageNumber) ? true : false;
+
           return (
             <PaginationItem key={i + 1}>
               <PaginationLink onClick={() => handlePageChange(i + 1)} className="cursor-pointer" isActive={isActive}>
