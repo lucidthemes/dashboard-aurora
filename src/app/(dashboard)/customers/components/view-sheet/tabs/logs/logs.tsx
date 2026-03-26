@@ -2,7 +2,7 @@ import { TabsContent } from '@/components/ui/tabs';
 import { LoadingSpinner } from '@/components/loading';
 
 import { useCustomersStore } from '../../../../store/customers.store';
-import useCustomerViewSheetTabLogs from '../../../../hooks/view-sheet/use-logs';
+import useCustomerViewSheetTabLogs from '../../../../hooks/use-logs';
 import CustomersViewSheetTabLogsTable from './table';
 
 export default function CustomersViewSheetTabLogs() {
