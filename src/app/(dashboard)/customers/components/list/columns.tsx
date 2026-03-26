@@ -3,7 +3,7 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { ViewButton } from '@/components/buttons';
-import { dateFormat } from '@/lib/formatters';
+import { dateTimeFormat } from '@/lib/formatters';
 
 import { useCustomersStore } from '../../store/customers.store';
 import type { CustomersList } from '../../schemas/customers-list.schema';
@@ -29,7 +29,7 @@ export default function CustomersListColumns() {
     cell: ({ row }) => {
       const item = row.original;
 
-      return dateFormat(item.created_at);
+      return dateTimeFormat(item.created_at);
     },
   });
 
