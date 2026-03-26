@@ -24,7 +24,7 @@ export default function DashboardHeaderThemeSwitcher() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start">
+      <DropdownMenuContent align="end">
         <DropdownMenuLabel className="text-xs font-medium text-muted-foreground">Theme</DropdownMenuLabel>
         <DropdownMenuItem onClick={() => setTheme('light')} className="flex cursor-pointer justify-between">
           Light
