@@ -2,7 +2,7 @@
 
 import SheetContent from '@/components/sheets/content';
 
-import CustomersViewSheetContent from '../view-sheet/content';
+import CustomersViewSheetContent from '../view-sheet';
 import { useCustomersStore } from '../../store/customers.store';
 
 export default function CustomersPageWrapper({ children }: { children: React.ReactNode }) {
