@@ -10,9 +10,9 @@ export default function CustomersViewSheetTabDetailsCreated() {
   const createdDate = dateTimeFormat(viewSheetCustomer.created_at);
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium">Created</h3>
-      <p>{createdDate}</p>
+      <p className="text-sm">{createdDate}</p>
     </div>
   );
 }
