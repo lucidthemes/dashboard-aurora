@@ -2,11 +2,11 @@
 
 import SheetContent from '@/components/sheets/content';
 
-import CustomersViewSheetContent from '../view-sheet';
 import { useCustomersStore } from '../../store/customers.store';
+import CustomersViewSheetContent from '../view-sheet';
 
 export default function CustomersPageWrapper({ children }: { children: React.ReactNode }) {
-  const { viewSheetOpen, setViewSheetOpen } = useCustomersStore();
+  const { viewSheetOpen, setViewSheetOpen, viewSheetCustomer } = useCustomersStore();
 
   const viewSheetClose = () => {
     setViewSheetOpen(false);
@@ -20,7 +20,7 @@ export default function CustomersPageWrapper({ children }: { children: React.Rea
       <SheetContent
         sheetOpen={viewSheetOpen}
         sheetClose={viewSheetClose}
-        title="Customer ID: 71cbbb9d-b6c9-44b3-b54b-493ec3e9437f"
+        title={`Customer ID: ${viewSheetCustomer?.id}`}
         description="View customer details"
         size="large"
       >
