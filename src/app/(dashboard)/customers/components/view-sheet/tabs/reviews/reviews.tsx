@@ -2,7 +2,7 @@ import { TabsContent } from '@/components/ui/tabs';
 import { LoadingSpinner } from '@/components/loading';
 
 import { useCustomersStore } from '../../../../store/customers.store';
-import useCustomerViewSheetTabReviews from '../../../../hooks/view-sheet/use-reviews';
+import useCustomerViewSheetTabReviews from '../../../../hooks/use-reviews';
 import CustomersViewSheetTabReviewsTable from './table';
 
 export default function CustomersViewSheetTabReviews() {
