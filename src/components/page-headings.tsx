@@ -1,7 +1,9 @@
+'use client';
+
 function PageHeading({ heading, className }: { heading: string; className?: string }) {
   return (
     <div className={`mb-10 ${className}`}>
-      <h1 className="text-3xl font-bold">{heading}</h1>
+      <h1 className="text-3xl font-medium">{heading}</h1>
     </div>
   );
 }
@@ -17,7 +19,7 @@ function PageHeadingWithButton({
 }) {
   return (
     <div className={`mb-10 flex items-center justify-between ${className}`}>
-      <h1 className="text-3xl font-bold">{heading}</h1>
+      <h1 className="text-3xl font-medium">{heading}</h1>
       {children}
     </div>
   );
