@@ -281,7 +281,53 @@ export default function LogsListFiltersEventName() {
     {
       id: 13,
       section: 'Dashboard - Users',
-      items: [],
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_USERS_FAILED',
+          label: 'FETCH_USERS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_USERS_INVALID_DATA',
+          label: 'FETCH_USERS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'FETCH_USER_LOGS_FAILED',
+          label: 'FETCH_USER_LOGS_FAILED',
+        },
+        {
+          id: 4,
+          value: 'FETCH_USER_LOGS_INVALID_DATA',
+          label: 'FETCH_USER_LOGS_INVALID_DATA',
+        },
+        {
+          id: 5,
+          value: 'CREATE_USER_FAILED',
+          label: 'CREATE_USER_FAILED',
+        },
+        {
+          id: 6,
+          value: 'CREATE_USER_SUCCESSFUL',
+          label: 'CREATE_USER_SUCCESSFUL',
+        },
+        {
+          id: 7,
+          value: 'UPDATE_USER_FAILED',
+          label: 'UPDATE_USER_FAILED',
+        },
+        {
+          id: 8,
+          value: 'UPDATE_USER_SUCCESSFUL',
+          label: 'UPDATE_USER_SUCCESSFUL',
+        },
+        {
+          id: 9,
+          value: 'DELETE_USER_SUCCESSFUL',
+          label: 'DELETE_USER_SUCCESSFUL',
+        },
+      ],
     },
     {
       id: 14,
