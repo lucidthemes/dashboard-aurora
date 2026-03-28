@@ -181,31 +181,21 @@ export default function LogsListFiltersEventName() {
         },
         {
           id: 3,
-          value: 'FETCH_CUSTOMER_LOGS_FAILED',
-          label: 'FETCH_CUSTOMER_LOGS_FAILED',
-        },
-        {
-          id: 4,
-          value: 'FETCH_CUSTOMER_LOGS_INVALID_DATA',
-          label: 'FETCH_CUSTOMER_LOGS_INVALID_DATA',
-        },
-        {
-          id: 5,
           value: 'FETCH_CUSTOMER_ORDERS_FAILED',
           label: 'FETCH_CUSTOMER_ORDERS_FAILED',
         },
         {
-          id: 6,
+          id: 4,
           value: 'FETCH_CUSTOMER_ORDERS_INVALID_DATA',
           label: 'FETCH_CUSTOMER_ORDERS_INVALID_DATA',
         },
         {
-          id: 7,
+          id: 5,
           value: 'FETCH_CUSTOMER_REVIEWS_FAILED',
           label: 'FETCH_CUSTOMER_REVIEWS_FAILED',
         },
         {
-          id: 8,
+          id: 6,
           value: 'FETCH_CUSTOMER_REVIEWS_INVALID_DATA',
           label: 'FETCH_CUSTOMER_REVIEWS_INVALID_DATA',
         },

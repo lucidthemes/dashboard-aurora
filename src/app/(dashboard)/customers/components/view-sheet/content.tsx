@@ -4,7 +4,6 @@ import CustomersViewSheetTabsList from './tabs/list';
 import CustomersViewSheetTabDetails from './tabs/details';
 import CustomersViewSheetTabOrders from './tabs/orders';
 import CustomersViewSheetTabReviews from './tabs/reviews';
-import CustomersViewSheetTabLogs from './tabs/logs';
 
 export default function CustomersViewSheetContent() {
   return (
@@ -13,7 +12,6 @@ export default function CustomersViewSheetContent() {
       <CustomersViewSheetTabDetails />
       <CustomersViewSheetTabOrders />
       <CustomersViewSheetTabReviews />
-      <CustomersViewSheetTabLogs />
     </Tabs>
   );
 }
