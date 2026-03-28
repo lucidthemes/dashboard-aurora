@@ -12,9 +12,6 @@ export default function CustomersViewSheetTabsList() {
       <TabsTrigger value="reviews" className="cursor-pointer">
         Reviews
       </TabsTrigger>
-      <TabsTrigger value="logs" className="cursor-pointer">
-        Logs
-      </TabsTrigger>
     </TabsList>
   );
 }
