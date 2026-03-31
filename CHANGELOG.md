@@ -10,6 +10,14 @@ All notable changes to this project will be documented in this file.
 
 ##### Dashboard
 
+###### Account
+
+- account page route
+- account actions
+- account components
+- account hooks
+- account schemas
+
 ###### Customers
 
 - customers page route
@@ -38,11 +46,17 @@ All notable changes to this project will be documented in this file.
 
 #### Components
 
+##### List
+
 - list sub folder
 - list controls
 - list filters
 - list search
 - list sort
+
+##### UI
+
+- radio group
 
 #### Lib
 
