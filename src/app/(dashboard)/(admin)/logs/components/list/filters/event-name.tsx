@@ -335,6 +335,47 @@ export default function LogsListFiltersEventName() {
         },
       ],
     },
+    {
+      id: 15,
+      section: 'Dashboard - Account',
+      items: [
+        {
+          id: 1,
+          value: 'UPDATE_ACCOUNT_NAME_FAILED',
+          label: 'UPDATE_ACCOUNT_NAME_FAILED',
+        },
+        {
+          id: 2,
+          value: 'UPDATE_ACCOUNT_NAME_SUCCESSFUL',
+          label: 'UPDATE_ACCOUNT_NAME_SUCCESSFUL',
+        },
+        {
+          id: 3,
+          value: 'UPDATE_ACCOUNT_EMAIL_FAILED',
+          label: 'UPDATE_ACCOUNT_EMAIL_FAILED',
+        },
+        {
+          id: 4,
+          value: 'UPDATE_ACCOUNT_EMAIL_SUCCESSFUL',
+          label: 'UPDATE_ACCOUNT_EMAIL_SUCCESSFUL',
+        },
+        {
+          id: 5,
+          value: 'UPDATE_ACCOUNT_PASSWORD_FAILED',
+          label: 'UPDATE_ACCOUNT_PASSWORD_FAILED',
+        },
+        {
+          id: 6,
+          value: 'UPDATE_ACCOUNT_PASSWORD_SUCCESSFUL',
+          label: 'UPDATE_ACCOUNT_PASSWORD_SUCCESSFUL',
+        },
+        {
+          id: 7,
+          value: 'DELETE_ACCOUNT_SUCCESSFUL',
+          label: 'DELETE_ACCOUNT_SUCCESSFUL',
+        },
+      ],
+    },
   ];
 
   return <ListFilter type={'event_name'} label={'Event name'} options={filterOptions} />;
