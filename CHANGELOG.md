@@ -79,6 +79,7 @@ All notable changes to this project will be documented in this file.
 ##### Auth
 
 - login form password field to type password
+- auth layout to redirect to dashboard if auth user already logged in
 
 #### Components
 

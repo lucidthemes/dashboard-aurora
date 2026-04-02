@@ -1,7 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
+import { createClient } from '@/lib/supabase/server';
+
+export default async function AuthLayout({ children }: { children: React.ReactNode }) {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) redirect('/');
+
   return (
     <div className="flex min-h-svh">
       <div className="flex basis-2/3 flex-col gap-4 p-6 md:p-10">
