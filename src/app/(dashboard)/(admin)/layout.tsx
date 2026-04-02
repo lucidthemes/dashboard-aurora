@@ -1,13 +1,11 @@
-'use client';
-
 import { redirect } from 'next/navigation';
 
-import { useDashboardUser } from '../user-provider';
+import { getUserWithRole } from '@/lib/supabase/auth';
 
-export default function DashboardAdminLayout({ children }: { children: React.ReactNode }) {
-  const { role } = useDashboardUser();
+export default async function DashboardAdminLayout({ children }: { children: React.ReactNode }) {
+  const { user, role } = await getUserWithRole();
 
-  if (!role || role !== 'admin') {
+  if (!user || !role || role !== 'admin') {
     redirect('/');
   }
 
