@@ -7,7 +7,7 @@ import DashboardWrapper from './wrapper';
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const dashboardUser = await getCurrentDashboardUser();
 
-  if (!dashboardUser) {
+  if (!dashboardUser || !dashboardUser.user || !dashboardUser.role || !dashboardUser.customer) {
     redirect('/auth/login');
   }
 
