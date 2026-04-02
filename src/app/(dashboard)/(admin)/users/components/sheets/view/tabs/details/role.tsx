@@ -8,7 +8,11 @@ export default function UsersViewSheetTabDetailsRole() {
   return (
     <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium">Role</h3>
-      {role ? <p className="text-sm capitalize">{role}</p> : <p>--</p>}
+      {role ? (
+        <span className="text-sm text-muted-foreground capitalize">{role}</span>
+      ) : (
+        <span className="text-muted-foreground">--</span>
+      )}
     </div>
   );
 }

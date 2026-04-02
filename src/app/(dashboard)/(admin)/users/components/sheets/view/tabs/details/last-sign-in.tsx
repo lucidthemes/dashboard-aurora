@@ -10,7 +10,11 @@ export default function UsersViewSheetTabDetailsLastSignIn() {
   return (
     <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium">Last sign in at</h3>
-      {lastSignInDate ? <p className="text-sm">{lastSignInDate}</p> : <p>--</p>}
+      {lastSignInDate ? (
+        <span className="text-sm text-muted-foreground">{lastSignInDate}</span>
+      ) : (
+        <span className="text-muted-foreground">--</span>
+      )}
     </div>
   );
 }
