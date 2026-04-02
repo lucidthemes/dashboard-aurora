@@ -20,12 +20,12 @@ export default function UsersEditSheetForm({ form, onSubmit }: UsersEditSheetFor
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        <p className="text-sm font-medium">Id</p>
-        <p className="text-sm">{editSheetUser?.id}</p>
+        <span className="text-sm font-medium">Id</span>
+        <span className="text-sm text-muted-foreground">{editSheetUser?.id}</span>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-sm font-medium">Email</p>
-        <p className="text-sm">{editSheetUser?.email}</p>
+        <span className="text-sm font-medium">Email</span>
+        <span className="text-sm text-muted-foreground">{editSheetUser?.email}</span>
       </div>
       <form id="users-edit-form" onSubmit={form.handleSubmit(onSubmit)}>
         <FieldGroup>

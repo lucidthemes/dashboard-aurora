@@ -12,7 +12,11 @@ export default function UsersViewSheetTabDetailsEmailChangeSent() {
   return (
     <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium">Email change sent at</h3>
-      {emailChangeSentDate ? <p className="text-sm">{emailChangeSentDate}</p> : <p>--</p>}
+      {emailChangeSentDate ? (
+        <span className="text-sm text-muted-foreground">{emailChangeSentDate}</span>
+      ) : (
+        <span className="text-muted-foreground">--</span>
+      )}
     </div>
   );
 }
