@@ -62,6 +62,7 @@ All notable changes to this project will be documented in this file.
 
 - formatter for date and time
 - supabase create admin client
+- auth get user with role to fetch user and role from supabase auth
 
 #### Schemas
 
