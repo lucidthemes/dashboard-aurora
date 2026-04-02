@@ -24,7 +24,7 @@ export default function CustomersViewSheetTabDetailsAddress({
         <span>address</span>
       </h3>
       {address ? (
-        <address className="text-sm not-italic">
+        <address className="text-sm text-muted-foreground not-italic">
           <div className="flex gap-1.5">
             {address.firstName && <p>{address.firstName}</p>}
             {address.lastName && <p>{address.lastName}</p>}
@@ -38,7 +38,7 @@ export default function CustomersViewSheetTabDetailsAddress({
           {address.phone && <p>{address.phone}</p>}
         </address>
       ) : (
-        <p>--</p>
+        <span className="text-muted-foreground">--</span>
       )}
     </div>
   );
