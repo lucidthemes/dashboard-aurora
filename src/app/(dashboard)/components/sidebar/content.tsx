@@ -22,6 +22,13 @@ import { SidebarContent } from '@/components/ui/sidebar';
 import { DashboardSidebarNavMenuGroup } from './nav-menu-group';
 
 const data = {
+  pages: [
+    {
+      title: 'Pages',
+      url: '/pages',
+      icon: StickyNote,
+    },
+  ],
   posts: [
     {
       title: 'Posts',
@@ -138,6 +145,7 @@ export default function DashboardSidebarContent() {
 
   return (
     <SidebarContent className="py-2.5">
+      <DashboardSidebarNavMenuGroup items={data.pages} />
       <DashboardSidebarNavMenuGroup items={data.posts} />
       <DashboardSidebarNavMenuGroup items={data.shop} />
       <DashboardSidebarNavMenuGroup items={data.media} />
