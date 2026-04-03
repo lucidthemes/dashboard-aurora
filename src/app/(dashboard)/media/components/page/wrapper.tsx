@@ -6,7 +6,6 @@ import SheetForm from '@/components/sheets/form';
 import SheetContent from '@/components/sheets/content';
 
 import { useMediaStore } from '../../store/media-store';
-import { useDashboardUser } from '../../../user-provider';
 import MediaEditForm from '../forms/edit';
 import useMediaEditForm from '../../hooks/use-edit-form';
 import MediaUploadForm from '../forms/upload';
@@ -33,8 +32,6 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
     setUploadOpen,
     setUploadType,
   } = useMediaStore();
-
-  const { user } = useDashboardUser();
 
   const mediaEdit = useMediaEditForm();
 
@@ -91,7 +88,6 @@ export default function MediaPageWrapper({ children }: { children: React.ReactNo
         dialogOpen={deleteOpen}
         dialogClose={deleteDialogClose}
         deleteStoragePath={deleteStoragePath}
-        userId={user.id}
         title="Delete media"
       />
 
