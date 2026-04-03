@@ -2,12 +2,21 @@
 
 import { revalidatePath } from 'next/cache';
 
+import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
 import type { AccountEmailForm } from '../schemas/email-form.schema';
 
-export async function editEmail({ formData, userId }: { formData: AccountEmailForm; userId: string }) {
+export async function editEmail({ formData }: { formData: AccountEmailForm }) {
+  const { user, role } = await getUserWithRole();
+
+  if (!user || !role || !['admin', 'editor'].includes(role)) {
+    await createLogEvent('error', 'UPDATE_ACCOUNT_EMAIL_UNAUTHORIZED', 'Unauthorized user.', user?.id);
+
+    return { success: false };
+  }
+
   const supabase = await createClient();
 
   const { error } = await supabase.auth.updateUser({
@@ -15,12 +24,12 @@ export async function editEmail({ formData, userId }: { formData: AccountEmailFo
   });
 
   if (error) {
-    await createLogEvent('error', 'UPDATE_ACCOUNT_EMAIL_FAILED', error.message, userId);
+    await createLogEvent('error', 'UPDATE_ACCOUNT_EMAIL_FAILED', error.message, user.id);
 
     return { success: false };
   }
 
-  await createLogEvent('info', 'UPDATE_ACCOUNT_EMAIL_SUCCESSFUL', 'Email updated', userId);
+  await createLogEvent('info', 'UPDATE_ACCOUNT_EMAIL_SUCCESSFUL', 'Email updated', user.id);
 
   revalidatePath('/account');
 
