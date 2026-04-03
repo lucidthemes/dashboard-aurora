@@ -6,15 +6,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { useDashboardUser } from '../../user-provider';
 import { useInstagramFeedStore } from '../store/instagram-feed-store';
 import { updateInstagramFeed } from '../actions/update-feed.action';
 import { InstagramFeedFormSchema } from '../schemas/form.schema';
 import type { InstagramFeedForm } from '../schemas/form.schema';
 
 export default function useInstagramFeedEditForm() {
-  const { user } = useDashboardUser();
-
   const { setEditOpen, editData, selectedImages } = useInstagramFeedStore();
 
   const form = useForm<InstagramFeedForm>({
@@ -90,7 +87,6 @@ export default function useInstagramFeedEditForm() {
       feedId: editData.id,
       formData: data,
       formImages: selectedImages,
-      userId: user.id,
     });
   };
 

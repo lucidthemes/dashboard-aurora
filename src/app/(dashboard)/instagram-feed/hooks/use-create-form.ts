@@ -5,15 +5,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { useDashboardUser } from '../../user-provider';
 import { useInstagramFeedStore } from '../store/instagram-feed-store';
 import { createInstagramFeed } from '../actions/create-feed.action';
 import { InstagramFeedFormSchema } from '../schemas/form.schema';
 import type { InstagramFeedForm } from '../schemas/form.schema';
 
 export default function useInstagramFeedCreateForm() {
-  const { user } = useDashboardUser();
-
   const { setCreateOpen, selectedImages } = useInstagramFeedStore();
 
   const form = useForm<InstagramFeedForm>({
@@ -57,7 +54,7 @@ export default function useInstagramFeedCreateForm() {
       return;
     }
 
-    instagramFeedFormCreateMutation.mutate({ formData: data, formImages: selectedImages, userId: user.id });
+    instagramFeedFormCreateMutation.mutate({ formData: data, formImages: selectedImages });
   };
 
   return { form, onSubmit, isPending: instagramFeedFormCreateMutation.isPending };
