@@ -12,7 +12,7 @@ import type { AccountNameForm } from '../../schemas/name-form.schema';
 import { AccountNameFormSchema } from '../../schemas/name-form.schema';
 
 export default function useAccountNameForm(handleFormShown: () => void) {
-  const { user, customer } = useDashboardUser();
+  const { customer } = useDashboardUser();
 
   const form = useForm<AccountNameForm>({
     defaultValues: {
@@ -35,7 +35,7 @@ export default function useAccountNameForm(handleFormShown: () => void) {
   });
 
   const onSubmit = async (data: AccountNameForm) => {
-    accountNameFormMutation.mutate({ formData: data, userId: user.id });
+    accountNameFormMutation.mutate({ formData: data });
   };
 
   return { form, onSubmit, isPending: accountNameFormMutation.isPending };

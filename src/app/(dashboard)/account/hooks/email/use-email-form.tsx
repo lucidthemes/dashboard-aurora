@@ -34,7 +34,7 @@ export default function useAccountEmailForm(handleFormShown: () => void) {
   });
 
   const onSubmit = async (data: AccountEmailForm) => {
-    accountEmailFormMutation.mutate({ formData: data, userId: user.id });
+    accountEmailFormMutation.mutate({ formData: data });
   };
 
   return { form, onSubmit, isPending: accountEmailFormMutation.isPending };

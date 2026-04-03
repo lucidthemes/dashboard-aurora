@@ -5,15 +5,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { useDashboardUser } from '@/app/(dashboard)/user-provider';
-
 import { editPassword } from '../../actions/edit-password.action';
 import type { AccountPasswordForm } from '../../schemas/password-form.schema';
 import { AccountPasswordFormSchema } from '../../schemas/password-form.schema';
 
 export default function useAccountPasswordForm(handleFormShown: () => void) {
-  const { user } = useDashboardUser();
-
   const form = useForm<AccountPasswordForm>({
     defaultValues: {
       password: '',
@@ -35,7 +31,7 @@ export default function useAccountPasswordForm(handleFormShown: () => void) {
   });
 
   const onSubmit = async (data: AccountPasswordForm) => {
-    accountPasswordFormMutation.mutate({ formData: data, userId: user.id });
+    accountPasswordFormMutation.mutate({ formData: data });
   };
 
   return { form, onSubmit, isPending: accountPasswordFormMutation.isPending };
