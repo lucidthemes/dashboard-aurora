@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { useDashboardUser } from '../../user-provider';
 import { useMediaStore } from '../store/media-store';
 import { updateMedia } from '../actions/update-media.action';
 import { MediaEditFormSchema } from '../schemas/edit-form.schema';
@@ -14,8 +13,6 @@ import type { MediaEditForm } from '../schemas/edit-form.schema';
 
 export default function useMediaEditForm() {
   const { editData, setEditOpen, setEditData } = useMediaStore();
-
-  const { user } = useDashboardUser();
 
   const form = useForm<MediaEditForm>({
     defaultValues: {
@@ -48,7 +45,7 @@ export default function useMediaEditForm() {
   const onSubmit = async (data: MediaEditForm) => {
     if (!editData) return;
 
-    mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data, userId: user.id });
+    mediaEditFormMutation.mutate({ mediaId: editData.id, formData: data });
   };
 
   return { form, onSubmit, isPending: mediaEditFormMutation.isPending };

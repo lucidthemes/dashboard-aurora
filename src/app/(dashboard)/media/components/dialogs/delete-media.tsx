@@ -20,20 +20,18 @@ export default function DeleteMediaDialog({
   dialogOpen,
   dialogClose,
   deleteStoragePath,
-  userId,
   title,
   description,
 }: {
   dialogOpen: boolean;
   dialogClose: () => void;
   deleteStoragePath: string | null;
-  userId: string;
   title?: string;
   description?: string;
 }) {
   const [isPending, startTransition] = useTransition();
 
-  if (!dialogOpen || !deleteStoragePath || !userId) return null;
+  if (!dialogOpen || !deleteStoragePath) return null;
 
   const dialogTitle = title ?? 'Delete';
   const dialogDescription = description ?? 'This action cannot be undone';
@@ -53,7 +51,7 @@ export default function DeleteMediaDialog({
             disabled={isPending}
             onClick={() => {
               startTransition(async () => {
-                const result = await deleteMedia(deleteStoragePath, userId);
+                const result = await deleteMedia(deleteStoragePath);
 
                 if (result.success) {
                   toast.success('Successfully deleted');
