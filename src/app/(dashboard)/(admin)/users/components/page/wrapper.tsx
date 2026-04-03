@@ -3,8 +3,6 @@
 import SheetContent from '@/components/sheets/content';
 import SheetForm from '@/components/sheets/form';
 
-import { useDashboardUser } from '@/app/(dashboard)/user-provider';
-
 import { useUsersStore } from '../../store/users-store';
 import UsersCreateSheetForm from '../sheets/create';
 import useUsersCreateSheetForm from '../../hooks/use-create-form';
@@ -14,8 +12,6 @@ import UsersEditSheetForm from '../sheets/edit';
 import UsersDeleteUserDialog from '../dialogs/delete-user';
 
 export default function UsersPageWrapper({ children }: { children: React.ReactNode }) {
-  const { user } = useDashboardUser();
-
   const {
     createSheetOpen,
     setCreateSheetOpen,
@@ -100,7 +96,6 @@ export default function UsersPageWrapper({ children }: { children: React.ReactNo
         dialogOpen={deleteDialogOpen}
         dialogClose={deleteDialogClose}
         deleteUserId={deleteDialogUserId}
-        userId={user.id}
       />
     </>
   );
