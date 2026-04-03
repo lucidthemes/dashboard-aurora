@@ -5,15 +5,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { useDashboardUser } from '../../../user-provider';
 import { useUsersStore } from '../store/users-store';
 import { createUser } from '../actions/create-user.action';
 import type { UsersCreateSheetForm } from '../schemas/sheets/create-form.schema';
 import { UsersCreateSheetFormSchema } from '../schemas/sheets/create-form.schema';
 
 export default function useUsersCreateSheetForm() {
-  const { user } = useDashboardUser();
-
   const { setCreateSheetOpen } = useUsersStore();
 
   const form = useForm<UsersCreateSheetForm>({
@@ -37,7 +34,7 @@ export default function useUsersCreateSheetForm() {
   });
 
   const onSubmit = async (data: UsersCreateSheetForm) => {
-    usersCreateFormMutation.mutate({ createUserEmail: data.email, userId: user.id });
+    usersCreateFormMutation.mutate({ createUserEmail: data.email });
   };
 
   return { form, onSubmit, isPending: usersCreateFormMutation.isPending };

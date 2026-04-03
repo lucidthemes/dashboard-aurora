@@ -21,12 +21,10 @@ export default function UsersDeleteUserDialog({
   dialogOpen,
   dialogClose,
   deleteUserId,
-  userId,
 }: {
   dialogOpen: boolean;
   dialogClose: () => void;
   deleteUserId: string | null;
-  userId: string;
 }) {
   const [isPending, startTransition] = useTransition();
 
@@ -47,7 +45,7 @@ export default function UsersDeleteUserDialog({
             disabled={isPending}
             onClick={() => {
               startTransition(async () => {
-                const result = await deleteUser({ deleteUserId, userId });
+                const result = await deleteUser({ deleteUserId });
 
                 if (result.success) {
                   toast.success('Successfully deleted');
