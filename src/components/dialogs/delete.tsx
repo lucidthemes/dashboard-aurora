@@ -24,7 +24,6 @@ export default function DeleteDialog({
   deletePath,
   deleteLogEventName,
   deleteLogEventMessage,
-  userId,
   title,
   description,
 }: {
@@ -35,7 +34,6 @@ export default function DeleteDialog({
   deletePath: string;
   deleteLogEventName: string;
   deleteLogEventMessage: string;
-  userId: string;
   title?: string;
   description?: string;
 }) {
@@ -67,7 +65,6 @@ export default function DeleteDialog({
                   deletePath,
                   deleteLogEventName,
                   deleteLogEventMessage,
-                  userId,
                 );
 
                 if (result.success) {

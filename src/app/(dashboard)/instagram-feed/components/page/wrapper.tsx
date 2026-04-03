@@ -4,7 +4,6 @@ import DeleteDialog from '@/components/dialogs/delete';
 import SheetForm from '@/components/sheets/form';
 
 import { useInstagramFeedStore } from '../../store/instagram-feed-store';
-import { useDashboardUser } from '../../../user-provider';
 import InstagramFeedForm from '../form';
 import useInstagramFeedCreateForm from '../../hooks/use-create-form';
 import useInstagramFeedEditForm from '../../hooks/use-edit-form';
@@ -23,8 +22,6 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
     setDeleteTable,
     resetSelectedImages,
   } = useInstagramFeedStore();
-
-  const { user } = useDashboardUser();
 
   const instagramFeedCreate = useInstagramFeedCreateForm();
   const instagramFeedEdit = useInstagramFeedEditForm();
@@ -94,7 +91,6 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
         deletePath="/instagram-feed"
         deleteLogEventName="DELETE_INSTAGRAM_FEED"
         deleteLogEventMessage="Instagram feed"
-        userId={user.id}
         title="Delete feed"
       />
     </>
