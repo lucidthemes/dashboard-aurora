@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 
+import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
@@ -13,7 +14,6 @@ interface UpdateInstagramFeedParams {
   feedId: string;
   formData: InstagramFeedForm;
   formImages: InstagramFeedFormImages[];
-  userId: string;
 }
 
 interface FormImagesInsert {
@@ -22,7 +22,15 @@ interface FormImagesInsert {
   position: number;
 }
 
-export async function updateInstagramFeed({ feedId, formData, formImages, userId }: UpdateInstagramFeedParams) {
+export async function updateInstagramFeed({ feedId, formData, formImages }: UpdateInstagramFeedParams) {
+  const { user, role } = await getUserWithRole();
+
+  if (!user || !role || !['admin', 'editor'].includes(role)) {
+    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_UNAUTHORIZED', 'Unauthorized user', user?.id);
+
+    return { success: false };
+  }
+
   if (!feedId) return { success: false };
 
   const formDataParsed = InstagramFeedFormSchema.safeParse(formData);
@@ -42,7 +50,7 @@ export async function updateInstagramFeed({ feedId, formData, formImages, userId
     .eq('id', feedId);
 
   if (feedError) {
-    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_FAILED', feedError.message, userId);
+    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_FAILED', feedError.message, user.id);
 
     return { success: false };
   }
@@ -53,7 +61,7 @@ export async function updateInstagramFeed({ feedId, formData, formImages, userId
     .eq('instagram_feed_id', feedId);
 
   if (mediaDeleteError) {
-    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_MEDIA_DELETE_FAILED', mediaDeleteError.message, userId);
+    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_MEDIA_DELETE_FAILED', mediaDeleteError.message, user.id);
 
     return { success: false };
   }
@@ -67,14 +75,14 @@ export async function updateInstagramFeed({ feedId, formData, formImages, userId
   const { error: mediaInsertError } = await supabase.from('instagram_feed_media').insert(instagramFeedMediaTableRows);
 
   if (mediaInsertError) {
-    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_MEDIA_INSERT_FAILED', mediaInsertError.message, userId);
+    await createLogEvent('error', 'UPDATE_INSTAGRAM_FEED_MEDIA_INSERT_FAILED', mediaInsertError.message, user.id);
 
     return { success: false };
   }
 
   revalidatePath('/instagram-feed');
 
-  await createLogEvent('info', 'UPDATE_INSTAGRAM_FEED_SUCCESSFUL', 'Instagram feed updated. Id: ' + feedId, userId);
+  await createLogEvent('info', 'UPDATE_INSTAGRAM_FEED_SUCCESSFUL', 'Instagram feed updated. Id: ' + feedId, user.id);
 
   return { success: true };
 }
