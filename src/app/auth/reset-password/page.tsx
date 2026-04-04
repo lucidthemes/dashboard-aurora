@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 
+import { PageHeading } from '@/components/page-headings';
+
 import { ResetPasswordForm } from './form';
 
 export const metadata: Metadata = {
@@ -10,10 +12,7 @@ export const metadata: Metadata = {
 export default function ResetPasswordPage() {
   return (
     <>
-      <div className="flex flex-col gap-y-5">
-        <h1 className="text-3xl font-bold">Reset your password</h1>
-        <p className="text-sm text-balance">Please enter your new password below.</p>
-      </div>
+      <PageHeading heading="Reset your password" subHeading="Enter your new password below" className="mb-0!" />
       <ResetPasswordForm />
     </>
   );

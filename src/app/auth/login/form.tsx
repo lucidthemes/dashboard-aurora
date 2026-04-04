@@ -40,7 +40,10 @@ export function LoginForm() {
             <Field data-invalid={fieldState.invalid}>
               <div className="flex items-center">
                 <FieldLabel htmlFor="password">Password</FieldLabel>
-                <Link href="/auth/forgot-password" className="ml-auto text-sm underline-offset-4 hover:underline">
+                <Link
+                  href="/auth/forgot-password"
+                  className="ml-auto text-sm text-muted-foreground underline-offset-4 hover:underline"
+                >
                   Forgot your password?
                 </Link>
               </div>
