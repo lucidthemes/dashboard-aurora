@@ -15,7 +15,7 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
 
   return (
     <div className="flex min-h-svh">
-      <div className="flex basis-2/3 flex-col gap-4 p-6 md:p-10">
+      <div className="flex w-full flex-col gap-4 p-6 md:basis-2/3 md:p-10">
         <Link href="https://aurora-sb.vercel.app/" className="w-fit">
           <Image src="/aurora.svg" alt="Aurora logo" width={160} height={20} className="dark:invert" />
         </Link>
@@ -23,7 +23,7 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
           <div className="flex w-full max-w-md flex-col gap-y-10">{children}</div>
         </div>
       </div>
-      <div className="basis-1/3 bg-[url(/images/login-side.jpg)] bg-cover bg-center bg-no-repeat lg:block"></div>
+      <div className="hidden basis-1/3 bg-[url(/images/login-side.jpg)] bg-cover bg-center bg-no-repeat md:block"></div>
     </div>
   );
 }
