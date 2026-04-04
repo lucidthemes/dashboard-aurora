@@ -148,6 +148,51 @@ export default function LogsListFiltersEventName() {
           value: 'FETCH_FEED_INVALID_DATA',
           label: 'FETCH_FEED_INVALID_DATA',
         },
+        {
+          id: 6,
+          value: 'CREATE_INSTAGRAM_FEED_UNAUTHORIZED',
+          label: 'CREATE_INSTAGRAM_FEED_UNAUTHORIZED',
+        },
+        {
+          id: 7,
+          value: 'CREATE_INSTAGRAM_FEED_FAILED',
+          label: 'CREATE_INSTAGRAM_FEED_FAILED',
+        },
+        {
+          id: 8,
+          value: 'CREATE_INSTAGRAM_FEED_MEDIA_FAILED',
+          label: 'CREATE_INSTAGRAM_FEED_MEDIA_FAILED',
+        },
+        {
+          id: 9,
+          value: 'CREATE_INSTAGRAM_FEED_MEDIA_CLEANUP_FAILED',
+          label: 'CREATE_INSTAGRAM_FEED_MEDIA_CLEANUP_FAILED',
+        },
+        {
+          id: 10,
+          value: 'UPDATE_INSTAGRAM_FEED_UNAUTHORIZED',
+          label: 'UPDATE_INSTAGRAM_FEED_UNAUTHORIZED',
+        },
+        {
+          id: 11,
+          value: 'UPDATE_INSTAGRAM_FEED_FAILED',
+          label: 'UPDATE_INSTAGRAM_FEED_FAILED',
+        },
+        {
+          id: 12,
+          value: 'UPDATE_INSTAGRAM_FEED_MEDIA_DELETE_FAILED',
+          label: 'UPDATE_INSTAGRAM_FEED_MEDIA_DELETE_FAILED',
+        },
+        {
+          id: 13,
+          value: 'UPDATE_INSTAGRAM_FEED_MEDIA_INSERT_FAILED',
+          label: 'UPDATE_INSTAGRAM_FEED_MEDIA_INSERT_FAILED',
+        },
+        {
+          id: 14,
+          value: 'UPDATE_INSTAGRAM_FEED_SUCCESSFUL',
+          label: 'UPDATE_INSTAGRAM_FEED_SUCCESSFUL',
+        },
       ],
     },
     {
@@ -230,6 +275,36 @@ export default function LogsListFiltersEventName() {
           value: 'FETCH_MEDIA_INVALID_DATA',
           label: 'FETCH_MEDIA_INVALID_DATA',
         },
+        {
+          id: 3,
+          value: 'UPDATE_MEDIA_UNAUTHORIZED',
+          label: 'UPDATE_MEDIA_UNAUTHORIZED',
+        },
+        {
+          id: 4,
+          value: 'UPDATE_MEDIA_FAILED',
+          label: 'UPDATE_MEDIA_FAILED',
+        },
+        {
+          id: 5,
+          value: 'UPDATE_MEDIA_SUCCESSFUL',
+          label: 'UPDATE_MEDIA_SUCCESSFUL',
+        },
+        {
+          id: 6,
+          value: 'DELETE_MEDIA_UNAUTHORIZED',
+          label: 'DELETE_MEDIA_UNAUTHORIZED',
+        },
+        {
+          id: 7,
+          value: 'DELETE_MEDIA_FAILED',
+          label: 'DELETE_MEDIA_FAILED',
+        },
+        {
+          id: 8,
+          value: 'DELETE_MEDIA_SUCCESSFUL',
+          label: 'DELETE_MEDIA_SUCCESSFUL',
+        },
       ],
     },
     {
@@ -294,26 +369,41 @@ export default function LogsListFiltersEventName() {
         },
         {
           id: 5,
+          value: 'CREATE_USER_UNAUTHORIZED',
+          label: 'CREATE_USER_UNAUTHORIZED',
+        },
+        {
+          id: 6,
           value: 'CREATE_USER_FAILED',
           label: 'CREATE_USER_FAILED',
         },
         {
-          id: 6,
+          id: 7,
           value: 'CREATE_USER_SUCCESSFUL',
           label: 'CREATE_USER_SUCCESSFUL',
         },
         {
-          id: 7,
+          id: 8,
+          value: 'UPDATE_USER_UNAUTHORIZED',
+          label: 'UPDATE_USER_UNAUTHORIZED',
+        },
+        {
+          id: 9,
           value: 'UPDATE_USER_FAILED',
           label: 'UPDATE_USER_FAILED',
         },
         {
-          id: 8,
+          id: 10,
+          value: 'DELETE_USER_UNAUTHORIZED',
+          label: 'DELETE_USER_UNAUTHORIZED',
+        },
+        {
+          id: 11,
           value: 'UPDATE_USER_SUCCESSFUL',
           label: 'UPDATE_USER_SUCCESSFUL',
         },
         {
-          id: 9,
+          id: 12,
           value: 'DELETE_USER_SUCCESSFUL',
           label: 'DELETE_USER_SUCCESSFUL',
         },
@@ -341,36 +431,56 @@ export default function LogsListFiltersEventName() {
       items: [
         {
           id: 1,
+          value: 'UPDATE_ACCOUNT_NAME_UNAUTHORIZED',
+          label: 'UPDATE_ACCOUNT_NAME_UNAUTHORIZED',
+        },
+        {
+          id: 2,
           value: 'UPDATE_ACCOUNT_NAME_FAILED',
           label: 'UPDATE_ACCOUNT_NAME_FAILED',
         },
         {
-          id: 2,
+          id: 3,
           value: 'UPDATE_ACCOUNT_NAME_SUCCESSFUL',
           label: 'UPDATE_ACCOUNT_NAME_SUCCESSFUL',
         },
         {
-          id: 3,
+          id: 4,
+          value: 'UPDATE_ACCOUNT_EMAIL_UNAUTHORIZED',
+          label: 'UPDATE_ACCOUNT_EMAIL_UNAUTHORIZED',
+        },
+        {
+          id: 5,
           value: 'UPDATE_ACCOUNT_EMAIL_FAILED',
           label: 'UPDATE_ACCOUNT_EMAIL_FAILED',
         },
         {
-          id: 4,
+          id: 6,
           value: 'UPDATE_ACCOUNT_EMAIL_SUCCESSFUL',
           label: 'UPDATE_ACCOUNT_EMAIL_SUCCESSFUL',
         },
         {
-          id: 5,
+          id: 7,
+          value: 'UPDATE_ACCOUNT_PASSWORD_UNAUTHORIZED',
+          label: 'UPDATE_ACCOUNT_PASSWORD_UNAUTHORIZED',
+        },
+        {
+          id: 8,
           value: 'UPDATE_ACCOUNT_PASSWORD_FAILED',
           label: 'UPDATE_ACCOUNT_PASSWORD_FAILED',
         },
         {
-          id: 6,
+          id: 9,
           value: 'UPDATE_ACCOUNT_PASSWORD_SUCCESSFUL',
           label: 'UPDATE_ACCOUNT_PASSWORD_SUCCESSFUL',
         },
         {
-          id: 7,
+          id: 10,
+          value: 'DELETE_ACCOUNT_UNAUTHORIZED',
+          label: 'DELETE_ACCOUNT_UNAUTHORIZED',
+        },
+        {
+          id: 11,
           value: 'DELETE_ACCOUNT_SUCCESSFUL',
           label: 'DELETE_ACCOUNT_SUCCESSFUL',
         },
