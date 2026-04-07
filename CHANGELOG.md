@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - [Unreleased]
+
+### Added
+
+#### App
+
+##### Dashboard
+
+- posts authors link to sidebar nav menu
+
+###### Blog
+
+- blog route group folder
+
+- posts page route
+- posts actions
+- posts components
+- posts data
+- posts schemas
+- posts store
+
+- posts authors page route
+- posts categories page route
+- posts comments page route
+- posts tags page route
+
+### Changed
+
+#### App
+
+##### Dashboard
+
+- breadcrumb to work with page sub routes
+- posts sidebar nav menu to include link to add new post
+
+#### Components
+
+- list search schema to allow strings
+
 ## [0.3.0] - 2026-04-05
 
 ### Added
