@@ -2,15 +2,19 @@
 
 import {
   StickyNote,
+  Pin,
+  Plus,
   List,
   Tag,
   LayoutList,
   MessageCircleMore,
-  Image as ImageIcon,
+  Store,
   ShoppingCart,
   CreditCard,
   Van,
   Percent,
+  Image,
+  Camera,
   User,
   Logs,
   Settings,
@@ -33,8 +37,13 @@ const data = {
     {
       title: 'Posts',
       url: '/posts',
-      icon: StickyNote,
+      icon: Pin,
       items: [
+        {
+          title: 'Add post',
+          url: '/post?action=create',
+          icon: Plus,
+        },
         {
           title: 'Categories',
           url: '/posts/categories',
@@ -57,7 +66,7 @@ const data = {
     {
       title: 'Products',
       url: '/products',
-      icon: StickyNote,
+      icon: Store,
       items: [
         {
           title: 'Categories',
@@ -111,14 +120,14 @@ const data = {
     {
       title: 'Media',
       url: '/media',
-      icon: ImageIcon,
+      icon: Image,
     },
   ],
   instagram: [
     {
       title: 'Instagram feed',
       url: '/instagram-feed',
-      icon: ImageIcon,
+      icon: Camera,
     },
   ],
   admin: [
