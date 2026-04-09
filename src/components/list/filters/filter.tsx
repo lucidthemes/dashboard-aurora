@@ -23,7 +23,7 @@ interface ListFilterProps {
     id: number;
     section: string;
     items: {
-      id: number;
+      id: number | string;
       value: string;
       label: string;
     }[];

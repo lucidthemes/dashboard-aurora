@@ -80,7 +80,7 @@ export function DashboardSidebarNavMenuGroup({
                       <SidebarMenuSub>
                         {item.items?.map((subItem) => (
                           <SidebarMenuSubItem key={subItem.url}>
-                            <SidebarMenuSubButton asChild>
+                            <SidebarMenuSubButton asChild isActive={isActive(subItem.url)}>
                               <Link href={subItem.url}>
                                 {subItem.icon && <subItem.icon />}
                                 <span>{subItem.title}</span>
