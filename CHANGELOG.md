@@ -24,9 +24,22 @@ All notable changes to this project will be documented in this file.
 - posts store
 
 - posts authors page route
+
 - posts categories page route
+- posts categories actions
+- posts categories components
+- posts categories data
+- posts categories hooks
+- posts categories schemas
+- posts categories store
+
 - posts comments page route
 - posts tags page route
+
+#### Components
+
+- shadcn ui input group
+- shadcn ui textarea
 
 ### Changed
 
