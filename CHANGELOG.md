@@ -23,8 +23,6 @@ All notable changes to this project will be documented in this file.
 - posts schemas
 - posts store
 
-- posts authors page route
-
 - posts categories page route
 - posts categories actions
 - posts categories components
@@ -33,8 +31,16 @@ All notable changes to this project will be documented in this file.
 - posts categories schemas
 - posts categories store
 
-- posts comments page route
 - posts tags page route
+- posts tags actions
+- posts tags components
+- posts tags data
+- posts tags hooks
+- posts tags schemas
+- posts tags store
+
+- posts comments page route
+- posts authors page route
 
 #### Components
 
