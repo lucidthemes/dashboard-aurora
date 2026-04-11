@@ -45,7 +45,10 @@ export default async function getPosts(
                 id,
                 name
             )
-        )
+        ),
+        status,
+        created_at,
+        updated_at
     `,
     )
     .range(rangeFrom, rangeTo)

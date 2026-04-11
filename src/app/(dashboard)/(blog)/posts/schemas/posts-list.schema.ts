@@ -24,6 +24,7 @@ export const PostsListSchema = z.object({
   ),
   status: z.enum(['draft', 'published']),
   created_at: z.coerce.date(),
+  updated_at: z.coerce.date(),
 });
 
 export type PostsList = z.infer<typeof PostsListSchema>;
