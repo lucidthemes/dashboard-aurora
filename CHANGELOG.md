@@ -40,9 +40,18 @@ All notable changes to this project will be documented in this file.
 - posts tags store
 
 - posts comments page route
+- posts comments actions
+- posts comments components
+- posts comments data
+- posts comments schemas
+
 - posts authors page route
 
 #### Components
+
+- approve and reject buttons
+
+##### UI
 
 - shadcn ui input group
 - shadcn ui textarea
