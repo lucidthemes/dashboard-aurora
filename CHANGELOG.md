@@ -56,6 +56,7 @@ All notable changes to this project will be documented in this file.
 ##### Auth
 
 - login form password show/hide button
+- reset password form password show/hide button
 
 #### Components
 
