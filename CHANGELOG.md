@@ -74,6 +74,7 @@ All notable changes to this project will be documented in this file.
 #### Components
 
 - list search schema to allow strings
+- list search form input and button to a shadcn input group
 
 ## [0.3.0] - 2026-04-05
 
