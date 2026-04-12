@@ -1,11 +1,10 @@
 'use client';
 
 import { Controller } from 'react-hook-form';
+import { Search } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup } from '@/components/ui/field';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Search } from 'lucide-react';
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/ui/input-group';
 
 import useListSearchForm from '@/components/list/search/use-form';
 
@@ -13,28 +12,32 @@ export default function ListSearchForm({ placeholder, search }: { placeholder: s
   const { form, onSubmit } = useListSearchForm(search);
 
   return (
-    <form id="list-search-form" className="relative flex w-full lg:w-80" onSubmit={form.handleSubmit(onSubmit)}>
+    <form id="list-search-form" className="w-full lg:w-80" onSubmit={form.handleSubmit(onSubmit)}>
       <FieldGroup>
         <Controller
           name="search"
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid}>
-              <Input
-                {...field}
-                id="search"
-                aria-invalid={fieldState.invalid}
-                placeholder={placeholder}
-                autoComplete="off"
-              />
+              <InputGroup>
+                <InputGroupInput
+                  {...field}
+                  id="search"
+                  aria-invalid={fieldState.invalid}
+                  placeholder={placeholder}
+                  autoComplete="on"
+                />
+                <InputGroupAddon align="inline-end">
+                  <InputGroupButton type="submit" variant="ghost" size="icon-sm" className="cursor-pointer">
+                    <Search />
+                  </InputGroupButton>
+                </InputGroupAddon>
+              </InputGroup>
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />
       </FieldGroup>
-      <Button type="submit" variant="ghost" size="icon" className="absolute top-0 right-0 cursor-pointer">
-        <Search />
-      </Button>
     </form>
   );
 }
