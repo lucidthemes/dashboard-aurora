@@ -16,7 +16,7 @@ export default function MediaUploadForm({ uploadType }: { uploadType: 'image' | 
   });
 
   return (
-    <div className="h-full w-full px-5">
+    <div className="h-full w-full">
       <Dropzone {...props} className="h-full">
         <DropzoneEmptyState />
         <DropzoneContent />
