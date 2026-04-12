@@ -46,6 +46,12 @@ All notable changes to this project will be documented in this file.
 - posts comments schemas
 
 - posts authors page route
+- posts authors actions
+- posts authors components
+- posts authors data
+- posts authors hooks
+- posts authors schemas
+- posts authors store
 
 #### Components
 
