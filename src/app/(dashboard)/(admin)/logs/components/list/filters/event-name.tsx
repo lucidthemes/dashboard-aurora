@@ -198,20 +198,300 @@ export default function LogsListFiltersEventName() {
     {
       id: 4,
       section: 'Dashboard - Posts',
-      items: [],
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POSTS_FAILED',
+          label: 'FETCH_POSTS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POSTS_INVALID_DATA',
+          label: 'FETCH_POSTS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'FETCH_POSTS_FILTER_AUTHOR_FAILED',
+          label: 'FETCH_POSTS_FILTER_AUTHOR_FAILED',
+        },
+        {
+          id: 4,
+          value: 'FETCH_POSTS_FILTER_AUTHOR_INVALID_DATA',
+          label: 'FETCH_POSTS_FILTER_AUTHOR_INVALID_DATA',
+        },
+        {
+          id: 5,
+          value: 'FETCH_POSTS_FILTER_CATEGORY_FAILED',
+          label: 'FETCH_POSTS_FILTER_CATEGORY_FAILED',
+        },
+        {
+          id: 6,
+          value: 'FETCH_POSTS_FILTER_CATEGORY_INVALID_DATA',
+          label: 'FETCH_POSTS_FILTER_CATEGORY_INVALID_DATA',
+        },
+        {
+          id: 7,
+          value: 'FETCH_POSTS_FILTER_TAG_FAILED',
+          label: 'FETCH_POSTS_FILTER_TAG_FAILED',
+        },
+        {
+          id: 8,
+          value: 'FETCH_POSTS_FILTER_TAG_INVALID_DATA',
+          label: 'FETCH_POSTS_FILTER_TAG_INVALID_DATA',
+        },
+        {
+          id: 9,
+          value: 'DUPLICATE_POST_UNAUTHORIZED',
+          label: 'DUPLICATE_POST_UNAUTHORIZED',
+        },
+        {
+          id: 10,
+          value: 'DUPLICATE_POST_NO_POST_ID',
+          label: 'DUPLICATE_POST_NO_POST_ID',
+        },
+        {
+          id: 11,
+          value: 'DUPLICATE_POST_FETCH_FAILED',
+          label: 'DUPLICATE_POST_FETCH_FAILED',
+        },
+        {
+          id: 12,
+          value: 'DUPLICATE_POST_NOT_FOUND',
+          label: 'DUPLICATE_POST_NOT_FOUND',
+        },
+        {
+          id: 13,
+          value: 'DUPLICATE_POST_INSERT_FAILED',
+          label: 'DUPLICATE_POST_INSERT_FAILED',
+        },
+      ],
     },
     {
       id: 5,
+      section: 'Dashboard - Posts - Categories',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POSTS_CATEGORIES_FAILED',
+          label: 'FETCH_POSTS_CATEGORIES_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POSTS_CATEGORIES_INVALID_DATA',
+          label: 'FETCH_POSTS_CATEGORIES_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'CREATE_POST_CATEGORY_UNAUTHORIZED',
+          label: 'CREATE_POST_CATEGORY_UNAUTHORIZED',
+        },
+        {
+          id: 4,
+          value: 'CREATE_POST_CATEGORY_INVALID_DATA',
+          label: 'CREATE_POST_CATEGORY_INVALID_DATA',
+        },
+        {
+          id: 5,
+          value: 'CREATE_POST_CATEGORY_FAILED',
+          label: 'CREATE_POST_CATEGORY_FAILED',
+        },
+        {
+          id: 6,
+          value: 'CREATE_POST_CATEGORY_SUCCESSFUL',
+          label: 'CREATE_POST_CATEGORY_SUCCESSFUL',
+        },
+        {
+          id: 7,
+          value: 'EDIT_POST_CATEGORY_UNAUTHORIZED',
+          label: 'EDIT_POST_CATEGORY_UNAUTHORIZED',
+        },
+        {
+          id: 8,
+          value: 'EDIT_POST_CATEGORY_INVALID_DATA',
+          label: 'EDIT_POST_CATEGORY_INVALID_DATA',
+        },
+        {
+          id: 9,
+          value: 'EDIT_POST_CATEGORY_FAILED',
+          label: 'EDIT_POST_CATEGORY_FAILED',
+        },
+        {
+          id: 10,
+          value: 'EDIT_POST_CATEGORY_SUCCESSFUL',
+          label: 'EDIT_POST_CATEGORY_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 6,
+      section: 'Dashboard - Posts - Tags',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POSTS_TAGS_FAILED',
+          label: 'FETCH_POSTS_TAGS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POSTS_TAGS_INVALID_DATA',
+          label: 'FETCH_POSTS_TAGS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'CREATE_POST_TAG_UNAUTHORIZED',
+          label: 'CREATE_POST_TAG_UNAUTHORIZED',
+        },
+        {
+          id: 4,
+          value: 'CREATE_POST_TAG_INVALID_DATA',
+          label: 'CREATE_POST_TAG_INVALID_DATA',
+        },
+        {
+          id: 5,
+          value: 'CREATE_POST_TAG_FAILED',
+          label: 'CREATE_POST_TAG_FAILED',
+        },
+        {
+          id: 6,
+          value: 'CREATE_POST_TAG_SUCCESSFUL',
+          label: 'CREATE_POST_TAG_SUCCESSFUL',
+        },
+        {
+          id: 7,
+          value: 'EDIT_POST_TAG_UNAUTHORIZED',
+          label: 'EDIT_POST_TAG_UNAUTHORIZED',
+        },
+        {
+          id: 8,
+          value: 'EDIT_POST_TAG_INVALID_DATA',
+          label: 'EDIT_POST_TAG_INVALID_DATA',
+        },
+        {
+          id: 9,
+          value: 'EDIT_POST_TAG_FAILED',
+          label: 'EDIT_POST_TAG_FAILED',
+        },
+        {
+          id: 10,
+          value: 'EDIT_POST_TAG_SUCCESSFUL',
+          label: 'EDIT_POST_TAG_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 7,
+      section: 'Dashboard - Posts - Comments',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POSTS_COMMENTS_FAILED',
+          label: 'FETCH_POSTS_COMMENTS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POSTS_COMMENTS_INVALID_DATA',
+          label: 'FETCH_POSTS_COMMENTS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'APPROVE_POST_COMMENT_UNAUTHORIZED',
+          label: 'APPROVE_POST_COMMENT_UNAUTHORIZED',
+        },
+        {
+          id: 4,
+          value: 'APPROVE_POST_COMMENT_FAILED',
+          label: 'APPROVE_POST_COMMENT_FAILED',
+        },
+        {
+          id: 5,
+          value: 'APPROVE_POST_COMMENT_SUCCESSFUL',
+          label: 'APPROVE_POST_COMMENT_SUCCESSFUL',
+        },
+        {
+          id: 6,
+          value: 'REJECT_POST_COMMENT_UNAUTHORIZED',
+          label: 'REJECT_POST_COMMENT_UNAUTHORIZED',
+        },
+        {
+          id: 7,
+          value: 'REJECT_POST_COMMENT_FAILED',
+          label: 'REJECT_POST_COMMENT_FAILED',
+        },
+        {
+          id: 8,
+          value: 'REJECT_POST_COMMENT_SUCCESSFUL',
+          label: 'REJECT_POST_COMMENT_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 8,
+      section: 'Dashboard - Posts - Authors',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POSTS_AUTHORS_FAILED',
+          label: 'FETCH_POSTS_AUTHORS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POSTS_AUTHORS_INVALID_DATA',
+          label: 'FETCH_POSTS_AUTHORS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'CREATE_POST_AUTHOR_UNAUTHORIZED',
+          label: 'CREATE_POST_AUTHOR_UNAUTHORIZED',
+        },
+        {
+          id: 4,
+          value: 'CREATE_POST_AUTHOR_INVALID_DATA',
+          label: 'CREATE_POST_AUTHOR_INVALID_DATA',
+        },
+        {
+          id: 5,
+          value: 'CREATE_POST_AUTHOR_FAILED',
+          label: 'CREATE_POST_AUTHOR_FAILED',
+        },
+        {
+          id: 6,
+          value: 'CREATE_POST_AUTHOR_SUCCESSFUL',
+          label: 'CREATE_POST_AUTHOR_SUCCESSFUL',
+        },
+        {
+          id: 7,
+          value: 'EDIT_POST_AUTHOR_UNAUTHORIZED',
+          label: 'EDIT_POST_AUTHOR_UNAUTHORIZED',
+        },
+        {
+          id: 8,
+          value: 'EDIT_POST_AUTHOR_INVALID_DATA',
+          label: 'EDIT_POST_AUTHOR_INVALID_DATA',
+        },
+        {
+          id: 9,
+          value: 'EDIT_POST_AUTHOR_FAILED',
+          label: 'EDIT_POST_AUTHOR_FAILED',
+        },
+        {
+          id: 10,
+          value: 'EDIT_POST_AUTHOR_SUCCESSFUL',
+          label: 'EDIT_POST_AUTHOR_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 9,
       section: 'Dashboard - Products',
       items: [],
     },
     {
-      id: 6,
+      id: 10,
       section: 'Dashboard - Orders',
       items: [],
     },
     {
-      id: 7,
+      id: 11,
       section: 'Dashboard - Customers',
       items: [
         {
@@ -247,22 +527,22 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 8,
+      id: 12,
       section: 'Dashboard - Payments',
       items: [],
     },
     {
-      id: 9,
+      id: 13,
       section: 'Dashboard - Shipping',
       items: [],
     },
     {
-      id: 10,
+      id: 14,
       section: 'Dashboard - Coupons',
       items: [],
     },
     {
-      id: 11,
+      id: 15,
       section: 'Dashboard - Media',
       items: [
         {
@@ -308,7 +588,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 12,
+      id: 16,
       section: 'Dashboard - Instagram feed',
       items: [
         {
@@ -344,7 +624,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 13,
+      id: 17,
       section: 'Dashboard - Users',
       items: [
         {
@@ -410,7 +690,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 14,
+      id: 18,
       section: 'Dashboard - Logs',
       items: [
         {
@@ -426,7 +706,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 15,
+      id: 19,
       section: 'Dashboard - Account',
       items: [
         {
