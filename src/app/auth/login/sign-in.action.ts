@@ -4,7 +4,17 @@ import type { LoginForm } from '@/app/auth/login/login.schema';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
+import { LoginFormSchema } from './login.schema';
+
 export async function signIn(formData: LoginForm) {
+  const parsed = LoginFormSchema.safeParse(formData);
+
+  if (!parsed.success) {
+    await createLogEvent('error', 'SIGN_IN_INVALID_DATA', 'User sign in failed schema validation');
+
+    return { success: false };
+  }
+
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.signInWithPassword({
