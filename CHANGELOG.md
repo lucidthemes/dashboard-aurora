@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file.
 
 - blog route group folder
 
+###### Blog - posts
+
 - posts page route
 - posts actions
 - posts components
@@ -76,6 +78,11 @@ All notable changes to this project will be documented in this file.
 ###### Admin - users
 
 - zod schema parse to actions
+
+###### Blog - posts
+
+- zod schema parse to posts actions
+- zod schema parse to posts comments actions
 
 ###### Components
 

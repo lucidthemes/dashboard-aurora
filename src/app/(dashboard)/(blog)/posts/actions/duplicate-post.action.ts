@@ -6,6 +6,8 @@ import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
+import { PostsDuplicatePostActionSchema } from '../schemas/actions/duplicate-post.schema';
+
 type FetchPostType = {
   id: string;
   title: string;
@@ -23,6 +25,14 @@ export default async function duplicatePost(postId: string) {
 
   if (!postId) {
     await createLogEvent('error', 'DUPLICATE_POST_NO_POST_ID', 'Post id not passed through', user.id);
+
+    return { success: false };
+  }
+
+  const parsed = PostsDuplicatePostActionSchema.safeParse(postId);
+
+  if (!parsed.success) {
+    await createLogEvent('error', 'DUPLICATE_POST_INVALID_DATA', 'Duplicate post failed schema validation', user?.id);
 
     return { success: false };
   }
