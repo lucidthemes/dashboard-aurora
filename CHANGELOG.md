@@ -84,6 +84,10 @@ All notable changes to this project will be documented in this file.
 - zod schema parse to posts actions
 - zod schema parse to posts comments actions
 
+###### Account
+
+- zod schema parse to actions
+
 ###### Components
 
 - breadcrumb to work with page sub routes

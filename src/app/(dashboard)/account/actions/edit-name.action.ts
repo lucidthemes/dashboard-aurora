@@ -7,12 +7,26 @@ import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
 import type { AccountNameForm } from '../schemas/name-form.schema';
+import { AccountNameFormSchema } from '../schemas/name-form.schema';
 
 export async function editName({ formData }: { formData: AccountNameForm }) {
   const { user, role } = await getUserWithRole();
 
   if (!user || !role || !['admin', 'editor'].includes(role)) {
     await createLogEvent('error', 'UPDATE_ACCOUNT_NAME_UNAUTHORIZED', 'Unauthorized user.', user?.id);
+
+    return { success: false };
+  }
+
+  const parsed = AccountNameFormSchema.safeParse(formData);
+
+  if (!parsed.success) {
+    await createLogEvent(
+      'error',
+      'UPDATE_ACCOUNT_NAME_INVALID_DATA',
+      'Update account name failed schema validation',
+      user?.id,
+    );
 
     return { success: false };
   }
