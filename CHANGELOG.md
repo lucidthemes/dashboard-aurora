@@ -93,6 +93,10 @@ All notable changes to this project will be documented in this file.
 - breadcrumb to work with page sub routes
 - posts sidebar nav menu to include link to add new post
 
+###### Media
+
+- zod schema parse to actions
+
 #### Components
 
 - list search schema to allow strings
