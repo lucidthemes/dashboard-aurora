@@ -36,7 +36,16 @@ export async function updateInstagramFeed({ feedId, formData, formImages }: Upda
   const formDataParsed = InstagramFeedFormSchema.safeParse(formData);
   const formImagesParsed = z.array(InstagramFeedFormImagesSchema).safeParse(formImages);
 
-  if (!formDataParsed.success || !formImagesParsed.success) return { success: false };
+  if (!formDataParsed.success || !formImagesParsed.success) {
+    await createLogEvent(
+      'error',
+      'UPDATE_INSTAGRAM_FEED_INVALID_DATA',
+      'Update instagram feed failed schema validation',
+      user?.id,
+    );
+
+    return { success: false };
+  }
 
   const supabase = await createClient();
 
