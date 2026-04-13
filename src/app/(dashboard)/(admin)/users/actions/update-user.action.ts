@@ -6,6 +6,8 @@ import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
+import { UsersUpdateUserActionSchema } from '../schemas/actions/update-user.schema';
+
 export async function updateUser({
   updateUserId,
   updateUserRole,
@@ -17,6 +19,14 @@ export async function updateUser({
 
   if (!user || !role || role !== 'admin') {
     await createLogEvent('error', 'UPDATE_USER_UNAUTHORIZED', 'Unauthorized user. User Id: ' + updateUserId, user?.id);
+
+    return { success: false };
+  }
+
+  const parsed = UsersUpdateUserActionSchema.safeParse({ updateUserId, updateUserRole });
+
+  if (!parsed.success) {
+    await createLogEvent('error', 'UPDATE_USER_INVALID_DATA', 'Update user failed schema validation', user?.id);
 
     return { success: false };
   }

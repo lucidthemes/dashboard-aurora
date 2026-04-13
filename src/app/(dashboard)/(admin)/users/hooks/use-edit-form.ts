@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { useUsersStore } from '../store/users-store';
 import { updateUser } from '../actions/update-user.action';
 import type { UsersEditSheetForm } from '../schemas/sheets/edit-form.schema';
-import { UserEditSheetFormSchema } from '../schemas/sheets/edit-form.schema';
+import { UsersEditSheetFormSchema } from '../schemas/sheets/edit-form.schema';
 
 export default function useUsersEditSheetForm() {
   const { editSheetUser, setEditSheetOpen, setEditSheetUser } = useUsersStore();
@@ -18,7 +18,7 @@ export default function useUsersEditSheetForm() {
     defaultValues: {
       role: editSheetUser?.role,
     },
-    resolver: zodResolver(UserEditSheetFormSchema),
+    resolver: zodResolver(UsersEditSheetFormSchema),
   });
 
   useEffect(() => {

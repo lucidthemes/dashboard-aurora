@@ -4,11 +4,21 @@ import { getUserWithRole } from '@/lib/supabase/auth';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
+import { UsersCreateUserActionSchema } from '../schemas/actions/create-user.schema';
+
 export async function createUser({ createUserEmail }: { createUserEmail: string }) {
   const { user, role } = await getUserWithRole();
 
   if (!user || !role || role !== 'admin') {
     await createLogEvent('error', 'CREATE_USER_UNAUTHORIZED', 'Unauthorized user. Email: ' + createUserEmail, user?.id);
+
+    return { success: false };
+  }
+
+  const parsed = UsersCreateUserActionSchema.safeParse(createUserEmail);
+
+  if (!parsed.success) {
+    await createLogEvent('error', 'CREATE_USER_INVALID_DATA', 'Create user failed schema validation', user?.id);
 
     return { success: false };
   }
