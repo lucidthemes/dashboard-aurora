@@ -33,7 +33,16 @@ export async function createInstagramFeed({ formData, formImages }: CreateInstag
   const formDataParsed = InstagramFeedFormSchema.safeParse(formData);
   const formImagesParsed = z.array(InstagramFeedFormImagesSchema).safeParse(formImages);
 
-  if (!formDataParsed.success || !formImagesParsed.success) return { success: false };
+  if (!formDataParsed.success || !formImagesParsed.success) {
+    await createLogEvent(
+      'error',
+      'CREATE_INSTAGRAM_FEED_INVALID_DATA',
+      'Create instagram feed failed schema validation',
+      user?.id,
+    );
+
+    return { success: false };
+  }
 
   const supabase = await createClient();
 
