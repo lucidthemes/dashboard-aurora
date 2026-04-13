@@ -97,6 +97,20 @@ All notable changes to this project will be documented in this file.
 
 - zod schema parse to actions
 
+##### Auth
+
+###### Forgot password
+
+- zod schema parse to actions
+
+###### Login
+
+- zod schema parse to actions
+
+###### Reset password
+
+- zod schema parse to actions
+
 #### Components
 
 - list search schema to allow strings
