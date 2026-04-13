@@ -7,12 +7,26 @@ import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
 
 import type { AccountEmailForm } from '../schemas/email-form.schema';
+import { AccountEmailFormSchema } from '../schemas/email-form.schema';
 
 export async function editEmail({ formData }: { formData: AccountEmailForm }) {
   const { user, role } = await getUserWithRole();
 
   if (!user || !role || !['admin', 'editor'].includes(role)) {
     await createLogEvent('error', 'UPDATE_ACCOUNT_EMAIL_UNAUTHORIZED', 'Unauthorized user.', user?.id);
+
+    return { success: false };
+  }
+
+  const parsed = AccountEmailFormSchema.safeParse(formData);
+
+  if (!parsed.success) {
+    await createLogEvent(
+      'error',
+      'UPDATE_ACCOUNT_EMAIL_INVALID_DATA',
+      'Update account email failed schema validation',
+      user?.id,
+    );
 
     return { success: false };
   }
