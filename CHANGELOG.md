@@ -73,6 +73,12 @@ All notable changes to this project will be documented in this file.
 
 ##### Dashboard
 
+###### Admin - users
+
+- zod schema parse to actions
+
+###### Components
+
 - breadcrumb to work with page sub routes
 - posts sidebar nav menu to include link to add new post
 
