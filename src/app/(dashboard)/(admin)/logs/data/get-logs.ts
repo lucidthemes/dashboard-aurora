@@ -31,19 +31,19 @@ export default async function getLogs(
     .order('created_at', { ascending: sortAsc });
 
   if (search) {
-    query = query.or(`user_id.eq.${search}`);
+    query = query.eq('user_id', search);
   }
 
   if (filterLogLevel) {
-    query = query.or(`log_level.eq.${filterLogLevel}`);
+    query = query.eq('log_level', filterLogLevel);
   }
 
   if (filterEventName) {
-    query = query.or(`event_name.eq.${filterEventName}`);
+    query = query.eq('event_name', filterEventName);
   }
 
   if (filter_source) {
-    query = query.or(`source.eq.${filter_source}`);
+    query = query.eq('source', filter_source);
   }
 
   const { data, count, error } = await query;
