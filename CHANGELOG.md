@@ -55,6 +55,10 @@ All notable changes to this project will be documented in this file.
 - posts authors schemas
 - posts authors store
 
+###### Account
+
+- update password form password show/hide button
+
 ##### Auth
 
 - login form password show/hide button
