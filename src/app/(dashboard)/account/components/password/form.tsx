@@ -17,13 +17,30 @@ export default function AccountPasswordForm({ handleFormShown }: { handleFormSho
       <FieldGroup>
         <div className="flex flex-col gap-5">
           <Controller
-            name="password"
+            name="currentPassword"
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <Input
                   {...field}
-                  id="password"
+                  id="currentPassword"
+                  type="password"
+                  aria-invalid={fieldState.invalid}
+                  placeholder="Current password"
+                  autoComplete="off"
+                />
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+          <Controller
+            name="newPassword"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <Input
+                  {...field}
+                  id="newPassword"
                   type="password"
                   aria-invalid={fieldState.invalid}
                   placeholder="New password"
@@ -43,7 +60,7 @@ export default function AccountPasswordForm({ handleFormShown }: { handleFormSho
                   id="confirmPassword"
                   type="password"
                   aria-invalid={fieldState.invalid}
-                  placeholder="Confirm password"
+                  placeholder="Confirm new password"
                   autoComplete="off"
                 />
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}

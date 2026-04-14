@@ -91,6 +91,7 @@ All notable changes to this project will be documented in this file.
 ###### Account
 
 - zod schema parse to actions
+- password update form to require current password
 
 ###### Components
 
