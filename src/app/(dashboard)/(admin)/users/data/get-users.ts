@@ -33,14 +33,14 @@ export default async function getUsers(
       /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(value);
 
     if (isUUID(search)) {
-      query = query.or(`id.eq.${search}`);
+      query = query.eq('id', search);
     } else {
-      query = query.or(`email.eq.${search}`);
+      query = query.ilike('email', `%${search}%`);
     }
   }
 
   if (filterRole) {
-    query = query.or(`role.eq.${filterRole}`);
+    query = query.eq('role', filterRole);
   }
 
   const { data, count, error } = await query;
