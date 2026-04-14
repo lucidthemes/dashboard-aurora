@@ -18,8 +18,6 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
     setDeleteOpen,
     deleteRowId,
     setDeleteRowId,
-    deleteTable,
-    setDeleteTable,
     resetSelectedImages,
   } = useInstagramFeedStore();
 
@@ -39,7 +37,6 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
   const deleteDialogClose = () => {
     setDeleteOpen(false);
     setDeleteRowId(null);
-    setDeleteTable(null);
   };
 
   return (
@@ -87,11 +84,11 @@ export default function InstagramFeedPageWrapper({ children }: { children: React
         dialogOpen={deleteOpen}
         dialogClose={deleteDialogClose}
         deleteRowId={deleteRowId}
-        deleteTable={deleteTable}
+        deleteTable="instagram_feeds"
         deletePath="/instagram-feed"
         deleteLogEventName="DELETE_INSTAGRAM_FEED"
         deleteLogEventMessage="Instagram feed"
-        title="Delete feed"
+        title="Delete Instagram feed"
       />
     </>
   );

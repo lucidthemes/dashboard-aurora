@@ -11,7 +11,6 @@ type State = {
 
   deleteOpen: boolean;
   deleteRowId: string | null;
-  deleteTable: 'instagram_feeds' | null;
 
   formMediaOpen: boolean;
 
@@ -26,7 +25,6 @@ type Action = {
 
   setDeleteOpen: (open: boolean) => void;
   setDeleteRowId: (deleteRowId: string | null) => void;
-  setDeleteTable: (deleteTable: 'instagram_feeds' | null) => void;
 
   setFormMediaOpen: (open: boolean) => void;
 
@@ -50,8 +48,6 @@ export const useInstagramFeedStore = create<State & Action>((set) => ({
   setDeleteOpen: (open) => set({ deleteOpen: open }),
   deleteRowId: null,
   setDeleteRowId: (deleteRowId) => set({ deleteRowId: deleteRowId }),
-  deleteTable: null,
-  setDeleteTable: (deleteTable) => set({ deleteTable: deleteTable }),
 
   formMediaOpen: false,
   setFormMediaOpen: (open) => set({ formMediaOpen: open }),

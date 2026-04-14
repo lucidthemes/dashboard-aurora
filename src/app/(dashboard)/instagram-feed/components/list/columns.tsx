@@ -10,7 +10,7 @@ import { useInstagramFeedStore } from '../../store/instagram-feed-store';
 import type { InstagramFeed } from '../../schemas/feed.schema';
 
 export default function InstagramFeedListColumns() {
-  const { setEditOpen, setEditData, setDeleteOpen, setDeleteRowId, setDeleteTable } = useInstagramFeedStore();
+  const { setEditOpen, setEditData, setDeleteOpen, setDeleteRowId } = useInstagramFeedStore();
 
   const columns: ColumnDef<InstagramFeed>[] = [];
 
@@ -69,7 +69,6 @@ export default function InstagramFeedListColumns() {
             onClick={() => {
               setDeleteOpen(true);
               setDeleteRowId(item.id);
-              setDeleteTable('instagram_feeds');
             }}
           />
         </div>
