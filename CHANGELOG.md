@@ -64,6 +64,10 @@ All notable changes to this project will be documented in this file.
 
 - approve and reject buttons
 
+##### List
+
+- list filter select align option
+
 ##### UI
 
 - shadcn ui input group

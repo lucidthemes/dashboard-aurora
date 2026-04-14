@@ -28,9 +28,10 @@ interface ListFilterProps {
       label: string;
     }[];
   }[];
+  align?: 'start' | 'center' | 'end';
 }
 
-export default function ListFilter({ type, label, options }: ListFilterProps) {
+export default function ListFilter({ type, label, options, align = 'start' }: ListFilterProps) {
   const onFilterValueChange = useListFilter(type);
 
   const searchParams = useSearchParams();
@@ -45,7 +46,7 @@ export default function ListFilter({ type, label, options }: ListFilterProps) {
         <SelectTrigger className="w-full cursor-pointer lg:max-w-48">
           <SelectValue placeholder={label} />
         </SelectTrigger>
-        <SelectContent position="popper" align="end">
+        <SelectContent position="popper" align={align}>
           {options.map((item) => (
             <SelectGroup key={item.id}>
               {options.length > 1 && item.id > 1 && <SelectSeparator />}
