@@ -109,7 +109,7 @@ export default function InstagramFeedForm({
                       <SelectTrigger className="cursor-pointer">
                         <SelectValue placeholder="Choose ratio" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent position="popper">
                         <SelectGroup>
                           <SelectItem value="square" className="cursor-pointer">
                             Square
