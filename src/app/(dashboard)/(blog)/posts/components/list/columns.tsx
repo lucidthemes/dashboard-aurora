@@ -78,6 +78,11 @@ export default function PostsListColumns() {
   columns.push({
     accessorKey: 'status',
     header: 'Status',
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return <span className="capitalize">{item.status}</span>;
+    },
   });
 
   columns.push({

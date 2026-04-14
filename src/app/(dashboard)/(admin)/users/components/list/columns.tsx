@@ -23,6 +23,11 @@ export default function UsersListColumns() {
   columns.push({
     accessorKey: 'role',
     header: 'Role',
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return <span className="capitalize">{item.role}</span>;
+    },
   });
 
   columns.push({

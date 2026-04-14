@@ -17,6 +17,11 @@ export default function LogsListColumns() {
   columns.push({
     accessorKey: 'log_level',
     header: 'Log level',
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return <span className="capitalize">{item.log_level}</span>;
+    },
   });
 
   columns.push({
@@ -42,6 +47,11 @@ export default function LogsListColumns() {
   columns.push({
     accessorKey: 'source',
     header: 'Source',
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return <span className="capitalize">{item.source}</span>;
+    },
   });
 
   columns.push({
