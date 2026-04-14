@@ -239,6 +239,16 @@ export default function LogsListFiltersEventName() {
           value: 'DUPLICATE_POST_INSERT_FAILED',
           label: 'DUPLICATE_POST_INSERT_FAILED',
         },
+        {
+          id: 15,
+          value: 'DELETE_POST_FAILED',
+          label: 'DELETE_POST_FAILED',
+        },
+        {
+          id: 16,
+          value: 'DELETE_POST_SUCCESSFUL',
+          label: 'DELETE_POST_SUCCESSFUL',
+        },
       ],
     },
     {
@@ -305,6 +315,16 @@ export default function LogsListFiltersEventName() {
           value: 'EDIT_POST_CATEGORY_SUCCESSFUL',
           label: 'EDIT_POST_CATEGORY_SUCCESSFUL',
         },
+        {
+          id: 13,
+          value: 'DELETE_POST_CATEGORY_FAILED',
+          label: 'DELETE_POST_CATEGORY_FAILED',
+        },
+        {
+          id: 14,
+          value: 'DELETE_POST_CATEGORY_SUCCESSFUL',
+          label: 'DELETE_POST_CATEGORY_SUCCESSFUL',
+        },
       ],
     },
     {
@@ -370,6 +390,16 @@ export default function LogsListFiltersEventName() {
           id: 12,
           value: 'EDIT_POST_TAG_SUCCESSFUL',
           label: 'EDIT_POST_TAG_SUCCESSFUL',
+        },
+        {
+          id: 13,
+          value: 'DELETE_POST_TAG_FAILED',
+          label: 'DELETE_POST_TAG_FAILED',
+        },
+        {
+          id: 14,
+          value: 'DELETE_POST_TAG_SUCCESSFUL',
+          label: 'DELETE_POST_TAG_SUCCESSFUL',
         },
       ],
     },
@@ -492,6 +522,16 @@ export default function LogsListFiltersEventName() {
           id: 12,
           value: 'EDIT_POST_AUTHOR_SUCCESSFUL',
           label: 'EDIT_POST_AUTHOR_SUCCESSFUL',
+        },
+        {
+          id: 13,
+          value: 'DELETE_POST_AUTHOR_FAILED',
+          label: 'DELETE_POST_AUTHOR_FAILED',
+        },
+        {
+          id: 14,
+          value: 'DELETE_POST_AUTHOR_SUCCESSFUL',
+          label: 'DELETE_POST_AUTHOR_SUCCESSFUL',
         },
       ],
     },
@@ -700,6 +740,16 @@ export default function LogsListFiltersEventName() {
           id: 17,
           value: 'UPDATE_INSTAGRAM_FEED_SUCCESSFUL',
           label: 'UPDATE_INSTAGRAM_FEED_SUCCESSFUL',
+        },
+        {
+          id: 18,
+          value: 'DELETE_INSTAGRAM_FEED_FAILED',
+          label: 'DELETE_INSTAGRAM_FEED_FAILED',
+        },
+        {
+          id: 19,
+          value: 'DELETE_INSTAGRAM_FEED_SUCCESSFUL',
+          label: 'DELETE_INSTAGRAM_FEED_SUCCESSFUL',
         },
       ],
     },
