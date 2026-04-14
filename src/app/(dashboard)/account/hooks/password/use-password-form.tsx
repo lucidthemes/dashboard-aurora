@@ -12,7 +12,8 @@ import { AccountPasswordFormSchema } from '../../schemas/password-form.schema';
 export default function useAccountPasswordForm(handleFormShown: () => void) {
   const form = useForm<AccountPasswordForm>({
     defaultValues: {
-      password: '',
+      currentPassword: '',
+      newPassword: '',
       confirmPassword: '',
     },
     resolver: zodResolver(AccountPasswordFormSchema),

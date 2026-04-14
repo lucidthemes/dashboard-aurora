@@ -856,26 +856,31 @@ export default function LogsListFiltersEventName() {
         },
         {
           id: 11,
+          value: 'UPDATE_ACCOUNT_PASSWORD_CURRENT_INCORRECT',
+          label: 'UPDATE_ACCOUNT_PASSWORD_CURRENT_INCORRECT',
+        },
+        {
+          id: 12,
           value: 'UPDATE_ACCOUNT_PASSWORD_FAILED',
           label: 'UPDATE_ACCOUNT_PASSWORD_FAILED',
         },
         {
-          id: 12,
+          id: 13,
           value: 'UPDATE_ACCOUNT_PASSWORD_SUCCESSFUL',
           label: 'UPDATE_ACCOUNT_PASSWORD_SUCCESSFUL',
         },
         {
-          id: 13,
+          id: 14,
           value: 'DELETE_ACCOUNT_UNAUTHORIZED',
           label: 'DELETE_ACCOUNT_UNAUTHORIZED',
         },
         {
-          id: 14,
+          id: 15,
           value: 'DELETE_ACCOUNT_INVALID_DATA',
           label: 'DELETE_ACCOUNT_INVALID_DATA',
         },
         {
-          id: 15,
+          id: 16,
           value: 'DELETE_ACCOUNT_SUCCESSFUL',
           label: 'DELETE_ACCOUNT_SUCCESSFUL',
         },

@@ -33,12 +33,23 @@ export async function editPassword({ formData }: { formData: AccountPasswordForm
 
   const supabase = await createClient();
 
-  const { error } = await supabase.auth.updateUser({
-    password: formData.password,
+  const { error: signInError } = await supabase.auth.signInWithPassword({
+    email: user.email ?? '',
+    password: formData.currentPassword,
   });
 
-  if (error) {
-    await createLogEvent('error', 'UPDATE_ACCOUNT_PASSWORD_FAILED', error.message, user.id);
+  if (signInError) {
+    await createLogEvent('error', 'UPDATE_ACCOUNT_PASSWORD_CURRENT_INCORRECT', signInError.message, user.id);
+
+    return { success: false };
+  }
+
+  const { error: updatePasswordError } = await supabase.auth.updateUser({
+    password: formData.newPassword,
+  });
+
+  if (updatePasswordError) {
+    await createLogEvent('error', 'UPDATE_ACCOUNT_PASSWORD_FAILED', updatePasswordError.message, user.id);
 
     return { success: false };
   }
