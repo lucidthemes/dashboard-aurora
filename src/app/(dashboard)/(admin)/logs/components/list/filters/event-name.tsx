@@ -167,6 +167,62 @@ export default function LogsListFiltersEventName() {
     },
     {
       id: 4,
+      section: 'Dashboard - Pages',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_PAGES_FAILED',
+          label: 'FETCH_PAGES_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_PAGES_INVALID_DATA',
+          label: 'FETCH_PAGES_INVALID_DATA',
+        },
+        {
+          id: 9,
+          value: 'DUPLICATE_PAGE_UNAUTHORIZED',
+          label: 'DUPLICATE_PAGE_UNAUTHORIZED',
+        },
+        {
+          id: 10,
+          value: 'DUPLICATE_PAGE_NO_PAGE_ID',
+          label: 'DUPLICATE_PAGE_NO_PAGE_ID',
+        },
+        {
+          id: 11,
+          value: 'DUPLICATE_PAGE_INVALID_DATA',
+          label: 'DUPLICATE_PAGE_INVALID_DATA',
+        },
+        {
+          id: 12,
+          value: 'DUPLICATE_PAGE_FETCH_FAILED',
+          label: 'DUPLICATE_PAGE_FETCH_FAILED',
+        },
+        {
+          id: 13,
+          value: 'DUPLICATE_PAGE_NOT_FOUND',
+          label: 'DUPLICATE_PAGE_NOT_FOUND',
+        },
+        {
+          id: 14,
+          value: 'DUPLICATE_PAGE_INSERT_FAILED',
+          label: 'DUPLICATE_PAGE_INSERT_FAILED',
+        },
+        {
+          id: 15,
+          value: 'DELETE_PAGE_FAILED',
+          label: 'DELETE_PAGE_FAILED',
+        },
+        {
+          id: 16,
+          value: 'DELETE_PAGE_SUCCESSFUL',
+          label: 'DELETE_PAGE_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 5,
       section: 'Dashboard - Posts',
       items: [
         {
@@ -252,7 +308,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 5,
+      id: 6,
       section: 'Dashboard - Posts - Categories',
       items: [
         {
@@ -328,7 +384,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 6,
+      id: 7,
       section: 'Dashboard - Posts - Tags',
       items: [
         {
@@ -404,7 +460,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 7,
+      id: 8,
       section: 'Dashboard - Posts - Comments',
       items: [
         {
@@ -460,7 +516,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 8,
+      id: 9,
       section: 'Dashboard - Posts - Authors',
       items: [
         {
@@ -536,17 +592,17 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 9,
+      id: 10,
       section: 'Dashboard - Products',
       items: [],
     },
     {
-      id: 10,
+      id: 11,
       section: 'Dashboard - Orders',
       items: [],
     },
     {
-      id: 11,
+      id: 12,
       section: 'Dashboard - Customers',
       items: [
         {
@@ -582,22 +638,22 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 12,
+      id: 13,
       section: 'Dashboard - Payments',
       items: [],
     },
     {
-      id: 13,
+      id: 14,
       section: 'Dashboard - Shipping',
       items: [],
     },
     {
-      id: 14,
+      id: 15,
       section: 'Dashboard - Coupons',
       items: [],
     },
     {
-      id: 15,
+      id: 16,
       section: 'Dashboard - Media',
       items: [
         {
@@ -653,7 +709,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 16,
+      id: 17,
       section: 'Dashboard - Instagram feed',
       items: [
         {
@@ -754,7 +810,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 17,
+      id: 18,
       section: 'Dashboard - Users',
       items: [
         {
@@ -835,7 +891,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 18,
+      id: 19,
       section: 'Dashboard - Logs',
       items: [
         {
@@ -851,7 +907,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 19,
+      id: 20,
       section: 'Dashboard - Account',
       items: [
         {
