@@ -55,6 +55,19 @@ All notable changes to this project will be documented in this file.
 - posts authors schemas
 - posts authors store
 
+###### Pages
+
+- pages route group folder
+
+###### Pages - pages
+
+- pages page route
+- pages actions
+- pages components
+- pages data
+- pages schemas
+- pages store
+
 ###### Account
 
 - update password form password show/hide button
