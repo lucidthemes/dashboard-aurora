@@ -6,11 +6,18 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+#### Root
+
+- dnd kit dependency
+- Floating UI dependency
+- Isomorphic DOMPurify dependency
+
 #### App
 
 ##### Dashboard
 
 - posts authors link to sidebar nav menu
+- wrapper pathname check to remove padding from post and page routes
 
 ###### Blog
 
@@ -55,6 +62,10 @@ All notable changes to this project will be documented in this file.
 - posts authors schemas
 - posts authors store
 
+###### Blog - post
+
+- post page route
+
 ###### Pages
 
 - pages route group folder
@@ -80,6 +91,12 @@ All notable changes to this project will be documented in this file.
 #### Components
 
 - approve and reject buttons
+- options button
+
+##### Editor
+
+- editor layout
+- editor blocks
 
 ##### List
 
@@ -89,6 +106,12 @@ All notable changes to this project will be documented in this file.
 
 - shadcn ui input group
 - shadcn ui textarea
+- shadcn ui slider
+- shadcn ui switch
+
+#### Schemas
+
+- post
 
 ### Changed
 
