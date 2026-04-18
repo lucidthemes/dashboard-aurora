@@ -1,0 +1,31 @@
+.block-quote {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  border-left: 2px solid var(--foreground);
+  padding-left: 25px;
+}
+
+.block-quote[data-block-align='left'] {
+  text-align: left;
+}
+
+.block-quote[data-block-align='center'] {
+  text-align: center;
+}
+
+.block-quote[data-block-align='right'] {
+  text-align: right;
+}
+
+.block-quote p,
+.block-quote cite {
+  font-style: normal;
+  cursor: text;
+}
+
+.block-quote p:empty:after,
+.block-quote cite:empty:after {
+  opacity: 50%;
+  content: attr(data-block-placeholder);
+}

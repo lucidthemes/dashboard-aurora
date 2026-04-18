@@ -1,0 +1,102 @@
+.block-media-text {
+  display: flex;
+  gap: 20px;
+}
+
+.block-media-text[data-block-media-position='left'] {
+  flex-direction: row;
+}
+
+.block-media-text[data-block-media-position='right'] {
+  flex-direction: row-reverse;
+}
+
+@media (width <= 48rem) {
+  .block-media-text[data-block-media-position='left'] {
+    flex-direction: column;
+  }
+
+  .block-media-text[data-block-media-position='right'] {
+    flex-direction: column-reverse;
+  }
+}
+
+.block-media-text-media {
+  flex-basis: calc(var(--media-width) - 10px);
+}
+
+.block-media-text-content {
+  flex: 1;
+}
+
+.block-media-text-media-wrapper {
+  position: relative;
+}
+
+.block-media-text[data-block-media-size='full'] .block-media-text-media-wrapper img,
+.block-media-text[data-block-media-size='full'] .block-media-text-media-wrapper video {
+  width: 100%;
+}
+
+.block-media-text[data-block-media-aspect='square'] .block-media-text-media-wrapper img,
+.block-media-text[data-block-media-aspect='square'] .block-media-text-media-wrapper video {
+  aspect-ratio: 1 / 1;
+}
+
+.block-media-text[data-block-media-aspect='video'] .block-media-text-media-wrapper img,
+.block-media-text[data-block-media-aspect='video'] .block-media-text-media-wrapper video {
+  aspect-ratio: var(--aspect-video);
+}
+
+.block-media-text[data-block-media-aspect='2-3'] .block-media-text-media-wrapper img,
+.block-media-text[data-block-media-aspect='2-3'] .block-media-text-media-wrapper video {
+  aspect-ratio: 2 / 3;
+}
+
+.block-media-text-media-wrapper-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  column-gap: 10px;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  -webkit-transition: opacity 0.15s ease-in-out;
+}
+
+.block-media-text-media-wrapper-buttons button {
+  cursor: pointer;
+  background-color: var(--secondary);
+}
+
+.block-media-text:hover .block-media-text-media-wrapper-buttons {
+  opacity: 1;
+}
+
+.block-media-text[data-block-text-position='top'] .block-media-text-content {
+  align-content: start;
+}
+
+.block-media-text[data-block-text-position='center'] .block-media-text-content {
+  align-content: center;
+}
+
+.block-media-text[data-block-text-position='bottom'] .block-media-text-content {
+  align-content: end;
+}
+
+.block-media-text-content p {
+  cursor: text;
+}
+
+.block-media-text[data-block-align='left'] .block-media-text-content p {
+  text-align: left;
+}
+
+.block-media-text[data-block-align='center'] .block-media-text-content p {
+  text-align: center;
+}
+
+.block-media-text[data-block-align='right'] .block-media-text-content p {
+  text-align: right;
+}

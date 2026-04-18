@@ -1,0 +1,15 @@
+.block-paragraph {
+  cursor: text;
+}
+
+.block-paragraph[data-block-align='left'] {
+  text-align: left;
+}
+
+.block-paragraph[data-block-align='center'] {
+  text-align: center;
+}
+
+.block-paragraph[data-block-align='right'] {
+  text-align: right;
+}

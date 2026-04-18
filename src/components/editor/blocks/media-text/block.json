@@ -1,0 +1,148 @@
+{
+  "type": "mediaText",
+  "title": "Media & Text",
+  "category": "media",
+  "description": "Set media and words side-by-side for a richer layout",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M200,40H56A16,16,0,0,0,40,56V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-64,80h64v16H136Zm0-16V88h64v16Zm0,48h64v16H136Zm64-80H136V56h64ZM56,56h64V200H56ZM200,200H136V184h64v16Z\"></path></svg>",
+  "supports": {
+    "width": {
+      "options": ["standard", "wide", "full"]
+    },
+    "align": {
+      "options": ["left", "center", "right"]
+    },
+    "richText": true,
+    "anchor": true,
+    "customClasses": true
+  },
+  "options": [
+    {
+      "type": "dropdown",
+      "name": "media-position",
+      "attribute": "mediaPosition",
+      "title": "Media position",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M8 3 4 7l4 4\"/><path d=\"M4 7h16\"/><path d=\"m16 21 4-4-4-4\"/><path d=\"M20 17H4\"/></svg>",
+      "items": [
+        {
+          "id": "media-position-left",
+          "label": "Left",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"-rotate-90\"><rect width=\"18\" height=\"14\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M4 21h1\"/><path d=\"M9 21h1\"/><path d=\"M14 21h1\"/><path d=\"M19 21h1\"/></svg>",
+          "value": "left"
+        },
+        {
+          "id": "media-position-right",
+          "label": "Right",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"rotate-90\"><rect width=\"18\" height=\"14\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M4 21h1\"/><path d=\"M9 21h1\"/><path d=\"M14 21h1\"/><path d=\"M19 21h1\"/></svg>",
+          "value": "right"
+        }
+      ],
+      "showInToolbar": true,
+      "changeIconOnUpdate": false
+    },
+    {
+      "type": "slider",
+      "name": "media-width",
+      "attribute": "mediaWidth",
+      "title": "Media width",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"M12 9v11\"/><path d=\"M2 9h13a2 2 0 0 1 2 2v9\"/></svg>",
+      "control": {
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "input": {
+        "show": true,
+        "measurement": "percentage"
+      },
+      "showInToolbar": false,
+      "changeIconOnUpdate": false
+    },
+    {
+      "type": "dropdown",
+      "name": "media-size",
+      "attribute": "mediaSize",
+      "title": "Media size",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 3h5v5\"/><path d=\"M17 21h2a2 2 0 0 0 2-2\"/><path d=\"M21 12v3\"/><path d=\"m21 3-5 5\"/><path d=\"M3 7V5a2 2 0 0 1 2-2\"/><path d=\"m5 21 4.144-4.144a1.21 1.21 0 0 1 1.712 0L13 19\"/><path d=\"M9 3h3\"/><rect x=\"3\" y=\"11\" width=\"10\" height=\"10\" rx=\"1\"/></svg>",
+      "items": [
+        {
+          "id": "media-size-original",
+          "label": "Original",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 3v3a2 2 0 0 1-2 2H3\"/><path d=\"M21 8h-3a2 2 0 0 1-2-2V3\"/><path d=\"M3 16h3a2 2 0 0 1 2 2v3\"/><path d=\"M16 21v-3a2 2 0 0 1 2-2h3\"/></svg>",
+          "value": "original"
+        },
+        {
+          "id": "media-size-full",
+          "label": "Full",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 3H5a2 2 0 0 0-2 2v3\"/><path d=\"M21 8V5a2 2 0 0 0-2-2h-3\"/><path d=\"M3 16v3a2 2 0 0 0 2 2h3\"/><path d=\"M16 21h3a2 2 0 0 0 2-2v-3\"/></svg>",
+          "value": "full"
+        }
+      ],
+      "showInToolbar": false,
+      "changeIconOnUpdate": false
+    },
+    {
+      "type": "dropdown",
+      "name": "media-aspect",
+      "attribute": "mediaAspect",
+      "title": "Media aspect ratio",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"12\" height=\"20\" x=\"6\" y=\"2\" rx=\"2\"/><rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\"/></svg>",
+      "items": [
+        {
+          "id": "media-aspect-original",
+          "label": "Original",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"12\" height=\"20\" x=\"6\" y=\"2\" rx=\"2\"/><rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\"/></svg>",
+          "value": "original"
+        },
+        {
+          "id": "media-aspect-square",
+          "label": "Square",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/></svg>",
+          "value": "square"
+        },
+        {
+          "id": "media-aspect-video",
+          "label": "Video",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z\"/><path d=\"M7 21h10\"/><rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\"/></svg>",
+          "value": "video"
+        },
+        {
+          "id": "media-aspect-2-3",
+          "label": "2/3",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"12\" height=\"20\" x=\"6\" y=\"2\" rx=\"2\"/></svg>",
+          "value": "2-3"
+        }
+      ],
+      "showInToolbar": false,
+      "changeIconOnUpdate": false
+    },
+    {
+      "type": "dropdown",
+      "name": "text-position",
+      "attribute": "textPosition",
+      "title": "Text position",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"m3 16 4 4 4-4\"/><path d=\"M7 20V4\"/><path d=\"m21 8-4-4-4 4\"/><path d=\"M17 4v16\"/></svg>",
+      "items": [
+        {
+          "id": "text-position-top",
+          "label": "Top",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M14 9h1\"/><path d=\"M19 9h2\"/><path d=\"M3 9h2\"/><path d=\"M9 9h1\"/></svg>",
+          "value": "top"
+        },
+        {
+          "id": "text-position-center",
+          "label": "Center",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3\"/><path d=\"M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3\"/><path d=\"M4 12H2\"/><path d=\"M10 12H8\"/><path d=\"M16 12h-2\"/><path d=\"M22 12h-2\"/></svg>",
+          "value": "center"
+        },
+        {
+          "id": "text-position-bottom",
+          "label": "Bottom",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M14 15h1\"/><path d=\"M19 15h2\"/><path d=\"M3 15h2\"/><path d=\"M9 15h1\"/></svg>",
+          "value": "bottom"
+        }
+      ],
+      "showInToolbar": true,
+      "changeIconOnUpdate": false
+    }
+  ]
+}
