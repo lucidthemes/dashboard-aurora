@@ -1,5 +1,7 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+
 import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
@@ -38,6 +40,8 @@ export default async function editPostAuthor({ authorId, formData }: { authorId:
   }
 
   await createLogEvent('info', 'EDIT_POST_AUTHOR_SUCCESSFUL', 'Author updated. Id: ' + authorId, user.id);
+
+  revalidatePath('/posts/authors');
 
   return { success: true };
 }

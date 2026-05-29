@@ -1,5 +1,7 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+
 import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
@@ -39,6 +41,8 @@ export default async function rejectPostComment(commentId: string) {
   }
 
   await createLogEvent('info', 'REJECT_POST_COMMENT_SUCCESSFUL', 'Comment rejected. Id: ' + commentId, user.id);
+
+  revalidatePath('/posts/comments');
 
   return { success: true };
 }

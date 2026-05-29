@@ -1,5 +1,7 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+
 import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
@@ -42,6 +44,8 @@ export default async function createPostCategory({ formData }: { formData: Posts
   }
 
   await createLogEvent('info', 'CREATE_POST_CATEGORY_SUCCESSFUL', 'Category created: ' + formData.name, user.id);
+
+  revalidatePath('/posts/categories');
 
   return { success: true };
 }
