@@ -1,5 +1,7 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+
 import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
@@ -44,6 +46,8 @@ export default async function editPostCategory({
   }
 
   await createLogEvent('info', 'EDIT_POST_CATEGORY_SUCCESSFUL', 'Category updated. Id: ' + categoryId, user.id);
+
+  revalidatePath('/posts/categories');
 
   return { success: true };
 }

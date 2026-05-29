@@ -1,5 +1,7 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+
 import { getUserWithRole } from '@/lib/supabase/auth';
 import { createClient } from '@/lib/supabase/server';
 import { createLogEvent } from '@/lib/supabase/log-event';
@@ -38,6 +40,8 @@ export default async function editPostTag({ tagId, formData }: { tagId: string; 
   }
 
   await createLogEvent('info', 'EDIT_POST_TAG_SUCCESSFUL', 'Tag updated. Id: ' + tagId, user.id);
+
+  revalidatePath('/posts/tags');
 
   return { success: true };
 }
