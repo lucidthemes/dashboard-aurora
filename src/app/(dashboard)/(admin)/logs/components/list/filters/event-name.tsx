@@ -8,71 +8,76 @@ export default function LogsListFiltersEventName() {
       items: [
         {
           id: 1,
+          value: 'SIGN_UP_INVALID_DATA',
+          label: 'SIGN_UP_INVALID_DATA',
+        },
+        {
+          id: 2,
           value: 'SIGN_UP_FAILED',
           label: 'SIGN_UP_FAILED',
         },
         {
-          id: 2,
+          id: 3,
           value: 'SIGN_UP_NO_USER',
           label: 'SIGN_UP_NO_USER',
         },
         {
-          id: 3,
+          id: 4,
           value: 'SIGN_UP_SUCCESSFUL',
           label: 'SIGN_UP_SUCCESSFUL',
         },
         {
-          id: 4,
+          id: 5,
           value: 'SIGN_IN_INVALID_DATA',
           label: 'SIGN_IN_INVALID_DATA',
         },
         {
-          id: 5,
+          id: 6,
           value: 'SIGN_IN_FAILED',
           label: 'SIGN_IN_FAILED',
         },
         {
-          id: 6,
+          id: 7,
           value: 'SIGN_IN_NO_USER',
           label: 'SIGN_IN_NO_USER',
         },
         {
-          id: 7,
+          id: 8,
           value: 'SIGN_IN_SUCCESSFUL',
           label: 'SIGN_IN_SUCCESSFUL',
         },
         {
-          id: 8,
+          id: 9,
           value: 'LOST_PASSWORD_INVALID_DATA',
           label: 'LOST_PASSWORD_INVALID_DATA',
         },
         {
-          id: 9,
+          id: 10,
           value: 'LOST_PASSWORD_FAILED',
           label: 'LOST_PASSWORD_FAILED',
         },
         {
-          id: 10,
+          id: 11,
           value: 'LOST_PASSWORD_SUCCESSFUL',
           label: 'LOST_PASSWORD_SUCCESSFUL',
         },
         {
-          id: 11,
+          id: 12,
           value: 'RESET_PASSWORD_INVALID_DATA',
           label: 'RESET_PASSWORD_INVALID_DATA',
         },
         {
-          id: 12,
+          id: 13,
           value: 'RESET_PASSWORD_FAILED',
           label: 'RESET_PASSWORD_FAILED',
         },
         {
-          id: 13,
+          id: 14,
           value: 'RESET_PASSWORD_NO_USER',
           label: 'RESET_PASSWORD_NO_USER',
         },
         {
-          id: 14,
+          id: 15,
           value: 'RESET_PASSWORD_SUCCESSFUL',
           label: 'RESET_PASSWORD_SUCCESSFUL',
         },
@@ -84,51 +89,81 @@ export default function LogsListFiltersEventName() {
       items: [
         {
           id: 1,
+          value: 'UPDATE_SHIPPING_INVALID_DATA',
+          label: 'UPDATE_SHIPPING_INVALID_DATA',
+        },
+        {
+          id: 2,
+          value: 'UPDATE_BILLING_INVALID_DATA',
+          label: 'UPDATE_BILLING_INVALID_DATA',
+        },
+        {
+          id: 3,
           value: 'UPDATE_SHIPPING_ADDRESS_FAILED',
           label: 'UPDATE_SHIPPING_ADDRESS_FAILED',
         },
         {
-          id: 2,
+          id: 4,
           value: 'UPDATE_BILLING_ADDRESS_FAILED',
           label: 'UPDATE_BILLING_ADDRESS_FAILED',
         },
         {
-          id: 3,
+          id: 5,
           value: 'UPDATE_SHIPPING_ADDRESS_SUCCESSFUL',
           label: 'UPDATE_SHIPPING_ADDRESS_SUCCESSFUL',
         },
         {
-          id: 4,
+          id: 6,
           value: 'UPDATE_BILLING_ADDRESS_SUCCESSFUL',
           label: 'UPDATE_BILLING_ADDRESS_SUCCESSFUL',
         },
         {
-          id: 5,
+          id: 7,
+          value: 'UPDATE_EMAIL_INVALID_DATA',
+          label: 'UPDATE_EMAIL_INVALID_DATA',
+        },
+        {
+          id: 8,
           value: 'UPDATE_EMAIL_FAILED',
           label: 'UPDATE_EMAIL_FAILED',
         },
         {
-          id: 6,
+          id: 9,
           value: 'UPDATE_EMAIL_SUCCESSFUL',
           label: 'UPDATE_EMAIL_SUCCESSFUL',
         },
         {
-          id: 7,
+          id: 10,
+          value: 'UPDATE_NAME_INVALID_DATA',
+          label: 'UPDATE_NAME_INVALID_DATA',
+        },
+        {
+          id: 11,
           value: 'UPDATE_NAME_FAILED',
           label: 'UPDATE_NAME_FAILED',
         },
         {
-          id: 8,
+          id: 12,
           value: 'UPDATE_NAME_SUCCESSFUL',
           label: 'UPDATE_NAME_SUCCESSFUL',
         },
         {
-          id: 9,
+          id: 13,
+          value: 'UPDATE_PASSWORD_INVALID_DATA',
+          label: 'UPDATE_PASSWORD_INVALID_DATA',
+        },
+        {
+          id: 14,
+          value: 'UPDATE_PASSWORD_CURRENT_INCORRECT',
+          label: 'UPDATE_PASSWORD_CURRENT_INCORRECT',
+        },
+        {
+          id: 15,
           value: 'UPDATE_PASSWORD_FAILED',
           label: 'UPDATE_PASSWORD_FAILED',
         },
         {
-          id: 10,
+          id: 16,
           value: 'UPDATE_PASSWORD_SUCCESSFUL',
           label: 'UPDATE_PASSWORD_SUCCESSFUL',
         },
@@ -136,6 +171,58 @@ export default function LogsListFiltersEventName() {
     },
     {
       id: 3,
+      section: 'Frontend - Blog - Blog list',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_BLOG_LIST_POSTS_TAXONOMY_FAILED',
+          label: 'FETCH_BLOG_LIST_POSTS_TAXONOMY_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_BLOG_LIST_POSTS_FAILED',
+          label: 'FETCH_BLOG_LIST_POSTS_FAILED',
+        },
+        {
+          id: 3,
+          value: 'FETCH_BLOG_LIST_POSTS_INVALID_DATA',
+          label: 'FETCH_BLOG_LIST_POSTS_INVALID_DATA',
+        },
+        {
+          id: 4,
+          value: 'FETCH_BLOG_LIST_TAXONOMY_FAILED',
+          label: 'FETCH_BLOG_LIST_TAXONOMY_FAILED',
+        },
+        {
+          id: 5,
+          value: 'FETCH_BLOG_LIST_TAXONOMY_NOT_FOUND',
+          label: 'FETCH_BLOG_LIST_TAXONOMY_NOT_FOUND',
+        },
+        {
+          id: 6,
+          value: 'FETCH_BLOG_LIST_TAXONOMY_INVALID_DATA',
+          label: 'FETCH_BLOG_LIST_TAXONOMY_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 4,
+      section: 'Frontend - Blog - Blog post',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POST_FAILED',
+          label: 'FETCH_POST_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POST_INVALID_DATA',
+          label: 'FETCH_POST_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 5,
       section: 'Frontend - Instagram feed',
       items: [
         {
@@ -166,7 +253,129 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 4,
+      id: 6,
+      section: 'Frontend - Home - Banner',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_BANNER_FAILED',
+          label: 'FETCH_BANNER_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_BANNER_INVALID_DATA',
+          label: 'FETCH_BANNER_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 7,
+      section: 'Frontend - Home - Slideshow',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_SLIDESHOW_TAXONOMY_FAILED',
+          label: 'FETCH_SLIDESHOW_TAXONOMY_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_SLIDESHOW_FAILED',
+          label: 'FETCH_SLIDESHOW_FAILED',
+        },
+        {
+          id: 3,
+          value: 'FETCH_SLIDESHOW_INVALID_DATA',
+          label: 'FETCH_SLIDESHOW_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 8,
+      section: 'Frontend - Newsletter form',
+      items: [
+        {
+          id: 1,
+          value: 'CREATE_NEWSLETTER_INVALID_DATA',
+          label: 'CREATE_NEWSLETTER_INVALID_DATA',
+        },
+        {
+          id: 2,
+          value: 'CREATE_NEWSLETTER_SUBSCRIBER_FAILED',
+          label: 'CREATE_NEWSLETTER_SUBSCRIBER_FAILED',
+        },
+        {
+          id: 3,
+          value: 'CREATE_NEWSLETTER_SUBSCRIBER_SUCCESSFUL',
+          label: 'CREATE_NEWSLETTER_SUBSCRIBER_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 9,
+      section: 'Frontend - Page',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_PAGE_FAILED',
+          label: 'FETCH_PAGE_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_PAGE_INVALID_DATA',
+          label: 'FETCH_PAGE_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 10,
+      section: 'Frontend - Sidebar',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_SIDEBAR_FAILED',
+          label: 'FETCH_SIDEBAR_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_SIDEBAR_INVALID_DATA',
+          label: 'FETCH_SIDEBAR_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 11,
+      section: 'Frontend - Widgets - Posts',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_POSTS_WIDGET_FAILED',
+          label: 'FETCH_POSTS_WIDGET_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_POSTS_WIDGET_INVALID_DATA',
+          label: 'FETCH_POSTS_WIDGET_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 12,
+      section: 'Frontend - Widgets - Tags',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_TAGS_WIDGET_FAILED',
+          label: 'FETCH_TAGS_WIDGET_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_TAGS_WIDGET_INVALID_DATA',
+          label: 'FETCH_TAGS_WIDGET_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 13,
       section: 'Dashboard - Pages',
       items: [
         {
@@ -222,7 +431,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 5,
+      id: 14,
       section: 'Dashboard - Posts',
       items: [
         {
@@ -308,7 +517,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 6,
+      id: 15,
       section: 'Dashboard - Posts - Categories',
       items: [
         {
@@ -384,7 +593,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 7,
+      id: 16,
       section: 'Dashboard - Posts - Tags',
       items: [
         {
@@ -460,7 +669,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 8,
+      id: 17,
       section: 'Dashboard - Posts - Comments',
       items: [
         {
@@ -516,7 +725,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 9,
+      id: 18,
       section: 'Dashboard - Posts - Authors',
       items: [
         {
@@ -592,17 +801,17 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 10,
+      id: 19,
       section: 'Dashboard - Products',
       items: [],
     },
     {
-      id: 11,
+      id: 20,
       section: 'Dashboard - Orders',
       items: [],
     },
     {
-      id: 12,
+      id: 21,
       section: 'Dashboard - Customers',
       items: [
         {
@@ -638,22 +847,22 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 13,
+      id: 22,
       section: 'Dashboard - Payments',
       items: [],
     },
     {
-      id: 14,
+      id: 23,
       section: 'Dashboard - Shipping',
       items: [],
     },
     {
-      id: 15,
+      id: 24,
       section: 'Dashboard - Coupons',
       items: [],
     },
     {
-      id: 16,
+      id: 25,
       section: 'Dashboard - Media',
       items: [
         {
@@ -709,7 +918,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 17,
+      id: 26,
       section: 'Dashboard - Instagram feed',
       items: [
         {
@@ -810,7 +1019,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 18,
+      id: 27,
       section: 'Dashboard - Users',
       items: [
         {
@@ -891,7 +1100,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 19,
+      id: 28,
       section: 'Dashboard - Logs',
       items: [
         {
@@ -907,7 +1116,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 20,
+      id: 29,
       section: 'Dashboard - Account',
       items: [
         {
