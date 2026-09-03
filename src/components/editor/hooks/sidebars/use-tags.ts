@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+import type { Post } from '@/schemas/post/post.schema';
+
 import { useEditorStore } from '../../store/editor-store';
 import getEditorSidebarSettingsTags from '../../data/sidebars/get-tags';
 
@@ -11,7 +13,9 @@ export function useEditorSidebarSettingsTags() {
     setTagsOpen((prevState) => !prevState);
   };
 
-  const editorTags = useEditorStore((state) => state.editorContent?.tags);
+  const postEditorContent = useEditorStore((state) => state.editorContent) as Post;
+
+  const editorTags = postEditorContent.tags;
 
   return { tagsOpen, handleTagsOpen, editorTags };
 }

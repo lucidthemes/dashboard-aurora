@@ -1,14 +1,18 @@
 import { useShallow } from 'zustand/react/shallow';
 
+import type { Post } from '@/schemas/post/post.schema';
+
 import { useEditorStore } from '../../store/editor-store';
 
 export default function useEditorSidebarSettingsOptionsHeader() {
-  const { editorHeaderOptions, updateSettingsOptionsContent } = useEditorStore(
+  const { editorContent, updateSettingsOptionsContent } = useEditorStore(
     useShallow((state) => ({
-      editorHeaderOptions: state.editorContent?.options?.header,
+      editorContent: state.editorContent,
       updateSettingsOptionsContent: state.updateSettingsOptionsContent,
     })),
   );
+
+  const editorHeaderOptions = (editorContent as Post).options?.header;
 
   const handleChangeHeaderShow = (headerShow: boolean) => {
     updateSettingsOptionsContent({ section: 'header', field: 'show', value: headerShow });

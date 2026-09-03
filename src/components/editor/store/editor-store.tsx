@@ -4,16 +4,18 @@ import type { StoreApi } from 'zustand';
 import DOMPurify from 'isomorphic-dompurify';
 
 import type { Post } from '@/schemas/post/post.schema';
+import type { Page } from '@/schemas/page/page.schema';
 
 import { blockRegistry } from '../blocks/blocks';
 import type { BlockAttributes } from '../blocks/block.schema';
 import type { NewPost } from '../schemas/new-post.schema';
+import type { NewPage } from '../schemas/new-page.schema';
 import type { ContentBlocks } from '../schemas/content/content-blocks.schema';
 import type { EditorContent } from '../schemas/content/content.schema';
 import { sanitizeBlockAttribute, sanitizeContentBlocks } from '../utils/block-sanitize';
 
 type State = {
-  editorContent: Post | NewPost | null;
+  editorContent: Post | NewPost | Page | NewPage | null;
   editorContentUnsavedChanges: boolean;
   editorContentErrors: { path: string; code: string; message?: string }[] | null;
 
@@ -175,10 +177,12 @@ const EditorContext = createContext<StoreApi<State & Actions> | null>(null);
 
 export default function EditorProvider({
   children,
+  type,
   initialContent,
 }: {
   children: React.ReactNode;
-  initialContent: Post | NewPost | null;
+  type: 'post' | 'page';
+  initialContent: Post | NewPost | Page | NewPage | null;
 }) {
   const [store] = useState(() =>
     createStore<State & Actions>((set) => ({
@@ -1103,18 +1107,23 @@ export default function EditorProvider({
 
           if (field === 'categories' || field === 'tags' || field === 'related') {
             // update categories, tags, or related
+            // used for type post only
+
+            if (type !== 'post') return state;
+
+            const postEditorContent = state.editorContent as Post;
 
             switch (option) {
               case 'add':
                 return {
-                  editorContent: { ...state.editorContent, [field]: [...(state.editorContent[field] ?? []), value] },
+                  editorContent: { ...state.editorContent, [field]: [...(postEditorContent[field] ?? []), value] },
                   editorContentUnsavedChanges: true,
                 };
               case 'remove':
                 return {
                   editorContent: {
                     ...state.editorContent,
-                    [field]: state.editorContent[field]?.filter((field) => field !== value),
+                    [field]: postEditorContent[field]?.filter((field) => field !== value),
                   },
                   editorContentUnsavedChanges: true,
                 };
@@ -1141,18 +1150,44 @@ export default function EditorProvider({
         set((state) => {
           if (!state.editorContent || !state.editorContent.options || !section || !field) return state;
 
-          return {
-            editorContent: {
-              ...state.editorContent,
-              options: {
-                ...state.editorContent.options,
-                [section]: {
-                  ...state.editorContent.options[section],
-                  [field]: value,
+          if (type === 'post') {
+            const postEditorContent = state.editorContent.options as Post['options'];
+
+            if (!postEditorContent) return state;
+
+            return {
+              editorContent: {
+                ...state.editorContent,
+                options: {
+                  ...state.editorContent.options,
+                  [section]: {
+                    ...postEditorContent[section],
+                    [field]: value,
+                  },
                 },
               },
-            },
-          };
+            };
+          } else if (type === 'page') {
+            const pageEditorContent = state.editorContent as Page;
+            const pageEditorContentOptions = pageEditorContent.options as Page['options'];
+
+            if (!pageEditorContentOptions) return state;
+
+            return {
+              editorContent: {
+                ...state.editorContent,
+                options: {
+                  ...state.editorContent.options,
+                  sidebar: {
+                    ...pageEditorContentOptions['sidebar'],
+                    [field]: value,
+                  },
+                },
+              },
+            };
+          }
+
+          return state;
         }),
 
       // Media actions
