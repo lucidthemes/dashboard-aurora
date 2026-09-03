@@ -25,6 +25,9 @@ Frontend
 - [Zod](https://zod.dev/)
 - [Zustand](https://zustand-demo.pmnd.rs/)
 - [TanStack Query](https://tanstack.com/query/latest)
+- [dnd kit](https://dndkit.com/)
+- [Floating UI](https://floating-ui.com/)
+- [Isomorphic DOMPurify](https://www.npmjs.com/package/isomorphic-dompurify)
 
 ## Installation
 

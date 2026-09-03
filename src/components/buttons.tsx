@@ -1,6 +1,6 @@
 'use client';
 
-import { Eye, Pencil, Trash2, Plus, Copy, Check, X } from 'lucide-react';
+import { Eye, Pencil, Trash2, Plus, Copy, Check, X, EllipsisVertical } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
@@ -60,4 +60,12 @@ function RejectButton({ className, ...props }: React.ComponentProps<'button'>) {
   );
 }
 
-export { ViewButton, EditButton, DeleteButton, CreateButton, CopyButton, ApproveButton, RejectButton };
+function OptionsButton({ className, ...props }: React.ComponentProps<'button'>) {
+  return (
+    <Button variant="outline" size="icon-sm" className={`cursor-pointer ${className}`} {...props}>
+      <EllipsisVertical />
+    </Button>
+  );
+}
+
+export { ViewButton, EditButton, DeleteButton, CreateButton, CopyButton, ApproveButton, RejectButton, OptionsButton };

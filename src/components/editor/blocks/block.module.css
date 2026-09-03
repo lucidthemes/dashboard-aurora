@@ -1,0 +1,20 @@
+.block {
+  width: 100%;
+}
+
+@media (min-width: 96rem) {
+  .block[data-block-width='standard'] {
+    max-width: var(--breakpoint-xl);
+  }
+  .block[data-block-width='wide'] {
+    max-width: var(--breakpoint-2xl);
+  }
+  .block[data-block-width='full'] {
+    max-width: 100%;
+  }
+}
+
+.block[class*='block-'] a {
+  text-decoration: underline;
+  cursor: pointer;
+}

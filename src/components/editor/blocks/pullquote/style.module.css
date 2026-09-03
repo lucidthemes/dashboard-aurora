@@ -1,0 +1,52 @@
+.block-pullquote {
+  padding: 0 40px 0 80px;
+}
+
+.block-pullquote blockquote {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.block-pullquote[data-block-align='left'] blockquote {
+  text-align: left;
+}
+
+.block-pullquote[data-block-align='center'] blockquote {
+  text-align: center;
+}
+
+.block-pullquote[data-block-align='right'] blockquote {
+  text-align: right;
+}
+
+.block-pullquote blockquote p,
+.block-pullquote blockquote cite {
+  font-style: normal;
+  cursor: text;
+}
+
+.block-pullquote blockquote p:empty:after,
+.block-pullquote blockquote cite:empty:after {
+  opacity: 50%;
+  content: attr(data-block-placeholder);
+}
+
+.block-pullquote blockquote p {
+  position: relative;
+}
+
+.block-pullquote blockquote p::before {
+  content: '';
+  background-color: #212529;
+  mask-image: url(./quote-left.svg);
+  -webkit-mask-image: url(./quote-left.svg);
+  display: block;
+  width: 26px;
+  height: 34px;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  display: inline-block;
+  position: absolute;
+  left: -45px;
+}

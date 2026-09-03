@@ -1,0 +1,8 @@
+.editor-block [data-block-placeholder]:empty:after {
+  opacity: 50%;
+  content: attr(data-block-placeholder);
+}
+
+.editor-block [contenteditable]:focus-visible {
+  outline: none;
+}

@@ -1,0 +1,12 @@
+.block-code {
+  background-color: var(--sidebar);
+  padding: 25px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.block-code code {
+  display: flex;
+  width: 100%;
+  cursor: text;
+}
