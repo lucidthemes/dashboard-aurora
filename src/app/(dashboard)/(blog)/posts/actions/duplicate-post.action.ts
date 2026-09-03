@@ -82,5 +82,7 @@ export default async function duplicatePost(postId: string) {
 
   revalidatePath('/posts');
 
+  await createLogEvent('info', 'DUPLICATE_POST_SUCCESSFUL', 'Post duplicated. Id: ' + postId, user.id);
+
   return { success: true };
 }
