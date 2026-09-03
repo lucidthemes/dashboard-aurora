@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { dateTimeFormat } from '@/lib/formatters';
@@ -13,6 +14,15 @@ export default function PagesListColumns() {
   columns.push({
     accessorKey: 'title',
     header: 'Title',
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return (
+        <Link href={`/page?action=edit&id=${item.id}`} className="hover:underline">
+          {item.title}
+        </Link>
+      );
+    },
   });
 
   columns.push({
