@@ -106,16 +106,6 @@ export default function PostsListColumns() {
   });
 
   columns.push({
-    accessorKey: 'updated_at',
-    header: 'Updated',
-    cell: ({ row }) => {
-      const item = row.original;
-
-      return dateTimeFormat(item.updated_at);
-    },
-  });
-
-  columns.push({
     id: 'actions',
     header: 'Actions',
     cell: ({ row }) => {
