@@ -2,15 +2,19 @@ import { useState, useEffect } from 'react';
 import type { ChangeEventHandler } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
+import type { Post } from '@/schemas/post/post.schema';
+
 import { useEditorStore } from '../../store/editor-store';
 
 export default function useEditorSidebarSettingsExcerpt() {
-  const { editorExcerpt, updateSettingsFieldContent } = useEditorStore(
+  const { editorContent, updateSettingsFieldContent } = useEditorStore(
     useShallow((state) => ({
-      editorExcerpt: state.editorContent?.excerpt,
+      editorContent: state.editorContent,
       updateSettingsFieldContent: state.updateSettingsFieldContent,
     })),
   );
+
+  const editorExcerpt = (editorContent as Post).excerpt;
 
   const [excerptOpen, setExcerptOpen] = useState(false);
 

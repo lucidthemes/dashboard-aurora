@@ -14,7 +14,7 @@ export default function EditorSettingsSidebarContentDocumentTab({ type }: { type
     <TabsContent value="document">
       <div className="flex-1 overflow-y-auto p-5">
         <div className="flex flex-col gap-y-2.5">
-          <EditorSettingsSidebarContentMetadata />
+          <EditorSettingsSidebarContentMetadata type={type} />
           <Separator />
           {type === 'post' && (
             <>

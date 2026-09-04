@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useShallow } from 'zustand/react/shallow';
 
+import type { Post } from '@/schemas/post/post.schema';
+
 import { useEditorStore } from '../../store/editor-store';
 
 import getEditorSidebarSettingsImage from '../../data/sidebars/get-image';
@@ -13,12 +15,14 @@ export function useEditorSidebarSettingsImage() {
     setImageOpen((prevState) => !prevState);
   };
 
-  const { editorMediaId, editorContentErrors } = useEditorStore(
+  const { editorContent, editorContentErrors } = useEditorStore(
     useShallow((state) => ({
-      editorMediaId: state.editorContent?.media_id,
+      editorContent: state.editorContent,
       editorContentErrors: state.editorContentErrors,
     })),
   );
+
+  const editorMediaId = (editorContent as Post).media_id;
 
   const editorMediaErrors = editorContentErrors?.filter((error) => error.path === 'media_id');
 

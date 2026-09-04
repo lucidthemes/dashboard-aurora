@@ -3,17 +3,22 @@ import { Check } from 'lucide-react';
 import { useShallow } from 'zustand/react/shallow';
 
 import { getPublicMediaUrl } from '@/lib/supabase/storage';
+import type { Post } from '@/schemas/post/post.schema';
 
 import type { EditorMediaItem } from '../../../schemas/media/media.schema';
 import { useEditorStore } from '../../../store/editor-store';
 
 export default function EditorMediaListSettingsItem({ item }: { item: EditorMediaItem }) {
-  const { editorContentMediaId, updateSettingsFieldContent } = useEditorStore(
+  const { editorContent, updateSettingsFieldContent } = useEditorStore(
     useShallow((state) => ({
-      editorContentMediaId: state.editorContent?.media_id,
+      editorContent: state.editorContent,
       updateSettingsFieldContent: state.updateSettingsFieldContent,
     })),
   );
+
+  const postEditorContent = editorContent as Post;
+
+  const editorContentMediaId = postEditorContent.media_id;
 
   const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 

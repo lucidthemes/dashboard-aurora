@@ -79,6 +79,10 @@ All notable changes to this project will be documented in this file.
 - pages schemas
 - pages store
 
+###### Pages - page
+
+- page page route
+
 ###### Account
 
 - update password form password show/hide button

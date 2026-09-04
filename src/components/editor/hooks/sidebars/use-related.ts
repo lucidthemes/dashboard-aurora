@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useShallow } from 'zustand/react/shallow';
+
+import type { Post } from '@/schemas/post/post.schema';
 
 import { useEditorStore } from '../../store/editor-store';
 import getEditorSidebarSettingsRelated from '../../data/sidebars/get-related';
@@ -12,12 +13,10 @@ export function useEditorSidebarSettingsRelated() {
     setRelatedOpen((prevState) => !prevState);
   };
 
-  const { editorPostId, editorRelated } = useEditorStore(
-    useShallow((state) => ({
-      editorPostId: state.editorContent?.id,
-      editorRelated: state.editorContent?.related,
-    })),
-  );
+  const postEditorContent = useEditorStore((state) => state.editorContent) as Post;
+
+  const editorPostId = postEditorContent.id;
+  const editorRelated = postEditorContent.related;
 
   return { relatedOpen, handleRelatedOpen, editorPostId, editorRelated };
 }

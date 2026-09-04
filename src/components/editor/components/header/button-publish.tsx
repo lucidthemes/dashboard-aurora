@@ -12,6 +12,13 @@ import { EditorUpdatePostSchema } from '../../schemas/actions/post/update-post.s
 import type { EditorCreatePost } from '../../schemas/actions/post/create-post.schema';
 import type { EditorUpdatePost } from '../../schemas/actions/post/update-post.schema';
 
+import { createPage } from '../../actions/page/create-page.action';
+import { updatePage } from '../../actions/page/update-page.action';
+import { EditorCreatePageSchema } from '../../schemas/actions/page/create-page.schema';
+import { EditorUpdatePageSchema } from '../../schemas/actions/page/update-page.schema';
+import type { EditorCreatePage } from '../../schemas/actions/page/create-page.schema';
+import type { EditorUpdatePage } from '../../schemas/actions/page/update-page.schema';
+
 import { useEditorStore } from '../../store/editor-store';
 
 export default function EditorHeaderButtonPublish({
@@ -43,73 +50,97 @@ export default function EditorHeaderButtonPublish({
       disabled={isPending || buttonDisabled}
       onClick={() => {
         startTransition(async () => {
-          if (type === 'post') {
-            const parsed =
-              action === 'create'
-                ? EditorCreatePostSchema.safeParse(editorContent)
-                : EditorUpdatePostSchema.safeParse(editorContent);
+          const parsed =
+            type === 'post' && action === 'create'
+              ? EditorCreatePostSchema.safeParse(editorContent)
+              : type === 'post' && action === 'edit'
+                ? EditorUpdatePostSchema.safeParse(editorContent)
+                : type === 'page' && action === 'create'
+                  ? EditorCreatePageSchema.safeParse(editorContent)
+                  : type === 'page' && action === 'edit'
+                    ? EditorUpdatePageSchema.safeParse(editorContent)
+                    : null;
 
-            if (parsed.success) {
-              if (action === 'create') {
-                const result = await createPost({ editorData: parsed.data as EditorCreatePost });
+          if (!parsed) return;
 
-                if (result.success) {
-                  toast.success('Successfully published post');
+          if (parsed.success) {
+            if (action === 'create') {
+              const result =
+                type === 'post'
+                  ? await createPost({ editorData: parsed.data as EditorCreatePost })
+                  : type === 'page'
+                    ? await createPage({ editorData: parsed.data as EditorCreatePage })
+                    : null;
 
-                  resetEditorContentUnsavedChanges();
-                } else {
-                  if (result.errors) {
-                    toast.error('Error publishing post', {
-                      description: (
-                        <ul>
-                          {result.errors.map((error) => (
-                            <li key={error}>{error}</li>
-                          ))}
-                        </ul>
-                      ),
-                    });
-                  } else {
-                    toast.error('Error publishing post');
-                  }
-                }
+              if (!result) {
+                toast.error(`Error publishing ${type}`);
+                return;
+              }
+
+              if (result && result.success) {
+                toast.success(`Successfully published ${type}`);
+
+                resetEditorContentUnsavedChanges();
               } else {
-                const result = await updatePost({ editorData: parsed.data as EditorUpdatePost });
-
-                if (result.success) {
-                  toast.success('Successfully saved post');
-
-                  resetEditorContentUnsavedChanges();
+                if (result.errors) {
+                  toast.error(`Error publishing ${type}`, {
+                    description: (
+                      <ul>
+                        {result.errors.map((error) => (
+                          <li key={error}>{error}</li>
+                        ))}
+                      </ul>
+                    ),
+                  });
                 } else {
-                  if (result.errors) {
-                    toast.error('Error saving post', {
-                      description: (
-                        <ul>
-                          {result.errors.map((error) => (
-                            <li key={error}>Error: {error}</li>
-                          ))}
-                        </ul>
-                      ),
-                    });
-                  } else {
-                    toast.error('Error saving post');
-                  }
+                  toast.error(`Error publishing ${type}`);
                 }
               }
             } else {
-              const editorErrors = parsed.error.issues.map((error) => {
-                return { path: error.path[0] as string, code: error.code, message: error.message };
-              });
+              const result =
+                type === 'post'
+                  ? await updatePost({ editorData: parsed.data as EditorUpdatePost })
+                  : type === 'page'
+                    ? await updatePage({ editorData: parsed.data as EditorUpdatePage })
+                    : null;
 
-              if (action === 'create') {
-                toast.error('Error publishing post');
-              } else {
-                toast.error('Error saving post');
+              if (!result) {
+                toast.error(`Error saving ${type}`);
+                return;
               }
 
-              setEditorContentErrors(editorErrors);
+              if (result.success) {
+                toast.success(`Successfully saved ${type}`);
+
+                resetEditorContentUnsavedChanges();
+              } else {
+                if (result.errors) {
+                  toast.error(`Error saving ${type}`, {
+                    description: (
+                      <ul>
+                        {result.errors.map((error) => (
+                          <li key={error}>Error: {error}</li>
+                        ))}
+                      </ul>
+                    ),
+                  });
+                } else {
+                  toast.error(`Error saving ${type}`);
+                }
+              }
             }
-          } else if (type === 'page') {
-            // page create
+          } else {
+            const editorErrors = parsed.error.issues.map((error) => {
+              return { path: error.path[0] as string, code: error.code, message: error.message };
+            });
+
+            if (action === 'create') {
+              toast.error(`Error publishing ${type}`);
+            } else {
+              toast.error(`Error saving ${type}`);
+            }
+
+            setEditorContentErrors(editorErrors);
           }
         });
       }}

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+import type { Post } from '@/schemas/post/post.schema';
+
 import { useEditorStore } from '../../store/editor-store';
 import getEditorSidebarSettingsCategories from '../../data/sidebars/get-categories';
 
@@ -11,7 +13,9 @@ export function useEditorSidebarSettingsCategories() {
     setCategoriesOpen((prevState) => !prevState);
   };
 
-  const editorCategories = useEditorStore((state) => state.editorContent?.categories);
+  const postEditorContent = useEditorStore((state) => state.editorContent) as Post;
+
+  const editorCategories = postEditorContent.categories;
 
   return { categoriesOpen, handleCategoriesOpen, editorCategories };
 }
