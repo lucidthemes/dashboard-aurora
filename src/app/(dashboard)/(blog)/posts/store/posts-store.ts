@@ -7,7 +7,7 @@ type State = {
 
 type Action = {
   setDeleteDialogOpen: (open: boolean) => void;
-  setDeleteDialogPostId: (userId: string | null) => void;
+  setDeleteDialogPostId: (postId: string | null) => void;
 };
 
 export const usePostsStore = create<State & Action>((set) => ({
@@ -15,5 +15,5 @@ export const usePostsStore = create<State & Action>((set) => ({
   setDeleteDialogOpen: (open) => set({ deleteDialogOpen: open }),
 
   deleteDialogPostId: null,
-  setDeleteDialogPostId: (userId) => set({ deleteDialogPostId: userId }),
+  setDeleteDialogPostId: (postId) => set({ deleteDialogPostId: postId }),
 }));
