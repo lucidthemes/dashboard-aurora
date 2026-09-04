@@ -16,6 +16,7 @@ export default function MediaTabsHeaderButtons() {
         size="sm"
         className={layout === 'grid' ? 'h-full cursor-pointer bg-accent' : 'h-full cursor-pointer'}
         onClick={() => setLayout('grid')}
+        title="Grid view"
       >
         <Grid2x2 />
       </Button>
@@ -24,6 +25,7 @@ export default function MediaTabsHeaderButtons() {
         size="sm"
         className={layout === 'list' ? 'h-full cursor-pointer bg-accent' : 'h-full cursor-pointer'}
         onClick={() => setLayout('list')}
+        title="List view"
       >
         <List />
       </Button>
