@@ -144,5 +144,9 @@ export async function updatePost({
     }
   }
 
+  if (postTaxonomyInsertStatus) {
+    await createLogEvent('info', 'UPDATE_POST_SUCCESSFUL', 'Post updated. Id: ' + postData.id, user.id);
+  }
+
   return { success: postTaxonomyInsertStatus, errors: postTaxonomyInsertErrors };
 }
