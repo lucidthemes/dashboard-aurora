@@ -54,7 +54,7 @@ export async function updatePage({
     return { success: false };
   }
 
-  await createLogEvent('info', 'UPDATE_PAGE_SUCCESSFUL', 'Page created. Id: ' + pageData.id, user.id);
+  await createLogEvent('info', 'UPDATE_PAGE_SUCCESSFUL', 'Page updated. Id: ' + pageData.id, user.id);
 
   return { success: true };
 }
