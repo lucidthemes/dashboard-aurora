@@ -34,7 +34,8 @@ export default async function getMedia(
   const parsed = z.array(MediaSchema).safeParse(data ?? []);
 
   if (!parsed.success) {
-    console.log('getMedia error: ' + parsed.error.name);
+    await createLogEvent('error', 'FETCH_MEDIA_INVALID_DATA', 'Fetch media failed schema validation');
+
     return { media: [], totalCount: 0 };
   }
 
