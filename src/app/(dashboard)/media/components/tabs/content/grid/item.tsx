@@ -9,6 +9,8 @@ import MediaTabsContentLayoutGridItemButtons from './buttons';
 export default function MediaTabsContentLayoutGridItem({ item }: { item: Media }) {
   const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 
+  const videoStoragePath = item.storage_path.replace('videos/', '');
+
   return (
     <li className="group relative size-fit overflow-hidden rounded-lg">
       {item.type === 'image' && (
@@ -21,10 +23,9 @@ export default function MediaTabsContentLayoutGridItem({ item }: { item: Media }
         />
       )}
       {item.type === 'video' && (
-        <div className="flex h-60 w-60 flex-col items-center justify-center gap-y-2.5 bg-sidebar">
-          <Video className="h-10 w-10 stroke-ring">
-            <source src={publicMediaUrl} type="video/mp4" />
-          </Video>
+        <div className="flex h-60 w-60 flex-col items-center justify-center gap-y-2.5 bg-sidebar text-sm">
+          <Video className="h-10 w-10 stroke-ring" />
+          {videoStoragePath}
         </div>
       )}
       <MediaTabsContentLayoutGridItemButtons item={item} publicMediaUrl={publicMediaUrl} />
