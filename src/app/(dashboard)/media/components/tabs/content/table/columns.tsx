@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import type { ColumnDef } from '@tanstack/react-table';
+import { Video } from 'lucide-react';
 
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import { dateFormat } from '@/lib/formatters';
@@ -61,7 +62,8 @@ export default function MediaTabsContentLayoutTableColumns(type: 'images' | 'vid
         const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 
         return (
-          <div className="group relative h-25 w-25 rounded-md bg-sidebar">
+          <div className="group relative flex h-25 w-25 items-center justify-center rounded-md bg-sidebar">
+            <Video className="h-7.5 w-7.5 stroke-ring" />
             <ViewButton
               className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 group-hover:flex"
               onClick={() => {
