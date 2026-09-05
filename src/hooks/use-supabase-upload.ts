@@ -2,9 +2,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { useDropzone, type FileError, type FileRejection } from 'react-dropzone';
 import { useRouter } from 'next/navigation';
 
-import { createClient } from '@/lib/supabase/client';
-
-const supabase = createClient();
+import { supabaseDropzoneFileUpload } from '@/actions/supabase-upload.action';
 
 interface FileWithPreview extends File {
   preview?: string;
@@ -127,17 +125,7 @@ const useSupabaseUpload = (options: UseSupabaseUploadOptions) => {
 
     const responses = await Promise.all(
       filesToUpload.map(async (file) => {
-        const { error } = await supabase.storage
-          .from(bucketName)
-          .upload(!!path ? `${path}/${file.name}` : file.name, file, {
-            cacheControl: cacheControl.toString(),
-            upsert,
-          });
-        if (error) {
-          return { name: file.name, message: error.message };
-        } else {
-          return { name: file.name, message: undefined };
-        }
+        return supabaseDropzoneFileUpload({ bucketName, path, file, cacheControl, upsert });
       }),
     );
 
