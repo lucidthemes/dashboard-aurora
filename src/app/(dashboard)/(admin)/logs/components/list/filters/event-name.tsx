@@ -428,6 +428,46 @@ export default function LogsListFiltersEventName() {
           value: 'DELETE_PAGE_SUCCESSFUL',
           label: 'DELETE_PAGE_SUCCESSFUL',
         },
+        {
+          id: 17,
+          value: 'CREATE_PAGE_UNAUTHORIZED',
+          label: 'CREATE_PAGE_UNAUTHORIZED',
+        },
+        {
+          id: 18,
+          value: 'CREATE_PAGE_INVALID_DATA',
+          label: 'CREATE_PAGE_INVALID_DATA',
+        },
+        {
+          id: 19,
+          value: 'CREATE_PAGE_FAILED',
+          label: 'CREATE_PAGE_FAILED',
+        },
+        {
+          id: 20,
+          value: 'CREATE_PAGE_SUCCESSFUL',
+          label: 'CREATE_PAGE_SUCCESSFUL',
+        },
+        {
+          id: 21,
+          value: 'UPDATE_PAGE_UNAUTHORIZED',
+          label: 'UPDATE_PAGE_UNAUTHORIZED',
+        },
+        {
+          id: 22,
+          value: 'UPDATE_PAGE_INVALID_DATA',
+          label: 'UPDATE_PAGE_INVALID_DATA',
+        },
+        {
+          id: 23,
+          value: 'UPDATE_PAGE_FAILED',
+          label: 'UPDATE_PAGE_FAILED',
+        },
+        {
+          id: 24,
+          value: 'UPDATE_PAGE_SUCCESSFUL',
+          label: 'UPDATE_PAGE_SUCCESSFUL',
+        },
       ],
     },
     {
@@ -513,6 +553,91 @@ export default function LogsListFiltersEventName() {
           id: 16,
           value: 'DELETE_POST_SUCCESSFUL',
           label: 'DELETE_POST_SUCCESSFUL',
+        },
+        {
+          id: 17,
+          value: 'CREATE_POST_UNAUTHORIZED',
+          label: 'CREATE_POST_UNAUTHORIZED',
+        },
+        {
+          id: 18,
+          value: 'CREATE_POST_INVALID_DATA',
+          label: 'CREATE_POST_INVALID_DATA',
+        },
+        {
+          id: 19,
+          value: 'CREATE_POST_FAILED',
+          label: 'CREATE_POST_FAILED',
+        },
+        {
+          id: 20,
+          value: 'CREATE_POST_CATEGORIES_FAILED',
+          label: 'CREATE_POST_CATEGORIES_FAILED',
+        },
+        {
+          id: 21,
+          value: 'CREATE_POST_TAGS_FAILED',
+          label: 'CREATE_POST_TAGS_FAILED',
+        },
+        {
+          id: 22,
+          value: 'CREATE_POST_RELATED_POSTS_FAILED',
+          label: 'CREATE_POST_RELATED_POSTS_FAILED',
+        },
+        {
+          id: 23,
+          value: 'CREATE_POST_SUCCESSFUL',
+          label: 'CREATE_POST_SUCCESSFUL',
+        },
+        {
+          id: 24,
+          value: 'UPDATE_POST_UNAUTHORIZED',
+          label: 'UPDATE_POST_UNAUTHORIZED',
+        },
+        {
+          id: 25,
+          value: 'UPDATE_POST_INVALID_DATA',
+          label: 'UPDATE_POST_INVALID_DATA',
+        },
+        {
+          id: 26,
+          value: 'UPDATE_POST_FAILED',
+          label: 'UPDATE_POST_FAILED',
+        },
+        {
+          id: 27,
+          value: 'UPDATE_POST_CATEGORIES_FAILED',
+          label: 'UPDATE_POST_CATEGORIES_FAILED',
+        },
+        {
+          id: 28,
+          value: 'UPDATE_POST_DELETE_CATEGORIES_FAILED',
+          label: 'UPDATE_POST_DELETE_CATEGORIES_FAILED',
+        },
+        {
+          id: 29,
+          value: 'UPDATE_POST_TAGS_FAILED',
+          label: 'UPDATE_POST_TAGS_FAILED',
+        },
+        {
+          id: 30,
+          value: 'UPDATE_POST_DELETE_TAGS_FAILED',
+          label: 'UPDATE_POST_DELETE_TAGS_FAILED',
+        },
+        {
+          id: 31,
+          value: 'UPDATE_POST_RELATED_POSTS_FAILED',
+          label: 'UPDATE_POST_RELATED_POSTS_FAILED',
+        },
+        {
+          id: 32,
+          value: 'UPDATE_POST_DELETE_RELATED_POSTS_FAILED',
+          label: 'UPDATE_POST_DELETE_RELATED_POSTS_FAILED',
+        },
+        {
+          id: 33,
+          value: 'UPDATE_POST_SUCCESSFUL',
+          label: 'UPDATE_POST_SUCCESSFUL',
         },
       ],
     },
