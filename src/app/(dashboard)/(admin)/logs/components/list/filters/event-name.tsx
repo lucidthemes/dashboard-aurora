@@ -915,6 +915,21 @@ export default function LogsListFiltersEventName() {
           value: 'DELETE_MEDIA_SUCCESSFUL',
           label: 'DELETE_MEDIA_SUCCESSFUL',
         },
+        {
+          id: 11,
+          value: 'UPLOAD_MEDIA_UNAUTHORIZED',
+          label: 'UPLOAD_MEDIA_UNAUTHORIZED',
+        },
+        {
+          id: 12,
+          value: 'UPLOAD_MEDIA_FAILED',
+          label: 'UPLOAD_MEDIA_FAILED',
+        },
+        {
+          id: 13,
+          value: 'UPLOAD_MEDIA_SUCCESSFUL',
+          label: 'UPLOAD_MEDIA_SUCCESSFUL',
+        },
       ],
     },
     {
