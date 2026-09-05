@@ -1341,6 +1341,22 @@ export default function LogsListFiltersEventName() {
         },
       ],
     },
+    {
+      id: 30,
+      section: 'Error boundaries',
+      items: [
+        {
+          id: 1,
+          value: 'DASHBOARD_ERROR_BOUNDARY',
+          label: 'DASHBOARD_ERROR_BOUNDARY',
+        },
+        {
+          id: 2,
+          value: 'AUTH_ERROR_BOUNDARY',
+          label: 'AUTH_ERROR_BOUNDARY',
+        },
+      ],
+    },
   ];
 
   return <ListFilter type={'event_name'} label={'Event name'} options={filterOptions} />;
