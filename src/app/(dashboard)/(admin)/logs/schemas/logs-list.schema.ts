@@ -5,7 +5,7 @@ export const LogsListSchema = z.object({
   log_level: z.string(),
   event_name: z.string(),
   user_id: z.uuid().nullable(),
-  message: z.string(),
+  message: z.string().nullable(),
   source: z.string(),
   created_at: z.coerce.date(),
 });
