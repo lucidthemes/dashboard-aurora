@@ -26,41 +26,10 @@ All notable changes to this project will be documented in this file.
 ###### Blog - posts
 
 - posts page route
-- posts actions
-- posts components
-- posts data
-- posts schemas
-- posts store
-
 - posts categories page route
-- posts categories actions
-- posts categories components
-- posts categories data
-- posts categories hooks
-- posts categories schemas
-- posts categories store
-
 - posts tags page route
-- posts tags actions
-- posts tags components
-- posts tags data
-- posts tags hooks
-- posts tags schemas
-- posts tags store
-
 - posts comments page route
-- posts comments actions
-- posts comments components
-- posts comments data
-- posts comments schemas
-
 - posts authors page route
-- posts authors actions
-- posts authors components
-- posts authors data
-- posts authors hooks
-- posts authors schemas
-- posts authors store
 
 ###### Blog - post
 
@@ -73,11 +42,6 @@ All notable changes to this project will be documented in this file.
 ###### Pages - pages
 
 - pages page route
-- pages actions
-- pages components
-- pages data
-- pages schemas
-- pages store
 
 ###### Pages - page
 
@@ -178,36 +142,16 @@ All notable changes to this project will be documented in this file.
 ###### Account
 
 - account page route
-- account actions
-- account components
-- account hooks
-- account schemas
 
 ###### Customers
 
 - customers page route
-- customers components
-- customers data
-- customers hooks
-- customers schemas
-- customers store
 
 ###### Admin
 
 - admin route group folder
-
 - logs page route
-- logs components
-- logs data
-- logs schemas
-
 - users page route
-- users actions
-- users components
-- users data
-- users hooks
-- users schemas
-- users store
 
 ##### Auth
 
@@ -469,26 +413,22 @@ All notable changes to this project will be documented in this file.
 
 ##### Auth
 
-- login page
-- forgot password page
-- update password page
+- login page route
+- forgot password page route
+- update password page route
 
 ##### Dashboard
 
-- dashboard page
+- dashboard page route
 - dashboard layout
 
 ###### Media
 
-- media page
-- media page components
-- media page hook
+- media page route
 
 ###### Instagram feed
 
-- instagram feed page
-- instagram feed components
-- instagram feed hooks
+- instagram feed page route
 
 #### Components
 
