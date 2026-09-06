@@ -15,6 +15,7 @@ import {
   Van,
   Percent,
   Image,
+  PanelLeft,
   Camera,
   User,
   Logs,
@@ -129,6 +130,13 @@ const data = {
       icon: Image,
     },
   ],
+  sidebars: [
+    {
+      title: 'Sidebars',
+      url: '/sidebars',
+      icon: PanelLeft,
+    },
+  ],
   instagram: [
     {
       title: 'Instagram feed',
@@ -164,6 +172,7 @@ export default function DashboardSidebarContent() {
       <DashboardSidebarNavMenuGroup items={data.posts} />
       <DashboardSidebarNavMenuGroup items={data.shop} />
       <DashboardSidebarNavMenuGroup items={data.media} />
+      <DashboardSidebarNavMenuGroup items={data.sidebars} />
       <DashboardSidebarNavMenuGroup items={data.instagram} />
       {role === 'admin' && <DashboardSidebarNavMenuGroup items={data.admin} />}
     </SidebarContent>
