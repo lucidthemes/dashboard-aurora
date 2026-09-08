@@ -51,6 +51,10 @@ All notable changes to this project will be documented in this file.
 
 - update password form password show/hide button
 
+###### Sidebars
+
+- sidebars page route
+
 ##### Auth
 
 - login form password show/hide button
