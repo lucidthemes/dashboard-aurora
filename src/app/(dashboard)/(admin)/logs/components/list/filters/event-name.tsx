@@ -1059,6 +1059,72 @@ export default function LogsListFiltersEventName() {
     },
     {
       id: 26,
+      section: 'Dashboard - Sidebars',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_SIDEBARS_FAILED',
+          label: 'FETCH_SIDEBARS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_SIDEBARS_INVALID_DATA',
+          label: 'FETCH_SIDEBARS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'FETCH_SIDEBARS_FORM_WIDGET_MEDIA_FAILED',
+          label: 'FETCH_SIDEBARS_FORM_WIDGET_MEDIA_FAILED',
+        },
+        {
+          id: 4,
+          value: 'FETCH_SIDEBARS_FORM_WIDGET_MEDIA_INVALID_DATA',
+          label: 'FETCH_SIDEBARS_FORM_WIDGET_MEDIA_INVALID_DATA',
+        },
+        {
+          id: 5,
+          value: 'CREATE_SIDEBAR_UNAUTHORIZED',
+          label: 'CREATE_SIDEBAR_UNAUTHORIZED',
+        },
+        {
+          id: 6,
+          value: 'CREATE_SIDEBAR_INVALID_DATA',
+          label: 'CREATE_SIDEBAR_INVALID_DATA',
+        },
+        {
+          id: 7,
+          value: 'CREATE_SIDEBAR_FAILED',
+          label: 'CREATE_SIDEBAR_FAILED',
+        },
+        {
+          id: 8,
+          value: 'CREATE_SIDEBAR_SUCCESSFUL',
+          label: 'CREATE_SIDEBAR_SUCCESSFUL',
+        },
+        {
+          id: 9,
+          value: 'UPDATE_SIDEBAR_UNAUTHORIZED',
+          label: 'UPDATE_SIDEBAR_UNAUTHORIZED',
+        },
+        {
+          id: 10,
+          value: 'UPDATE_SIDEBAR_INVALID_DATA',
+          label: 'UPDATE_SIDEBAR_INVALID_DATA',
+        },
+        {
+          id: 11,
+          value: 'UPDATE_SIDEBAR_FAILED',
+          label: 'UPDATE_SIDEBAR_FAILED',
+        },
+        {
+          id: 12,
+          value: 'UPDATE_SIDEBAR_SUCCESSFUL',
+          label: 'UPDATE_SIDEBAR_SUCCESSFUL',
+        },
+      ],
+    },
+    {
+      id: 27,
       section: 'Dashboard - Instagram feed',
       items: [
         {
@@ -1159,7 +1225,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 27,
+      id: 28,
       section: 'Dashboard - Users',
       items: [
         {
@@ -1240,7 +1306,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 28,
+      id: 29,
       section: 'Dashboard - Logs',
       items: [
         {
@@ -1256,7 +1322,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 29,
+      id: 30,
       section: 'Dashboard - Account',
       items: [
         {
@@ -1342,7 +1408,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 30,
+      id: 31,
       section: 'Error boundaries',
       items: [
         {
