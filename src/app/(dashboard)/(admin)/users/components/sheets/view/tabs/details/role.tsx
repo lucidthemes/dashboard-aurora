@@ -1,7 +1,7 @@
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsRole() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const role = viewSheetUser?.role;
 

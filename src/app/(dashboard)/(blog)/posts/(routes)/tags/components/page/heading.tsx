@@ -6,7 +6,7 @@ import { CreateButton } from '@/components/buttons';
 import { usePostsTagsStore } from '../../store/posts-tags-store';
 
 export default function PostsTagsPageHeading() {
-  const { setCreateSheetOpen } = usePostsTagsStore();
+  const setCreateSheetOpen = usePostsTagsStore((state) => state.setCreateSheetOpen);
 
   return (
     <PageHeadingWithButton heading="Tags">

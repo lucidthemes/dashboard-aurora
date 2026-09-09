@@ -6,7 +6,7 @@ import useCustomerViewSheetTabReviews from '../../../../hooks/use-reviews';
 import CustomersViewSheetTabReviewsTable from './table';
 
 export default function CustomersViewSheetTabReviews() {
-  const { viewSheetCustomer } = useCustomersStore();
+  const viewSheetCustomer = useCustomersStore((state) => state.viewSheetCustomer);
 
   const customerId = viewSheetCustomer?.id ?? '';
 

@@ -11,7 +11,7 @@ import type { PostsCategoriesForm } from '../schemas/form.schema';
 import { PostsCategoriesFormSchema } from '../schemas/form.schema';
 
 export default function usePostsCategoriesCreateSheetForm() {
-  const { setCreateSheetOpen } = usePostsCategoriesStore();
+  const setCreateSheetOpen = usePostsCategoriesStore((state) => state.setCreateSheetOpen);
 
   const form = useForm<PostsCategoriesForm>({
     defaultValues: {

@@ -1,7 +1,7 @@
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsEmail() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   if (!viewSheetUser?.email) return null;
 

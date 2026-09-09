@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsEmailConfirmed() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const emailConfirmedDate = viewSheetUser?.email_confirmed_at
     ? dateTimeFormat(viewSheetUser.email_confirmed_at)

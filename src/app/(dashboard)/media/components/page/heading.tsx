@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import { Plus, Image as ImageIcon, Video } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,12 @@ import { PageHeadingWithButton } from '@/components/page-headings';
 import { useMediaStore } from '../../store/media-store';
 
 export default function MediaPageHeading() {
-  const { setUploadOpen, setUploadType } = useMediaStore();
+  const { setUploadOpen, setUploadType } = useMediaStore(
+    useShallow((state) => ({
+      setUploadOpen: state.setUploadOpen,
+      setUploadType: state.setUploadType,
+    })),
+  );
 
   return (
     <PageHeadingWithButton heading="Media">

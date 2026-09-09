@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsLastSignIn() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const lastSignInDate = viewSheetUser?.last_sign_in_at ? dateTimeFormat(viewSheetUser.last_sign_in_at) : null;
 

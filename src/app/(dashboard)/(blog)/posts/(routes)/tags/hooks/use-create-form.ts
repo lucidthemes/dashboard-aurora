@@ -11,7 +11,7 @@ import type { PostsTagsForm } from '../schemas/form.schema';
 import { PostsTagsFormSchema } from '../schemas/form.schema';
 
 export default function usePostsTagsCreateSheetForm() {
-  const { setCreateSheetOpen } = usePostsTagsStore();
+  const setCreateSheetOpen = usePostsTagsStore((state) => state.setCreateSheetOpen);
 
   const form = useForm<PostsTagsForm>({
     defaultValues: {

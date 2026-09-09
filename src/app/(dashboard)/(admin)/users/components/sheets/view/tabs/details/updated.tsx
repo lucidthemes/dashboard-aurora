@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsUpdated() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const updatedDate = viewSheetUser?.updated_at ? dateTimeFormat(viewSheetUser.updated_at) : null;
 

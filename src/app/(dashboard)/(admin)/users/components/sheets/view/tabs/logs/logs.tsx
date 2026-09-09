@@ -6,7 +6,7 @@ import useUsersViewSheetTabLogs from '../../../../../hooks/use-logs';
 import UsersViewSheetTabLogsTable from './table';
 
 export default function UsersViewSheetTabLogs() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const userId = viewSheetUser?.id ?? '';
 

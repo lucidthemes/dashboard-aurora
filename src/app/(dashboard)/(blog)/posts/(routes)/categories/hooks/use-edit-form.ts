@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -12,7 +13,12 @@ import type { PostsCategoriesForm } from '../schemas/form.schema';
 import { PostsCategoriesFormSchema } from '../schemas/form.schema';
 
 export default function usePostsCategoriesEditSheetForm() {
-  const { setEditSheetOpen, editSheetPostCategory } = usePostsCategoriesStore();
+  const { editSheetPostCategory, setEditSheetOpen } = usePostsCategoriesStore(
+    useShallow((state) => ({
+      editSheetPostCategory: state.editSheetPostCategory,
+      setEditSheetOpen: state.setEditSheetOpen,
+    })),
+  );
 
   const form = useForm<PostsCategoriesForm>({
     defaultValues: {

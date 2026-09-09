@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import Image from 'next/image';
 
 import SheetForm from '@/components/sheets/form';
@@ -15,23 +16,43 @@ import DeleteMediaDialog from '../dialogs/delete-media';
 export default function MediaPageWrapper({ children }: { children: React.ReactNode }) {
   const {
     viewOpen,
-    setViewOpen,
     viewMediaType,
-    setViewMediaType,
     viewMediaUrl,
-    setViewMediaUrl,
     editOpen,
-    setEditOpen,
-    setEditData,
     deleteOpen,
-    setDeleteOpen,
     deleteStoragePath,
-    setDeleteStoragePath,
     uploadOpen,
     uploadType,
+    setViewOpen,
+    setViewMediaType,
+    setViewMediaUrl,
+    setEditOpen,
+    setEditData,
+    setDeleteOpen,
+    setDeleteStoragePath,
     setUploadOpen,
     setUploadType,
-  } = useMediaStore();
+  } = useMediaStore(
+    useShallow((state) => ({
+      viewOpen: state.viewOpen,
+      viewMediaType: state.viewMediaType,
+      viewMediaUrl: state.viewMediaUrl,
+      editOpen: state.editOpen,
+      deleteOpen: state.deleteOpen,
+      deleteStoragePath: state.deleteStoragePath,
+      uploadOpen: state.uploadOpen,
+      uploadType: state.uploadType,
+      setViewOpen: state.setViewOpen,
+      setViewMediaType: state.setViewMediaType,
+      setViewMediaUrl: state.setViewMediaUrl,
+      setEditOpen: state.setEditOpen,
+      setEditData: state.setEditData,
+      setDeleteOpen: state.setDeleteOpen,
+      setDeleteStoragePath: state.setDeleteStoragePath,
+      setUploadOpen: state.setUploadOpen,
+      setUploadType: state.setUploadType,
+    })),
+  );
 
   const mediaEdit = useMediaEditForm();
 

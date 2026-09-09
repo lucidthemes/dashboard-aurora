@@ -5,7 +5,7 @@ import { CreateButton } from '@/components/buttons';
 import { useSidebarsStore } from '../../store/sidebars-store';
 
 export default function SidebarsPageHeading() {
-  const { setCreateSheetOpen } = useSidebarsStore();
+  const setCreateSheetOpen = useSidebarsStore((state) => state.setCreateSheetOpen);
 
   return (
     <PageHeadingWithButton heading="Sidebars">

@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { ViewButton } from '@/components/buttons';
@@ -9,7 +10,12 @@ import { useCustomersStore } from '../../store/customers.store';
 import type { CustomersList } from '../../schemas/customers-list.schema';
 
 export default function CustomersListColumns() {
-  const { setViewSheetOpen, setViewSheetCustomer } = useCustomersStore();
+  const { setViewSheetOpen, setViewSheetCustomer } = useCustomersStore(
+    useShallow((state) => ({
+      setViewSheetOpen: state.setViewSheetOpen,
+      setViewSheetCustomer: state.setViewSheetCustomer,
+    })),
+  );
 
   const columns: ColumnDef<CustomersList>[] = [];
 

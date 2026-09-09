@@ -1,5 +1,7 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import DeleteDialog from '@/components/dialogs/delete';
 import SheetForm from '@/components/sheets/form';
 
@@ -11,15 +13,27 @@ import useInstagramFeedEditForm from '../../hooks/use-edit-form';
 export default function InstagramFeedPageWrapper({ children }: { children: React.ReactNode }) {
   const {
     createOpen,
-    setCreateOpen,
     editOpen,
-    setEditOpen,
     deleteOpen,
-    setDeleteOpen,
     deleteRowId,
+    setCreateOpen,
+    setEditOpen,
+    setDeleteOpen,
     setDeleteRowId,
     resetSelectedImages,
-  } = useInstagramFeedStore();
+  } = useInstagramFeedStore(
+    useShallow((state) => ({
+      createOpen: state.createOpen,
+      editOpen: state.editOpen,
+      deleteOpen: state.deleteOpen,
+      deleteRowId: state.deleteRowId,
+      setCreateOpen: state.setCreateOpen,
+      setEditOpen: state.setEditOpen,
+      setDeleteOpen: state.setDeleteOpen,
+      setDeleteRowId: state.setDeleteRowId,
+      resetSelectedImages: state.resetSelectedImages,
+    })),
+  );
 
   const instagramFeedCreate = useInstagramFeedCreateForm();
   const instagramFeedEdit = useInstagramFeedEditForm();

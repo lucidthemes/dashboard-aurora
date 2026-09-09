@@ -11,7 +11,7 @@ import type { UsersCreateSheetForm } from '../schemas/sheets/create-form.schema'
 import { UsersCreateSheetFormSchema } from '../schemas/sheets/create-form.schema';
 
 export default function useUsersCreateSheetForm() {
-  const { setCreateSheetOpen } = useUsersStore();
+  const setCreateSheetOpen = useUsersStore((state) => state.setCreateSheetOpen);
 
   const form = useForm<UsersCreateSheetForm>({
     defaultValues: {

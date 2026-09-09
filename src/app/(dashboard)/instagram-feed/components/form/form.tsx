@@ -34,7 +34,7 @@ export default function InstagramFeedForm({
   formType: 'create' | 'edit';
   formId: string;
 }) {
-  const { editData } = useInstagramFeedStore();
+  const editData = useInstagramFeedStore((state) => state.editData);
 
   const showButtonFields = useWatch({
     control: form.control,

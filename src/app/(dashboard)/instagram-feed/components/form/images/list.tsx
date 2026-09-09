@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import type { UseQueryResult } from '@tanstack/react-query';
 
 import { useInstagramFeedStore } from '../../../store/instagram-feed-store';
@@ -14,7 +15,12 @@ export default function InstagramFeedFormImagesList({
   formType: 'create' | 'edit';
   feedFormImagesQuery: UseQueryResult<InstagramFeedFormImages[]>;
 }) {
-  const { selectedImages, setSelectedImages } = useInstagramFeedStore();
+  const { selectedImages, setSelectedImages } = useInstagramFeedStore(
+    useShallow((state) => ({
+      selectedImages: state.selectedImages,
+      setSelectedImages: state.setSelectedImages,
+    })),
+  );
 
   useEffect(() => {
     if (!feedFormImagesQuery.isSuccess || !feedFormImagesQuery.data) return;

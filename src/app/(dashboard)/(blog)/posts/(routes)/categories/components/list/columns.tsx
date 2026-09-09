@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { dateTimeFormat } from '@/lib/formatters';
@@ -10,7 +11,14 @@ import { usePostsCategoriesStore } from '../../store/posts-categories-store';
 
 export default function PostsCategoriesListColumns() {
   const { setEditSheetOpen, setEditSheetPostCategory, setDeleteDialogOpen, setDeleteDialogPostCategoryId } =
-    usePostsCategoriesStore();
+    usePostsCategoriesStore(
+      useShallow((state) => ({
+        setEditSheetOpen: state.setEditSheetOpen,
+        setEditSheetPostCategory: state.setEditSheetPostCategory,
+        setDeleteDialogOpen: state.setDeleteDialogOpen,
+        setDeleteDialogPostCategoryId: state.setDeleteDialogPostCategoryId,
+      })),
+    );
 
   const columns: ColumnDef<PostsCategoriesList>[] = [];
 

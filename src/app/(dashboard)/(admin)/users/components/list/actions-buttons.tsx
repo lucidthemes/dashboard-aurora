@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import { EllipsisVertical, Eye, PencilIcon, TrashIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -21,10 +22,18 @@ export default function UsersListColumnActionsButtons({ item }: { item: UsersLis
     setViewSheetUser,
     setEditSheetOpen,
     setEditSheetUser,
-
     setDeleteDialogOpen,
     setDeleteDialogUserId,
-  } = useUsersStore();
+  } = useUsersStore(
+    useShallow((state) => ({
+      setViewSheetOpen: state.setViewSheetOpen,
+      setViewSheetUser: state.setViewSheetUser,
+      setEditSheetOpen: state.setEditSheetOpen,
+      setEditSheetUser: state.setEditSheetUser,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+      setDeleteDialogUserId: state.setDeleteDialogUserId,
+    })),
+  );
 
   return (
     <DropdownMenu>

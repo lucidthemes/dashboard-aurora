@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsCreated() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const createdDate = viewSheetUser?.created_at ? dateTimeFormat(viewSheetUser.created_at) : null;
 

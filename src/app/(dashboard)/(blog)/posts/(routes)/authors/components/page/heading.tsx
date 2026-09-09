@@ -6,7 +6,7 @@ import { CreateButton } from '@/components/buttons';
 import { usePostsAuthorsStore } from '../../store/posts-authors-store';
 
 export default function PostsAuthorsPageHeading() {
-  const { setCreateSheetOpen } = usePostsAuthorsStore();
+  const setCreateSheetOpen = usePostsAuthorsStore((state) => state.setCreateSheetOpen);
 
   return (
     <PageHeadingWithButton heading="Authors">

@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { dateTimeFormat } from '@/lib/formatters';
@@ -9,7 +10,14 @@ import type { PostsTagsList } from '../../schemas/tags-list.schema';
 import { usePostsTagsStore } from '../../store/posts-tags-store';
 
 export default function PostsTagsListColumns() {
-  const { setEditSheetOpen, setEditSheetPostTag, setDeleteDialogOpen, setDeleteDialogPostTagId } = usePostsTagsStore();
+  const { setEditSheetOpen, setEditSheetPostTag, setDeleteDialogOpen, setDeleteDialogPostTagId } = usePostsTagsStore(
+    useShallow((state) => ({
+      setEditSheetOpen: state.setEditSheetOpen,
+      setEditSheetPostTag: state.setEditSheetPostTag,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+      setDeleteDialogPostTagId: state.setDeleteDialogPostTagId,
+    })),
+  );
 
   const columns: ColumnDef<PostsTagsList>[] = [];
 

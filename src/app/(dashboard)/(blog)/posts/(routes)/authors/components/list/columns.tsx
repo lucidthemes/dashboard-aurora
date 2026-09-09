@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { dateTimeFormat } from '@/lib/formatters';
@@ -10,7 +11,14 @@ import { usePostsAuthorsStore } from '../../store/posts-authors-store';
 
 export default function PostsAuthorsListColumns() {
   const { setEditSheetOpen, setEditSheetPostAuthor, setDeleteDialogOpen, setDeleteDialogPostAuthorId } =
-    usePostsAuthorsStore();
+    usePostsAuthorsStore(
+      useShallow((state) => ({
+        setEditSheetOpen: state.setEditSheetOpen,
+        setEditSheetPostAuthor: state.setEditSheetPostAuthor,
+        setDeleteDialogOpen: state.setDeleteDialogOpen,
+        setDeleteDialogPostAuthorId: state.setDeleteDialogPostAuthorId,
+      })),
+    );
 
   const columns: ColumnDef<PostsAuthorsList>[] = [];
 

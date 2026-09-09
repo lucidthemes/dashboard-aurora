@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsRecoverySent() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const recoverySentDate = viewSheetUser?.recovery_sent_at ? dateTimeFormat(viewSheetUser.recovery_sent_at) : null;
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useTransition } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import Link from 'next/link';
 import { EllipsisVertical, Copy, PencilIcon, TrashIcon } from 'lucide-react';
 import { toast } from 'sonner';
@@ -20,7 +21,12 @@ import { usePostsStore } from '../../store/posts-store';
 import duplicatePost from '../../actions/duplicate-post.action';
 
 export default function PostsListColumnActionsButtons({ item }: { item: PostsList }) {
-  const { setDeleteDialogOpen, setDeleteDialogPostId } = usePostsStore();
+  const { setDeleteDialogOpen, setDeleteDialogPostId } = usePostsStore(
+    useShallow((state) => ({
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+      setDeleteDialogPostId: state.setDeleteDialogPostId,
+    })),
+  );
 
   const [isPending, startTransition] = useTransition();
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -12,7 +13,12 @@ import type { PostsAuthorsForm } from '../schemas/form.schema';
 import { PostsAuthorsFormSchema } from '../schemas/form.schema';
 
 export default function usePostsAuthorsEditSheetForm() {
-  const { setEditSheetOpen, editSheetPostAuthor } = usePostsAuthorsStore();
+  const { setEditSheetOpen, editSheetPostAuthor } = usePostsAuthorsStore(
+    useShallow((state) => ({
+      setEditSheetOpen: state.setEditSheetOpen,
+      editSheetPostAuthor: state.editSheetPostAuthor,
+    })),
+  );
 
   const form = useForm<PostsAuthorsForm>({
     defaultValues: {
