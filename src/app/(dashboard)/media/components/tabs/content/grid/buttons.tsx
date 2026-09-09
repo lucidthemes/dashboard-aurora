@@ -1,5 +1,7 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import { ViewButton, EditButton, DeleteButton } from '@/components/buttons';
 import type { Media } from '@/schemas/media.schema';
 
@@ -20,7 +22,17 @@ export default function MediaTabsContentLayoutGridItemButtons({
     setEditData,
     setDeleteOpen,
     setDeleteStoragePath,
-  } = useMediaStore();
+  } = useMediaStore(
+    useShallow((state) => ({
+      setViewOpen: state.setViewOpen,
+      setViewMediaType: state.setViewMediaType,
+      setViewMediaUrl: state.setViewMediaUrl,
+      setEditOpen: state.setEditOpen,
+      setEditData: state.setEditData,
+      setDeleteOpen: state.setDeleteOpen,
+      setDeleteStoragePath: state.setDeleteStoragePath,
+    })),
+  );
 
   return (
     <div className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform gap-x-4 group-hover:block">

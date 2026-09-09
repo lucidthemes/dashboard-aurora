@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -11,7 +12,12 @@ import { InstagramFeedFormSchema } from '../schemas/form.schema';
 import type { InstagramFeedForm } from '../schemas/form.schema';
 
 export default function useInstagramFeedCreateForm() {
-  const { setCreateOpen, selectedImages } = useInstagramFeedStore();
+  const { selectedImages, setCreateOpen } = useInstagramFeedStore(
+    useShallow((state) => ({
+      selectedImages: state.selectedImages,
+      setCreateOpen: state.setCreateOpen,
+    })),
+  );
 
   const form = useForm<InstagramFeedForm>({
     defaultValues: {

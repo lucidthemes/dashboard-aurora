@@ -15,7 +15,7 @@ interface UsersEditSheetFormProps {
 }
 
 export default function UsersEditSheetForm({ form, onSubmit }: UsersEditSheetFormProps) {
-  const { editSheetUser } = useUsersStore();
+  const editSheetUser = useUsersStore((state) => state.editSheetUser);
 
   return (
     <div className="flex flex-col gap-5">

@@ -3,7 +3,7 @@ import { useCustomersStore } from '../../../../store/customers.store';
 import CustomersViewSheetTabDetailsAddress from './address';
 
 export default function CustomersViewSheetTabDetailsAddresses() {
-  const { viewSheetCustomer } = useCustomersStore();
+  const viewSheetCustomer = useCustomersStore((state) => state.viewSheetCustomer);
 
   const shippingAddress = viewSheetCustomer?.shipping_address;
   const billingAddress = viewSheetCustomer?.billing_address;

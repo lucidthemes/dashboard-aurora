@@ -1,5 +1,7 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import SheetForm from '@/components/sheets/form';
 import DeleteDialog from '@/components/dialogs/delete';
 
@@ -11,13 +13,23 @@ import usePostsTagsEditSheetForm from '../../hooks/use-edit-form';
 export default function PostsTagsPageWrapper({ children }: { children: React.ReactNode }) {
   const {
     createSheetOpen,
-    setCreateSheetOpen,
     editSheetOpen,
-    setEditSheetOpen,
     deleteDialogOpen,
-    setDeleteDialogOpen,
     deleteDialogPostTagId,
-  } = usePostsTagsStore();
+    setCreateSheetOpen,
+    setEditSheetOpen,
+    setDeleteDialogOpen,
+  } = usePostsTagsStore(
+    useShallow((state) => ({
+      createSheetOpen: state.createSheetOpen,
+      editSheetOpen: state.editSheetOpen,
+      deleteDialogOpen: state.deleteDialogOpen,
+      deleteDialogPostTagId: state.deleteDialogPostTagId,
+      setCreateSheetOpen: state.setCreateSheetOpen,
+      setEditSheetOpen: state.setEditSheetOpen,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+    })),
+  );
 
   const postTagCreate = usePostsTagsCreateSheetForm();
   const postTagEdit = usePostsTagsEditSheetForm();

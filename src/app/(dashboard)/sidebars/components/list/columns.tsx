@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import type { ColumnDef } from '@tanstack/react-table';
 import { toast } from 'sonner';
 
@@ -10,7 +11,14 @@ import { useSidebarsStore } from '../../store/sidebars-store';
 import type { SidebarsList } from '../../schemas/list.schema';
 
 export default function SidebarsListColumns() {
-  const { setEditSheetOpen, setEditSheetSidebar, setDeleteDialogOpen, setDeleteDialogSidebarId } = useSidebarsStore();
+  const { setEditSheetOpen, setEditSheetSidebar, setDeleteDialogOpen, setDeleteDialogSidebarId } = useSidebarsStore(
+    useShallow((state) => ({
+      setEditSheetOpen: state.setEditSheetOpen,
+      setEditSheetSidebar: state.setEditSheetSidebar,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+      setDeleteDialogSidebarId: state.setDeleteDialogSidebarId,
+    })),
+  );
 
   const columns: ColumnDef<SidebarsList>[] = [];
 

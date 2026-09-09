@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import Image from 'next/image';
 import type { ColumnDef } from '@tanstack/react-table';
 import { Video } from 'lucide-react';
@@ -20,7 +21,17 @@ export default function MediaTabsContentLayoutTableColumns(type: 'images' | 'vid
     setEditData,
     setDeleteOpen,
     setDeleteStoragePath,
-  } = useMediaStore();
+  } = useMediaStore(
+    useShallow((state) => ({
+      setViewOpen: state.setViewOpen,
+      setViewMediaType: state.setViewMediaType,
+      setViewMediaUrl: state.setViewMediaUrl,
+      setEditOpen: state.setEditOpen,
+      setEditData: state.setEditData,
+      setDeleteOpen: state.setDeleteOpen,
+      setDeleteStoragePath: state.setDeleteStoragePath,
+    })),
+  );
 
   const columns: ColumnDef<Media>[] = [];
 

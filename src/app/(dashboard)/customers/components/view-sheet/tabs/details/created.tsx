@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useCustomersStore } from '../../../../store/customers.store';
 
 export default function CustomersViewSheetTabDetailsCreated() {
-  const { viewSheetCustomer } = useCustomersStore();
+  const viewSheetCustomer = useCustomersStore((state) => state.viewSheetCustomer);
 
   const createdDate = viewSheetCustomer?.created_at ? dateTimeFormat(viewSheetCustomer.created_at) : null;
 

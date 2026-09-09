@@ -1,7 +1,7 @@
 import { useCustomersStore } from '../../../../store/customers.store';
 
 export default function CustomersViewSheetTabDetailsEmail() {
-  const { viewSheetCustomer } = useCustomersStore();
+  const viewSheetCustomer = useCustomersStore((state) => state.viewSheetCustomer);
 
   if (!viewSheetCustomer?.email) return null;
 

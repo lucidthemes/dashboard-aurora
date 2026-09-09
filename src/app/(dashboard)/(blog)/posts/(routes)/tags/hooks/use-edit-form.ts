@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -12,7 +13,12 @@ import type { PostsTagsForm } from '../schemas/form.schema';
 import { PostsTagsFormSchema } from '../schemas/form.schema';
 
 export default function usePostsTagsEditSheetForm() {
-  const { setEditSheetOpen, editSheetPostTag } = usePostsTagsStore();
+  const { editSheetPostTag, setEditSheetOpen } = usePostsTagsStore(
+    useShallow((state) => ({
+      editSheetPostTag: state.editSheetPostTag,
+      setEditSheetOpen: state.setEditSheetOpen,
+    })),
+  );
 
   const form = useForm<PostsTagsForm>({
     defaultValues: {

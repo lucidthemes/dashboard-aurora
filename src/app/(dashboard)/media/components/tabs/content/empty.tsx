@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import { Image as ImageIcon, Video, Plus } from 'lucide-react';
 
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
@@ -8,7 +9,12 @@ import { Button } from '@/components/ui/button';
 import { useMediaStore } from '../../../store/media-store';
 
 export default function MediaTabsContentEmpty({ type }: { type: 'images' | 'videos' }) {
-  const { setUploadOpen, setUploadType } = useMediaStore();
+  const { setUploadOpen, setUploadType } = useMediaStore(
+    useShallow((state) => ({
+      setUploadOpen: state.setUploadOpen,
+      setUploadType: state.setUploadType,
+    })),
+  );
 
   const uploadType = type === 'images' ? 'image' : 'video';
 

@@ -1,5 +1,7 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import SheetContent from '@/components/sheets/content';
 import SheetForm from '@/components/sheets/form';
 
@@ -14,19 +16,35 @@ import UsersDeleteUserDialog from '../dialogs/delete-user';
 export default function UsersPageWrapper({ children }: { children: React.ReactNode }) {
   const {
     createSheetOpen,
-    setCreateSheetOpen,
     viewSheetOpen,
-    setViewSheetOpen,
     viewSheetUser,
-    setViewSheetUser,
     editSheetOpen,
-    setEditSheetOpen,
-    setEditSheetUser,
     deleteDialogOpen,
     deleteDialogUserId,
+    setCreateSheetOpen,
+    setViewSheetOpen,
+    setViewSheetUser,
+    setEditSheetOpen,
+    setEditSheetUser,
     setDeleteDialogOpen,
     setDeleteDialogUserId,
-  } = useUsersStore();
+  } = useUsersStore(
+    useShallow((state) => ({
+      createSheetOpen: state.createSheetOpen,
+      viewSheetOpen: state.viewSheetOpen,
+      viewSheetUser: state.viewSheetUser,
+      editSheetOpen: state.editSheetOpen,
+      deleteDialogOpen: state.deleteDialogOpen,
+      deleteDialogUserId: state.deleteDialogUserId,
+      setCreateSheetOpen: state.setCreateSheetOpen,
+      setViewSheetOpen: state.setViewSheetOpen,
+      setViewSheetUser: state.setViewSheetUser,
+      setEditSheetOpen: state.setEditSheetOpen,
+      setEditSheetUser: state.setEditSheetUser,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+      setDeleteDialogUserId: state.setDeleteDialogUserId,
+    })),
+  );
 
   const usersCreateForm = useUsersCreateSheetForm();
 

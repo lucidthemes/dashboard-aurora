@@ -11,7 +11,7 @@ import type { PostsAuthorsForm } from '../schemas/form.schema';
 import { PostsAuthorsFormSchema } from '../schemas/form.schema';
 
 export default function usePostsAuthorsCreateSheetForm() {
-  const { setCreateSheetOpen } = usePostsAuthorsStore();
+  const setCreateSheetOpen = usePostsAuthorsStore((state) => state.setCreateSheetOpen);
 
   const form = useForm<PostsAuthorsForm>({
     defaultValues: {

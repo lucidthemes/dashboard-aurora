@@ -6,7 +6,7 @@ import { CreateButton } from '@/components/buttons';
 import { usePostsCategoriesStore } from '../../store/posts-categories-store';
 
 export default function PostsCategoriesPageHeading() {
-  const { setCreateSheetOpen } = usePostsCategoriesStore();
+  const setCreateSheetOpen = usePostsCategoriesStore((state) => state.setCreateSheetOpen);
 
   return (
     <PageHeadingWithButton heading="Categories">

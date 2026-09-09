@@ -1,5 +1,7 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import SheetForm from '@/components/sheets/form';
 import DeleteDialog from '@/components/dialogs/delete';
 
@@ -11,13 +13,23 @@ import usePostsAuthorsEditSheetForm from '../../hooks/use-edit-form';
 export default function PostsAuthorsPageWrapper({ children }: { children: React.ReactNode }) {
   const {
     createSheetOpen,
-    setCreateSheetOpen,
     editSheetOpen,
-    setEditSheetOpen,
     deleteDialogOpen,
-    setDeleteDialogOpen,
     deleteDialogPostAuthorId,
-  } = usePostsAuthorsStore();
+    setCreateSheetOpen,
+    setEditSheetOpen,
+    setDeleteDialogOpen,
+  } = usePostsAuthorsStore(
+    useShallow((state) => ({
+      createSheetOpen: state.createSheetOpen,
+      editSheetOpen: state.editSheetOpen,
+      deleteDialogOpen: state.deleteDialogOpen,
+      deleteDialogPostAuthorId: state.deleteDialogPostAuthorId,
+      setCreateSheetOpen: state.setCreateSheetOpen,
+      setEditSheetOpen: state.setEditSheetOpen,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+    })),
+  );
 
   const postAuthorCreate = usePostsAuthorsCreateSheetForm();
   const postAuthorEdit = usePostsAuthorsEditSheetForm();

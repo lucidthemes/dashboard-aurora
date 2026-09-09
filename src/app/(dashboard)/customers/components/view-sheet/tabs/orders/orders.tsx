@@ -6,7 +6,7 @@ import useCustomerViewSheetTabOrders from '../../../../hooks/use-orders';
 import CustomersViewSheetTabOrdersTable from './table';
 
 export default function CustomersViewSheetTabOrders() {
-  const { viewSheetCustomer } = useCustomersStore();
+  const viewSheetCustomer = useCustomersStore((state) => state.viewSheetCustomer);
 
   const customerId = viewSheetCustomer?.id ?? '';
 

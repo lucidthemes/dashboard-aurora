@@ -5,7 +5,7 @@ import { CreateButton } from '@/components/buttons';
 import { useInstagramFeedStore } from '@/app/(dashboard)/instagram-feed/store/instagram-feed-store';
 
 export default function InstagramFeedPageHeading() {
-  const { setCreateOpen } = useInstagramFeedStore();
+  const setCreateOpen = useInstagramFeedStore((state) => state.setCreateOpen);
 
   return (
     <PageHeadingWithButton heading="Instagram feed">

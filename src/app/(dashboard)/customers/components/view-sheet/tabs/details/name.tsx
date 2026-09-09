@@ -1,7 +1,7 @@
 import { useCustomersStore } from '../../../../store/customers.store';
 
 export default function CustomersViewSheetTabDetailsName() {
-  const { viewSheetCustomer } = useCustomersStore();
+  const viewSheetCustomer = useCustomersStore((state) => state.viewSheetCustomer);
 
   const firstName = viewSheetCustomer?.first_name;
   const lastName = viewSheetCustomer?.last_name;

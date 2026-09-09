@@ -1,11 +1,19 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import DeleteDialog from '@/components/dialogs/delete';
 
 import { usePostsStore } from '../../store/posts-store';
 
 export default function PostsPageWrapper({ children }: { children: React.ReactNode }) {
-  const { deleteDialogOpen, setDeleteDialogOpen, deleteDialogPostId } = usePostsStore();
+  const { deleteDialogOpen, deleteDialogPostId, setDeleteDialogOpen } = usePostsStore(
+    useShallow((state) => ({
+      deleteDialogOpen: state.deleteDialogOpen,
+      deleteDialogPostId: state.deleteDialogPostId,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+    })),
+  );
 
   const deleteDialogClose = () => {
     setDeleteDialogOpen(false);

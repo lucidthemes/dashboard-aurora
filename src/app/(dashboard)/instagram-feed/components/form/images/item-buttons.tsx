@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import { Layers } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -12,7 +13,12 @@ import { useInstagramFeedStore } from '../../../store/instagram-feed-store';
 import type { InstagramFeedFormImages } from '../../../schemas/form.schema';
 
 export default function InstagramFeedFormImagesListItemButtons({ item }: { item: InstagramFeedFormImages }) {
-  const { removeSelectedImage, updateSelectedImagePosition } = useInstagramFeedStore();
+  const { removeSelectedImage, updateSelectedImagePosition } = useInstagramFeedStore(
+    useShallow((state) => ({
+      removeSelectedImage: state.removeSelectedImage,
+      updateSelectedImagePosition: state.updateSelectedImagePosition,
+    })),
+  );
 
   return (
     <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 transform">

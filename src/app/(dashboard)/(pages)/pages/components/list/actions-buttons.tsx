@@ -1,6 +1,7 @@
 'use client';
 
 import { useTransition } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import Link from 'next/link';
 import { EllipsisVertical, Copy, PencilIcon, TrashIcon } from 'lucide-react';
 import { toast } from 'sonner';
@@ -20,7 +21,12 @@ import { usePagesStore } from '../../store/pages-store';
 import duplicatePage from '../../actions/duplicate-page.action';
 
 export default function PagesListColumnActionsButtons({ item }: { item: PagesList }) {
-  const { setDeleteDialogOpen, setDeleteDialogPageId } = usePagesStore();
+  const { setDeleteDialogOpen, setDeleteDialogPageId } = usePagesStore(
+    useShallow((state) => ({
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+      setDeleteDialogPageId: state.setDeleteDialogPageId,
+    })),
+  );
 
   const [isPending, startTransition] = useTransition();
 

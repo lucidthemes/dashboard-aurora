@@ -3,7 +3,7 @@ import { dateTimeFormat } from '@/lib/formatters';
 import { useUsersStore } from '../../../../../store/users-store';
 
 export default function UsersViewSheetTabDetailsEmailChangeSent() {
-  const { viewSheetUser } = useUsersStore();
+  const viewSheetUser = useUsersStore((state) => state.viewSheetUser);
 
   const emailChangeSentDate = viewSheetUser?.email_change_sent_at
     ? dateTimeFormat(viewSheetUser.email_change_sent_at)

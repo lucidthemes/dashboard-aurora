@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import { Grid2x2, List } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -7,7 +8,12 @@ import { Button } from '@/components/ui/button';
 import { useMediaStore } from '../../../store/media-store';
 
 export default function MediaTabsHeaderButtons() {
-  const { layout, setLayout } = useMediaStore();
+  const { layout, setLayout } = useMediaStore(
+    useShallow((state) => ({
+      layout: state.layout,
+      setLayout: state.setLayout,
+    })),
+  );
 
   return (
     <div className="flex gap-x-5">

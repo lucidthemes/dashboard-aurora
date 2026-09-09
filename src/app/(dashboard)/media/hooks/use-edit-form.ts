@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -12,7 +13,13 @@ import { MediaEditFormSchema } from '../schemas/edit-form.schema';
 import type { MediaEditForm } from '../schemas/edit-form.schema';
 
 export default function useMediaEditForm() {
-  const { editData, setEditOpen, setEditData } = useMediaStore();
+  const { editData, setEditOpen, setEditData } = useMediaStore(
+    useShallow((state) => ({
+      editData: state.editData,
+      setEditOpen: state.setEditOpen,
+      setEditData: state.setEditData,
+    })),
+  );
 
   const form = useForm<MediaEditForm>({
     defaultValues: {

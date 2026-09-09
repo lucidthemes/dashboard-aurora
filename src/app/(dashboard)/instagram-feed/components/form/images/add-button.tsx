@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useInstagramFeedStore } from '../../../store/instagram-feed-store';
 
 export default function InstagramFeedFormImagesAddButton() {
-  const { setFormMediaOpen } = useInstagramFeedStore();
+  const setFormMediaOpen = useInstagramFeedStore((state) => state.setFormMediaOpen);
 
   return (
     <li className="flex aspect-square items-center justify-center rounded-md border-1 border-dashed">

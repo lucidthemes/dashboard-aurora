@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import type { ColumnDef } from '@tanstack/react-table';
 import { toast } from 'sonner';
 
@@ -10,7 +11,14 @@ import { useInstagramFeedStore } from '../../store/instagram-feed-store';
 import type { InstagramFeed } from '../../schemas/feed.schema';
 
 export default function InstagramFeedListColumns() {
-  const { setEditOpen, setEditData, setDeleteOpen, setDeleteRowId } = useInstagramFeedStore();
+  const { setEditOpen, setEditData, setDeleteOpen, setDeleteRowId } = useInstagramFeedStore(
+    useShallow((state) => ({
+      setEditOpen: state.setEditOpen,
+      setEditData: state.setEditData,
+      setDeleteOpen: state.setDeleteOpen,
+      setDeleteRowId: state.setDeleteRowId,
+    })),
+  );
 
   const columns: ColumnDef<InstagramFeed>[] = [];
 

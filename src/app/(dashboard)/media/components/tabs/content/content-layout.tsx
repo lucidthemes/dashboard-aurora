@@ -7,7 +7,7 @@ import MediaTabsContentLayoutGrid from './grid';
 import MediaTabsContentLayoutTable from './table';
 
 export default function MediaTabsContentLayout({ media, type }: { media: Media[]; type: 'images' | 'videos' }) {
-  const { layout } = useMediaStore();
+  const layout = useMediaStore((state) => state.layout);
 
   return (
     <>

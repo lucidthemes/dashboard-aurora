@@ -6,7 +6,7 @@ import { CreateButton } from '@/components/buttons';
 import { useUsersStore } from '../../store/users-store';
 
 export default function UsersPageHeading() {
-  const { setCreateSheetOpen } = useUsersStore();
+  const setCreateSheetOpen = useUsersStore((state) => state.setCreateSheetOpen);
 
   return (
     <PageHeadingWithButton heading="Users">

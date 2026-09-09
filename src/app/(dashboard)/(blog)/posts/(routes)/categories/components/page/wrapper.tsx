@@ -1,5 +1,7 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
+
 import SheetForm from '@/components/sheets/form';
 import DeleteDialog from '@/components/dialogs/delete';
 
@@ -11,13 +13,23 @@ import usePostsCategoriesEditSheetForm from '../../hooks/use-edit-form';
 export default function PostsCategoriesPageWrapper({ children }: { children: React.ReactNode }) {
   const {
     createSheetOpen,
-    setCreateSheetOpen,
     editSheetOpen,
-    setEditSheetOpen,
     deleteDialogOpen,
-    setDeleteDialogOpen,
     deleteDialogPostCategoryId,
-  } = usePostsCategoriesStore();
+    setCreateSheetOpen,
+    setEditSheetOpen,
+    setDeleteDialogOpen,
+  } = usePostsCategoriesStore(
+    useShallow((state) => ({
+      createSheetOpen: state.createSheetOpen,
+      editSheetOpen: state.editSheetOpen,
+      deleteDialogOpen: state.deleteDialogOpen,
+      deleteDialogPostCategoryId: state.deleteDialogPostCategoryId,
+      setCreateSheetOpen: state.setCreateSheetOpen,
+      setEditSheetOpen: state.setEditSheetOpen,
+      setDeleteDialogOpen: state.setDeleteDialogOpen,
+    })),
+  );
 
   const postCategoryCreate = usePostsCategoriesCreateSheetForm();
   const postCategoryEdit = usePostsCategoriesEditSheetForm();

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -12,7 +13,13 @@ import type { UsersEditSheetForm } from '../schemas/sheets/edit-form.schema';
 import { UsersEditSheetFormSchema } from '../schemas/sheets/edit-form.schema';
 
 export default function useUsersEditSheetForm() {
-  const { editSheetUser, setEditSheetOpen, setEditSheetUser } = useUsersStore();
+  const { editSheetUser, setEditSheetOpen, setEditSheetUser } = useUsersStore(
+    useShallow((state) => ({
+      editSheetUser: state.editSheetUser,
+      setEditSheetOpen: state.setEditSheetOpen,
+      setEditSheetUser: state.setEditSheetUser,
+    })),
+  );
 
   const form = useForm<UsersEditSheetForm>({
     defaultValues: {

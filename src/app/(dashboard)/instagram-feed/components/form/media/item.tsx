@@ -1,5 +1,6 @@
 'use client';
 
+import { useShallow } from 'zustand/react/shallow';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
 
@@ -9,7 +10,13 @@ import { useInstagramFeedStore } from '../../../store/instagram-feed-store';
 import type { InstagramFeedMedia } from '../../../schemas/feed.schema';
 
 export default function InstagramFeedFormMediaListItem({ item }: { item: InstagramFeedMedia }) {
-  const { selectedImages, addSelectedImage, removeSelectedImage } = useInstagramFeedStore();
+  const { selectedImages, addSelectedImage, removeSelectedImage } = useInstagramFeedStore(
+    useShallow((state) => ({
+      selectedImages: state.selectedImages,
+      addSelectedImage: state.addSelectedImage,
+      removeSelectedImage: state.removeSelectedImage,
+    })),
+  );
 
   const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 
