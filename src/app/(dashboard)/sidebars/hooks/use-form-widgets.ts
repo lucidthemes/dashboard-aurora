@@ -7,14 +7,23 @@ export default function useSidebarsFormWidgets() {
     widgetId,
     widgetFieldName,
     widgetFieldValue,
+    widgetFieldValueType = 'string',
   }: {
     widgetId: string;
     widgetFieldName: string;
-    widgetFieldValue: string | boolean;
+    widgetFieldValue: string | boolean | number;
+    widgetFieldValueType?: 'string' | 'boolean' | 'number';
   }) => {
     if (!widgetId || !widgetFieldName) return;
 
-    updateSidebarFormWidget({ widgetId, widgetFieldName, widgetFieldValue });
+    const fieldValue =
+      widgetFieldValueType === 'number'
+        ? Number(widgetFieldValue)
+        : widgetFieldValueType === 'boolean'
+          ? Boolean(widgetFieldValue)
+          : widgetFieldValue;
+
+    updateSidebarFormWidget({ widgetId, widgetFieldName, widgetFieldValue: fieldValue });
   };
 
   return { handleSidebarsFormWidgetUpdate };

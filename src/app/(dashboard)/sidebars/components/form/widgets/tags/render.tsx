@@ -30,7 +30,7 @@ export default function SidebarsFormWidgetTagsRender({ id, title, limit }: Sideb
         <Input
           id="fieldgroup-tags-widget-limit"
           type="number"
-          min={1}
+          min={0}
           placeholder="10"
           defaultValue={limit}
           onBlur={(e) =>
@@ -38,6 +38,7 @@ export default function SidebarsFormWidgetTagsRender({ id, title, limit }: Sideb
               widgetId: id,
               widgetFieldName: 'limit',
               widgetFieldValue: e.target.value,
+              widgetFieldValueType: 'number',
             })
           }
         />

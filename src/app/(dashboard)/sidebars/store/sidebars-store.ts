@@ -40,7 +40,7 @@ type Action = {
   }: {
     widgetId: string;
     widgetFieldName: string;
-    widgetFieldValue: string | boolean;
+    widgetFieldValue: string | boolean | number;
   }) => void;
 
   setCreateSheetOpen: (open: boolean) => void;

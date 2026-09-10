@@ -113,6 +113,7 @@ export default function SidebarsFormWidgetAboutRender({
               widgetId: id,
               widgetFieldName: 'social',
               widgetFieldValue: value,
+              widgetFieldValueType: 'boolean',
             })
           }
         />
@@ -129,6 +130,7 @@ export default function SidebarsFormWidgetAboutRender({
               widgetId: id,
               widgetFieldName: 'centered',
               widgetFieldValue: value,
+              widgetFieldValueType: 'boolean',
             })
           }
         />
@@ -145,6 +147,7 @@ export default function SidebarsFormWidgetAboutRender({
               widgetId: id,
               widgetFieldName: 'padding',
               widgetFieldValue: value,
+              widgetFieldValueType: 'boolean',
             })
           }
         />
