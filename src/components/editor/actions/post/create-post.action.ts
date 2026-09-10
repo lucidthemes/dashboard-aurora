@@ -6,7 +6,7 @@ import { createLogEvent } from '@/lib/supabase/log-event';
 
 import { EditorCreatePostSchema } from '../../schemas/actions/post/create-post.schema';
 import type { EditorCreatePost } from '../../schemas/actions/post/create-post.schema';
-import { sanitizeContentBlocks } from '../../utils/block-sanitize';
+import { sanitizeServerContentBlocks } from '../../utils/sanitization/block-sanitize-server';
 
 export async function createPost({
   editorData,
@@ -29,7 +29,7 @@ export async function createPost({
     return { success: false };
   }
 
-  const sanitizedBlocks = sanitizeContentBlocks({ blocks: editorData.content });
+  const sanitizedBlocks = sanitizeServerContentBlocks({ blocks: editorData.content });
 
   const supabase = await createClient();
 
