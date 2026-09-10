@@ -1,9 +1,9 @@
-// import DOMPurify from 'isomorphic-dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 
 import type { ContentBlocks } from '../../schemas/content/content-blocks.schema';
 import type { BlockAttributeTypes, BlockAttributes } from '../../blocks/block.schema';
 
-// import { RICH_TEXT_ALLOWED_TAGS } from './sanitize-config';
+import { RICH_TEXT_ALLOWED_TAGS } from './sanitize-config';
 
 export function sanitizeServerBlockAttribute({
   type,
@@ -14,15 +14,13 @@ export function sanitizeServerBlockAttribute({
 }) {
   switch (type) {
     case 'plain-text':
-      // return DOMPurify.sanitize(String(value), {
-      //   ALLOWED_TAGS: [],
-      // });
-      return String(value);
+      return DOMPurify.sanitize(String(value), {
+        ALLOWED_TAGS: [],
+      });
     case 'rich-text':
-      // return DOMPurify.sanitize(String(value), {
-      //   ALLOWED_TAGS: RICH_TEXT_ALLOWED_TAGS,
-      // });
-      return String(value);
+      return DOMPurify.sanitize(String(value), {
+        ALLOWED_TAGS: RICH_TEXT_ALLOWED_TAGS,
+      });
     case 'number':
       return Number(value);
     case 'boolean':
