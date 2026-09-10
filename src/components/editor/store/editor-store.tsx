@@ -1,7 +1,6 @@
 import { createContext, useState, useContext } from 'react';
 import { createStore, useStore } from 'zustand';
 import type { StoreApi } from 'zustand';
-import DOMPurify from 'isomorphic-dompurify';
 
 import type { Post } from '@/schemas/post/post.schema';
 import type { Page } from '@/schemas/page/page.schema';
@@ -12,7 +11,7 @@ import type { NewPost } from '../schemas/new-post.schema';
 import type { NewPage } from '../schemas/new-page.schema';
 import type { ContentBlocks } from '../schemas/content/content-blocks.schema';
 import type { EditorContent } from '../schemas/content/content.schema';
-import { sanitizeBlockAttribute, sanitizeContentBlocks } from '../utils/block-sanitize';
+import { sanitizeClientBlockAttribute, sanitizeClientContentBlocks } from '../utils/sanitization/block-sanitize-client';
 
 type State = {
   editorContent: Post | NewPost | Page | NewPage | null;
@@ -315,7 +314,7 @@ export default function EditorProvider({
         set((state) => {
           if (!state.editorContent || !codeBlocks) return state;
 
-          const sanitizedBlocks = sanitizeContentBlocks({ blocks: codeBlocks });
+          const sanitizedBlocks = sanitizeClientContentBlocks({ blocks: codeBlocks });
 
           if (!sanitizedBlocks) return state;
 
@@ -330,11 +329,9 @@ export default function EditorProvider({
         set((state) => {
           if (!state.editorContent || !title) return state;
 
-          const cleanTitle = DOMPurify.sanitize(title, {
-            ALLOWED_TAGS: [],
-          });
+          const sanitizedTitle = sanitizeClientBlockAttribute({ type: 'plain-text', value: title }) as string;
 
-          const updatedContent = { ...state.editorContent, title: cleanTitle };
+          const updatedContent = { ...state.editorContent, title: sanitizedTitle };
 
           return { editorContent: updatedContent, editorContentUnsavedChanges: true };
         }),
@@ -461,7 +458,7 @@ export default function EditorProvider({
               const blockAttributes = block.attributes as BlockAttributes | undefined;
               const blockAttributeType = blockAttributes?.[attribute]?.type ?? 'plain-text';
 
-              const sanitizedAttribute = sanitizeBlockAttribute({ type: blockAttributeType, value });
+              const sanitizedAttribute = sanitizeClientBlockAttribute({ type: blockAttributeType, value });
 
               return {
                 ...block,
@@ -597,7 +594,7 @@ export default function EditorProvider({
                 const attributeType = item.content.type ?? 'rich-text';
                 const attributeValue = content ?? '';
 
-                const sanitizedAttribute = sanitizeBlockAttribute({
+                const sanitizedAttribute = sanitizeClientBlockAttribute({
                   type: attributeType,
                   value: attributeValue,
                 }) as string | undefined;
@@ -691,7 +688,7 @@ export default function EditorProvider({
               if (content) {
                 const attributeType = newListItem.content.type;
 
-                const sanitizedAttribute = sanitizeBlockAttribute({
+                const sanitizedAttribute = sanitizeClientBlockAttribute({
                   type: attributeType,
                   value: content,
                 }) as string | undefined;
@@ -749,7 +746,7 @@ export default function EditorProvider({
               const attributeUrlType = block.attributes?.url?.type ?? 'plain-text';
               const attributeUrlValue = url ?? '';
 
-              const sanitizedAttributeUrl = sanitizeBlockAttribute({
+              const sanitizedAttributeUrl = sanitizeClientBlockAttribute({
                 type: attributeUrlType,
                 value: attributeUrlValue,
               }) as string | undefined;
@@ -757,7 +754,7 @@ export default function EditorProvider({
               const attributeAltTextType = block.attributes?.altText?.type ?? 'plain-text';
               const attributeAltTextValue = altText ?? '';
 
-              const sanitizedAttributeAltText = sanitizeBlockAttribute({
+              const sanitizedAttributeAltText = sanitizeClientBlockAttribute({
                 type: attributeAltTextType,
                 value: attributeAltTextValue,
               }) as string | undefined;
@@ -839,7 +836,7 @@ export default function EditorProvider({
               const attributeUrlType = block.attributes?.url?.type ?? 'plain-text';
               const attributeUrlValue = url ?? '';
 
-              const sanitizedAttributeUrl = sanitizeBlockAttribute({
+              const sanitizedAttributeUrl = sanitizeClientBlockAttribute({
                 type: attributeUrlType,
                 value: attributeUrlValue,
               }) as string | undefined;
@@ -907,7 +904,7 @@ export default function EditorProvider({
               const attributeMediaTypeType = block.attributes?.mediaType?.type ?? 'plain-text';
               const attributeMediaTypeValue = mediaType;
 
-              const sanitizedAttributeMediaType = sanitizeBlockAttribute({
+              const sanitizedAttributeMediaType = sanitizeClientBlockAttribute({
                 type: attributeMediaTypeType,
                 value: attributeMediaTypeValue,
               }) as 'image' | 'video';
@@ -915,7 +912,7 @@ export default function EditorProvider({
               const attributeMediaUrlType = block.attributes?.mediaUrl?.type ?? 'plain-text';
               const attributeMediaUrlValue = mediaUrl ?? '';
 
-              const sanitizedAttributeMediaUrl = sanitizeBlockAttribute({
+              const sanitizedAttributeMediaUrl = sanitizeClientBlockAttribute({
                 type: attributeMediaUrlType,
                 value: attributeMediaUrlValue,
               }) as string | undefined;
@@ -939,7 +936,7 @@ export default function EditorProvider({
                 const attributeMediaAltTextType = block.attributes?.mediaAltText?.type ?? 'plain-text';
                 const attributeMediaAltTextValue = mediaAltText ?? '';
 
-                const sanitizedAttributeMediaAltText = sanitizeBlockAttribute({
+                const sanitizedAttributeMediaAltText = sanitizeClientBlockAttribute({
                   type: attributeMediaAltTextType,
                   value: attributeMediaAltTextValue,
                 }) as string | undefined;
@@ -1018,7 +1015,7 @@ export default function EditorProvider({
 
               const attributeUrlType = newGalleryBlockItem.url.type ?? 'plain-text';
 
-              const sanitizedAttributeUrl = sanitizeBlockAttribute({
+              const sanitizedAttributeUrl = sanitizeClientBlockAttribute({
                 type: attributeUrlType,
                 value: url,
               }) as string | undefined;
@@ -1028,7 +1025,7 @@ export default function EditorProvider({
               if (altText) {
                 const attributeAltTextType = newGalleryBlockItem.altText?.type ?? 'plain-text';
 
-                const sanitizedAttributeAltText = sanitizeBlockAttribute({
+                const sanitizedAttributeAltText = sanitizeClientBlockAttribute({
                   type: attributeAltTextType,
                   value: altText,
                 }) as string | undefined;

@@ -1,11 +1,11 @@
-import DOMPurify from 'isomorphic-dompurify';
+import DOMPurify from 'dompurify';
 
-import type { ContentBlocks } from '../schemas/content/content-blocks.schema';
-import type { BlockAttributeTypes, BlockAttributes } from '../blocks/block.schema';
+import type { ContentBlocks } from '../../schemas/content/content-blocks.schema';
+import type { BlockAttributeTypes, BlockAttributes } from '../../blocks/block.schema';
 
-const RICH_TEXT_ALLOWED_TAGS = ['strong', 'i', 'a', 'u', 's'];
+import { RICH_TEXT_ALLOWED_TAGS } from './sanitize-config';
 
-export function sanitizeBlockAttribute({
+export function sanitizeClientBlockAttribute({
   type,
   value,
 }: {
@@ -30,7 +30,7 @@ export function sanitizeBlockAttribute({
   }
 }
 
-export function sanitizeContentBlocks({ blocks }: { blocks: ContentBlocks[] }): ContentBlocks[] | undefined {
+export function sanitizeClientContentBlocks({ blocks }: { blocks: ContentBlocks[] }): ContentBlocks[] | undefined {
   if (!blocks) return undefined;
 
   const sanitizedContentBlocks = blocks.map((block) => {
@@ -47,7 +47,7 @@ export function sanitizeContentBlocks({ blocks }: { blocks: ContentBlocks[] }): 
       if (blockAttribute.type != 'array') {
         const attributeValue = blockAttribute.value ?? '';
 
-        const cleanAttributeValue = sanitizeBlockAttribute({
+        const cleanAttributeValue = sanitizeClientBlockAttribute({
           type: blockAttribute.type,
           value: attributeValue,
         });
@@ -71,7 +71,7 @@ export function sanitizeContentBlocks({ blocks }: { blocks: ContentBlocks[] }): 
             const attributeType = item[itemKey].type;
             const attributeValue = item[itemKey].value ?? '';
 
-            const cleanAttributeValue = sanitizeBlockAttribute({
+            const cleanAttributeValue = sanitizeClientBlockAttribute({
               type: attributeType,
               value: attributeValue,
             });

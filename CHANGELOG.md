@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 - dnd kit dependency
 - Floating UI dependency
+- DOMPurify dependency
 - Isomorphic DOMPurify dependency
 
 #### App
