@@ -16,11 +16,15 @@ export default function SidebarsFormWidgetMedia({
   return (
     <>
       {widgetFieldMedia ? (
-        <SidebarsFormWidgetMediaEdit widgetFieldMedia={widgetFieldMedia} />
+        <SidebarsFormWidgetMediaEdit
+          widgetId={widgetId}
+          widgetFieldName={widgetFieldName}
+          widgetFieldMedia={widgetFieldMedia}
+        />
       ) : (
         <SidebarsFormWidgetMediaAdd widgetId={widgetId} widgetFieldName={widgetFieldName} />
       )}
-      <SidebarsFormWidgetMediaDialog widgetFieldMedia={widgetFieldMedia} />
+      <SidebarsFormWidgetMediaDialog />
     </>
   );
 }

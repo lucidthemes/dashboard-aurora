@@ -8,10 +8,11 @@ import { useShallow } from 'zustand/react/shallow';
 import { useSidebarsStore } from '../../../../store/sidebars-store';
 import SidebarsFormWidgetMediaDialogList from './list';
 
-export default function SidebarsFormWidgetMediaDialog({ widgetFieldMedia }: { widgetFieldMedia?: string }) {
-  const { mediaDialogOpen, setMediaDialogOpen } = useSidebarsStore(
+export default function SidebarsFormWidgetMediaDialog() {
+  const { mediaDialogOpen, mediaDialogWidgetFieldMedia, setMediaDialogOpen } = useSidebarsStore(
     useShallow((state) => ({
       mediaDialogOpen: state.mediaDialogOpen,
+      mediaDialogWidgetFieldMedia: state.mediaDialogWidgetFieldMedia,
       setMediaDialogOpen: state.setMediaDialogOpen,
     })),
   );
@@ -29,7 +30,7 @@ export default function SidebarsFormWidgetMediaDialog({ widgetFieldMedia }: { wi
             <DialogDescription>Select an image to use</DialogDescription>
           </DialogHeader>
           <ScrollArea className="max-h-110">
-            <SidebarsFormWidgetMediaDialogList widgetFieldMedia={widgetFieldMedia} />
+            <SidebarsFormWidgetMediaDialogList mediaDialogWidgetFieldMedia={mediaDialogWidgetFieldMedia} />
           </ScrollArea>
         </div>
       </DialogContent>

@@ -18,6 +18,7 @@ type State = {
   mediaDialogOpen: boolean;
   mediaDialogWidgetId: string | null;
   mediaDialogWidgetFieldName: string | null;
+  mediaDialogWidgetFieldMedia: string | null;
 };
 
 type Action = {
@@ -54,6 +55,8 @@ type Action = {
   setMediaDialogOpen: (open: boolean) => void;
   setMediaDialogWidgetId: (widgetId: string | null) => void;
   setMediaDialogWidgetFieldName: (widgetFieldName: string | null) => void;
+  setMediaDialogWidgetFieldMedia: (widgetFieldMedia: string | null) => void;
+  resetMediaDialog: () => void;
 };
 
 export const useSidebarsStore = create<State & Action>((set) => ({
@@ -72,6 +75,7 @@ export const useSidebarsStore = create<State & Action>((set) => ({
   mediaDialogOpen: false,
   mediaDialogWidgetId: null,
   mediaDialogWidgetFieldName: null,
+  mediaDialogWidgetFieldMedia: null,
 
   // Actions
 
@@ -143,4 +147,12 @@ export const useSidebarsStore = create<State & Action>((set) => ({
   setMediaDialogOpen: (open) => set({ mediaDialogOpen: open }),
   setMediaDialogWidgetId: (widgetId) => set({ mediaDialogWidgetId: widgetId }),
   setMediaDialogWidgetFieldName: (widgetFieldName) => set({ mediaDialogWidgetFieldName: widgetFieldName }),
+  setMediaDialogWidgetFieldMedia: (widgetFieldMedia) => set({ mediaDialogWidgetFieldMedia: widgetFieldMedia }),
+  resetMediaDialog: () =>
+    set({
+      mediaDialogOpen: false,
+      mediaDialogWidgetId: null,
+      mediaDialogWidgetFieldName: null,
+      mediaDialogWidgetFieldMedia: null,
+    }),
 }));
