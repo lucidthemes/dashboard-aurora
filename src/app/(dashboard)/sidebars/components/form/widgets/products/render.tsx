@@ -45,6 +45,7 @@ export default function SidebarsFormWidgetProductsRender({
               widgetId: id,
               widgetFieldName: 'limit',
               widgetFieldValue: e.target.value,
+              widgetFieldValueType: 'number',
             })
           }
         />

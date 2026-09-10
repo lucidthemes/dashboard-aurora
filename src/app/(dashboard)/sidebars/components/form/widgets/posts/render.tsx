@@ -39,6 +39,7 @@ export default function SidebarsFormWidgetPostsRender({ id, title, limit, style,
               widgetId: id,
               widgetFieldName: 'limit',
               widgetFieldValue: e.target.value,
+              widgetFieldValueType: 'number',
             })
           }
         />
