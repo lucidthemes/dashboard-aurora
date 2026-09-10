@@ -7,7 +7,11 @@ import SidebarsFormWidgetMediaDialogListItem from './item';
 import SidebarsFormWidgetMediaDialogListLoadButton from './load-button';
 import SidebarsFormWidgetMediaDialogListEmpty from './empty';
 
-export default function SidebarsFormWidgetMediaDialogList({ widgetFieldMedia }: { widgetFieldMedia?: string }) {
+export default function SidebarsFormWidgetMediaDialogList({
+  mediaDialogWidgetFieldMedia,
+}: {
+  mediaDialogWidgetFieldMedia: string | null;
+}) {
   const { sidebarsFormWidgetMediaQuery } = useSidebarsFormWidgetMedia();
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = sidebarsFormWidgetMediaQuery;
@@ -24,7 +28,7 @@ export default function SidebarsFormWidgetMediaDialogList({ widgetFieldMedia }: 
                 <SidebarsFormWidgetMediaDialogListItem
                   key={image.id}
                   item={image}
-                  widgetFieldMedia={widgetFieldMedia}
+                  mediaDialogWidgetFieldMedia={mediaDialogWidgetFieldMedia}
                 />
               )),
             )}

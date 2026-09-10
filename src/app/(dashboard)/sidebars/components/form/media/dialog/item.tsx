@@ -10,16 +10,16 @@ import type { SidebarsFormWidgetMediaItem } from '../../../../schemas/form/media
 
 export default function SidebarsFormWidgetMediaDialogListItem({
   item,
-  widgetFieldMedia,
+  mediaDialogWidgetFieldMedia,
 }: {
   item: SidebarsFormWidgetMediaItem;
-  widgetFieldMedia?: string;
+  mediaDialogWidgetFieldMedia: string | null;
 }) {
   const { handleSidebarsFormWidgetMediaUpdate } = useSidebarsFormWidgetMedia();
 
   const publicMediaUrl = getPublicMediaUrl(item.storage_path);
 
-  const imageIsSelected = item.id === widgetFieldMedia;
+  const imageIsSelected = publicMediaUrl === mediaDialogWidgetFieldMedia;
 
   return (
     <li

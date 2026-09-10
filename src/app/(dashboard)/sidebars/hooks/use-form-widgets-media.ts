@@ -14,6 +14,8 @@ export default function useSidebarsFormWidgetMedia() {
     setMediaDialogOpen,
     setMediaDialogWidgetId,
     setMediaDialogWidgetFieldName,
+    setMediaDialogWidgetFieldMedia,
+    resetMediaDialog,
   } = useSidebarsStore(
     useShallow((state) => ({
       mediaDialogWidgetId: state.mediaDialogWidgetId,
@@ -21,6 +23,8 @@ export default function useSidebarsFormWidgetMedia() {
       setMediaDialogOpen: state.setMediaDialogOpen,
       setMediaDialogWidgetId: state.setMediaDialogWidgetId,
       setMediaDialogWidgetFieldName: state.setMediaDialogWidgetFieldName,
+      setMediaDialogWidgetFieldMedia: state.setMediaDialogWidgetFieldMedia,
+      resetMediaDialog: state.resetMediaDialog,
     })),
   );
 
@@ -54,8 +58,35 @@ export default function useSidebarsFormWidgetMedia() {
     setMediaDialogWidgetFieldName(widgetFieldName);
   };
 
-  const handleSidebarsFormWidgetMediaEdit = () => {
+  const handleSidebarsFormWidgetMediaEdit = ({
+    widgetId,
+    widgetFieldName,
+    widgetFieldMedia,
+  }: {
+    widgetId: string;
+    widgetFieldName: string;
+    widgetFieldMedia: string;
+  }) => {
     setMediaDialogOpen(true);
+    setMediaDialogWidgetId(widgetId);
+    setMediaDialogWidgetFieldName(widgetFieldName);
+    setMediaDialogWidgetFieldMedia(widgetFieldMedia);
+  };
+
+  const handleSidebarsFormWidgetMediaRemove = ({
+    widgetId,
+    widgetFieldName,
+  }: {
+    widgetId: string;
+    widgetFieldName: string;
+  }) => {
+    handleSidebarsFormWidgetUpdate({
+      widgetId: widgetId,
+      widgetFieldName: widgetFieldName,
+      widgetFieldValue: '',
+    });
+
+    resetMediaDialog();
   };
 
   const handleSidebarsFormWidgetMediaUpdate = ({ widgetFieldValue }: { widgetFieldValue: string }) => {
@@ -66,12 +97,15 @@ export default function useSidebarsFormWidgetMedia() {
       widgetFieldName: mediaDialogWidgetFieldName,
       widgetFieldValue: widgetFieldValue,
     });
+
+    resetMediaDialog();
   };
 
   return {
     sidebarsFormWidgetMediaQuery,
     handleSidebarsFormWidgetMediaAdd,
     handleSidebarsFormWidgetMediaEdit,
+    handleSidebarsFormWidgetMediaRemove,
     handleSidebarsFormWidgetMediaUpdate,
   };
 }
