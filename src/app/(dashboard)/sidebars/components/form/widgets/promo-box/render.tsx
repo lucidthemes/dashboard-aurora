@@ -1,6 +1,5 @@
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@/components/ui/input-group';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 import type { SidebarsFormWidgetPromoBox } from '../../../../schemas/form/widgets/promoBox.schema';
@@ -75,24 +74,18 @@ export default function SidebarsFormWidgetPromoBoxRender({
 
       <Field>
         <FieldLabel htmlFor="fieldgroup-promo-box-widget-link">Link</FieldLabel>
-        <InputGroup>
-          <InputGroupAddon>
-            <InputGroupText>https://</InputGroupText>
-          </InputGroupAddon>
-          <InputGroupInput
-            id="fieldgroup-promo-box-widget-link"
-            className="pl-0.5!"
-            placeholder="example.com"
-            defaultValue={link}
-            onBlur={(e) =>
-              handleSidebarsFormWidgetUpdate({
-                widgetId: id,
-                widgetFieldName: 'link',
-                widgetFieldValue: e.target.value,
-              })
-            }
-          />
-        </InputGroup>
+        <Input
+          id="fieldgroup-promo-box-widget-link"
+          placeholder="https://www.example.com"
+          defaultValue={link}
+          onBlur={(e) =>
+            handleSidebarsFormWidgetUpdate({
+              widgetId: id,
+              widgetFieldName: 'link',
+              widgetFieldValue: e.target.value,
+            })
+          }
+        />
       </Field>
 
       <Field>

@@ -1,6 +1,5 @@
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@/components/ui/input-group';
 import { Checkbox } from '@/components/ui/checkbox';
 
 import type { SidebarsFormWidgetAbout } from '../../../../schemas/form/widgets/about.schema';
@@ -83,24 +82,18 @@ export default function SidebarsFormWidgetAboutRender({
 
       <Field>
         <FieldLabel htmlFor="fieldgroup-about-widget-link">Link</FieldLabel>
-        <InputGroup>
-          <InputGroupAddon>
-            <InputGroupText>https://</InputGroupText>
-          </InputGroupAddon>
-          <InputGroupInput
-            id="fieldgroup-about-widget-link"
-            className="pl-0.5!"
-            placeholder="example.com"
-            defaultValue={link}
-            onBlur={(e) =>
-              handleSidebarsFormWidgetUpdate({
-                widgetId: id,
-                widgetFieldName: 'link',
-                widgetFieldValue: e.target.value,
-              })
-            }
-          />
-        </InputGroup>
+        <Input
+          id="fieldgroup-about-widget-link"
+          placeholder="https://www.example.com"
+          defaultValue={link}
+          onBlur={(e) =>
+            handleSidebarsFormWidgetUpdate({
+              widgetId: id,
+              widgetFieldName: 'link',
+              widgetFieldValue: e.target.value,
+            })
+          }
+        />
       </Field>
 
       <Field orientation="horizontal">
