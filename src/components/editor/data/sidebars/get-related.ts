@@ -16,7 +16,7 @@ export default async function getEditorSidebarSettingsRelated(
   let query = supabase.from('posts').select('id, title').eq('status', 'published');
 
   // dont show current post being edited within list of related posts
-  if (postId) query = query.not('id', 'in', postId);
+  if (postId) query = query.neq('id', postId);
 
   const { data, error } = await query;
 
