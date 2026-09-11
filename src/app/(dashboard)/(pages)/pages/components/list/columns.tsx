@@ -26,6 +26,11 @@ export default function PagesListColumns() {
   });
 
   columns.push({
+    accessorKey: 'slug',
+    header: 'Slug',
+  });
+
+  columns.push({
     accessorKey: 'status',
     header: 'Status',
     cell: ({ row }) => {
