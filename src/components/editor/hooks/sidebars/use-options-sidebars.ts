@@ -17,7 +17,7 @@ export function useEditorSidebarSettingsOptionsSidebars() {
   };
 
   const handleChangeSidebarPosition = (sidebarPosition: 'left' | 'right') => {
-    updateSettingsOptionsContent({ section: 'sidebar', field: 'show', value: sidebarPosition });
+    updateSettingsOptionsContent({ section: 'sidebar', field: 'position', value: sidebarPosition });
   };
 
   return { editorSidebarOptions, handleChangeSidebarShow, handleChangeSidebarPosition };

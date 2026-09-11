@@ -33,13 +33,13 @@ export default function EditorSettingsSidebarContentOptionsTabSidebar() {
             <EditorSettingsSidebarContentOptionsTabSidebarItems editorSidebarOption={editorSidebarOption} />
             <Field>
               <Select
-                defaultValue={editorSidebarPosition}
+                value={editorSidebarPosition}
                 onValueChange={(value) => handleChangeSidebarPosition(value as 'left' | 'right')}
               >
                 <SelectTrigger className="cursor-pointer">
                   <SelectValue placeholder="Position" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent position="popper">
                   <SelectGroup>
                     <SelectItem value="left" className="cursor-pointer">
                       Left

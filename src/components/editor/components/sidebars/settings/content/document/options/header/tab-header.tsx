@@ -31,7 +31,7 @@ export default function EditorSettingsSidebarContentOptionsTabHeader() {
           <>
             <Field>
               <Select
-                defaultValue={editorHeaderLayout}
+                value={editorHeaderLayout}
                 onValueChange={(value) =>
                   handleChangeHeaderLayout(
                     value as
@@ -49,7 +49,7 @@ export default function EditorSettingsSidebarContentOptionsTabHeader() {
                 <SelectTrigger className="cursor-pointer">
                   <SelectValue placeholder="Layout" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent position="popper">
                   <SelectGroup>
                     <SelectItem value="outside-above" className="cursor-pointer">
                       Outside above

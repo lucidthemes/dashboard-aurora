@@ -21,11 +21,11 @@ export default function EditorSettingsSidebarContentOptionsTabSidebarItems({
   if (sidebarsItemsQuery.isSuccess && sidebarsItemsQuery.data && sidebarsItemsQuery.data?.length > 0)
     return (
       <Field>
-        <Select defaultValue={editorSidebarOption} onValueChange={(value) => handleChangeSidebarOption(value)}>
+        <Select value={editorSidebarOption} onValueChange={(value) => handleChangeSidebarOption(value)}>
           <SelectTrigger className="cursor-pointer">
             <SelectValue placeholder="Sidebar" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent position="popper">
             <SelectGroup>
               {sidebarsItemsQuery.data.map((sidebar) => (
                 <SelectItem key={sidebar.id} value={sidebar.name} className="cursor-pointer">
