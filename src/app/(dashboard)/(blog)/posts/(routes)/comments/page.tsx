@@ -32,7 +32,7 @@ export default async function PostsCommentsPage({
       <div className="flex flex-col gap-5">
         <PostsCommentsListHeader search={search} />
         <Suspense fallback={<LoadingSpinner />}>
-          <PostsCommentsList page={page} limit={limit} filterStatus={filter_status} sort={sort} />
+          <PostsCommentsList page={page} limit={limit} search={search} filterStatus={filter_status} sort={sort} />
         </Suspense>
       </div>
     </MainContainer>

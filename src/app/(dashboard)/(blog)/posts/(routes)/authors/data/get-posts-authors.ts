@@ -11,6 +11,7 @@ import { PostsAuthorsListSchema } from '../schemas/authors-list.schema';
 export default async function getPostsAuthors(
   page: number,
   limit: number,
+  search?: string,
   sort?: string,
 ): Promise<{ authors: PostsAuthorsList[]; totalCount: number }> {
   const supabase = await createClient();
@@ -20,11 +21,17 @@ export default async function getPostsAuthors(
 
   const sortAsc = sort === 'date_asc' ? true : false;
 
-  const { data, count, error } = await supabase
+  let query = supabase
     .from('post_authors')
     .select('*', { count: 'exact' })
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });
+
+  if (search) {
+    query = query.ilike('name', `%${search}%`);
+  }
+
+  const { data, count, error } = await query;
 
   if (error) {
     await createLogEvent('error', 'FETCH_POSTS_AUTHORS_FAILED', error.message);
