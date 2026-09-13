@@ -3,6 +3,7 @@ import { z } from 'zod';
 export const PostsListSchema = z.object({
   id: z.uuid(),
   title: z.string(),
+  slug: z.string(),
   author: z.object({
     name: z.string(),
   }),
