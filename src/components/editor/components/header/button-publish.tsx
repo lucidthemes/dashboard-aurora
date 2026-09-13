@@ -40,13 +40,20 @@ export default function EditorHeaderButtonPublish({
       })),
     );
 
+  const editorContentStatus = editorContent?.status ?? 'draft';
+
   const buttonDisabled = editorContentUnsavedChanges ? false : true;
 
-  const buttonText = action === 'create' ? 'publish' : 'save';
+  const buttonText =
+    action === 'create' && editorContentStatus === 'draft'
+      ? 'Save draft'
+      : action === 'create' && editorContentStatus === 'published'
+        ? 'Publish'
+        : 'Save';
 
   return (
     <Button
-      className="cursor-pointer capitalize"
+      className="cursor-pointer"
       disabled={isPending || buttonDisabled}
       onClick={() => {
         startTransition(async () => {
