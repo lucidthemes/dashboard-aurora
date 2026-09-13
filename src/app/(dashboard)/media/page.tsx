@@ -20,7 +20,7 @@ export default async function MediaPage({
 }: {
   searchParams: Promise<{ type?: 'images' | 'videos'; page?: number; limit?: number; sort?: string }>;
 }) {
-  const { type = 'images', page = 1, limit = 12, sort } = await searchParams;
+  const { type = 'images', page = 1, limit = 24, sort } = await searchParams;
 
   return (
     <MainContainer>
