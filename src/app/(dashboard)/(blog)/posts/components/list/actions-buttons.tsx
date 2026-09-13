@@ -3,7 +3,7 @@
 import { useTransition } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import Link from 'next/link';
-import { EllipsisVertical, Copy, PencilIcon, TrashIcon } from 'lucide-react';
+import { EllipsisVertical, Eye, ExternalLink, Copy, PencilIcon, TrashIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
@@ -30,6 +30,19 @@ export default function PostsListColumnActionsButtons({ item }: { item: PostsLis
 
   const [isPending, startTransition] = useTransition();
 
+  let itemViewLink = '';
+
+  if (item.status === 'published') {
+    const databaseUsed = process.env.NEXT_PUBLIC_DATABASE ?? 'unknown';
+
+    const itemViewLinkPrefix =
+      databaseUsed === 'production'
+        ? 'https://aurora-sb.vercel.app/blog/'
+        : 'https://aurora-sb-staging.vercel.app/blog/';
+
+    itemViewLink = itemViewLinkPrefix + item.slug;
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -38,6 +51,22 @@ export default function PostsListColumnActionsButtons({ item }: { item: PostsLis
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
+        {item.status === 'published' && itemViewLink && (
+          <>
+            <DropdownMenuGroup>
+              <Link href={itemViewLink} target="_blank">
+                <DropdownMenuItem className="cursor-pointer justify-between">
+                  <div className="flex items-center gap-2">
+                    <Eye />
+                    View
+                  </div>
+                  <ExternalLink />
+                </DropdownMenuItem>
+              </Link>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+          </>
+        )}
         <DropdownMenuGroup>
           <Link href={`/post?action=edit&id=${item.id}`}>
             <DropdownMenuItem className="cursor-pointer">
