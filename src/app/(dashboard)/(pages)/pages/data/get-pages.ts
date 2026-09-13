@@ -24,7 +24,7 @@ export default async function getPages(
 
   let query = supabase
     .from('pages')
-    .select('id, title, slug, status, created_at, updated_at')
+    .select('id, title, slug, status, created_at, updated_at', { count: 'exact' })
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });
 
