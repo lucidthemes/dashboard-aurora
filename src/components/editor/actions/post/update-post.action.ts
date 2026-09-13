@@ -44,6 +44,7 @@ export async function updatePost({
       content: sanitizedBlocks,
       status: editorData.status,
       options: editorData.options,
+      updated_at: new Date().toJSON(),
     })
     .eq('id', editorData.id)
     .select()
