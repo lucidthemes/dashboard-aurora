@@ -42,7 +42,7 @@ export default async function getPostsComments(
     .order('created_at', { ascending: sortAsc });
 
   if (search) {
-    query = query.ilike('posts.title', `%${search}%`);
+    query = query.ilike('post.title', `%${search}%`).ilike('name', `%${search}%`);
   }
 
   if (filterStatus) {

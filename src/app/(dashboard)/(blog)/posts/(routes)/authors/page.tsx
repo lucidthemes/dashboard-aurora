@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import MainContainer from '@/app/(dashboard)/components/container';
-import ListSort from '@/components/list/sort';
 import { LoadingSpinner } from '@/components/loading';
 
 import PostsAuthorsPageWrapper from './components/page/wrapper';
 import PostsAuthorsPageHeading from './components/page/heading';
+import PostsAuthorsListHeader from './components/list/header';
 import PostsAuthorsList from './components/list';
 
 export const metadata: Metadata = {
@@ -20,21 +20,20 @@ export default async function PostsAuthorsPage({
   searchParams: Promise<{
     page?: number;
     limit?: number;
+    search?: string;
     sort?: string;
   }>;
 }) {
-  const { page = 1, limit = 12, sort = '' } = await searchParams;
+  const { page = 1, limit = 12, search = '', sort = '' } = await searchParams;
 
   return (
     <MainContainer>
       <PostsAuthorsPageWrapper>
         <PostsAuthorsPageHeading />
         <div className="flex flex-col gap-5">
-          <div className="flex self-end">
-            <ListSort />
-          </div>
+          <PostsAuthorsListHeader search={search} />
           <Suspense fallback={<LoadingSpinner />}>
-            <PostsAuthorsList page={page} limit={limit} sort={sort} />
+            <PostsAuthorsList page={page} limit={limit} search={search} sort={sort} />
           </Suspense>
         </div>
       </PostsAuthorsPageWrapper>

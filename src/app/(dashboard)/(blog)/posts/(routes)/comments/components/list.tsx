@@ -6,12 +6,13 @@ import PostsCommentsListTable from './table';
 interface PostsCommentsListProps {
   page: number;
   limit: number;
+  search?: string;
   filterStatus?: string;
   sort?: string;
 }
 
-export default async function PostsCommentsList({ page, limit, filterStatus, sort }: PostsCommentsListProps) {
-  const { comments, totalCount } = await getPostsComments(page, limit, filterStatus, sort);
+export default async function PostsCommentsList({ page, limit, search, filterStatus, sort }: PostsCommentsListProps) {
+  const { comments, totalCount } = await getPostsComments(page, limit, search, filterStatus, sort);
 
   return (
     <>

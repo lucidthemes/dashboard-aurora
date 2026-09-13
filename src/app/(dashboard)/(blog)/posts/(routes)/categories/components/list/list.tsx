@@ -6,11 +6,12 @@ import PostsCategoriesListTable from './table';
 interface PostsCategoriesListProps {
   page: number;
   limit: number;
+  search?: string;
   sort?: string;
 }
 
-export default async function PostsCategoriesList({ page, limit, sort }: PostsCategoriesListProps) {
-  const { categories, totalCount } = await getPostsCategories(page, limit, sort);
+export default async function PostsCategoriesList({ page, limit, search, sort }: PostsCategoriesListProps) {
+  const { categories, totalCount } = await getPostsCategories(page, limit, search, sort);
 
   return (
     <>

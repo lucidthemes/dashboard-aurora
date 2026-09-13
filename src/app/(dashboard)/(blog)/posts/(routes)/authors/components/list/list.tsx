@@ -6,11 +6,12 @@ import PostsAuthorsListTable from './table';
 interface PostsAuthorsListProps {
   page: number;
   limit: number;
+  search?: string;
   sort?: string;
 }
 
-export default async function PostsAuthorsList({ page, limit, sort }: PostsAuthorsListProps) {
-  const { authors, totalCount } = await getPostsAuthors(page, limit, sort);
+export default async function PostsAuthorsList({ page, limit, search, sort }: PostsAuthorsListProps) {
+  const { authors, totalCount } = await getPostsAuthors(page, limit, search, sort);
 
   return (
     <>
