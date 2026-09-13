@@ -22,7 +22,7 @@ export default async function getPostsAuthors(
 
   const { data, count, error } = await supabase
     .from('post_authors')
-    .select()
+    .select('*', { count: 'exact' })
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });
 

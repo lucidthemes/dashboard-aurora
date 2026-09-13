@@ -22,7 +22,7 @@ export default async function getPostsTags(
 
   const { data, count, error } = await supabase
     .from('post_tags')
-    .select()
+    .select('*', { count: 'exact' })
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });
 
