@@ -8,7 +8,7 @@ export default function PagesListHeader({ search }: { search?: string }) {
   return (
     <div className="flex flex-col justify-between gap-5 lg:flex-row">
       <div className="flex flex-col items-center items-start gap-5 lg:flex-row">
-        <ListSearch placeholder="Page ID or Title" search={search} />
+        <ListSearch placeholder="Page title" search={search} />
         <Separator orientation="vertical" className="mt-2 hidden h-6! lg:block" />
         <PagesListFilters />
       </div>
