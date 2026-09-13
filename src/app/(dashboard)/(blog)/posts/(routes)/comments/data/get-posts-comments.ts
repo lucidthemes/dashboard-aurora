@@ -23,12 +23,12 @@ export default async function getPostsComments(
   const sortAsc = sort === 'date_asc' ? true : false;
 
   let query = supabase
-    .from('post_comments')
+    .from('posts_comments')
     .select(
       `
         id,
         post:post_id (
-            name
+            title
         ),
         reply_to,
         name,

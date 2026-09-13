@@ -16,7 +16,7 @@ export default function PostsCommentsListColumns() {
     cell: ({ row }) => {
       const item = row.original;
 
-      return item.post.name;
+      return item.post.title;
     },
   });
 
