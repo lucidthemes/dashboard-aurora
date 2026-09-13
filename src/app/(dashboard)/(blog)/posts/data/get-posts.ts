@@ -31,6 +31,7 @@ export default async function getPosts(
       `
         id,
         title,
+        slug,
         author:author_id (
             name
         ),
