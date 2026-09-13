@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const PostsCommentsListSchema = z.object({
   id: z.uuid(),
   post: z.object({
-    name: z.string(),
+    title: z.string(),
   }),
   reply_to: z.uuid().nullable(),
   name: z.string(),
