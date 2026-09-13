@@ -41,10 +41,20 @@ export default async function getPosts(
                 name
             )
         ),
+        category_filter:posts_categories!inner (
+            category:post_categories!inner (
+                slug
+            )
+        ),
         tags:posts_tags (
             tag:post_tags (
                 id,
                 name
+            )
+        ),
+        tag_filter:posts_tags!inner (
+            tag:post_tags!inner (
+                slug
             )
         ),
         status,
@@ -68,15 +78,15 @@ export default async function getPosts(
   }
 
   if (filterAuthor) {
-    query = query.eq('post_authors.slug', filterAuthor);
+    query = query.eq('author.slug', filterAuthor);
   }
 
   if (filterCategory) {
-    query = query.eq('posts_categories.post_categories.slug', filterCategory);
+    query = query.eq('category_filter.category.slug', filterCategory);
   }
 
   if (filterTag) {
-    query = query.eq('posts_tags.post_tags.slug', filterTag);
+    query = query.eq('tag_filter.tag.slug', filterTag);
   }
 
   if (filterStatus) {
