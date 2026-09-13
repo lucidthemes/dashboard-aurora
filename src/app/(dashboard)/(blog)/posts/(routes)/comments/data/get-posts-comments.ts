@@ -36,6 +36,7 @@ export default async function getPostsComments(
         status,
         created_at
     `,
+      { count: 'exact' },
     )
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });

@@ -51,6 +51,7 @@ export default async function getPosts(
         created_at,
         updated_at
     `,
+      { count: 'exact' },
     )
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });

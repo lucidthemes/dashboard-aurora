@@ -22,7 +22,7 @@ export default async function getPostsCategories(
 
   const { data, count, error } = await supabase
     .from('post_categories')
-    .select()
+    .select('*', { count: 'exact' })
     .range(rangeFrom, rangeTo)
     .order('created_at', { ascending: sortAsc });
 
