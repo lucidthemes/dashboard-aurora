@@ -32,7 +32,7 @@ export default async function rejectPostComment(commentId: string) {
 
   const supabase = await createClient();
 
-  const { error } = await supabase.from('post_comments').update({ status: 'rejected' }).eq('id', commentId);
+  const { error } = await supabase.from('posts_comments').update({ status: 'rejected' }).eq('id', commentId);
 
   if (error) {
     await createLogEvent('error', 'REJECT_POST_COMMENT_FAILED', error.message + '. Comment id: ' + commentId, user.id);

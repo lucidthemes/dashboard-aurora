@@ -16,6 +16,7 @@ export default function PostsCommentsListColumnActionsButtons({ item }: { item: 
     <div className="flex justify-end gap-x-2.5">
       <ApproveButton
         disabled={isPending}
+        title="Approve"
         onClick={() => {
           startTransition(async () => {
             const result = await approvePostComment(item.id);
@@ -30,6 +31,7 @@ export default function PostsCommentsListColumnActionsButtons({ item }: { item: 
       />
       <RejectButton
         disabled={isPending}
+        title="Reject"
         onClick={() => {
           startTransition(async () => {
             const result = await rejectPostComment(item.id);

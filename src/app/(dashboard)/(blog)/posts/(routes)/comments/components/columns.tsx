@@ -11,16 +11,6 @@ export default function PostsCommentsListColumns() {
   const columns: ColumnDef<PostsCommentsList>[] = [];
 
   columns.push({
-    accessorKey: 'post',
-    header: 'Post',
-    cell: ({ row }) => {
-      const item = row.original;
-
-      return item.post.title;
-    },
-  });
-
-  columns.push({
     accessorKey: 'name',
     header: 'Name',
   });
@@ -31,12 +21,12 @@ export default function PostsCommentsListColumns() {
   });
 
   columns.push({
-    accessorKey: 'reply_to',
-    header: 'Reply',
+    accessorKey: 'post',
+    header: 'Post',
     cell: ({ row }) => {
       const item = row.original;
 
-      return item.reply_to === null ? 'No' : 'Yes';
+      return item.post.title;
     },
   });
 
@@ -52,7 +42,7 @@ export default function PostsCommentsListColumns() {
 
   columns.push({
     accessorKey: 'created_at',
-    header: 'Created',
+    header: 'Submitted',
     cell: ({ row }) => {
       const item = row.original;
 
