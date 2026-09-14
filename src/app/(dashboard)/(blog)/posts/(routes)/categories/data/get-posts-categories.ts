@@ -16,8 +16,8 @@ export default async function getPostsCategories(
 ): Promise<{ categories: PostsCategoriesList[]; totalCount: number }> {
   const supabase = await createClient();
 
-  const rangeFrom = (page - 1) * limit;
-  const rangeTo = rangeFrom + limit - 1;
+  const rangeFrom = (Number(page) - 1) * Number(limit);
+  const rangeTo = Number(rangeFrom) + Number(limit) - 1;
 
   const sortAsc = sort === 'date_asc' ? true : false;
 
