@@ -1,3 +1,4 @@
+import ListControlResultsCount from './results';
 import ListControlPagination from './pagination';
 import ListControlLimit from './limit';
 
@@ -12,7 +13,8 @@ export default function ListControls({ page, limit, totalCount, limitOptions }: 
   const totalPages = Math.ceil(totalCount / limit);
 
   return (
-    <div className="grid grid-cols-1 items-center gap-y-5 self-center sm:grid-cols-2 sm:self-auto lg:grid-cols-[1fr_auto_1fr]">
+    <div className="flex w-full flex-col items-center gap-y-2.5 self-center xl:flex-row xl:justify-between">
+      <ListControlResultsCount page={page} limit={limit} totalCount={totalCount} />
       <ListControlPagination
         currentPage={page}
         totalPages={totalPages}
