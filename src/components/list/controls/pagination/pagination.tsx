@@ -30,66 +30,68 @@ export default function ListControlPagination({
 
   return (
     <Pagination className={`mx-0 w-auto ${className}`}>
-      <PaginationContent className="flex-wrap">
+      <PaginationContent>
         {currentPage && currentPage > 1 && (
           <PaginationItem>
-            <PaginationPrevious onClick={() => handlePreviousPage()} className="cursor-pointer" />
+            <PaginationPrevious onClick={() => handlePreviousPage()} className="cursor-pointer [&_span]:hidden" />
           </PaginationItem>
         )}
 
-        {totalPages <= pageLimit ? (
-          <ListControlPaginationNumbers
-            handlePageChange={handlePageChange}
-            currentPage={currentPage}
-            totalPages={totalPages}
-          />
-        ) : (
-          <>
-            <PaginationItem key={1}>
-              <PaginationLink
-                onClick={() => handlePageChange(1)}
-                className="cursor-pointer"
-                isActive={Number(currentPage) === 1}
-              >
-                {1}
-              </PaginationLink>
-            </PaginationItem>
-
-            {Number(currentPage) > 1 && (
-              <PaginationItem>
-                <PaginationEllipsis />
-              </PaginationItem>
-            )}
-
+        <div className="flex flex-row flex-wrap items-center gap-1">
+          {totalPages <= pageLimit ? (
             <ListControlPaginationNumbers
               handlePageChange={handlePageChange}
               currentPage={currentPage}
               totalPages={totalPages}
-              pageLimitExceeded={true}
-              pageLimit={pageLimit}
             />
-
-            {Number(currentPage) < totalPages - (pageLimit - 2) && (
-              <PaginationItem>
-                <PaginationEllipsis />
+          ) : (
+            <>
+              <PaginationItem key={1}>
+                <PaginationLink
+                  onClick={() => handlePageChange(1)}
+                  className="cursor-pointer"
+                  isActive={Number(currentPage) === 1}
+                >
+                  {1}
+                </PaginationLink>
               </PaginationItem>
-            )}
 
-            <PaginationItem key={totalPages}>
-              <PaginationLink
-                onClick={() => handlePageChange(totalPages)}
-                className="cursor-pointer"
-                isActive={Number(currentPage) === totalPages}
-              >
-                {totalPages}
-              </PaginationLink>
-            </PaginationItem>
-          </>
-        )}
+              {Number(currentPage) > 1 && (
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+              )}
+
+              <ListControlPaginationNumbers
+                handlePageChange={handlePageChange}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                pageLimitExceeded={true}
+                pageLimit={pageLimit}
+              />
+
+              {Number(currentPage) < totalPages - (pageLimit - 2) && (
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+              )}
+
+              <PaginationItem key={totalPages}>
+                <PaginationLink
+                  onClick={() => handlePageChange(totalPages)}
+                  className="cursor-pointer"
+                  isActive={Number(currentPage) === totalPages}
+                >
+                  {totalPages}
+                </PaginationLink>
+              </PaginationItem>
+            </>
+          )}
+        </div>
 
         {currentPage && totalPages && currentPage < totalPages && (
           <PaginationItem>
-            <PaginationNext onClick={() => handleNextPage()} className="cursor-pointer" />
+            <PaginationNext onClick={() => handleNextPage()} className="cursor-pointer [&_span]:hidden" />
           </PaginationItem>
         )}
       </PaginationContent>
