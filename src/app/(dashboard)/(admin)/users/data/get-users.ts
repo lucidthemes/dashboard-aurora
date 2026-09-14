@@ -17,8 +17,8 @@ export default async function getUsers(
 ): Promise<{ users: UsersList[]; totalCount: number }> {
   const supabase = createAdminClient();
 
-  const rangeFrom = (page - 1) * limit;
-  const rangeTo = rangeFrom + limit - 1;
+  const rangeFrom = (Number(page) - 1) * Number(limit);
+  const rangeTo = Number(rangeFrom) + Number(limit) - 1;
 
   const sortAsc = sort === 'date_asc' ? true : false;
 
