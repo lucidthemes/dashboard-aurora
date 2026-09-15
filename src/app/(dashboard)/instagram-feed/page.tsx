@@ -6,6 +6,7 @@ import { LoadingSpinner } from '@/components/loading';
 
 import InstagramFeedPageHeading from './components/page/heading';
 import InstagramFeedPageWrapper from './components/page/wrapper';
+import InstagramFeedListHeader from './components/list/header';
 import InstagramFeedList from './components/list';
 
 export const metadata: Metadata = {
@@ -13,14 +14,23 @@ export const metadata: Metadata = {
   description: 'Create and edit instagram feeds',
 };
 
-export default function InstagramFeedPage() {
+export default async function InstagramFeedPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: number; limit?: number; search?: string; sort?: string }>;
+}) {
+  const { page = 1, limit = 12, search = '', sort = '' } = await searchParams;
+
   return (
     <MainContainer>
       <InstagramFeedPageWrapper>
         <InstagramFeedPageHeading />
-        <Suspense fallback={<LoadingSpinner />}>
-          <InstagramFeedList />
-        </Suspense>
+        <div className="flex flex-col gap-5">
+          <InstagramFeedListHeader search={search} />
+          <Suspense fallback={<LoadingSpinner />}>
+            <InstagramFeedList page={page} limit={limit} search={search} sort={sort} />
+          </Suspense>
+        </div>
       </InstagramFeedPageWrapper>
     </MainContainer>
   );
