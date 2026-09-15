@@ -55,7 +55,7 @@ export default function ButtonBlockRender({ id, type, attributes }: ButtonConten
             handleBlockContentUpdate({
               blockId: id,
               blockType: type,
-              blockAttribute: 'content',
+              blockAttribute: 'text',
               blockAttributeValue: attributes?.text?.value,
               blockContentRef: buttonTextRef,
               blockContentType: 'plain-text',
