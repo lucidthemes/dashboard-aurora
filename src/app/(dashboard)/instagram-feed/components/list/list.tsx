@@ -1,8 +1,22 @@
-import { getInstagramFeeds } from '../../data/get-feeds';
+import ListControls from '@/components/list/controls';
+
+import getInstagramFeeds from '../../data/get-feeds';
 import InstagramFeedListTable from './table';
 
-export default async function InstagramFeedList() {
-  const feedList = await getInstagramFeeds();
+interface InstagramFeedListProps {
+  page: number;
+  limit: number;
+  search?: string;
+  sort?: string;
+}
 
-  return <InstagramFeedListTable feedList={feedList} />;
+export default async function InstagramFeedList({ page, limit, search, sort }: InstagramFeedListProps) {
+  const { instagramFeeds, totalCount } = await getInstagramFeeds(page, limit, search, sort);
+
+  return (
+    <>
+      <InstagramFeedListTable feedList={instagramFeeds} />
+      <ListControls page={page} limit={limit} totalCount={totalCount} />
+    </>
+  );
 }
