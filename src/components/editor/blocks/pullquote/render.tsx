@@ -39,7 +39,7 @@ export default function PullquoteBlockRender({ id, type, attributes }: Pullquote
   return (
     <figure
       {...blockAnchor}
-      className={`block-quote ${blockClasses}`}
+      className={`block-pullquote ${blockClasses}`}
       data-block-id={id}
       data-block-type={type}
       data-block-width={blockWidth}
