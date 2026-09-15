@@ -13,9 +13,13 @@ export default function ListControlResultsCount({
   return (
     <div className="flex gap-x-1 text-sm">
       <span className="font-medium">Results:</span>
-      <span>
-        {currentResultsLower} - {currentResultsUpper} of {totalCount}
-      </span>
+      {totalCount > 0 ? (
+        <span>
+          {currentResultsLower} - {currentResultsUpper} of {totalCount}
+        </span>
+      ) : (
+        <span>{totalCount}</span>
+      )}
     </div>
   );
 }
