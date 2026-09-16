@@ -1,4 +1,10 @@
 .block-separator {
   align-self: center;
   padding: 15px 0;
+
+  hr {
+    border: none;
+    height: 2px;
+    background-color: var(--foreground);
+  }
 }
