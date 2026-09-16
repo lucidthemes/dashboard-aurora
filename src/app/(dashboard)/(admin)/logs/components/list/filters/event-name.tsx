@@ -216,6 +216,11 @@ export default function LogsListFiltersEventName() {
         },
         {
           id: 2,
+          value: 'FETCH_POST_NOT_FOUND',
+          label: 'FETCH_POST_NOT_FOUND',
+        },
+        {
+          id: 3,
           value: 'FETCH_POST_INVALID_DATA',
           label: 'FETCH_POST_INVALID_DATA',
         },
