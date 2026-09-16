@@ -36,12 +36,11 @@ export default function useInstagramFeedEditForm() {
       },
       button: {
         enabled: editData?.button.enabled ?? false,
-        link: editData?.button.link ?? 'https://aurora-sb.vercel.app/',
-        text: editData?.button.text ?? 'Follow on Instagram',
+        link: editData?.button.link ?? '',
+        text: editData?.button.text ?? '',
       },
     },
     resolver: zodResolver(InstagramFeedFormSchema),
-    shouldUnregister: true,
   });
 
   useEffect(() => {
@@ -60,8 +59,8 @@ export default function useInstagramFeedEditForm() {
         },
         button: {
           enabled: editData?.button.enabled ?? false,
-          link: editData?.button.link ?? 'https://aurora-sb.vercel.app/',
-          text: editData?.button.text ?? 'Follow on Instagram',
+          link: editData?.button.link ?? '',
+          text: editData?.button.text ?? '',
         },
       });
     }

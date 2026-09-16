@@ -17,7 +17,7 @@ export const InstagramFeedSchema = z.object({
   }),
   button: z.object({
     enabled: z.boolean(),
-    link: z.url().optional(),
+    link: z.string().optional(),
     text: z.string().optional(),
   }),
   created_at: z.coerce.date(),

@@ -1,6 +1,6 @@
 'use client';
 
-import { Controller, useWatch } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import type { UseFormReturn } from 'react-hook-form';
 
 import {
@@ -35,11 +35,6 @@ export default function InstagramFeedForm({
   formId: string;
 }) {
   const editData = useInstagramFeedStore((state) => state.editData);
-
-  const showButtonFields = useWatch({
-    control: form.control,
-    name: 'button.enabled',
-  });
 
   return (
     <form id={formId} onSubmit={form.handleSubmit(onSubmit)}>
@@ -329,51 +324,47 @@ export default function InstagramFeedForm({
                         </FieldSet>
                       )}
                     />
-                    {showButtonFields && (
-                      <>
-                        <Controller
-                          name="button.link"
-                          control={form.control}
-                          render={({ field, fieldState }) => (
-                            <Field data-invalid={fieldState.invalid}>
-                              <div className="grid grid-cols-2">
-                                <FieldLabel htmlFor="button.link">Link</FieldLabel>
-                                <Input
-                                  {...field}
-                                  id="button.link"
-                                  type="url"
-                                  aria-invalid={fieldState.invalid}
-                                  placeholder="Link"
-                                  autoComplete="off"
-                                />
-                              </div>
-                              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                            </Field>
-                          )}
-                        />
-                        <Controller
-                          name="button.text"
-                          control={form.control}
-                          render={({ field, fieldState }) => (
-                            <Field data-invalid={fieldState.invalid}>
-                              <div className="grid grid-cols-2">
-                                <FieldLabel htmlFor="button.text">Text</FieldLabel>
-                                <Input
-                                  {...field}
-                                  id="button.text"
-                                  type="text"
-                                  min={0}
-                                  aria-invalid={fieldState.invalid}
-                                  placeholder="Text"
-                                  autoComplete="off"
-                                />
-                              </div>
-                              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                            </Field>
-                          )}
-                        />
-                      </>
-                    )}
+                    <Controller
+                      name="button.link"
+                      control={form.control}
+                      render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                          <div className="grid grid-cols-2">
+                            <FieldLabel htmlFor="button.link">Link</FieldLabel>
+                            <Input
+                              {...field}
+                              id="button.link"
+                              type="url"
+                              aria-invalid={fieldState.invalid}
+                              placeholder="Link"
+                              autoComplete="off"
+                            />
+                          </div>
+                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        </Field>
+                      )}
+                    />
+                    <Controller
+                      name="button.text"
+                      control={form.control}
+                      render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                          <div className="grid grid-cols-2">
+                            <FieldLabel htmlFor="button.text">Text</FieldLabel>
+                            <Input
+                              {...field}
+                              id="button.text"
+                              type="text"
+                              min={0}
+                              aria-invalid={fieldState.invalid}
+                              placeholder="Text"
+                              autoComplete="off"
+                            />
+                          </div>
+                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        </Field>
+                      )}
+                    />
                   </div>
                 </FieldGroup>
               </FieldSet>
