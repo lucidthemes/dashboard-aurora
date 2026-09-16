@@ -1,5 +1,3 @@
-import { Separator } from '@/components/ui/separator';
-
 import useBlocks from '../use-blocks';
 import blockStyles from '../block.module.css';
 import { blockCustomClassesFormat } from '../block-utils';
@@ -30,7 +28,7 @@ export default function SeparatorBlockRender({ id, type, attributes }: Separator
       data-block-width={blockWidth}
       onClick={() => handleSelectedContentBlock(id)}
     >
-      <Separator orientation="horizontal" />
+      <hr />
     </div>
   );
 }
