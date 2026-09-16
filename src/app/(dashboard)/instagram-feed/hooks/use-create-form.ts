@@ -34,12 +34,11 @@ export default function useInstagramFeedCreateForm() {
       },
       button: {
         enabled: false,
-        link: 'https://aurora-sb.vercel.app/',
+        link: '',
         text: 'Follow on Instagram',
       },
     },
     resolver: zodResolver(InstagramFeedFormSchema),
-    shouldUnregister: true,
   });
 
   const instagramFeedFormCreateMutation = useMutation({
