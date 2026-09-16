@@ -3,7 +3,7 @@
   flex-direction: column;
   row-gap: 5px;
   list-style: outside;
-  padding-left: 34px;
+  padding-left: 20px;
 
   &[data-block-align='left'] li {
     text-align: left;
@@ -28,5 +28,10 @@
 
   li {
     cursor: text;
+
+    &:empty:after {
+      opacity: 50%;
+      content: attr(data-block-placeholder);
+    }
   }
 }

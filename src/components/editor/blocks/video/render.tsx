@@ -8,7 +8,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { VideoContentBlock } from './schema';
 import useVideoBlock from './use-video';
-import videoBlockStyles from './style.module.css';
+import videoBlockStyles from './style-editor.module.css';
 import VideoBlockRenderEmpty from './empty';
 
 export default function VideoBlockRender({ id, type, attributes }: VideoContentBlock) {

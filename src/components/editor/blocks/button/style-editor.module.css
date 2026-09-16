@@ -1,0 +1,30 @@
+.block-button {
+  display: flex;
+
+  &[data-block-align='left'] {
+    justify-content: start;
+  }
+  &[data-block-align='center'] {
+    justify-content: center;
+  }
+  &[data-block-align='right'] {
+    justify-content: end;
+  }
+
+  .block-button-link {
+    width: fit-content;
+    padding: 8px 16px;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: 8px;
+    text-decoration: none !important;
+
+    span {
+      cursor: text;
+
+      &[data-block-placeholder]:empty:after {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { CodeContentBlock } from './schema';
 import useCodeBlock from './use-code';
-import codeBlockStyles from './style.module.css';
+import codeBlockStyles from './style-editor.module.css';
 
 export default function CodeBlockRender({ id, type, attributes }: CodeContentBlock) {
   const { handleSelectedContentBlock, handleBlockContentInput, handleBlockContentPaste, handleBlockContentUpdate } =

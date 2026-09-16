@@ -2,7 +2,7 @@ import { Pencil, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
-import mediaTextBlockStyles from './style.module.css';
+import mediaTextBlockStyles from './style-editor.module.css';
 
 interface MediaTextBlockRenderButtonsProps {
   media: 'image' | 'video';

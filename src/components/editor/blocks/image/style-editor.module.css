@@ -36,10 +36,34 @@
     }
 
     .block-image-wrapper {
+      position: relative;
+
       img {
         height: auto;
         max-width: 100%;
       }
+
+      .block-image-wrapper-buttons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        column-gap: 10px;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+        -webkit-transition: opacity 0.15s ease-in-out;
+
+        button {
+          cursor: pointer;
+          background-color: var(--secondary);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    figure .block-image-wrapper-buttons {
+      opacity: 1;
     }
   }
 }

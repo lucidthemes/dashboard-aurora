@@ -5,7 +5,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { ParagraphContentBlock } from './schema';
 import useParagraphBlock from './use-paragraph';
-import paragraphBlockStyles from './style.module.css';
+import paragraphBlockStyles from './style-editor.module.css';
 
 export default function ParagraphBlockRender({ id, type, attributes }: ParagraphContentBlock) {
   const {

@@ -7,7 +7,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { MediaTextContentBlock } from './schema';
 import useMediaTextBlock from './use-media-text';
-import mediaTextBlockStyles from './style.module.css';
+import mediaTextBlockStyles from './style-editor.module.css';
 import MediaTextBlockRenderButtons from './buttons';
 import MediaTextBlockRenderEmpty from './empty';
 
