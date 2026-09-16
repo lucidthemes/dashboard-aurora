@@ -27,9 +27,33 @@
   }
 
   .block-video-wrapper {
+    position: relative;
+
     video {
       height: auto;
       max-width: 100%;
+    }
+
+    .block-video-wrapper-buttons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      column-gap: 10px;
+      opacity: 0;
+      transition: opacity 0.15s ease-in-out;
+      -webkit-transition: opacity 0.15s ease-in-out;
+
+      button {
+        cursor: pointer;
+        background-color: var(--secondary);
+      }
+    }
+  }
+
+  &:hover {
+    .block-video-wrapper-buttons {
+      opacity: 1;
     }
   }
 }

@@ -5,7 +5,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { HeadingContentBlock } from './schema';
 import useHeadingBlock from './use-heading';
-import headingBlockStyles from './style.module.css';
+import headingBlockStyles from './style-editor.module.css';
 
 export default function HeadingBlockRender({ id, type, attributes }: HeadingContentBlock) {
   const {

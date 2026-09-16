@@ -9,7 +9,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { GalleryContentBlock } from './schema';
 import useGalleryBlock from './use-gallery';
-import galleryBlockStyles from './style.module.css';
+import galleryBlockStyles from './style-editor.module.css';
 import GalleryBlockRenderEmpty from './empty';
 
 export default function ImageBlockRender({ id, type, attributes }: GalleryContentBlock) {

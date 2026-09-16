@@ -5,7 +5,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { QuoteContentBlock } from './schema';
 import useQuoteBlock from './use-quote';
-import quoteBlockStyles from './style.module.css';
+import quoteBlockStyles from './style-editor.module.css';
 
 export default function QuoteBlockRender({ id, type, attributes }: QuoteContentBlock) {
   const {

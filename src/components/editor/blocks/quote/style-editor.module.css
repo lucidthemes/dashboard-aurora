@@ -21,12 +21,17 @@
     height: 100%;
     position: absolute;
     left: 0;
-    background-color: var(--color-shark);
+    background-color: var(--foreground);
   }
 
   p,
   cite {
     font-style: normal;
     cursor: text;
+
+    &:empty:after {
+      opacity: 50%;
+      content: attr(data-block-placeholder);
+    }
   }
 }

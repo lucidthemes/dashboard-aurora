@@ -5,7 +5,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { ListContentBlock } from './schema';
 import useListBlock from './use-list';
-import listBlockStyles from './style.module.css';
+import listBlockStyles from './style-editor.module.css';
 
 export default function ListBlockRender({ id, type, attributes }: ListContentBlock) {
   const { handleSelectedContentBlock } = useBlocks();

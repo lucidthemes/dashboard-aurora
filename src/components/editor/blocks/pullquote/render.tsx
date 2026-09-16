@@ -5,7 +5,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { PullquoteContentBlock } from './schema';
 import usePullquoteBlock from './use-pullquote';
-import pullquoteBlockStyles from './style.module.css';
+import pullquoteBlockStyles from './style-editor.module.css';
 
 export default function PullquoteBlockRender({ id, type, attributes }: PullquoteContentBlock) {
   const {

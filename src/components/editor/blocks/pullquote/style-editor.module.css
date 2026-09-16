@@ -1,5 +1,5 @@
 .block-pullquote {
-  padding: 10px 40px 30px 80px;
+  padding: 0 40px 0 80px;
 
   &[data-block-align='left'] blockquote {
     text-align: left;
@@ -20,6 +20,11 @@
     cite {
       font-style: normal;
       cursor: text;
+
+      &:empty:after {
+        opacity: 50%;
+        content: attr(data-block-placeholder);
+      }
     }
 
     p {
@@ -35,7 +40,7 @@
         -webkit-mask-image: url(./quote-left.svg);
         mask-repeat: no-repeat;
         -webkit-mask-repeat: no-repeat;
-        background-color: #212529;
+        background-color: var(--foreground);
       }
     }
   }

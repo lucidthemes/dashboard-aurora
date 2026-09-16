@@ -8,7 +8,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { ImageContentBlock } from './schema';
 import useImageBlock from './use-image';
-import imageBlockStyles from './style.module.css';
+import imageBlockStyles from './style-editor.module.css';
 import ImageBlockRenderEmpty from './empty';
 
 export default function ImageBlockRender({ id, type, attributes }: ImageContentBlock) {

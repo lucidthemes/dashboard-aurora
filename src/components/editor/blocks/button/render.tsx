@@ -6,7 +6,7 @@ import { blockCustomClassesFormat } from '../block-utils';
 
 import type { ButtonContentBlock } from './schema';
 import useButtonBlock from './use-button';
-import buttonBlockStyles from './style.module.css';
+import buttonBlockStyles from './style-editor.module.css';
 
 export default function ButtonBlockRender({ id, type, attributes }: ButtonContentBlock) {
   const { handleSelectedContentBlock, handleBlockContentInput, handleBlockContentPaste, handleBlockContentUpdate } =

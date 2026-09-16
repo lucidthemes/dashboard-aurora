@@ -5,7 +5,7 @@ import blockStyles from '../block.module.css';
 import { blockCustomClassesFormat } from '../block-utils';
 
 import type { SeparatorContentBlock } from './schema';
-import separatorBlockStyles from './style.module.css';
+import separatorBlockStyles from './style-editor.module.css';
 
 export default function SeparatorBlockRender({ id, type, attributes }: SeparatorContentBlock) {
   const { handleSelectedContentBlock } = useBlocks();
