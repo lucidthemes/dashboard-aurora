@@ -381,6 +381,32 @@ export default function LogsListFiltersEventName() {
     },
     {
       id: 13,
+      section: 'Dashboard',
+      items: [
+        {
+          id: 1,
+          value: 'FETCH_DASHBOARD_BLOG_POSTS_FAILED',
+          label: 'FETCH_DASHBOARD_BLOG_POSTS_FAILED',
+        },
+        {
+          id: 2,
+          value: 'FETCH_DASHBOARD_BLOG_POSTS_INVALID_DATA',
+          label: 'FETCH_DASHBOARD_BLOG_POSTS_INVALID_DATA',
+        },
+        {
+          id: 3,
+          value: 'FETCH_DASHBOARD_BLOG_COMMENTS_FAILED',
+          label: 'FETCH_DASHBOARD_BLOG_COMMENTS_FAILED',
+        },
+        {
+          id: 4,
+          value: 'FETCH_DASHBOARD_BLOG_COMMENTS_INVALID_DATA',
+          label: 'FETCH_DASHBOARD_BLOG_COMMENTS_INVALID_DATA',
+        },
+      ],
+    },
+    {
+      id: 14,
       section: 'Dashboard - Pages',
       items: [
         {
@@ -476,7 +502,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 14,
+      id: 15,
       section: 'Dashboard - Posts',
       items: [
         {
@@ -647,7 +673,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 15,
+      id: 16,
       section: 'Dashboard - Posts - Categories',
       items: [
         {
@@ -723,7 +749,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 16,
+      id: 17,
       section: 'Dashboard - Posts - Tags',
       items: [
         {
@@ -799,7 +825,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 17,
+      id: 18,
       section: 'Dashboard - Posts - Comments',
       items: [
         {
@@ -855,7 +881,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 18,
+      id: 19,
       section: 'Dashboard - Posts - Authors',
       items: [
         {
@@ -931,17 +957,17 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 19,
+      id: 20,
       section: 'Dashboard - Products',
       items: [],
     },
     {
-      id: 20,
+      id: 21,
       section: 'Dashboard - Orders',
       items: [],
     },
     {
-      id: 21,
+      id: 22,
       section: 'Dashboard - Customers',
       items: [
         {
@@ -977,22 +1003,22 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 22,
+      id: 23,
       section: 'Dashboard - Payments',
       items: [],
     },
     {
-      id: 23,
+      id: 24,
       section: 'Dashboard - Shipping',
       items: [],
     },
     {
-      id: 24,
+      id: 25,
       section: 'Dashboard - Coupons',
       items: [],
     },
     {
-      id: 25,
+      id: 26,
       section: 'Dashboard - Media',
       items: [
         {
@@ -1063,7 +1089,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 26,
+      id: 27,
       section: 'Dashboard - Sidebars',
       items: [
         {
@@ -1129,7 +1155,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 27,
+      id: 28,
       section: 'Dashboard - Instagram feed',
       items: [
         {
@@ -1230,7 +1256,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 28,
+      id: 29,
       section: 'Dashboard - Users',
       items: [
         {
@@ -1311,7 +1337,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 29,
+      id: 30,
       section: 'Dashboard - Logs',
       items: [
         {
@@ -1327,7 +1353,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 30,
+      id: 31,
       section: 'Dashboard - Account',
       items: [
         {
@@ -1413,7 +1439,7 @@ export default function LogsListFiltersEventName() {
       ],
     },
     {
-      id: 31,
+      id: 32,
       section: 'Error boundaries',
       items: [
         {
