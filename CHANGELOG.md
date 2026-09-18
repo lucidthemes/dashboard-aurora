@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 
 - posts authors link to sidebar nav menu
 - wrapper pathname check to remove padding from post and page routes
+- dashboard page route layout
 
 ###### Blog
 
@@ -81,6 +82,8 @@ All notable changes to this project will be documented in this file.
 - shadcn ui textarea
 - shadcn ui slider
 - shadcn ui switch
+- shadcn ui card
+- shadcn ui chart
 
 #### Schemas
 
