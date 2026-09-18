@@ -12,6 +12,11 @@ The main src folder is split into the following folders:
 
 #### Actions
 
+The actions folder contains the following actions:
+
+- **delete-dialog** - used with the delete dialog throughout the app to delete data using a passed through table name and row id
+- **supabase-upload** - used with the Supabase dropzone to upload files to the Supabase storage bucket
+
 #### App
 
 The app folder is split into two folders of auth and dashboard:
@@ -58,12 +63,14 @@ The components folder also contains the following components:
 
 #### Hooks
 
-The hooks folder contains two hook files of:
+The hooks folder contains the following hooks:
 
 - **use-mobile** - used to determine if the app is being viewed on mobile or not by checking the size of the window
 - **use-supabase-upload** - used for the Supabase dropzone upload component used on the media page
 
 #### Lib
+
+The lib folder contains the following files:
 
 - **Supabase** - Supabase functions used to create a client, create an admin client, create a server client, fetch current user with role, and fetch Supabase public storage URL
 - **Formatters** - date formatters
