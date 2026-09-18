@@ -13,6 +13,10 @@ All notable changes to this project will be documented in this file.
 - DOMPurify dependency
 - Isomorphic DOMPurify dependency
 
+#### Docs
+
+- docs folder
+
 #### App
 
 ##### Dashboard
