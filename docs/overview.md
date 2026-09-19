@@ -1,5 +1,9 @@
 # Documentation: Dashboard - Aurora
 
+## Overview
+
+a little bit about the project...
+
 ## Structure
 
 ### Public
@@ -25,22 +29,22 @@ The app folder is split into two folders of auth and dashboard:
 
 The documentation for each route within the auth folder:
 
-- [Login](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/auth/login.md)
-- [Forgot password](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/auth/forgot-password.md)
-- [Reset password](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/auth/reset-password.md)
+- [Login](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/auth/login.md)
+- [Forgot password](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/auth/forgot-password.md)
+- [Reset password](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/auth/reset-password.md)
 
 ##### Dashboard
 
 The documentation for each route within the dashboard route group folder:
 
-- [Admin](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/admin.md)
-- [Blog](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/posts.md)
-- [Pages](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/pages.md)
-- [Account](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/account.md)
-- [Customers](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/customers.md)
-- [Instagram feed](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/instagram-feed.md)
-- [Media](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/media.md)
-- [Sidebars](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/dashboard/sidebars.md)
+- [Admin](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/admin/overview.md)
+- [Blog](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/blog/overview.md)
+- [Pages](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/pages/overview.md)
+- [Account](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/account.md)
+- [Customers](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/customers.md)
+- [Instagram feed](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/instagram-feed.md)
+- [Media](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/media.md)
+- [Sidebars](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/sidebars.md)
 
 #### Components
 
