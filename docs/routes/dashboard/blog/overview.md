@@ -94,7 +94,7 @@ For example:
 
 ### Docs
 
-- [View docs](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/blog/page.md)
+- [View docs](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/routes/dashboard/blog/post.md)
 
 ### Source
 
