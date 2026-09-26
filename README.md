@@ -12,6 +12,31 @@ Production site: [demo](https://dashboard-aurora-sb.vercel.app/)
 
 Staging site: [demo](https://dashboard-aurora-sb-staging.vercel.app/)
 
+## Features
+
+- Dashboard
+  - Pages
+  - Blog posts
+    - Categories
+    - Tags
+    - Comments
+    - Authors
+  - Single page/post editor
+    - 12 blocks
+    - Drag and drop reordering
+    - Floating toolbar
+    - Rich text
+    - History with undo and redo
+  - Media
+  - Sidebars
+  - Instagram feed
+  - Users
+  - Logs
+- Auth
+  - Login
+  - Forgot password
+  - Reset password
+
 ## Built with
 
 Frontend
@@ -29,6 +54,14 @@ Frontend
 - [Floating UI](https://floating-ui.com/)
 - [DOMPurify](https://www.npmjs.com/package/dompurify)
 - [Isomorphic DOMPurify](https://www.npmjs.com/package/isomorphic-dompurify)
+
+Database
+
+- [Supabase](https://supabase.com/database)
+
+File storage
+
+- [Supabase](https://supabase.com/storage)
 
 ## Installation
 
