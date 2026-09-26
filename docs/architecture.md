@@ -26,7 +26,7 @@ The docs for the dashboard database structure can be found [here](https://github
 
 ## Authentication
 
-The dashboard uses [Supabase Auth](https://supabase.com/auth) for user uthentication and sessions
+The dashboard uses [Supabase Auth](https://supabase.com/auth) for user authentication and sessions
 
 The docs for the dashboard authentication can be found [here](https://github.com/lucidthemes/dashboard-aurora/blob/main/docs/authentication.md)
 
