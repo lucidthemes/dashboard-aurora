@@ -33,7 +33,9 @@ export default function useEditorSidebarSettingsExcerpt() {
   };
 
   useEffect(() => {
-    setExcerpt(editorExcerpt);
+    const updateEditorExcerpt = () => setExcerpt(editorExcerpt);
+
+    updateEditorExcerpt();
   }, [editorExcerpt]);
 
   useEffect(() => {

@@ -24,7 +24,9 @@ export default function useEditorSidebarSettingsSlug() {
   };
 
   useEffect(() => {
-    setSlug(editorSlug);
+    const updateEditorSlug = () => setSlug(editorSlug);
+
+    updateEditorSlug();
   }, [editorSlug]);
 
   useEffect(() => {

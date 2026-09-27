@@ -39,7 +39,9 @@ export default function useEditorContentCode() {
   const [codeEditorContentToast, setCodeEditorContentToast] = useState<ToastType | null>(null);
 
   useEffect(() => {
-    setCodeEditorContent(JSON.stringify(contentBlocks, null, 3));
+    const updateCodeEditorContent = () => setCodeEditorContent(JSON.stringify(contentBlocks, null, 3));
+
+    updateCodeEditorContent();
   }, [contentBlocks]);
 
   useEffect(() => {
