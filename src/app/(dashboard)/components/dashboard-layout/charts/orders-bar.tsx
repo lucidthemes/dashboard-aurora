@@ -1,9 +1,8 @@
 'use client';
 
-import * as React from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Bar, BarChart, XAxis } from 'recharts';
-import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -115,15 +114,7 @@ export default function DashboardPageLayoutOrdersBarChart() {
     },
   } satisfies ChartConfig;
 
-  const isMobile = useIsMobile();
-
-  const [timeRange, setTimeRange] = React.useState('30d');
-
-  React.useEffect(() => {
-    if (isMobile) {
-      setTimeRange('7d');
-    }
-  }, [isMobile]);
+  const [timeRange, setTimeRange] = useState('30d');
 
   const filteredData = chartData.filter((item) => {
     const date = new Date(item.date);
